@@ -2,8 +2,6 @@
 
 to download all dependencies on your local machine
 
-### don't forget to pull any updates from the development branch to your local branch before you start working 
-
 ### more info below:
 
 ### `npm start`
