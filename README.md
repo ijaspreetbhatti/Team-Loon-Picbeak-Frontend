@@ -11,7 +11,7 @@ bird enthusiasts!) to learn about and identify birds in their region all while b
 - **Mizuho Tohma** | [@Mizzuu](https://github.com/Mizzuu) | *Front-end Dev*
 - **Olivia Underdah** | [@olimarie21](https://github.com/olimarie21) | *Front-end Dev*
 - **Gabriel Watanabe** | [@Gavriil84](https://github.com/Gavriil84) | *Full-stack Dev*
-- **Bruna Weiss** | [Portfolio](https://www.brunaweiss.com/) & [LinkedIn](https://www.linkedin.com/in/brunaweiss/) *UX/UI Designer*
+- **Bruna Weiss** | [Portfolio](https://www.brunaweiss.com/) & [LinkedIn] | (https://www.linkedin.com/in/brunaweiss/) *UX/UI Designer*
 
 ## To Install Dependencies:
 
