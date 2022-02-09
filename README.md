@@ -6,12 +6,12 @@ bird enthusiasts!) to learn about and identify birds in their region all while b
 
 ## Project Team:
 
-**Jaspreet Bhatti** | @github/ijaspreetbhatti | *Full-stack Dev*
-**Yebin Cho** | @github/Yebincho03 | *Front-end Dev*
-**Mizuho Tohma** | @github/Mizzuu | *Front-end Dev*
-**Olivia Underdah** | @github/olimarie21 | *Front-end Dev*
-**Gabriel Watanabe** | @github/Gavriil84 | *Full-stack Dev*
-**Bruna Weiss** | *UX/UI Designer*
+- **Jaspreet Bhatti** | @github/ijaspreetbhatti | *Full-stack Dev*
+- **Yebin Cho** | @github/Yebincho03 | *Front-end Dev*
+- **Mizuho Tohma** | @github/Mizzuu | *Front-end Dev*
+- **Olivia Underdah** | @github/olimarie21 | *Front-end Dev*
+- **Gabriel Watanabe** | @github/Gavriil84 | *Full-stack Dev*
+- **Bruna Weiss** | *UX/UI Designer*
 
 ## To Install Dependencies:
 
