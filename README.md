@@ -1,34 +1,23 @@
-### First, run `npm install`
+# Picbeak Frontend Development
 
-to download all dependencies on your local machine
+**Picbeak** is a data-driven web app built using React.js that allows children (and older
+bird enthusiasts!) to learn about and identify birds in their region all while building their
+'beakpedia' collection. This project is being created as part of the WMDD program at Langara College.
 
-### more info below:
+## Project Team:
 
-### `npm start`
+**Jaspreet Bhatti** | @github/ijaspreetbhatti | *Full-stack Dev*
+**Yebin Cho** | @github/Yebincho03 | *Front-end Dev*
+**Mizuho Tohma** | @github/Mizzuu | *Front-end Dev*
+**Olivia Underdah** | @github/olimarie21 | *Front-end Dev*
+**Gabriel Watanabe** | @github/Gavriil84 | *Full-stack Dev*
+**Bruna Weiss** | *UX/UI Designer*
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## To Install Dependencies:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Run **npm install** to get all the dependencies to build the application.
 
-### `npm test`
+## To Run in Development Mode:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Run **npm start** to run the app in the development mode.
+Open http://localhost:3000 to view it in your browser.
