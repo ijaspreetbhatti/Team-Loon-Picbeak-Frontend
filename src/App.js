@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <Button onClick={buttonCheckHandler}>Click Me</Button>
+      <Button className="primary" onClick={buttonCheckHandler}>Identify bird</Button>
     </div>
   );
 }
