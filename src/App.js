@@ -1,12 +1,15 @@
 // import logo from './logo.svg';
 import './App.css';
+import Button from './components/shared/ButtonComponent/Button';
 
 function App() {
+  const buttonCheckHandler = () => {
+    alert('Working!!!!');
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Creating Picbeak with React!</h1>
-      </header>
+      <Button onClick={buttonCheckHandler}>Click Me</Button>
     </div>
   );
 }
