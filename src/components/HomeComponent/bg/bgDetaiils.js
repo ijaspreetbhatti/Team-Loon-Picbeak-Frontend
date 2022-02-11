@@ -14,7 +14,7 @@ const bgDetails = (props) => {
 const Block = (props) => {
     return (
         <div className="block">
-            <img></img>
+            <img src="https://unsplash.com/photos/mOKHZYMhnQA" alt="magpie" />
             <h3>lorem ipsum</h3>
             <p>lorem</p>
         </div>
