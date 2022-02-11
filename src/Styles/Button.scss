@@ -1,0 +1,23 @@
+@import "../Variables/variables";
+
+.primary {
+    font-family: $font;
+    background-color: $primaryColor;
+    width: 196px;
+    height: 52px;
+    font-size: 20px;
+    border-radius: 68px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.secondary {
+    font-family: $font;
+    background-color: $secondaryColor;
+    width: 196px;
+    height: 52px;
+    font-size: 20px;
+    border-radius: 68px;
+    border: none;
+}
