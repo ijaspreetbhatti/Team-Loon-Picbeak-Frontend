@@ -1,0 +1,81 @@
+@import "../Variables/variables";
+
+.loginWrapper {
+    font-family: roboto;
+    background-color: #edeff1;
+    padding-top: 281px;
+
+    form {
+        background-color: #ffffff;
+        padding-left: 20px;
+        padding-right: 20px;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        margin-bottom: 169px;
+
+        h1 {
+            padding-top: 41px;
+            font-size: 24px;
+        }
+
+        .emailWrapper {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+
+            label {
+                font-size: 14px;
+                margin-bottom: 12px;
+                color: #283237;
+            }
+
+            input {
+                height: 40px;
+                border-radius: 0;
+                border: 1px solid;
+            }
+        }
+
+        .passwordWrapper {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+
+            label {
+                font-size: 14px;
+                margin-bottom: 12px;
+                color: #283237;
+            }
+
+            input {
+                height: 40px;
+                border-radius: 0;
+                border: 1px solid;
+            }
+
+            a {
+                margin-top: 8px;
+                text-decoration: none;
+                color: #283237;
+                font-weight: 700;
+            }
+        }
+
+        .buttonWrapper {
+            margin-top: 40px;
+        }
+
+        span {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+
+            a {
+                text-decoration: none;
+                font-weight: 700;
+                color: #283237;
+            }
+        }
+    }
+}

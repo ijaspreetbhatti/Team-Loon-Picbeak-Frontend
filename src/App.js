@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+import Login from './components/LoginComponent/Login';
 import Button from './components/shared/ButtonComponent/Button';
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-      <Button className="primary" onClick={buttonCheckHandler}>Identify bird</Button>
+      <Login />
     </div>
   );
 }
