@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Button from '../shared/ButtonComponent/Button';
+import Button from '../../shared/ButtonComponent/Button';
 
-import "../../Styles/Login.scss";
+import "./Login.scss";
 
 function Login(props) {
     const [userEmail, setUserEmail] = useState('');
@@ -13,11 +13,11 @@ function Login(props) {
                 <h1>Log in</h1>
                 <div className="emailWrapper">
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" />
+                    <input type="email" id="email" name="email" required />
                 </div>
                 <div className="passwordWrapper">
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" />
+                    <input type="password" id="password" name="password" required />
                     <a href="/">Forgot password?</a>
                 </div>
                 <div className="buttonWrapper">
