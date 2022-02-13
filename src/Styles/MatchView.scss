@@ -1,0 +1,17 @@
+@import "../Variables/variables";
+
+body {
+    margin: 24px;
+}
+
+img {
+    max-width: 300px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.matchViewCard {
+    border: 1px solid grey;
+    max-width: 300px;
+}
