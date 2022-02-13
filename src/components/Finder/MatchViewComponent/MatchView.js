@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Button from '../../shared/ButtonComponent/Button.js';
-import '../../../Styles/MatchView.scss';
+import './MatchView.scss';
 // import { render } from '@testing-library/react';
 
 function MatchView() {
