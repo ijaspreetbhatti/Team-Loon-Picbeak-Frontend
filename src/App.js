@@ -4,6 +4,10 @@ import Login from './components/LoginComponent/Login/Login';
 import Button from './components/shared/ButtonComponent/Button';
 
 function App() {
+  const buttonCheckHandler = () => {
+    alert('Working!!!!');
+  }
+
   return (
     <div className="App">
       <div className="App">
