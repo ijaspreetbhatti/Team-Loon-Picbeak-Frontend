@@ -1,0 +1,116 @@
+@import "../../../Variables/variables";
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+
+.birdProfileWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: $header;
+  margin-top: 64px;
+  width: 390px;
+
+  img {
+    position: fixed;
+    top: 64px;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  .profileContainer {
+    position: absolute;
+    top: 390px;
+    padding: 24px;
+    border-radius: 24px 24px 0px 0px;
+    background-color: $white;
+    width: 100%;
+    height: 1000px;
+
+    .infoWrapper {
+      display: grid;
+
+      .titleBlock {
+        display: grid;
+        grid-template-columns: 8fr 1fr;
+
+        .nameBlock {
+          display: flex;
+          flex-direction: column;
+
+          .commonName {
+            font-weight: 800;
+            font-size: 20px;
+            line-height: 24px;
+          }
+
+          .scientifcName {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+            color: $grey60;
+          }
+        }
+
+        .soundBtn {
+          border-radius: 64px;
+          border-style: none;
+          background-color: $light-red;
+        }
+      }
+
+      .status {
+        width: fit-content;
+        margin-top: 16px;
+        background-color: $light-green;
+        border-radius: 20px;
+        padding: 4px 8px 6px 8px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+      }
+
+      .content {
+        margin-top: 24px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+
+        .learn-more-link {
+          font-weight: 800;
+          color: $primary;
+          margin-left: 5px;
+        }
+      }
+    }
+    .galleryWrapper {
+      margin-top: 24px;
+      span {
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 20px;
+      }
+    }
+  }
+  .footerWrapper {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 88px;
+    width: 100%;
+    background-color: $white;
+    text-align: center;
+
+    span {
+      margin-top: 34px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+    }
+    button {
+      margin-top: 24px;
+      margin-left: 14px;
+      width: 139px;
+    }
+  }
+}
