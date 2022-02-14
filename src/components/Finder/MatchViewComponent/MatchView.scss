@@ -1,17 +1,70 @@
 @import "../../../Variables/variables";
 
-body {
+#matchView {
     margin: 24px;
-}
+    .matchViewCard {
+        max-width: 300px;
+        box-shadow: 4px 4px 20px 4px rgba(117, 117, 117, 0.1);
+        border-radius: 24px;
+        overflow: hidden;
+        display: grid;
+        grid-template-rows: 100%;
+        align-items: end;
+        
+        img {
+            max-width: 300px;
+            height: 470px;
+            object-fit: cover;
+            object-position: center;
+            grid-row: 1/1;
+            grid-column: 1 /1;
+        }
 
-img {
-    max-width: 300px;
-    height: 400px;
-    object-fit: cover;
-    object-position: center;
-}
+        .matchDetailCard {
+            display: grid;
+            grid-template-rows: auto auto;
+            border-radius: 24px;
+            grid-row: 1/1;
+            grid-column: 1 /1;
+            max-height: 160px;
+            z-index: 1;
+            background: white;
 
-.matchViewCard {
-    border: 1px solid grey;
-    max-width: 300px;
+            .nameContainer {
+                grid-row: 1 / span 1;
+                display: flex;
+                flex-direction: column;
+
+                h2 {
+                    margin: 24px 24px 4px 24px;
+                }
+
+                p {
+                    font: $body3Mobile;
+                    margin: 0px 24px 4px 24px;
+                }
+            }
+
+            .buttonContainer {
+                grid-row: 2 / span 1;
+                display: flex;
+                flex-direction: row;
+                margin: 24px;
+                column-gap: 8px;
+                align-items: center;
+
+                .audio {
+                    border-radius: 100px;
+                    width: 40px;
+                    height: 40px;
+                    border: none;
+                }
+
+                .matchCardBtn {
+                    margin: 0;
+                    
+                }
+            }
+        }
+    }
 }
