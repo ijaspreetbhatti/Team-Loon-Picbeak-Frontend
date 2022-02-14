@@ -5,25 +5,26 @@ $text: "Outfit", sans-serif;
 //============= Colours ===============
 
 // Primary
-$Primary: #03a142;
-$Primary-light: #00c35e;
+$primary: #03a142;
+$primary-light: #00c35e;
 
 // Secondary
-$Secondary-red: #d84315;
-$Secondary-yellow: #fdd835;
+$secondary-red: #d84315;
+$secondary-yellow: #fdd835;
 
 // Light colours
-$Light-green: #e8f5e9;
-$Light-red: #fbe9e7;
-$Light-yellow: #fcfbec;
+$light-green: #e8f5e9;
+$light-red: #fbe9e7;
+$light-yellow: #fcfbec;
 
 // Grays
-$Grey100: #212121;
-$Grey80: #424242;
-$Grey60: #757575;
-$Grey40: #e0e0e0;
-$Grey20: #f5f5f5;
-$Grey0: #ffffff;
+$grey100: #212121; //darkest gray
+$grey80: #424242;
+$grey60: #757575;
+$grey40: #e0e0e0;
+$grey20: #f5f5f5; // lishtest gray
+
+$white: #ffffff;
 
 // Shadow
-$Shadow: 4px 4px 20px 4px rgba(117, 117, 117, 0.1); ;
+$shadow: 4px 4px 20px 4px rgba(117, 117, 117, 0.1); ;
