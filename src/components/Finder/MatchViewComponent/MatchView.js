@@ -1,136 +1,83 @@
-import React, {useState, useEffect} from 'react';
+import React, {useRef} from 'react';
 import Button from '../../shared/ButtonComponent/Button.js';
 import './MatchView.scss';
-// import { render } from '@testing-library/react';
+
 
 function MatchView() {
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [items, setItems] = useState([]);
+    const birdData = [
+        {
+            comName: "Varied Thrush",
+            sciName: "Ixoreus naevius",
+            img: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`,
+            sound: "https://xeno-canto.org/sounds/uploaded/JHFICMRVUX/XC604686-180327_02%20Varied%20Thrush.mp3"
+        },
+        {
+            comName: "Golden-crowned Kinglet",
+            sciName: "Regulus satrapa",
+            img: `https://live.staticflickr.com/65535/51858746931_a65d3e7c77.jpg`,
+            sound: "https://xeno-canto.org/sounds/uploaded/YQNGFTBRRT/XC500965-GCKI_Baldy_2Sep2014_Harter_01.mp3"
+        },
+        {
+            comName: "Glaucous-winged Gull",
+            sciName: "Larus glaucescens",
+            img: `https://live.staticflickr.com/65535/51870485691_0549c81369.jpg`,
+            sound: "https://xeno-canto.org/sounds/uploaded/SFRRHMLGSK/XC612331-Glaucous%20winged%20Gull.mp3"
+        },
+        {
+            comName: "Varied Thrush",
+            sciName: "Ixoreus naevius 2",
+            img: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`,
+            sound: "https://xeno-canto.org/sounds/uploaded/JHFICMRVUX/XC604686-180327_02%20Varied%20Thrush.mp3"
+        },
+        {
+            comName: "Golden-crowned Kinglet",
+            sciName: "Regulus satrapa 2",
+            img: `https://live.staticflickr.com/65535/51858746931_a65d3e7c77.jpg`,
+            sound: "https://xeno-canto.org/sounds/uploaded/YQNGFTBRRT/XC500965-GCKI_Baldy_2Sep2014_Harter_01.mp3"
+        }
+    ];
 
-    useEffect(() => {
-        const myHeaders = new Headers();
-        myHeaders.append("X-eBirdApiToken", "ltmn95icte7g");
-        
-        const requestOptions = {
-            method: 'GET',
-            headers: myHeaders,
-            redirect: 'follow'
-        };
+    const audioPlayer = useRef();
 
-        fetch("https://api.ebird.org/v2/data/obs/CA-BC-GV/recent?cat=species", requestOptions)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                setIsLoaded(true);
-                setItems(result);
-                },
-
-                (error) => {
-                setIsLoaded(true);
-                setError(error);
-                }
-            )
-        }, [])
-
-        if (error) {
-            return <div>Error: {error.message}</div>;
-        } else if (!isLoaded) {
-            return <div>Loading...</div>;
+    const togglePlay = () => {
+        if(audioPlayer.current.paused) {
+            audioPlayer.current.play();
         } else {
-            const displayBirdDetails = () => {
-                alert('Working button!');
-            }
+            audioPlayer.current.pause();
+        }
+    }
 
-            return (
-            <div id="matchView">
-                <h2>Explore birds and spot the one you're spying!</h2>
-                <h6>Showing birds around @location</h6>
+    function displayBirdDetails() {
+        alert('Clicked the details!');
+    };
 
-                {items.map(item => (
-                    <div key={item.sciName} className='matchViewCard' id={item.sciName.replace(/\s/g, '-')}>
-                            <BirdImage url={`https://api.flickr.com/services/rest/?format=json&method=flickr.photos.search&api_key=8391ac68237f2756f302320f6e04fc66&tags=%27+${item.sciName}+%27&jsoncallback=?`}/>
-                        <div className="matchDetailCard">
-                            <div className="nameContainer">
-                                <h2>{item.comName}</h2>
-                                <p>{item.sciName}</p>
-                            </div>
-                            <div className="buttonContainer">
-                                <AudioPlayer className="audio" url={`https://xeno-canto.org/api/2/recordings?query=${item.sciName}`}/>
-                                <Button className='primary-small matchCardBtn' onClick={displayBirdDetails}>This is the one!</Button>
-                            </div>
+    return (
+        <div id="matchView">
+            <h2>Explore birds and spot the one you're spying!</h2>
+            <h6>Showing birds around @location</h6>
+
+            {birdData.map(data => (
+                <div key={data.sciName} className='matchViewCard' id={data.sciName.replace(/\s/g, '-')}>
+                    <img src={data.img} alt={data.comName}/>
+                    <div className="matchDetailCard">
+                        <div className="nameContainer">
+                            <h2>{data.comName}</h2>
+                            <p>{data.sciName}</p>
+                        </div>
+                        <div className="buttonContainer">
+                            <audio 
+                                className="audio" src={data.sound}
+                                ref={audioPlayer}
+                            >
+                            </audio>
+                            <button className="audio" onClick={togglePlay}>play</button>
+                            <Button className='primary matchCardBtn' onClick={displayBirdDetails}>This is the one!</Button>
                         </div>
                     </div>
-                ))}
-            </div>
-            );
-        }
-}
-
-
-// https://live.staticflickr.com/{server-id}/{id}_{secret}.jpg
-
-function BirdImage(props) {
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [images, setImages] = useState([]);
-
-    const url = String(props.url.replace(/\s/g, '+'));
-
-    // const requestOptions = {
-    //     method: 'GET',
-    //     redirect: 'follow'
-    // };
-
-    useEffect(() => {
-        fetch(url) 
-            .then(result => result.json())
-            .then(
-                (result) => {
-                    setIsLoaded(true);
-                    setImages(result);
-                },
-
-                (error) => {
-                    setIsLoaded(true);
-                    setError(error);
-                }
-            )
-        }, [])
-
-        if (error) {
-            return <div>Error: {error.message}</div>;
-        } else if (!isLoaded) {
-            return <div>Loading...</div>;
-        } else {
-
-        // const src = `https://live.staticflickr.com/${items.photos.photo[0].server}/${items.photos.photo[0].id}_${items.photos.photo[0].secret}.jpg`
-    
-        return (
-            <p>image here {String(images)}</p>
-            )
-        }
-    }
-    // <img src="" url={props.url} />
-
-
-
-function AudioPlayer(props) {
-    function playSound() {
-        // const birdSound = new Audio(items.recordings[0].file);
-        console.log("this");
-        // birdSound.play();
-    }
-    // function playSound() {
-    //     const birdSound = new Audio(props.url);
-    //     birdSound.play();
-    //     console.log('playing');
-    // }
-    return (
-        <button url={props.url} className={props.className} onClick={playSound} >Play</button>
-    )
-    //     }
-    // }
+                </div>
+            ))}
+        </div>
+        );
 }
 
 export default MatchView; 
