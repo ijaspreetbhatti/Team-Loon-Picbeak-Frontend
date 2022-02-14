@@ -1,22 +1,17 @@
 import React from "react";
+import Block from "./Block";
+import Donate from "./Donate";
+import Population from "./Population";
 
 const BgDetails = (props) => {
     return (
         <div>
             <p>Why we need birds to support a healthy environment</p>
-            {Block}
-            {Block}
-            {Block}
-        </div>
-    );
-};
-
-const Block = (props) => {
-    return (
-        <div className="block">
-            <img src="https://unsplash.com/photos/mOKHZYMhnQA" alt="magpie" />
-            <h3>lorem ipsum</h3>
-            <p>lorem</p>
+            <Block />
+            <Block />
+            <Block />
+            <Population />
+            <Donate />
         </div>
     );
 };
