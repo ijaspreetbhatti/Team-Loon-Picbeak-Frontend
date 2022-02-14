@@ -1,3 +1,4 @@
+// import React from "react";
 import React, { useState } from "react";
 import Button from "../../shared/ButtonComponent/Button";
 import "./DetailDataDisplay.scss";

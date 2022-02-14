@@ -1,3 +1,30 @@
-$font: "Nunito", sans-serif;
-$primaryColor: #009d1b;
-$secondaryColor: red;
+//============= Fonts ===============
+$header: "Nunito", sans-serif;
+$text: "Outfit", sans-serif;
+
+//============= Colours ===============
+
+// Primary
+$primary: #03a142;
+$primary-light: #00c35e;
+
+// Secondary
+$secondary-red: #d84315;
+$secondary-yellow: #fdd835;
+
+// Light colours
+$light-green: #e8f5e9;
+$light-red: #fbe9e7;
+$light-yellow: #fcfbec;
+
+// Grays
+$grey100: #212121; //darkest gray
+$grey80: #424242;
+$grey60: #757575;
+$grey40: #e0e0e0;
+$grey20: #f5f5f5; // lishtest gray
+
+$white: #ffffff;
+
+// Shadow
+$shadow: 4px 4px 20px 4px rgba(117, 117, 117, 0.1); ;

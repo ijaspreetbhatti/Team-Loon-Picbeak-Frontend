@@ -1,0 +1,156 @@
+@import "../../../Variables/variables";
+
+.primary-big {
+    font-family: $header;
+    background-color: $primary;
+    font-weight: 700;
+    color: $white;
+    padding: 16px 20px;
+    font-size: 20px;
+    border-radius: 68px;
+    border: none;
+    cursor: pointer;
+}
+
+.primary-big-light {
+    font-family: $header;
+    background-color: $primary-light;
+    font-weight: 700;
+    color: $white;
+    padding: 16px 20px;
+    font-size: 20px;
+    border-radius: 68px;
+    border: none;
+    cursor: pointer;
+}
+
+.primary-big-grey {
+    font-family: $header;
+    background-color: $grey40;
+    font-weight: 700;
+    color: $grey60;
+    padding: 16px 20px;
+    font-size: 20px;
+    border-radius: 68px;
+    border: none;
+    cursor: pointer;
+}
+
+.primary {
+    font-family: $header;
+    background-color: $primary;
+    font-weight: 700;
+    color: $white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 68px;
+    border: none;
+    cursor: pointer;
+}
+
+.primary-light {
+    font-family: $header;
+    background-color: $primary-light;
+    font-weight: 700;
+    color: $white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 68px;
+    border: none;
+    cursor: pointer;
+}
+
+.primary-grey {
+    font-family: $header;
+    background-color: $grey40;
+    font-weight: 700;
+    color: $grey60;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 68px;
+    border: none;
+    cursor: pointer;
+}
+
+.secondary {
+    font-family: $header;
+    background-color: $grey20;
+    font-weight: 700;
+    color: $grey60;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 68px;
+    border: none;
+    cursor: pointer;
+}
+
+.secondary-greentxt {
+    font-family: $header;
+    background-color: $grey20;
+    font-weight: 700;
+    color: $primary;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 68px;
+    border: none;
+    cursor: pointer;
+}
+
+.secondary-grey {
+    font-family: $header;
+    background-color: $grey40;
+    font-weight: 700;
+    color: $grey60;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 68px;
+    border: none;
+    cursor: pointer;
+}
+
+.terciary {
+    font-family: $header;
+    background-color: $white;
+    font-weight: 700;
+    color: $grey60;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 68px;
+    box-shadow: $shadow;
+    border: none;
+    cursor: pointer;
+}
+
+.terciary-blacktxt {
+    font-family: $header;
+    background-color: $white;
+    font-weight: 700;
+    color: $grey80;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 68px;
+    box-shadow: $shadow;
+    border: none;
+    cursor: pointer;
+}
+
+.terciary-grey {
+    font-family: $header;
+    background-color: $grey40;
+    font-weight: 700;
+    color: $grey60;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 68px;
+    border: none;
+    cursor: pointer;
+}
+
+.login {
+    width: 100%;
+    height: 40px;
+    background-color: #283237;
+    border: none;
+    font-size: 14px;
+    color: #ffffff;
+}
