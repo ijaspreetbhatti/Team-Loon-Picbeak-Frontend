@@ -53,9 +53,11 @@ function MatchView() {
 
     return (
         <div id="matchView">
-            <h2>Explore birds and spot the one you're spying!</h2>
-            <h6>Showing birds around @location</h6>
-
+            <div>
+                <h2>Explore birds and spot the one you're spying!</h2>
+                <h6>Showing birds around @location</h6>
+            </div>
+            <div>
             {birdData.map(data => (
                 <div key={data.sciName} className='matchViewCard' id={data.sciName.replace(/\s/g, '-')}>
                     <img src={data.img} alt={data.comName}/>
@@ -76,6 +78,7 @@ function MatchView() {
                     </div>
                 </div>
             ))}
+            </div>
         </div>
         );
 }
