@@ -4,6 +4,8 @@ import Button from "./components/shared/ButtonComponent/Button";
 
 import BgDetails from "./components/HomeComponent/BgDetails";
 
+import BirdFilter from "./components/DiscoverComponent/BirdFilter";
+
 function App() {
     const buttonCheckHandler = () => {
         alert("Working!!!!");
@@ -16,6 +18,7 @@ function App() {
             </Button>
 
             <BgDetails></BgDetails>
+            <BirdFilter></BirdFilter>
         </div>
     );
 }
