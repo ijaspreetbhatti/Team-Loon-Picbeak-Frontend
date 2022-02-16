@@ -154,3 +154,63 @@
     font-size: 14px;
     color: #ffffff;
 }
+
+.musical-light-red {
+    background-image: url(./ButtonIcons/MusicalNote1.svg);
+    background-color: $light-red;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 64px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.musical-secondary-red {
+    background-image: url(./ButtonIcons/MusicalNote2.svg);
+    background-color: $secondary-red;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 64px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.musical-grey {
+    background-image: url(./ButtonIcons/MusicalNote3.svg);
+    background-color: $grey40;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 64px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.adjust-secondary-green {
+    background-image: url(./ButtonIcons/Adjust1.svg);
+    background-color: $light-green;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 64px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.adjust-primary-green {
+    background-image: url(./ButtonIcons/Adjust2.svg);
+    background-color: $primary;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 64px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
