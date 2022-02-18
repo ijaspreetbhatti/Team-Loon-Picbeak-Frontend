@@ -9,7 +9,7 @@
   margin-top: 64px;
   width: 390px;
 
-  img {
+  .postImage {
     position: fixed;
     top: 64px;
     width: 100%;
@@ -84,10 +84,46 @@
     }
     .galleryWrapper {
       margin-top: 24px;
-      span {
+      .galleryTitle {
         font-weight: 800;
         font-size: 16px;
         line-height: 20px;
+      }
+      .galleryContainer {
+        width: 343px;
+        height: 85px;
+        border-radius: 16px;
+        background-color: $grey40;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-top: 8px;
+        gap: 1px;
+        position: relative;
+
+        .galleryPic {
+          width: 85px;
+          height: 85px;
+          object-fit: cover;
+        }
+
+        span.greyBoxNone {
+          display: none !important;
+        }
+        .greyBoxShow {
+          display: flex;
+          position: absolute;
+          right: 0;
+
+          justify-content: center;
+          text-align: center;
+          background-color: #21212181;
+          color: $white;
+          font-weight: 800;
+          font-size: 20px;
+          line-height: 85px;
+          width: 85px;
+          height: 85px;
+        }
       }
     }
   }

@@ -8,6 +8,22 @@ function DetailDataDisplay(props) {
   const extraContent =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum";
   const linkName = learnMore ? "Learn Less" : "Learn More";
+  const pic =
+    "https://3rvxro1qhiaouxf3h3et9bah-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/33709comox09Stellar.jpg";
+
+  const test = [pic, pic, pic, pic, pic];
+  const picArray = [];
+  for (let i = 0; i < 4; i++) {
+    if (i < test.length) {
+      let pic = test[i];
+      picArray.push(<img className="galleryPic" src={pic} key={i} />);
+    }
+  }
+  let overlay = <span className="greyBoxNone">+{test.length - 4}</span>;
+
+  if (test.length > 4) {
+    overlay = <span className="greyBoxShow">+{test.length - 4}</span>;
+  }
 
   return (
     <div className="birdProfileWrapper">
@@ -43,13 +59,17 @@ function DetailDataDisplay(props) {
         </div>
 
         <div className="galleryWrapper">
-          <span>Gallery</span>
+          <span className="galleryTitle">Gallery</span>
+          <div className="galleryContainer">
+            {picArray}
+            {overlay}
+          </div>
         </div>
       </div>
 
       <div className="footerWrapper">
         <span>Are you spotting this bird?</span>
-        <Button className="primary">Collect</Button>
+        <Button className="primary">Collect</Button>p
       </div>
     </div>
   );
