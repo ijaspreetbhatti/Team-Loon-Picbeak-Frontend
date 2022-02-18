@@ -1,0 +1,98 @@
+@import "../../../Variables/variables";
+
+#matchView {
+    margin: 24px;
+    h2{
+        text-align: center;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 30px;
+        font-family: $header;
+        margin: 40px 0 4px 0;
+    }
+    h6 {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        color: $grey80;
+        text-align: center;
+        font-family: $header;
+        margin: 0 0 40px 0;
+    }
+    .matchViewCard {
+        max-width: 300px;
+        box-shadow: $shadow;
+        border-radius: 24px;
+        overflow: hidden;
+        display: grid;
+        grid-template-rows: 100%;
+        align-items: end;
+        margin: 24px 0;
+        
+        img {
+            max-width: 100%;
+            height: 470px;
+            object-fit: cover;
+            object-position: top center;
+            grid-row: 1/1;
+            grid-column: 1 /1;
+        }
+
+        .matchDetailCard {
+            display: grid;
+            grid-template-rows: auto auto;
+            border-radius: 24px;
+            grid-row: 1/1;
+            grid-column: 1 /1;
+            max-height: 200px;
+            z-index: 1;
+            background: white;
+
+            .nameContainer {
+                grid-row: 1 / span 1;
+                display: flex;
+                flex-direction: column;
+                
+                h2 {
+                    text-align: left;
+                    font-family: $header;
+                    margin: 24px 24px 4px 24px;
+                }
+
+                p {
+                    font-family: $header;
+                    font-size: 14px;
+                    margin: 0px 24px 4px 24px;
+                }
+            }
+
+            .buttonContainer {
+                grid-row: 2 / span 1;
+                display: grid;
+                grid-template-columns: 50px auto;
+                margin: 24px;
+                column-gap: 8px;
+                align-items: center;
+
+                .audio {
+                    border-radius: 100px;
+                    width: 40px;
+                    height: 40px;
+                    border: none;
+                    grid-column: 1 / span 1;
+                }
+
+                .matchCardBtn, .primary {
+                    margin: 0;
+                    width: 100%;
+                    height: 40px;
+                    padding: 0;
+                }
+
+                .matchCardBtn {
+                    grid-column: 2 / span 1;
+                }
+            }
+        }
+    }
+}
