@@ -2,6 +2,13 @@
 
 #matchView {
     margin: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #matchViewCardContainer {
+        margin-bottom: 60px;
+    }
     h2{
         text-align: center;
         font-weight: 800;

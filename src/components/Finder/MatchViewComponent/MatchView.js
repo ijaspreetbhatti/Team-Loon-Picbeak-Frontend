@@ -79,6 +79,7 @@ function MatchView() {
                 </div>
             ))}
             </div>
+            <Button className="terciary" onClick={displayBirdDetails}>Switch to list view</Button>
         </div>
         );
 }
