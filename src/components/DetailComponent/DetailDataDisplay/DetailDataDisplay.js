@@ -18,7 +18,7 @@ function DetailDataDisplay(props) {
           <div className="titleBlock">
             <div className="nameBlock">
               <span className="commonName">Steller's Jay</span>
-              <span className="scientifcName">Cyanocitta stelleri</span>
+              <span className="scifcName">Cyanocitta stelleri</span>
             </div>
             <button className="soundBtn">🎵</button>
           </div>
@@ -43,7 +43,7 @@ function DetailDataDisplay(props) {
         </div>
 
         <div className="galleryWrapper">
-          <span>gallery</span>
+          <span>Gallery</span>
         </div>
       </div>
 
