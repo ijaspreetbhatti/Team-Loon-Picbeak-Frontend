@@ -35,12 +35,16 @@
         grid-template-rows: 100%;
         align-items: end;
         margin: 24px 0;
+        height: 470px;
+        position: relative;
         
         img {
             max-width: 100%;
-            height: 470px;
+            height:340px;
+            position: absolute;
+            top: 0;
             object-fit: cover;
-            object-position: top center;
+            object-position: top;
             grid-row: 1/1;
             grid-column: 1 /1;
         }
@@ -59,6 +63,7 @@
                 grid-row: 1 / span 1;
                 display: flex;
                 flex-direction: column;
+                text-align: left;
                 
                 h2 {
                     text-align: left;
@@ -82,10 +87,6 @@
                 align-items: center;
 
                 .audio {
-                    border-radius: 100px;
-                    width: 40px;
-                    height: 40px;
-                    border: none;
                     grid-column: 1 / span 1;
                 }
 

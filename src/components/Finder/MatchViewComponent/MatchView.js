@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import Button from '../../shared/ButtonComponent/Button.js';
+import ImageCarousel from './Carousel.js';
 import './MatchView.scss';
-
 
 function MatchView() {
     const birdData = [
@@ -57,8 +57,8 @@ function MatchView() {
                 <h2>Explore birds and spot the one you're spying!</h2>
                 <h6>Showing birds around @location</h6>
             </div>
-            <div>
-            {birdData.map(data => (
+            <div className="matchViewContainer" id="matchViewContainer">
+                {birdData.map(data => (
                 <div key={data.sciName} className='matchViewCard' id={data.sciName.replace(/\s/g, '-')}>
                     <img src={data.img} alt={data.comName}/>
                     <div className="matchDetailCard">
@@ -72,16 +72,38 @@ function MatchView() {
                                 ref={audioPlayer}
                             >
                             </audio>
-                            <button className="audio" onClick={togglePlay}>play</button>
-                            <Button className='primary matchCardBtn' onClick={displayBirdDetails}>This is the one!</Button>
+                            <button className="musical-light-red" onClick={togglePlay}></button>
+                            <Button className='primary matchCardBtn' onClick={displayBirdDetails} id={data.sciName}>This is the one!</Button>
                         </div>
                     </div>
                 </div>
             ))}
             </div>
+            <div>
+            </div>
             <Button className="terciary" onClick={displayBirdDetails}>Switch to list view</Button>
         </div>
         );
-}
-
+    }
+    
+    // {birdData.map(data => (
+    //     <div key={data.sciName} className='matchViewCard' id={data.sciName.replace(/\s/g, '-')}>
+    //         <img src={data.img} alt={data.comName}/>
+    //         <div className="matchDetailCard">
+    //             <div className="nameContainer">
+    //                 <h2>{data.comName}</h2>
+    //                 <p>{data.sciName}</p>
+    //             </div>
+    //             <div className="buttonContainer">
+    //                 <audio 
+    //                     className="audio" src={data.sound}
+    //                     ref={audioPlayer}
+    //                 >
+    //                 </audio>
+    //                 <button className="musical-light-red" onClick={togglePlay}></button>
+    //                 <Button className='primary matchCardBtn' onClick={displayBirdDetails} id={data.sciName}>This is the one!</Button>
+    //             </div>
+    //         </div>
+    //     </div>
+    // ))}
 export default MatchView; 
