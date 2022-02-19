@@ -5,6 +5,7 @@ import "./App.css";
 // import BirdFilter from "./components/DiscoverComponent/BirdFilter";
 // import MatchView from "./components/Finder/MatchViewComponent/MatchView";
 import ListView from "./components/Finder/ListViewComponent/ListView";
+import Header from "./components/shared/HeaderComponent/Header";
 
 function App() {
     // const buttonCheckHandler = () => {
@@ -13,6 +14,7 @@ function App() {
 
     return (
         <div className="App">
+            <Header/>
             <ListView/>
         </div>
     );
