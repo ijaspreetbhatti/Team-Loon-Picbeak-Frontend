@@ -1,7 +1,7 @@
 @import "../../../Variables/variables";
 
 #listView {
-    margin: 24px;
+    margin: 0 24px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,7 +44,7 @@
         position: relative;
         
         img {
-            max-width: 100%;
+            width: 100%;
             height:70%;
             position: absolute;
             top: 0;
