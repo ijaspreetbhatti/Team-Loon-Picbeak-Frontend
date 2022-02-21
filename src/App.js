@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import "./App.css";
+import "./App.scss";
 import Button from "./components/shared/ButtonComponent/Button";
 
 import BgDetails from "./components/HomeComponent/BgDetails";
