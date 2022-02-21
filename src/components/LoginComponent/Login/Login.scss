@@ -37,6 +37,12 @@
             }
         }
 
+        .error {
+            input {
+                border-color: $secondary-red;
+            }
+        }
+
         .passwordWrapper {
             margin-top: 24px;
             display: flex;
