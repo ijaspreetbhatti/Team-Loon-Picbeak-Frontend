@@ -1,87 +1,92 @@
 @import "../../../Variables/variables";
 
-.loginWrapper {
-    font-family: roboto;
-    background-color: #edeff1;
-    padding-top: 281px;
+form {
+    background-color: #ffffff;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 24px;
 
-    form {
-        background-color: #ffffff;
-        padding-left: 20px;
-        padding-right: 20px;
+    h1 {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0;
+    }
+
+    .emailWrapper {
+        padding-top: 24px;
         display: flex;
         flex-direction: column;
-        text-align: left;
-        margin-bottom: 169px;
 
-        h1 {
-            padding-top: 41px;
-            font-size: 24px;
-        }
-
-        .emailWrapper {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-
-            label {
-                font-size: 14px;
-                margin-bottom: 12px;
-                color: #283237;
-            }
-
-            input {
-                height: 40px;
-                border-radius: 0;
-                border: 1px solid;
-            }
-        }
-
-        .error {
-            input {
-                border-color: $secondary-red;
-            }
-        }
-
-        .passwordWrapper {
-            margin-top: 24px;
-            display: flex;
-            flex-direction: column;
-
-            label {
-                font-size: 14px;
-                margin-bottom: 12px;
-                color: #283237;
-            }
-
-            input {
-                height: 40px;
-                border-radius: 0;
-                border: 1px solid;
-            }
-
-            a {
-                margin-top: 8px;
-                text-decoration: none;
-                color: #283237;
-                font-weight: 700;
-            }
-        }
-
-        .buttonWrapper {
-            margin-top: 40px;
-        }
-
-        span {
-            text-align: center;
+        label {
             font-size: 14px;
-            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #283237;
+        }
 
-            a {
-                text-decoration: none;
-                font-weight: 700;
-                color: #283237;
-            }
+        input {
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid $grey40;
+        }
+    }
+
+    .error {
+        input {
+            border-color: $secondary-red;
+        }
+    }
+
+    .passwordWrapper {
+        padding-top: 16px;
+        display: flex;
+        flex-direction: column;
+
+        label {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #283237;
+        }
+
+        input {
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid $grey40;
+        }
+
+        a {
+            font-size: 14px;
+            margin-top: 8px;
+            text-decoration: none;
+            color: $primary;
+            font-weight: 700;
+        }
+    }
+
+    .buttonWrapper {
+        margin-top: 40px;
+    }
+
+    .primary {
+        width: 294px;
+        height: 40px;
+        line-height: 10px;
+    }
+
+    span {
+        text-align: center;
+        font-size: 14px;
+        margin-top: 16px;
+
+        a {
+            font-size: 14px;
+            margin-top: 8px;
+            text-decoration: none;
+            color: $primary;
+            font-weight: 700;
         }
     }
 }
