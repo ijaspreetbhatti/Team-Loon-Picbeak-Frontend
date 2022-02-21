@@ -1,16 +1,20 @@
 import React from "react";
 import Button from "../shared/ButtonComponent/Button";
+import "./Donate.scss";
 
-function Donate() {
+function Donate(props) {
     return (
-        <div>
-            <img src="https://via.placeholder.com/120x181" alt="donate block" />
-            <h3>How you can help to conserve birds</h3>
+        <div className="Donate">
+            <img src="./img/donate.png" alt="donate block" />
+            <h2>How you can help to conserve birds</h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt.
+                By considering a gift for the birds by donating to birds
+                conservation organizations, you are also getting back to every
+                living thing including us!
             </p>
-            <Button className="primary">Donate</Button>
+            <div class="buttonParent">
+                <Button className="primary">Donate</Button>
+            </div>
         </div>
     );
 }
