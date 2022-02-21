@@ -1,5 +1,6 @@
 import React, { useReducer, useState } from 'react'
 import Button from '../../shared/ButtonComponent/Button';
+import Card from '../../shared/DialogComponent/Card';
 
 import "./Login.scss";
 
@@ -48,7 +49,7 @@ function Login(props) {
 
 
     return (
-        <div className="loginWrapper">
+        <Card>
             <form onSubmit={submitHandler}>
                 <h1>Log in</h1>
                 <div className={`emailWrapper ${emailValidState.isValid === false ? 'error' : ''}`}>
@@ -74,11 +75,11 @@ function Login(props) {
                     <a href="/">Forgot password?</a>
                 </div>
                 <div className="buttonWrapper">
-                    <Button type="submit" className="login" disabled={!formValid}>Log in</Button>
+                    <Button type="submit" className="primary" disabled={!formValid}>Log in</Button>
                 </div>
                 <span>New to Picbeak? <a href="/">Creat account</a></span>
             </form>
-        </div>
+        </Card>
     )
 }
 
