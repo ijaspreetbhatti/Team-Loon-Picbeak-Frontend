@@ -1,0 +1,9 @@
+@import "../../../Variables/variables";
+
+.card {
+    height: 100%;
+    width: 342px;
+    background-color: $white;
+    box-shadow: $shadow;
+    border-radius: 24px;
+}
