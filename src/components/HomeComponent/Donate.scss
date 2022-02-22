@@ -18,10 +18,12 @@
     }
     .buttonParent {
         text-align: left;
+        margin-bottom: 5rem;
         .primary {
             width: 196px;
             height: 52px;
             margin-left: 6%;
+            cursor: pointer;
         }
     }
 }
