@@ -5,7 +5,10 @@ function Block(props) {
     return (
         <div className="blockParent">
             <div className="block">
-                <img src="https://via.placeholder.com/200" alt="magpie" />
+                <img
+                    src="./img/block1.png"
+                    alt="bird holding a mop in its beak"
+                />
                 <h3>Nature's pest control</h3>
                 <p>
                     Grosbeaks becomes superheros during agricultural pest
@@ -15,7 +18,7 @@ function Block(props) {
             </div>
 
             <div className="block">
-                <img src="https://via.placeholder.com/200" alt="magpie" />
+                <img src="./img/block2.png" alt="bird eating a warm" />
                 <h3>Winged clean-up crew</h3>
                 <p>
                     Vultures may look foreboding, but their speed to pick at the
@@ -25,7 +28,7 @@ function Block(props) {
             </div>
 
             <div className="block">
-                <img src="https://via.placeholder.com/200" alt="magpie" />
+                <img src="./img/block3.svg" alt="bird wearing cape" />
                 <h3>Coral reefs saviour</h3>
                 <p>
                     Seabirds feed out in the ocean and later, cycle nutrients
