@@ -1,10 +1,8 @@
 // import logo from './logo.svg';
 import "./App.css";
-import Button from "./components/shared/ButtonComponent/Button";
-
+// import Button from "./components/shared/ButtonComponent/Button";
 import BgDetails from "./components/HomeComponent/BgDetails";
-
-import SearchInput from "./components/DiscoverComponent/SearchInput";
+import Discover from "./components/DiscoverComponent/Discover";
 
 function App() {
     // const buttonCheckHandler = () => {
@@ -17,8 +15,8 @@ function App() {
             {/*Identify bird*/}
             {/*</Button>*/}
 
-            {/*<BgDetails></BgDetails>*/}
-            <SearchInput></SearchInput>
+            <BgDetails />
+            <Discover></Discover>
         </div>
     );
 }
