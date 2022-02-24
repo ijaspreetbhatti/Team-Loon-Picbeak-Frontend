@@ -1,22 +1,23 @@
 import React from "react";
+import "./Population.scss";
 
 function Population() {
-    return (
-        <div>
-            <h3>
-                Monitoring the decline of birds population for conservation
-                action
-            </h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <img
-                src="https://via.placeholder.com/350x150"
-                alt="bird population data"
-            />
-        </div>
-    );
+  return (
+    <div className="birdPopulation">
+      <h2>
+        Monitoring the decline of birds population for conservation action
+      </h2>
+      <p>
+        Tracking Canada's birds helps to identify the impacts of environmental
+        changes and provide guidance to set priorities to the recovery of
+        species at risk.
+      </p>
+      <img
+        src="https://via.placeholder.com/342x200"
+        alt="bird population data"
+      />
+    </div>
+  );
 }
 
 export default Population;

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import Button from "../../shared/ButtonComponent/Button.js";
-import "./MatchView.scss";
+import "./ListView.scss";
 
 function MatchView() {
   const birdData = [
@@ -56,46 +56,42 @@ function MatchView() {
   }
 
   return (
-    <div id="matchView">
+    <div id="listView">
       <div>
         <h2>Explore birds and spot the one you're spying!</h2>
         <h6>Showing birds around @location</h6>
       </div>
-      <div>
+      <div className="listViewContainer" id="listViewContainer">
         {birdData.map((data) => (
           <div
             key={data.sciName}
-            className="matchViewCard"
+            className="listViewCard"
             id={data.sciName.replace(/\s/g, "-")}
           >
+            <div className="buttonContainer">
+              <audio
+                className="audio"
+                src={data.sound}
+                ref={audioPlayer}
+              ></audio>
+              <button
+                className="musical-light-red"
+                onClick={togglePlay}
+              ></button>
+            </div>
             <img src={data.img} alt={data.comName} />
-            <div className="matchDetailCard">
+            <div className="listDetailCard">
               <div className="nameContainer">
-                <h2>{data.comName}</h2>
+                <p className="body2">{data.comName}</p>
                 <p>{data.sciName}</p>
-              </div>
-              <div className="buttonContainer">
-                <audio
-                  className="audio"
-                  src={data.sound}
-                  ref={audioPlayer}
-                ></audio>
-                <button className="audio" onClick={togglePlay}>
-                  play
-                </button>
-                <Button
-                  className="primary matchCardBtn"
-                  onClick={displayBirdDetails}
-                >
-                  This is the one!
-                </Button>
               </div>
             </div>
           </div>
         ))}
       </div>
+      <div></div>
       <Button className="terciary" onClick={displayBirdDetails}>
-        Switch to list view
+        Switch to match view
       </Button>
     </div>
   );

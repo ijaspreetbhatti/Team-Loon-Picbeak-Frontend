@@ -1,0 +1,27 @@
+@import "../../Variables/variables";
+
+.Donate {
+  font-family: $header;
+  color: $grey100;
+  margin-top: 2rem;
+  h2 {
+    font-weight: 800;
+    width: 88%;
+    text-align: left;
+    margin: 1rem auto;
+  }
+
+  p {
+    width: 88%;
+    text-align: left;
+    margin: 1rem auto;
+  }
+  .buttonParent {
+    text-align: left;
+    .primary {
+      width: 196px;
+      height: 52px;
+      margin-left: 6%;
+    }
+  }
+}

@@ -1,13 +1,18 @@
 @import "../../../Variables/variables";
 
-#matchView {
+#listView {
   margin: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  #matchViewCardContainer {
+  .listViewContainer {
     margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-auto-flow: row;
+    gap: 20px;
+    // margin: 0 24px;
   }
   h2 {
     text-align: center;
@@ -26,7 +31,7 @@
     font-family: $header;
     margin: 0 0 40px 0;
   }
-  .matchViewCard {
+  .listViewCard {
     max-width: 300px;
     box-shadow: $shadow;
     border-radius: 24px;
@@ -34,24 +39,40 @@
     display: grid;
     grid-template-rows: 100%;
     align-items: end;
-    margin: 24px 0;
+    height: 215px;
+    position: relative;
 
     img {
       max-width: 100%;
-      height: 470px;
+      height: 70%;
+      position: absolute;
+      top: 0;
       object-fit: cover;
-      object-position: top center;
+      object-position: top;
       grid-row: 1/1;
       grid-column: 1 /1;
     }
 
-    .matchDetailCard {
-      display: grid;
-      grid-template-rows: auto auto;
+    .buttonContainer {
+      align-items: center;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 1;
+
+      .audio {
+        grid-column: 1 / span 1;
+      }
+
+      .listCardBtn {
+        grid-column: 2 / span 1;
+      }
+    }
+
+    .listDetailCard {
       border-radius: 24px;
       grid-row: 1/1;
       grid-column: 1 /1;
-      max-height: 200px;
       z-index: 1;
       background: white;
 
@@ -59,46 +80,22 @@
         grid-row: 1 / span 1;
         display: flex;
         flex-direction: column;
+        text-align: left;
+        justify-content: center;
 
-        h2 {
+        .body2 {
           text-align: left;
           font-family: $header;
-          margin: 24px 24px 4px 24px;
+          margin: 16px 16px 4px 16px;
+          font: normal 800 16pt/20px $header;
+          color: $grey100;
         }
 
         p {
           font-family: $header;
           font-size: 14px;
-          margin: 0px 24px 4px 24px;
-        }
-      }
-
-      .buttonContainer {
-        grid-row: 2 / span 1;
-        display: grid;
-        grid-template-columns: 50px auto;
-        margin: 24px;
-        column-gap: 8px;
-        align-items: center;
-
-        .audio {
-          border-radius: 100px;
-          width: 40px;
-          height: 40px;
-          border: none;
-          grid-column: 1 / span 1;
-        }
-
-        .matchCardBtn,
-        .primary {
-          margin: 0;
-          width: 100%;
-          height: 40px;
-          padding: 0;
-        }
-
-        .matchCardBtn {
-          grid-column: 2 / span 1;
+          margin: 0px 16px 16px 16px;
+          color: $grey60;
         }
       }
     }
