@@ -4,6 +4,22 @@
     font-family: $header;
     color: $grey100;
     margin-top: 2rem;
+    .imgContainer {
+        position: relative;
+        .front {
+            position: relative;
+            z-index: 6;
+        }
+        .bottom {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            width: 100%;
+        }
+    }
+
     h2 {
         font-weight: 800;
         width: 88%;
