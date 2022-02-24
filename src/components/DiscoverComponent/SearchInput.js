@@ -1,17 +1,13 @@
 import React from "react";
+import "./SearchInput.scss";
+import FilterIcon from "./DiscoverIcons/filter.svg";
 
 function SearchInput() {
     return (
         <div className="bird-filter">
             <div className="searchParent">
-                <img
-                    src="./icon/search.svg"
-                    type="image/svg+xml"
-                    width="24"
-                    height="24"
-                    alt="Search icon"
-                />
                 <input
+                    className="searchBar"
                     type="text"
                     id="searchInput"
                     placeholder="enter bird name"
@@ -19,7 +15,7 @@ function SearchInput() {
             </div>
             <button>
                 <img
-                    src="./icon/filter.svg"
+                    src={FilterIcon}
                     type="image/svg+xml"
                     width="24"
                     height="24"
