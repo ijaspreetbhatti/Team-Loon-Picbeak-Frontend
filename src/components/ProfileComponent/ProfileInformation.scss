@@ -1,0 +1,135 @@
+@import "../../Variables/variables";
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.userProfileWrapper {
+  width: 390px;
+  .userProfileContainer {
+    background-color: $light-yellow;
+    position: fixed;
+    margin-top: 64px;
+    padding: 24px;
+    height: 390px;
+    width: -webkit-fill-available;
+
+    .userInfo {
+      display: flex;
+
+      .portrait {
+        background-image: url(./PortraitIcons/yellow.svg);
+        width: 90px;
+        height: 90px;
+        margin-right: 24px;
+      }
+
+      .userName {
+        font-family: $header;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 90px;
+        color: $grey100;
+      }
+    }
+    .button {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+  }
+
+  .beakpediaWrapper {
+    position: absolute;
+    background-color: $white;
+    box-shadow: 4px 4px 20px 4px #7575751a;
+    top: 266px;
+    height: 1000px;
+    padding: 24px;
+    border-radius: 24px;
+    width: 100%;
+
+    .beakpediaTitle {
+      font-family: $header;
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 24px;
+      color: $grey100;
+    }
+    .collectBar {
+      background-color: $light-green;
+      border-radius: 20px;
+      width: 100%;
+      height: 26px;
+      margin-top: 16px;
+      margin-bottom: 8px;
+      position: relative;
+
+      .progressBar {
+        position: absolute;
+        background-color: $primary-light;
+        border-radius: 20px;
+        height: 26px;
+        overflow: hidden;
+      }
+    }
+    .collectInfo {
+      font-family: $header;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      color: $grey80;
+    }
+    .birdCollection {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 40px;
+
+      .birdBox {
+        height: 215px;
+        position: relative;
+        box-shadow: $shadow;
+        border-radius: 24px;
+        overflow: hidden;
+
+        .camera-secondary-red {
+          position: absolute;
+          right: 16px;
+          top: 16px;
+        }
+
+        .collectionPic {
+          width: 100%;
+          height: 186px;
+          object-fit: cover;
+          border-radius: 24px;
+        }
+        .birdInfo {
+          width: -webkit-fill-available;
+          z-index: 1000;
+          position: absolute;
+          background-color: $white;
+          border-radius: 24px;
+          display: grid;
+          grid-template-rows: 1fr 1fr;
+          padding: 16px;
+          gap: 4px;
+          bottom: 0;
+
+          .birdName {
+            font-family: $header;
+            font-weight: 800;
+            font-size: 16px;
+            line-height: 20px;
+          }
+
+          .birdSicName {
+            font-family: $header;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+  }
+}
