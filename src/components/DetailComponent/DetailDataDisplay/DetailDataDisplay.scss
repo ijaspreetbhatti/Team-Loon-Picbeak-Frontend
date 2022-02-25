@@ -1,7 +1,6 @@
 @import "../../../Variables/variables";
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
-
 .birdProfileWrapper {
   display: flex;
   flex-direction: column;
@@ -10,7 +9,7 @@
   margin-top: 64px;
   width: 390px;
 
-  img {
+  .postImage {
     position: fixed;
     top: 64px;
     width: 100%;
@@ -26,6 +25,7 @@
     background-color: $white;
     width: 100%;
     height: 1000px;
+    box-shadow: $shadow;
 
     .infoWrapper {
       display: grid;
@@ -44,18 +44,12 @@
             line-height: 24px;
           }
 
-          .scientifcName {
+          .sciName {
             font-weight: 400;
             font-size: 14px;
             line-height: 18px;
             color: $grey60;
           }
-        }
-
-        .soundBtn {
-          border-radius: 64px;
-          border-style: none;
-          background-color: $light-red;
         }
       }
 
@@ -85,10 +79,47 @@
     }
     .galleryWrapper {
       margin-top: 24px;
-      span {
+      .galleryTitle {
         font-weight: 800;
         font-size: 16px;
         line-height: 20px;
+      }
+      .galleryContainer {
+        width: 343px;
+        height: 85px;
+        border-radius: 16px;
+        background-color: $grey40;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-top: 8px;
+        gap: 1px;
+        position: relative;
+        overflow: hidden;
+
+        .galleryPic {
+          width: 85px;
+          height: 85px;
+          object-fit: cover;
+        }
+
+        span.greyBoxNone {
+          display: none !important;
+        }
+        .greyBoxShow {
+          display: flex;
+          position: absolute;
+          right: 0;
+
+          justify-content: center;
+          text-align: center;
+          background-color: #21212181;
+          color: $white;
+          font-weight: 800;
+          font-size: 20px;
+          line-height: 85px;
+          width: 85px;
+          height: 85px;
+        }
       }
     }
   }
