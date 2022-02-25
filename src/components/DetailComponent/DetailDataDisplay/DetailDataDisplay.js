@@ -36,7 +36,7 @@ function DetailDataDisplay(props) {
               <span className="commonName">Steller's Jay</span>
               <span className="scifcName">Cyanocitta stelleri</span>
             </div>
-            <button className="soundBtn">🎵</button>
+            <Button className="musical-light-red"></Button>
           </div>
 
           <span className="status">Low conservation concern</span>
@@ -69,7 +69,7 @@ function DetailDataDisplay(props) {
 
       <div className="footerWrapper">
         <span>Are you spotting this bird?</span>
-        <Button className="primary">Collect</Button>p
+        <Button className="primary">Collect</Button>
       </div>
     </div>
   );

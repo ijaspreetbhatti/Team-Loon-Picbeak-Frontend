@@ -25,6 +25,7 @@
     background-color: $white;
     width: 100%;
     height: 1000px;
+    box-shadow: $shadow;
 
     .infoWrapper {
       display: grid;
@@ -49,12 +50,6 @@
             line-height: 18px;
             color: $grey60;
           }
-        }
-
-        .soundBtn {
-          border-radius: 64px;
-          border-style: none;
-          background-color: $light-red;
         }
       }
 
@@ -99,6 +94,7 @@
         margin-top: 8px;
         gap: 1px;
         position: relative;
+        overflow: hidden;
 
         .galleryPic {
           width: 85px;

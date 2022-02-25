@@ -8,6 +8,8 @@ import BirdFilter from "./components/DiscoverComponent/BirdFilter";
 
 import DetailDataDisplay from "./components/DetailComponent/DetailDataDisplay/DetailDataDisplay";
 
+import ProfileInformation from "./components/ProfileComponent/ProfileInformation";
+
 function App() {
   const buttonCheckHandler = () => {
     alert("Working!!!!");
@@ -23,12 +25,15 @@ function App() {
     //   <BirdFilter></BirdFilter>
     // </div>
 
-    <div className="birdImg">
-      <DetailDataDisplay
-        birdPic={
-          "https://3rvxro1qhiaouxf3h3et9bah-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/33709comox09Stellar.jpg"
-        }
-      ></DetailDataDisplay>
+    // <div className="birdImg">
+    //   <DetailDataDisplay
+    //     birdPic={
+    //       "https://3rvxro1qhiaouxf3h3et9bah-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/33709comox09Stellar.jpg"
+    //     }
+    //   ></DetailDataDisplay>
+    // </div>
+    <div className="userProfile">
+      <ProfileInformation></ProfileInformation>
     </div>
   );
 }
