@@ -1,5 +1,5 @@
 import React from "react";
-import "./Population.scss";
+import "./HomeScss/Population.scss";
 
 function Population() {
     return (

@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../shared/ButtonComponent/Button";
-import "./Donate.scss";
+import "./HomeScss/Donate.scss";
 import DonateImg from "./HomeImg/donate.png";
 import Vector from "./HomeImg/donateVector.png";
 
