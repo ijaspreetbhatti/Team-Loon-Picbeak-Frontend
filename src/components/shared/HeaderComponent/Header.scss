@@ -7,9 +7,11 @@
     border-bottom: 1px solid $grey40;
     align-items: center;
     margin-bottom: 0;
+    position: relative;
+    z-index: 100;
 
     .headerLeft {
-        background-image: url(./HeaderIcons/picbeak-logo.svg);
+        background-image: url(./HeaderIcons/picbeak-icon.svg);
         background-color: white;
         background-repeat: no-repeat;
         background-position: center;
@@ -19,24 +21,48 @@
         height: 40px;
         cursor: pointer;
     }
-
+    
+    
     .headerRight {
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
-
+        
         .desktopNav {
             display: none;
         }
 
-        a .navMenu {
+        .navMenu {
+            position: absolute;
+            bottom: -274px;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            height:auto;
+            background-color: white;
+            z-index: 10;
+            width: 180px;
+            border: 1px solid $grey40;
+
+        button {
+            font: normal 700 16px/16px $header;
+            background: white;
+            border: none;
+            text-align:right;
+            margin-right: 24px;
+            margin-top: 40px;
+        }
+        button:last-of-type {
+            margin-bottom: 40px;
+        }
+    }
+
+        .navMenuIcon {
             background-image: url(./HeaderIcons/menu.svg);
             background-color: white;
             background-repeat: no-repeat;
             background-position: center;
             border: none;
-            // background-size: contain;
-            // border-radius: 64px;
             width: 30px;
             height: 30px;
             cursor: pointer;
@@ -48,15 +74,36 @@
                 background-color: $secondary-yellow;
             }
         }
+        .profileMenu {
+            position: absolute;
+            bottom: -158px;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            height:auto;
+            background-color: white;
+            z-index: 10;
+            width: 180px;
+            border: 1px solid $grey40;
 
+            button {
+                font: normal 700 16px/16px $header;
+                background: white;
+                border: none;
+                text-align:right;
+                margin-top: 40px;
+                margin-right: 24px;
+            }
+            button:last-of-type {
+                margin-bottom: 40px;
+            }
+        }
         .profileLink {
             background-image: url(./HeaderIcons/account.svg);
             background-color: white;
             background-repeat: no-repeat;
             background-position: center;
-            // background-size: contain;
             border: none;
-            // border-radius: 64px;
             width: 30px;
             height: 30px;
             padding: 4px;
@@ -70,24 +117,26 @@
         }
     }
 
-    @media screen and (min-width: 600px) {
-        .navMenu {
+    @media screen and (min-width: 1000px) {
+        .navMenuIcon {
             display: none;
         }
 
-        .headerRight .desktopNav {
-            display: block;
+        .headerLeft {
+            background-image: url(./HeaderIcons/full-picbeak-logo.svg);
+            width: 150px;
+        }
 
-            ul {
+        .headerRight .desktopNav {
                 display: flex;
-                list-style: none;
                 margin: 0 40px 0 0;
                 gap: 40px;
 
-                li {
+                button {
                     font: normal 700 16px/16px $header;
+                    background: white;
+                    border: none;
                 }
             }
         }
     }
-}

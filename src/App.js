@@ -4,7 +4,7 @@ import "./App.css";
 // import BgDetails from "./components/HomeComponent/BgDetails";
 // import BirdFilter from "./components/DiscoverComponent/BirdFilter";
 import MatchView from "./components/Finder/MatchViewComponent/MatchView";
-import ListView from "./components/Finder/ListViewComponent/ListView";
+// import ListView from "./components/Finder/ListViewComponent/ListView";
 import Header from "./components/shared/HeaderComponent/Header";
 
 function App() {
