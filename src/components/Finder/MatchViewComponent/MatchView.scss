@@ -9,6 +9,7 @@
     #matchViewCardContainer {
         margin-bottom: 60px;
     }
+
     h2{
         text-align: center;
         font-weight: 800;
@@ -26,6 +27,11 @@
         font-family: $header;
         margin: 0 0 40px 0;
     }
+
+    .matchViewCard:first-of-type {
+        margin-top: 0;
+    }
+    
     .matchViewCard {
         max-width: 300px;
         box-shadow: $shadow;
@@ -88,6 +94,16 @@
 
                 .audio {
                     grid-column: 1 / span 1;
+                    height: 100%;
+                    align-self: stretch;
+                }
+
+                .audioContainer {
+                    height: 100%;
+
+                    .musical-light-red, .musical-secondary-red {
+                        height: 100%;
+                    }
                 }
 
                 .matchCardBtn, .primary {
