@@ -2,6 +2,7 @@ import React, {useRef} from 'react';
 import Button from '../../shared/ButtonComponent/Button.js';
 import ImageCarousel from './Carousel.js';
 import './MatchView.scss';
+import Audio from '../../shared/AudioComponent/Audio';
 
 function MatchView() {
     const birdData = [
@@ -37,16 +38,6 @@ function MatchView() {
         }
     ];
 
-    const audioPlayer = useRef();
-
-    const togglePlay = () => {
-        if(audioPlayer.current.paused) {
-            audioPlayer.current.play();
-        } else {
-            audioPlayer.current.pause();
-        }
-    }
-
     function displayBirdDetails() {
         alert('Clicked the details!');
     };
@@ -67,12 +58,7 @@ function MatchView() {
                             <p>{data.sciName}</p>
                         </div>
                         <div className="buttonContainer">
-                            <audio 
-                                className="audio" src={data.sound}
-                                ref={audioPlayer}
-                            >
-                            </audio>
-                            <button className="musical-light-red" onClick={togglePlay}></button>
+                            <Audio src={data.sound}/>
                             <Button className='primary matchCardBtn' onClick={displayBirdDetails} id={data.sciName}>This is the one!</Button>
                         </div>
                     </div>

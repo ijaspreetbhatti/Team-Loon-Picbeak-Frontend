@@ -1,8 +1,9 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import Button from '../../shared/ButtonComponent/Button.js';
 import './ListView.scss';
+import Audio from '../../shared/AudioComponent/Audio';
 
-function MatchView() {
+function ListView() {
     const birdData = [
         {
             comName: "Varied Thrush",
@@ -36,16 +37,6 @@ function MatchView() {
         }
     ];
 
-    const audioPlayer = useRef();
-
-    const togglePlay = () => {
-        if(audioPlayer.current.paused) {
-            audioPlayer.current.play();
-        } else {
-            audioPlayer.current.pause();
-        }
-    }
-
     function displayBirdDetails() {
         alert('Clicked the details!');
     };
@@ -59,14 +50,7 @@ function MatchView() {
             <div className="listViewContainer" id="listViewContainer">
                 {birdData.map(data => (
                 <div key={data.sciName} className='listViewCard' id={data.sciName.replace(/\s/g, '-')}>
-                    <div className="buttonContainer">
-                        <audio 
-                            className="audio" src={data.sound}
-                            ref={audioPlayer}
-                        >
-                        </audio>
-                        <button className="musical-light-red" onClick={togglePlay}></button>
-                    </div>
+                    <Audio src={data.sound}/>
                     <img src={data.img} alt={data.comName}/>
                     <div className="listDetailCard">
                         <div className="nameContainer">
@@ -83,5 +67,5 @@ function MatchView() {
         </div>
         );
     }
-
-export default MatchView; 
+    
+export default ListView; 
