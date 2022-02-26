@@ -14,16 +14,16 @@ function App() {
 
     return (
         <div className="App">
-            <Header/>
-            <MatchView/>
+            <Header />
+            <MatchView />
         </div>
     );
 }
 
-            // <Button className="primary" onClick={buttonCheckHandler}>
-            //     Identify bird
-            // </Button>
+// <Button className="primary" onClick={buttonCheckHandler}>
+//     Identify bird
+// </Button>
 
-            // <BgDetails></BgDetails>
-            // <BirdFilter></BirdFilter>
+// <BgDetails></BgDetails>
+// <BirdFilter></BirdFilter>
 export default App;
