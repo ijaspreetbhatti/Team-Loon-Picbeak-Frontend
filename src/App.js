@@ -6,6 +6,7 @@ import "./App.css";
 import MatchView from "./components/Finder/MatchViewComponent/MatchView";
 // import ListView from "./components/Finder/ListViewComponent/ListView";
 import Header from "./components/shared/HeaderComponent/Header";
+import FooterComponent from "./components/shared/FooterComponent/FooterComponent";
 
 function App() {
     // const buttonCheckHandler = () => {
@@ -16,14 +17,8 @@ function App() {
         <div className="App">
             <Header />
             <MatchView />
+            <FooterComponent />
         </div>
     );
 }
-
-// <Button className="primary" onClick={buttonCheckHandler}>
-//     Identify bird
-// </Button>
-
-// <BgDetails></BgDetails>
-// <BirdFilter></BirdFilter>
 export default App;
