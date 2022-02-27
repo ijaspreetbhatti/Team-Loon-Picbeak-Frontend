@@ -152,7 +152,7 @@ function MatchView() {
                             <p>{data.sciName}</p>
                         </div>
                         <div className="buttonContainer">
-                            <Audio src={data.soundLink}/>
+                            <Audio src={data.audioLink}/>
                             <Button className='primary matchCardBtn' onClick={displayBirdDetails} id={data.sciName}>This is the one!</Button>
                         </div>
                     </div>
@@ -161,7 +161,7 @@ function MatchView() {
             </div>
             <div>
             </div>
-            <Button className="terciary" onClick={displayBirdDetails}>Switch to list view</Button>
+            <a href="/listview"><Button className="terciary changeViewBtn">Switch to list view</Button></a>
         </div>
         );
     }

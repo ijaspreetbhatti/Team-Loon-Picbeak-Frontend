@@ -158,7 +158,7 @@ function ListView() {
             </div>
             <div>
             </div>
-            <Button className="terciary" onClick={displayBirdDetails}>Switch to match view</Button>
+            <a href="/match"><Button className="terciary changeViewBtn">Switch to match view</Button></a>
         </div>
         );
     }
