@@ -1,11 +1,26 @@
-@import "../../../Variables/variables";
+@import "../../Variables/variables";
 
 .bird-filter {
-    #searchInput {
-  background-image: url('./icon/search.svg');
-  background-position: 10px 12px;
-  background-repeat: no-repeat;
-    }
+  margin: 80px 6%;
+  text-align: left;
+  .searchInputWrapper {
+    background-image: url("./icon/search.svg");
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 10px;
+    background-color: $grey20;
+    border-radius: 24px;
+    padding: 10px;
+    width: 100%;
+  }
+  #searchInput {
+    padding: 10px;
+    margin-left: 30px;
+    border: none;
+    width: 90%;
+    background-color: $grey20;
+  }
 }
 
 // #myInput {
@@ -19,11 +34,11 @@
 //   border: 1px solid #ddd;
 //   margin-bottom: 12px;
 // }und-image: url('/css/searchicon.png');
-  //   background-position: 10px 12px;
-  //   background-repeat: no-repeat;
-  //   width: 100%;
-  //   font-size: 16px;
-  //   padding: 12px 20px 12px 40px;
-  //   border: 1px solid #ddd;
-  //   margin-bottom: 12px;
-  // }
+//   background-position: 10px 12px;
+//   background-repeat: no-repeat;
+//   width: 100%;
+//   font-size: 16px;
+//   padding: 12px 20px 12px 40px;
+//   border: 1px solid #ddd;
+//   margin-bottom: 12px;
+// }

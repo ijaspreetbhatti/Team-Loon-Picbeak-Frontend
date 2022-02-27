@@ -1,22 +1,24 @@
-// import logo from './logo.svg';
-import "./App.css";
-// import Button from "./components/shared/ButtonComponent/Button";
-// import BgDetails from "./components/HomeComponent/BgDetails";
-// import BirdFilter from "./components/DiscoverComponent/BirdFilter";
+import "./App.scss";
 import MatchView from "./components/Finder/MatchViewComponent/MatchView";
-// import ListView from "./components/Finder/ListViewComponent/ListView";
 import Header from "./components/shared/HeaderComponent/Header";
 import FooterComponent from "./components/shared/FooterComponent/FooterComponent";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomeComponent from "./components/HomeComponent/HomeComponent";
+import DonateComponent from "./components/DonateComponent/DonateComponent";
 
 function App() {
-    // const buttonCheckHandler = () => {
-    //     alert("Working!!!!");
-    // };
-
     return (
         <div className="App">
             <Header />
-            <MatchView />
+            <Router>
+                <Routes>
+                    <Route index element={<HomeComponent />} />
+                    <Route path="donate" element={<DonateComponent />} />
+                    <Route path="match" element={<MatchView />} />
+                    <Route path="*" element={<HomeComponent />} />
+                </Routes>
+            </Router>
+
             <FooterComponent />
         </div>
     );
