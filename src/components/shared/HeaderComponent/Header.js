@@ -5,9 +5,9 @@ class Header extends React.Component {
     render() {
     return (
         <div className="headerContainer">
-            <div className="headerLeft">
-                <a href="*"><img src="./assets/images/fullLogo.svg"></img></a>
-            </div>
+            <a href="*"><div className="headerLeft">
+                <img src="./assets/images/fullLogo.svg"></img>
+            </div></a>
             <div className="headerRight">
                 <div className="desktopNav">
                     <a href="/match">Identify Birds</a>
