@@ -7,34 +7,129 @@ import Audio from '../../shared/AudioComponent/Audio';
 function MatchView() {
     const birdData = [
         {
-            comName: "Varied Thrush",
+            commonName: "Varied Thrush",
             sciName: "Ixoreus naevius",
-            img: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`,
-            sound: "https://xeno-canto.org/sounds/uploaded/JHFICMRVUX/XC604686-180327_02%20Varied%20Thrush.mp3"
+            imageLink: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`,
+            soundLink: "https://xeno-canto.org/soundLinks/uploaded/JHFICMRVUX/XC604686-180327_02%20Varied%20Thrush.mp3",
+            description: "lorem ipsum dolor set",
+            conservationStatus: "Low Concern",
+            gallery: [
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                }
+            ]
         },
         {
-            comName: "Golden-crowned Kinglet",
+            commonName: "Golden-crowned Kinglet",
             sciName: "Regulus satrapa",
-            img: `https://live.staticflickr.com/65535/51858746931_a65d3e7c77.jpg`,
-            sound: "https://xeno-canto.org/sounds/uploaded/YQNGFTBRRT/XC500965-GCKI_Baldy_2Sep2014_Harter_01.mp3"
+            imageLink: `https://live.staticflickr.com/65535/51858746931_a65d3e7c77.jpg`,
+            soundLink: "https://xeno-canto.org/soundLinks/uploaded/YQNGFTBRRT/XC500965-GCKI_Baldy_2Sep2014_Harter_01.mp3",
+            description: "lorem ipsum dolor set",
+            conservationStatus: "Low Concern",
+            gallery: [
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                }
+            ]
         },
         {
-            comName: "Glaucous-winged Gull",
+            commonName: "Glaucous-winged Gull",
             sciName: "Larus glaucescens",
-            img: `https://live.staticflickr.com/65535/51870485691_0549c81369.jpg`,
-            sound: "https://xeno-canto.org/sounds/uploaded/SFRRHMLGSK/XC612331-Glaucous%20winged%20Gull.mp3"
+            imageLink: `https://live.staticflickr.com/65535/51870485691_0549c81369.jpg`,
+            soundLink: "https://xeno-canto.org/soundLinks/uploaded/SFRRHMLGSK/XC612331-Glaucous%20winged%20Gull.mp3",
+            description: "lorem ipsum dolor set",
+            conservationStatus: "Low Concern",
+            gallery: [
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                }
+            ]
         },
         {
-            comName: "Varied Thrush",
+            commonName: "Varied Thrush",
             sciName: "Ixoreus naevius 2",
-            img: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`,
-            sound: "https://xeno-canto.org/sounds/uploaded/JHFICMRVUX/XC604686-180327_02%20Varied%20Thrush.mp3"
+            imageLink: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`,
+            soundLink: "https://xeno-canto.org/soundLinks/uploaded/JHFICMRVUX/XC604686-180327_02%20Varied%20Thrush.mp3",
+            description: "lorem ipsum dolor set",
+            conservationStatus: "Low Concern",
+            gallery: [
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                }
+            ]
         },
         {
-            comName: "Golden-crowned Kinglet",
+            commonName: "Golden-crowned Kinglet",
             sciName: "Regulus satrapa 2",
-            img: `https://live.staticflickr.com/65535/51858746931_a65d3e7c77.jpg`,
-            sound: "https://xeno-canto.org/sounds/uploaded/YQNGFTBRRT/XC500965-GCKI_Baldy_2Sep2014_Harter_01.mp3"
+            imageLink: `https://live.staticflickr.com/65535/51858746931_a65d3e7c77.jpg`,
+            soundLink: "https://xeno-canto.org/soundLinks/uploaded/YQNGFTBRRT/XC500965-GCKI_Baldy_2Sep2014_Harter_01.mp3",
+            description: "lorem ipsum dolor set",
+            conservationStatus: "Low Concern",
+            gallery: [
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                },
+                {
+                    collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+                }
+            ]
         }
     ];
 
@@ -51,14 +146,14 @@ function MatchView() {
             <div className="matchViewContainer" id="matchViewContainer">
                 {birdData.map(data => (
                 <div key={data.sciName} className='matchViewCard' id={data.sciName.replace(/\s/g, '-')}>
-                    <img src={data.img} alt={data.comName}/>
+                    <img src={data.imageLink} alt={data.commonName}/>
                     <div className="matchDetailCard">
                         <div className="nameContainer">
-                            <h2>{data.comName}</h2>
+                            <h2>{data.commonName}</h2>
                             <p>{data.sciName}</p>
                         </div>
                         <div className="buttonContainer">
-                            <Audio src={data.sound}/>
+                            <Audio src={data.soundLink}/>
                             <Button className='primary matchCardBtn' onClick={displayBirdDetails} id={data.sciName}>This is the one!</Button>
                         </div>
                     </div>
@@ -74,15 +169,15 @@ function MatchView() {
     
     // {birdData.map(data => (
     //     <div key={data.sciName} className='matchViewCard' id={data.sciName.replace(/\s/g, '-')}>
-    //         <img src={data.img} alt={data.comName}/>
+    //         <imageLink src={data.imageLink} alt={data.commonName}/>
     //         <div className="matchDetailCard">
     //             <div className="nameContainer">
-    //                 <h2>{data.comName}</h2>
+    //                 <h2>{data.commonName}</h2>
     //                 <p>{data.sciName}</p>
     //             </div>
     //             <div className="buttonContainer">
     //                 <audio 
-    //                     className="audio" src={data.sound}
+    //                     className="audio" src={data.soundLink}
     //                     ref={audioPlayer}
     //                 >
     //                 </audio>
