@@ -51,7 +51,10 @@ function Login(props) {
     return (
         <Card>
             <form onSubmit={submitHandler}>
-                <h1>Log in</h1>
+                <div className="modalHeader">
+                    <h1>Log in</h1>
+                    <Button className="exit"></Button>
+                </div>
                 <div className={`emailWrapper ${emailValidState.isValid === false ? 'error' : ''}`}>
 
                     <label htmlFor="email">Email</label>

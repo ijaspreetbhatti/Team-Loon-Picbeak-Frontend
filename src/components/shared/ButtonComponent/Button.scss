@@ -216,8 +216,8 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
-  }
-  
+}
+
 .camera-secondary-red {
     background-image: url(./ButtonIcons/camera2.svg);
     background-color: $light-red;
@@ -228,4 +228,15 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
-  }
+}
+
+.exit {
+    background-image: url(./ButtonIcons/Exit.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $white;
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
