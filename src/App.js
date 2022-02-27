@@ -8,6 +8,7 @@ import BirdFilter from "./components/DiscoverComponent/BirdFilter";
 import Card from "./components/shared/DialogComponent/Card";
 import Login from "./components/LoginComponent/Login/Login";
 import { useEffect, useState } from "react";
+import Signup from "./components/LoginComponent/CreateAccount/Signup";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -32,8 +33,10 @@ function App() {
 
     return (
         <div className="App">
-            {!loggedIn && <Login onLogin={loginHandler} />}
+            {/*{!loggedIn && <Login onLogin={loginHandler} />} *?}
             {/* {isLoggedIn && <Home onLogout={logoutHandler} />} */}
+
+            <Login></Login>
         </div>
     );
 }
