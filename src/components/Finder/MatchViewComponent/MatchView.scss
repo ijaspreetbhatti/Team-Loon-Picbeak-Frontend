@@ -5,6 +5,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+
+    .changeViewBtn {
+        position: fixed;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+    }
 
     #matchViewCardContainer {
         margin-bottom: 60px;
