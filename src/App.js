@@ -33,7 +33,7 @@ function App() {
 
     return (
         <div className="App">
-            {/*{!loggedIn && <Login onLogin={loginHandler} />} *?}
+            {/* {!loggedIn && <Login onLogin={loginHandler} />} */}
             {/* {isLoggedIn && <Home onLogout={logoutHandler} />} */}
             <Header />
             <Router>
