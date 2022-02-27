@@ -12,11 +12,12 @@ class Audio extends React.Component {
     togglePlay() {
         const currentState = this.state.isActive;
         this.setState({isActive: !currentState});
-
-        if(this.audioPlayer.current.paused) {
-            this.audioPlayer.current.play();
-        } else {
+        
+        if(!this.audioPlayer.current.paused) {
             this.audioPlayer.current.pause();
+        } else {
+            console.log('playing');
+            this.audioPlayer.current.play();
         }
     }
 
