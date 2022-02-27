@@ -107,7 +107,7 @@ function SpeciesChart(props) {
         const myChart = new Chart(ctx, config);
     }, [props]);
     const styles = {
-        padding: "20px",
+        padding: "20px 6vw",
     };
     return <canvas id="myChart" className="myChart" style={styles}></canvas>;
 }
