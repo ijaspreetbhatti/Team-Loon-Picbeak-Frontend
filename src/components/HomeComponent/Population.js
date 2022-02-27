@@ -1,5 +1,6 @@
 import React from "react";
 import "./Population.scss";
+import SpeciesChart from "./SpeciesChart"
 
 function Population() {
     return (
@@ -13,10 +14,7 @@ function Population() {
                 environmental changes and provide guidance to set priorities to
                 the recovery of species at risk.
             </p>
-            <img
-                src="https://via.placeholder.com/342x200"
-                alt="bird population data"
-            />
+            <SpeciesChart></SpeciesChart>
         </div>
     );
 }

@@ -26,8 +26,26 @@ form {
         }
     }
 
-    .emailWrapper {
+    .nicknameWrapper {
         padding-top: 24px;
+        display: flex;
+        flex-direction: column;
+
+        label {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #283237;
+        }
+
+        input {
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid $grey40;
+        }
+    }
+
+    .emailWrapper {
+        padding-top: 16px;
         display: flex;
         flex-direction: column;
 
