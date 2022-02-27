@@ -11,7 +11,7 @@ class Header extends React.Component {
             <div className="headerRight">
                 <div className="desktopNav">
                     <a href="/match">Identify Birds</a>
-                    <a href="">Discover Birds</a>
+                    <a href="*">Discover Birds</a>
                     <a href="/donate">Donate</a>
                 </div>
                 <Menu/>
@@ -54,7 +54,7 @@ class Menu extends React.Component {
                         <div className="navMenu" ref={(element)=>{this.dropdownMenu = element;}}>
                             <a href="*" id="homeBtn">Home</a>
                             <a href='/match'>Identify Birds</a>
-                            <a>Discover Birds</a>
+                            <a href="*">Discover Birds</a>
                             <a href="/donate">Donate</a>
                         </div>
                     )
@@ -97,8 +97,8 @@ class ProfileMenu extends React.Component {
                 {
                     this.state.showMenu ? (
                         <div className="profileMenu" ref={(element)=>{this.dropdownMenu = element;}}>
-                            <a>Profile</a>
-                            <a>Log out</a>
+                            <a href="*">Profile</a>
+                            <a href="*">Log out</a>
                         </div>
                     )
                     : (
