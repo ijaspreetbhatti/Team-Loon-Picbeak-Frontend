@@ -49,40 +49,43 @@ function Login(props) {
 
 
     return (
-        <Card>
-            <form onSubmit={submitHandler}>
-                <div className="modalHeader">
-                    <h1>Log in</h1>
-                    <Button className="exit"></Button>
-                </div>
-                <div className={`emailWrapper ${emailValidState.isValid === false ? 'error' : ''}`}>
+        <div>
+            <div className="modalbg"></div>
+            <Card>
+                <form onSubmit={submitHandler}>
+                    <div className="modalHeader">
+                        <h1>Log in</h1>
+                        <Button className="exit"></Button>
+                    </div>
+                    <div className={`emailWrapper ${emailValidState.isValid === false ? 'error' : ''}`}>
 
-                    <label htmlFor="email">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        value={emailValidState.value}
-                        onChange={emailChangeHandler}
-                        onError={emailValidateHandler} />
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            value={emailValidState.value}
+                            onChange={emailChangeHandler}
+                            onError={emailValidateHandler} />
 
-                </div>
-                <div className={`passwordWrapper ${passwordValid === false ? 'error' : ''}`}>
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={userPassword}
-                        onChange={passwordChangeHandler}
-                        onError={passwordValidateHandler} />
-                    <a href="/">Forgot password?</a>
-                </div>
-                <div className="buttonWrapper">
-                    <Button type="submit" className="primary" disabled={!formValid}>Log in</Button>
-                </div>
-                <span>New to Picbeak? <a href="/">Creat account</a></span>
-            </form>
-        </Card>
+                    </div>
+                    <div className={`passwordWrapper ${passwordValid === false ? 'error' : ''}`}>
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={userPassword}
+                            onChange={passwordChangeHandler}
+                            onError={passwordValidateHandler} />
+                        <a href="/">Forgot password?</a>
+                    </div>
+                    <div className="buttonWrapper">
+                        <Button type="submit" className="primary" disabled={!formValid}>Log in</Button>
+                    </div>
+                    <span>New to Picbeak? <a href="/">Creat account</a></span>
+                </form>
+            </Card>
+        </div>
     )
 }
 
