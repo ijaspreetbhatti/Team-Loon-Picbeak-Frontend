@@ -3,8 +3,8 @@ import "./App.css";
 // import Button from "./components/shared/ButtonComponent/Button";
 // import BgDetails from "./components/HomeComponent/BgDetails";
 // import BirdFilter from "./components/DiscoverComponent/BirdFilter";
-import MatchView from "./components/Finder/MatchViewComponent/MatchView";
-// import ListView from "./components/Finder/ListViewComponent/ListView";
+// import MatchView from "./components/Finder/MatchViewComponent/MatchView";
+import ListView from "./components/Finder/ListViewComponent/ListView";
 import Header from "./components/shared/HeaderComponent/Header";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
     return (
         <div className="App">
             <Header/>
-            <MatchView/>
+            <ListView/>
         </div>
     );
 }
