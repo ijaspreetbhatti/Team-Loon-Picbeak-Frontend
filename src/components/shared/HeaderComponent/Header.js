@@ -5,12 +5,14 @@ class Header extends React.Component {
     render() {
     return (
         <div className="headerContainer">
-            <div className="headerLeft"></div>
+            <div className="headerLeft">
+                <a href="*"><img src="./assets/images/fullLogo.svg"></img></a>
+            </div>
             <div className="headerRight">
                 <div className="desktopNav">
-                    <button>Identify Birds</button>
-                    <button>Discover Birds</button>
-                    <button>Donate</button>
+                    <a href="/match">Identify Birds</a>
+                    <a href="">Discover Birds</a>
+                    <a href="/donate">Donate</a>
                 </div>
                 <Menu/>
                 <ProfileMenu/>
@@ -50,10 +52,10 @@ class Menu extends React.Component {
                 {
                     this.state.showMenu ? (
                         <div className="navMenu" ref={(element)=>{this.dropdownMenu = element;}}>
-                            <button id="homeBtn">Home</button>
-                            <button>Identify Birds</button>
-                            <button>Discover Birds</button>
-                            <button>Donate</button>
+                            <a href="*" id="homeBtn">Home</a>
+                            <a href='/match'>Identify Birds</a>
+                            <a>Discover Birds</a>
+                            <a href="/donate">Donate</a>
                         </div>
                     )
                     : (
