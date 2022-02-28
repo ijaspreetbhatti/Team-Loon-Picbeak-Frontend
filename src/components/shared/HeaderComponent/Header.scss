@@ -66,7 +66,7 @@
         }
     }
 
-        .navMenuIcon {
+        .navMenuIcon, .active-nav {
             background-image: url(./HeaderIcons/menu.svg);
             background-color: white;
             background-repeat: no-repeat;
@@ -77,12 +77,13 @@
             cursor: pointer;
             margin-right:30px;
             padding: 4px;
-
-            &:active {
-                border-radius: 64px;
-                background-color: $secondary-yellow;
-            }
         }
+
+        .active-nav {
+            background-color: $light-green;
+            border-radius: 64px;
+        }
+
         .profileMenu {
             position: absolute;
             bottom: -154px;
@@ -110,7 +111,8 @@
                 margin-bottom: 40px;
             }
         }
-        .profileLink {
+        
+        .profileLink, .active {
             background-image: url(./HeaderIcons/account.svg);
             background-color: white;
             background-repeat: no-repeat;
@@ -120,12 +122,10 @@
             height: 30px;
             padding: 4px;
             cursor: pointer;
-
-            
-            &:active {
-                border-radius: 64px;
-                background-color: $secondary-yellow;
-            }
+        }
+        .active {
+            background-color: $light-green;
+            border-radius: 64px;
         }
     }
 
@@ -146,7 +146,7 @@
 
         .headerRight {
             
-            .profileMenu {
+            .profileMenu, .active {
                 right: 210px;
             }
         }
