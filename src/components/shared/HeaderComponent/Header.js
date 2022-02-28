@@ -1,8 +1,7 @@
 import React from 'react'
 import './Header.scss';
 
-class Header extends React.Component {    
-    render() {
+function Header() {    
     return (
         <div className="headerContainer">
             <a href="*"><div className="headerLeft">
@@ -18,8 +17,7 @@ class Header extends React.Component {
                 <ProfileMenu/>
             </div>
         </div>
-        )
-    }
+    )
 }
 
 class Menu extends React.Component {
@@ -48,7 +46,7 @@ class Menu extends React.Component {
     render() {
     return (
             <div className="menuContainer">
-                <div onClick={this.showMenu}className="navMenuIcon"></div>
+                <div onClick={this.showMenu} className={this.state.showMenu ? "active-nav" : "navMenuIcon"}></div>
                 {
                     this.state.showMenu ? (
                         <div className="navMenu" ref={(element)=>{this.dropdownMenu = element;}}>
@@ -84,8 +82,9 @@ class ProfileMenu extends React.Component {
 
         if(!this.state.showMenu) {
             this.setState({showMenu: true});
-        } else {
+        } else if(this.state.showMenu) {
             this.setState({showMenu: false});
+
         }
     }
     
@@ -93,7 +92,7 @@ class ProfileMenu extends React.Component {
     render() {
     return (
             <div className="profileMenuContainer">
-                <div onClick={this.showMenu}className="profileLink"></div>
+                <div onClick={this.showMenu} className={this.state.showMenu ? "active" : "profileLink"}></div>
                 {
                     this.state.showMenu ? (
                         <div className="profileMenu" ref={(element)=>{this.dropdownMenu = element;}}>
