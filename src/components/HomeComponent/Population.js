@@ -13,10 +13,6 @@ function Population() {
                 environmental changes and provide guidance to set priorities to
                 the recovery of species at risk.
             </p>
-            <img
-                src="https://via.placeholder.com/342x200"
-                alt="bird population data"
-            />
         </div>
     );
 }
