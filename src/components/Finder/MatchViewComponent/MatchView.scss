@@ -4,7 +4,7 @@
     margin: 0 24px 24px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
     position: relative;
 
     .changeViewBtn {
@@ -14,9 +14,23 @@
         transform: translateX(-50%);
         z-index: 1000;
     }
+    
+    .swiper-button-next, .swiper-button-prev {
+        display: hidden;
+    }
 
+    .swiper-button-next:after, .swiper-button-prev:after {
+        display: none;
+    }
+
+    .swiper .swiper-wrapper .swiper-slide, .swiper .swiper-wrapper .swiper-slide-active {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    } 
     #matchViewCardContainer {
         margin-bottom: 60px;
+
     }
 
     h2{
@@ -42,7 +56,7 @@
     }
     
     .matchViewCard {
-        max-width: 300px;
+        width: 300px;
         box-shadow: $shadow;
         border-radius: 24px;
         overflow: hidden;
@@ -128,4 +142,28 @@
             }
         }
     }
+
+    @media screen and (min-width: 1000px) {
+        .swiper-button-next, .swiper-button-prev {
+            display: block;
+            background-color: white;
+            border-radius: 100px;
+            box-shadow: $shadow;
+            width: 40px;
+            height: 40px;
+        }
+    
+        .swiper-button-next {
+            background-image: url(../../../../public/assets/icons/right.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    
+        .swiper-button-prev {
+            background-image: url(../../../../public/assets/icons/left.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
 }
+
