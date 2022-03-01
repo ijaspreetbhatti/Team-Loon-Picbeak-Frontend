@@ -27,7 +27,7 @@ function ProfileInformation(props) {
         <img className="collectionPic" src={data[i].url} key={i} />
         <div className="birdInfo">
           <span className="birdName">{data[i].name}</span>
-          <span className="birdSicName">{data[i].sicName}</span>
+          <span className="birdSciName">{data[i].sciName}</span>
         </div>
       </div>
     );
@@ -41,7 +41,7 @@ function ProfileInformation(props) {
     <div className="userProfileWrapper">
       <div className="userProfileContainer">
         <div className="userInfo">
-          <div className="protrait"></div>
+          <div className="portrait"></div>
           <span className="userName">Chickadeanny</span>
         </div>
         <div className="button">

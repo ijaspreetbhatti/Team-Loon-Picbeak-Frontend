@@ -1,0 +1,21 @@
+@import "../../Variables/variables";
+
+.discover {
+    font-family: $header;
+    text-align: center;
+    h3 {
+        font-weight: 800;
+        color: $grey100;
+        width: 88%;
+        text-align: left;
+        margin: 2rem auto;
+        font-size: 24px;
+    }
+    p {
+        color: $discover;
+        width: 88%;
+        margin: 2rem auto;
+        text-align: left;
+        font-size: 14px;
+    }
+}

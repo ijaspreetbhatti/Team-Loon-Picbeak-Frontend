@@ -1,0 +1,70 @@
+@import "../../../Variables/variables";
+
+.Donate {
+<<<<<<< HEAD:src/components/HomeComponent/Donate.scss
+  font-family: $header;
+  color: $grey100;
+  margin-top: 2rem;
+  h2 {
+    font-weight: 800;
+    width: 88%;
+    text-align: left;
+    margin: 1rem auto;
+  }
+
+  p {
+    width: 88%;
+    text-align: left;
+    margin: 1rem auto;
+  }
+  .buttonParent {
+    text-align: left;
+    .primary {
+      width: 196px;
+      height: 52px;
+      margin-left: 6%;
+=======
+    font-family: $header;
+    color: $grey100;
+    margin-top: 2rem;
+    .imgContainer {
+        position: relative;
+        .front {
+            position: relative;
+            z-index: 6;
+        }
+        .bottom {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            width: 100%;
+        }
+    }
+
+    h2 {
+        font-weight: 800;
+        width: 88%;
+        text-align: left;
+        margin: 1rem auto;
+    }
+
+    p {
+        width: 88%;
+        text-align: left;
+        margin: 1rem auto;
+    }
+    .buttonParent {
+        text-align: left;
+        margin-bottom: 5rem;
+        .primary {
+            width: 196px;
+            height: 52px;
+            margin-left: 6%;
+            cursor: pointer;
+        }
+>>>>>>> develop:src/components/HomeComponent/HomeScss/Donate.scss
+    }
+  }
+}

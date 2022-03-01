@@ -2,7 +2,7 @@ import React from "react";
 import Block from "./Block";
 import Donate from "./Donate";
 import Population from "./Population";
-import "./BgDetails.scss";
+import "./HomeScss/BgDetails.scss";
 
 const BgDetails = (props) => {
   return (

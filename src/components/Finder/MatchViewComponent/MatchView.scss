@@ -1,6 +1,7 @@
 @import "../../../Variables/variables";
 
 #matchView {
+<<<<<<< HEAD
   margin: 24px;
   display: flex;
   flex-direction: column;
@@ -44,6 +45,84 @@
       grid-row: 1/1;
       grid-column: 1 /1;
     }
+=======
+    margin: 0 24px 24px;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    position: relative;
+
+    .changeViewBtn {
+        position: fixed;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+    }
+    
+    .swiper-button-next, .swiper-button-prev {
+        display: hidden;
+    }
+
+    .swiper-button-next:after, .swiper-button-prev:after {
+        display: none;
+    }
+
+    .swiper .swiper-wrapper .swiper-slide, .swiper .swiper-wrapper .swiper-slide-active {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    } 
+    #matchViewCardContainer {
+        margin-bottom: 60px;
+
+    }
+
+    h2{
+        text-align: center;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 30px;
+        font-family: $header;
+        margin: 40px 0 4px 0;
+    }
+    h6 {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        color: $grey80;
+        text-align: center;
+        font-family: $header;
+        margin: 0 0 40px 0;
+    }
+
+    .matchViewCard:first-of-type {
+        margin-top: 0;
+    }
+    
+    .matchViewCard {
+        width: 300px;
+        box-shadow: $shadow;
+        border-radius: 24px;
+        overflow: hidden;
+        display: grid;
+        grid-template-rows: 100%;
+        align-items: end;
+        margin: 24px 0;
+        height: 470px;
+        position: relative;
+        
+        img {
+            max-width: 100%;
+            height:340px;
+            position: absolute;
+            top: 0;
+            object-fit: cover;
+            object-position: top;
+            grid-row: 1/1;
+            grid-column: 1 /1;
+        }
+>>>>>>> develop
 
     .matchDetailCard {
       display: grid;
@@ -55,10 +134,24 @@
       z-index: 1;
       background: white;
 
+<<<<<<< HEAD
       .nameContainer {
         grid-row: 1 / span 1;
         display: flex;
         flex-direction: column;
+=======
+            .nameContainer {
+                grid-row: 1 / span 1;
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+                
+                h2 {
+                    text-align: left;
+                    font-family: $header;
+                    margin: 24px 24px 4px 24px;
+                }
+>>>>>>> develop
 
         h2 {
           text-align: left;
@@ -73,6 +166,7 @@
         }
       }
 
+<<<<<<< HEAD
       .buttonContainer {
         grid-row: 2 / span 1;
         display: grid;
@@ -80,6 +174,21 @@
         margin: 24px;
         column-gap: 8px;
         align-items: center;
+=======
+                .audio {
+                    grid-column: 1 / span 1;
+                    height: 100%;
+                    align-self: stretch;
+                }
+
+                .audioContainer {
+                    height: 100%;
+
+                    .musical-light-red, .musical-secondary-red {
+                        height: 100%;
+                    }
+                }
+>>>>>>> develop
 
         .audio {
           border-radius: 100px;
@@ -102,5 +211,32 @@
         }
       }
     }
+<<<<<<< HEAD
   }
+=======
+
+    @media screen and (min-width: 1000px) {
+        .swiper-button-next, .swiper-button-prev {
+            display: block;
+            background-color: white;
+            border-radius: 100px;
+            box-shadow: $shadow;
+            width: 40px;
+            height: 40px;
+        }
+    
+        .swiper-button-next {
+            background-image: url(../../../../public/assets/icons/right.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    
+        .swiper-button-prev {
+            background-image: url(../../../../public/assets/icons/left.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+>>>>>>> develop
 }
+

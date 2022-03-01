@@ -146,15 +146,6 @@
   cursor: pointer;
 }
 
-.login {
-  width: 100%;
-  height: 40px;
-  background-color: #283237;
-  border: none;
-  font-size: 14px;
-  color: #ffffff;
-}
-
 .musical-light-red {
   background-image: url(./ButtonIcons/MusicalNote1.svg);
   background-color: $light-red;
@@ -236,4 +227,39 @@
   width: 40px;
   height: 40px;
   cursor: pointer;
+}
+
+.camera-primary-red {
+    background-image: url(./ButtonIcons/camera1.svg);
+    background-color: $secondary-red;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 64px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.camera-secondary-red {
+    background-image: url(./ButtonIcons/camera2.svg);
+    background-color: $light-red;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 64px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.exit {
+    background-image: url(./ButtonIcons/Exit.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $white;
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
