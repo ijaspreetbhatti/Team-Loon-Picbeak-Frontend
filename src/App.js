@@ -45,9 +45,9 @@ function App() {
                     {/* <Route path="match" element={<MatchView />} /> */}
                     <Route path="*" element={<HomeComponent />} />
                     <Route path="listview" element={<ListView />} />
+                    <Route path="Discover" element={<Discover />} />
                 </Routes>
             </Router>
-            <Discover />
             {/* <Login></Login> */}
             {/* <FooterComponent />*/}
         </div>
