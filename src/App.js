@@ -1,7 +1,6 @@
 // import logo from './logo.svg';
 import "./App.scss";
 import Login from "./components/LoginComponent/Login/Login";
-import { useEffect, useState } from "react";
 import "./App.scss";
 import MatchView from "./components/Finder/MatchViewComponent/MatchView";
 import ListView from "./components/Finder/ListViewComponent/ListView";
@@ -12,30 +11,9 @@ import HomeComponent from "./components/HomeComponent/HomeComponent";
 import DonateComponent from "./components/DonateComponent/DonateComponent";
 
 function App() {
-    const [loggedIn, setLoggedIn] = useState(false);
-
-    useEffect(() => {
-        const userInfo = localStorage.getItem("loggedIn");
-        if (userInfo === "1") {
-            setLoggedIn(true);
-            alert("You have logged in, Welcome :)");
-        }
-    }, []);
-
-    const loginHandler = (email, password) => {
-        localStorage.setItem("loggedIn", "1");
-        setLoggedIn(true);
-    };
-
-    const logoutHandler = () => {
-        localStorage.removeItem("loggedIn");
-        setLoggedIn(false);
-    };
 
     return (
         <div className="App">
-            {/* {!loggedIn && <Login onLogin={loginHandler} />} */}
-            {/* {isLoggedIn && <Home onLogout={logoutHandler} />} */}
             <Header />
             <Router>
                 <Routes>
@@ -44,6 +22,7 @@ function App() {
                     <Route path="match" element={<MatchView />} />
                     <Route path="*" element={<HomeComponent />} />
                     <Route path="listview" element={<ListView />} />
+                    <Route path="login" element={<Login />} />
                 </Routes>
             </Router>
             {/* <Login></Login> */}
