@@ -2,7 +2,8 @@ import React from "react";
 import "./SearchInput.scss";
 import FilterIcon from "./DiscoverIcons/filter.svg";
 
-function SearchInput() {
+function SearchInput({ openModal }) {
+    console.log();
     return (
         <div className="bird-filter">
             <div className="searchParent">
@@ -13,7 +14,7 @@ function SearchInput() {
                     placeholder="enter bird name"
                 />
             </div>
-            <button>
+            <button onClick={openModal}>
                 <img
                     src={FilterIcon}
                     type="image/svg+xml"
