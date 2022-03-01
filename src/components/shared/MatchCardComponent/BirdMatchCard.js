@@ -1,5 +1,5 @@
 import React from "react";
-import "../../Finder/ListViewComponent/ListView.scss";
+import "./BirdMatchCard.scss";
 import Audio from "../AudioComponent/Audio";
 
 export default function BirdMatchCard(props) {

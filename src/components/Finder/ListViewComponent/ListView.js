@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../../shared/ButtonComponent/Button.js';
 import './ListView.scss';
 import Audio from '../../shared/AudioComponent/Audio';
+import BirdMatchCard from '../../shared/MatchCardComponent/BirdMatchCard';
 
 function ListView() {
     const birdData = [
@@ -144,16 +145,17 @@ function ListView() {
             </div>
             <div className="listViewContainer" id="listViewContainer">
                 {birdData.map(data => (
-                <div key={data.sciName} className='listViewCard' id={data.sciName.replace(/\s/g, '-')}>
-                    <Audio src={data.audioLink}/>
-                    <img src={data.imageLink} alt={data.commonName}/>
-                    <div className="listDetailCard">
-                        <div className="nameContainer">
-                            <p className="body2">{data.commonName}</p>
-                            <p>{data.sciName}</p>
-                        </div>
-                    </div>
-                </div>
+                // <div key={data.sciName} className='listViewCard' id={data.sciName.replace(/\s/g, '-')}>
+                //     <Audio src={data.audioLink}/>
+                //     <img src={data.imageLink} alt={data.commonName}/>
+                //     <div className="listDetailCard">
+                //         <div className="nameContainer">
+                //             <p className="body2">{data.commonName}</p>
+                //             <p>{data.sciName}</p>
+                //         </div>
+                //     </div>
+                // </div>
+                <BirdMatchCard key={data.sciName} id={data.sciName} audioLink={data.audioLink} imageLink={data.imageLink} alt={data.commonName} commonName={data.commonName} sciName={data.sciName} />
             ))}
             </div>
             <div>
