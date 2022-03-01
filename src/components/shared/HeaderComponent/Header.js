@@ -1,23 +1,23 @@
 import React from 'react'
 import './Header.scss';
 
-class Header extends React.Component {    
-    render() {
+function Header() {    
     return (
         <div className="headerContainer">
-            <div className="headerLeft"></div>
+            <a href="*"><div className="headerLeft">
+                <img src="./assets/images/fullLogo.svg"></img>
+            </div></a>
             <div className="headerRight">
                 <div className="desktopNav">
-                    <button>Identify Birds</button>
-                    <button>Discover Birds</button>
-                    <button>Donate</button>
+                    <a href="/match">Identify Birds</a>
+                    <a href="*">Discover Birds</a>
+                    <a href="/donate">Donate</a>
                 </div>
                 <Menu/>
                 <ProfileMenu/>
             </div>
         </div>
-        )
-    }
+    )
 }
 
 class Menu extends React.Component {
@@ -46,14 +46,14 @@ class Menu extends React.Component {
     render() {
     return (
             <div className="menuContainer">
-                <div onClick={this.showMenu}className="navMenuIcon"></div>
+                <div onClick={this.showMenu} className={this.state.showMenu ? "active-nav" : "navMenuIcon"}></div>
                 {
                     this.state.showMenu ? (
                         <div className="navMenu" ref={(element)=>{this.dropdownMenu = element;}}>
-                            <button id="homeBtn">Home</button>
-                            <button>Identify Birds</button>
-                            <button>Discover Birds</button>
-                            <button>Donate</button>
+                            <a href="*" id="homeBtn">Home</a>
+                            <a href='/match'>Identify Birds</a>
+                            <a href="*">Discover Birds</a>
+                            <a href="/donate">Donate</a>
                         </div>
                     )
                     : (
@@ -82,8 +82,9 @@ class ProfileMenu extends React.Component {
 
         if(!this.state.showMenu) {
             this.setState({showMenu: true});
-        } else {
+        } else if(this.state.showMenu) {
             this.setState({showMenu: false});
+
         }
     }
     
@@ -91,12 +92,12 @@ class ProfileMenu extends React.Component {
     render() {
     return (
             <div className="profileMenuContainer">
-                <div onClick={this.showMenu}className="profileLink"></div>
+                <div onClick={this.showMenu} className={this.state.showMenu ? "active" : "profileLink"}></div>
                 {
                     this.state.showMenu ? (
                         <div className="profileMenu" ref={(element)=>{this.dropdownMenu = element;}}>
-                            <button>Profile</button>
-                            <button>Log out</button>
+                            <a href="*">Profile</a>
+                            <a href="*">Log out</a>
                         </div>
                     )
                     : (

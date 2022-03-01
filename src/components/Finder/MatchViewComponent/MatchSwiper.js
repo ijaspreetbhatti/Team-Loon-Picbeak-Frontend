@@ -1,9 +1,12 @@
 import React from 'react';
-import Button from '../../shared/ButtonComponent/Button.js';
-import './ListView.scss';
-import Audio from '../../shared/AudioComponent/Audio';
+import './MatchView.scss';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import MatchCard from "./MatchCard";
 
-function ListView() {
+export default function MatchSwiper() {
     const birdData = [
         {
             commonName: "Varied Thrush",
@@ -137,30 +140,15 @@ function ListView() {
     };
 
     return (
-        <div id="listView">
-            <div>
-                <h2>Explore birds and spot the one you're spying!</h2>
-                <h6>Showing birds around @location</h6>
-            </div>
-            <div className="listViewContainer" id="listViewContainer">
-                {birdData.map(data => (
-                <div key={data.sciName} className='listViewCard' id={data.sciName.replace(/\s/g, '-')}>
-                    <Audio src={data.audioLink}/>
-                    <img src={data.imageLink} alt={data.commonName}/>
-                    <div className="listDetailCard">
-                        <div className="nameContainer">
-                            <p className="body2">{data.commonName}</p>
-                            <p>{data.sciName}</p>
-                        </div>
-                    </div>
-                </div>
+        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+            {birdData.map(data => (
+            <SwiperSlide> 
+                <MatchCard sciName={data.sciName}  
+                    imageLink={data.imageLink} alt={data.commonName} sciName={data.sciName}
+                    audioLink={data.audioLink} function={displayBirdDetails} commonName2={data.commonName}
+                />
+            </SwiperSlide>
             ))}
-            </div>
-            <div>
-            </div>
-            <a href="/match"><Button className="terciary changeViewBtn">Switch to match view</Button></a>
-        </div>
-        );
-    }
-    
-export default ListView; 
+        </Swiper>
+    )
+}
