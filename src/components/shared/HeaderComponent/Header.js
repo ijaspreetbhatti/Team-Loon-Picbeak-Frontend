@@ -64,7 +64,7 @@ class Menu extends React.Component {
                             Home
                         </a>
                         <a href="/match">Identify Birds</a>
-                        <a href="*">Discover Birds</a>
+                        <a href="/discover">Discover Birds</a>
                         <a href="/donate">Donate</a>
                     </div>
                 ) : null}
