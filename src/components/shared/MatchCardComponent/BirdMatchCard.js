@@ -3,8 +3,9 @@ import './BirdMatchCard.scss';
 import Audio from '../AudioComponent/Audio';
 
 export default function BirdMatchCard(props) {
+    
     return(
-        <div key={props.key} className='birdMatchCard listViewCard' id={props.id.replace(/\s/g, '-')}>
+        <div key={props.key} className='birdMatchCard listViewCard' id={props.id.replace(/\s/g, '-')} onClick={props.function}>
             <Audio src={props.audioLink}/>
             <img src={props.imageLink} alt={props.alt}/>
             <div className="listDetailCard">
