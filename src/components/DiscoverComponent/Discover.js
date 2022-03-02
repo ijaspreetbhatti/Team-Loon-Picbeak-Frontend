@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import SearchInput from "./SearchInput";
 import Filter from "./Filter";
 import "./Discover.scss";
@@ -144,30 +144,45 @@ const Discover = () => {
         setShowModal((prev) => !prev);
     };
 
-    function displayBirdDetails() {
-        alert("Clicked the details!");
-    }
+    /** Close Modal When Background Clicked ******************* */
+    // const modalRef = useRef();
+
+    // const closeModal = (e) => {
+    //     if (modalRef.current === e.target) {
+    //         setShowModal(false);
+    //     }
+    // };
+    /********************************************************* */
 
     return (
         <div className="discover">
+            <Filter
+                showModal={showModal}
+                openModal={openModal}
+                setShowModal={setShowModal}
+            />
+            {/* <div
+                className="background"
+                ref={modalRef}
+                onClick={closeModal}
+            ></div> */}
             <h3>Discover bird species</h3>
             <p>
                 Explore birds species and start your own birdwatching session,
                 no matter where you are.
             </p>
             <SearchInput openModal={openModal} />
-            {/* {birdData.map((data) => ( */}
-            {/* <BirdMatchCard 
-            // sciName={data.sciName}
-            // imageLink={data.imageLink}
-            // alt={data.commonName}
-            // sciName={data.sciName}
-            // audioLink={data.audioLink}
-            // function={displayBirdDetails}
-            // commonName2={data.commonName}
-            // />
-            {/* ))} */}
-            <Filter showModal={showModal} openModal={openModal} />
+            {birdData.map((data) => (
+                <BirdMatchCard
+                    key={data.sciName}
+                    id={data.sciName}
+                    audioLink={data.audioLink}
+                    imageLink={data.imageLink}
+                    alt={data.commonName}
+                    commonName={data.commonName}
+                    sciName={data.sciName}
+                />
+            ))}
         </div>
     );
 };

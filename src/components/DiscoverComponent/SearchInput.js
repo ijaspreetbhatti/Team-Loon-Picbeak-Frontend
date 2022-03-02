@@ -3,7 +3,6 @@ import "./SearchInput.scss";
 import FilterIcon from "./DiscoverIcons/filter.svg";
 
 function SearchInput({ openModal }) {
-    console.log();
     return (
         <div className="bird-filter">
             <div className="searchParent">
