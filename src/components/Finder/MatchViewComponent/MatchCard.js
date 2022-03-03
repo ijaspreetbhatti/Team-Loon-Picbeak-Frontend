@@ -5,11 +5,11 @@ import Audio from '../../shared/AudioComponent/Audio';
 
 export default function MatchCard(props) {
     return(
-            <div key={props.sciName} className='matchViewCard' id={`${props.sciName.replace(/\s/g, '-')}-card`}>
-                <img src={props.imageLink} alt={props.commonName}/>
+            <div key={props.key} className='matchViewCard' id={`${props.id.replace(/\s/g, '-')}-card`}>
+                <img src={props.imageLink} alt={props.alt}/>
                 <div className="matchDetailCard">
                     <div className="nameContainer">
-                        <h2>{props.commonName2}</h2>
+                        <h2>{props.commonName}</h2>
                         <p>{props.sciName}</p>
                     </div>
                     <div className="buttonContainer">

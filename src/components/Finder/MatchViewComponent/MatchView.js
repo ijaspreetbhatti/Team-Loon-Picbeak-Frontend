@@ -7,7 +7,6 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import MatchCard from "./MatchCard";
-import { render } from '@testing-library/react';
 
 function MatchView() {
     const birdData = [
@@ -160,9 +159,15 @@ function MatchView() {
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                 {birdData.map(data => (
                 <SwiperSlide> 
-                    <MatchCard sciName={data.sciName}  
-                        imageLink={data.imageLink} alt={data.commonName} sciName={data.sciName}
-                        audioLink={data.audioLink} function={displayBirdDetails} commonName2={data.commonName}
+                    <MatchCard
+                        key={data.sciName}  
+                        imageLink={data.imageLink}
+                        alt={data.commonName}
+                        id={data.sciName}
+                        sciName={data.sciName}
+                        audioLink={data.audioLink}
+                        function={displayBirdDetails}
+                        commonName={data.commonName}
                     />
                 </SwiperSlide>
                 ))}

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Button from '../../shared/ButtonComponent/Button.js';
 import './ListView.scss';
-// import Audio from '../../shared/AudioComponent/Audio';
 import BirdMatchCard from '../../shared/MatchCardComponent/BirdMatchCard';
 import DetailDataDisplay from '../../DetailComponent/DetailDataDisplay/DetailDataDisplay';
 
@@ -154,9 +153,15 @@ function ListView() {
             </div>
             <div className="listViewContainer" id="listViewContainer">
                 {birdData.map(data => (
-                <BirdMatchCard key={data.sciName} 
-                id={data.sciName} audioLink={data.audioLink} imageLink={data.imageLink}
-                alt={data.commonName} commonName={data.commonName} sciName={data.sciName} function={displayBirdDetails}/>
+                <BirdMatchCard 
+                    key={data.sciName} 
+                    id={data.sciName} 
+                    audioLink={data.audioLink}
+                    imageLink={data.imageLink}
+                    alt={data.commonName}
+                    commonName={data.commonName}
+                    sciName={data.sciName}
+                    function={displayBirdDetails}/>
             ))}
             </div>
             <div>
