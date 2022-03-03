@@ -144,6 +144,12 @@
     }
 
     @media screen and (min-width: 1000px) {
+
+        #matchViewContainer {
+            width: 480px;
+            align-self: center;
+        }
+
         .swiper-button-next, .swiper-button-prev {
             display: block;
             background-color: white;
