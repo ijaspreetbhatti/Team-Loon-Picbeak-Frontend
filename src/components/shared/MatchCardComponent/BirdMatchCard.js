@@ -5,6 +5,7 @@ import Audio from "../AudioComponent/Audio";
 export default function BirdMatchCard(props) {
     return (
         <div
+            onClick={props.function}
             key={props.key}
             className="birdMatchCard listViewCard"
             id={props.id.replace(/\s/g, "-")}
