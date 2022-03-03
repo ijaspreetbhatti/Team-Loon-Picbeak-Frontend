@@ -7,10 +7,14 @@
     border-bottom: 1px solid $grey40;
     align-items: center;
     margin-bottom: 0;
-    position: relative;
+    // position: relative;
     z-index: 100;
     height: 64px;
     padding: 0 24px;
+    position: sticky;
+    top: 0;
+    right: 0;
+    background: white;
 
     .headerLeft {
         background-image: url(./HeaderIcons/picbeak-icon.svg);
