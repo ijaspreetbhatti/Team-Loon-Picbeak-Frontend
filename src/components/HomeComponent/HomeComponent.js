@@ -2,7 +2,7 @@ import React from "react";
 import "./HomeComponent.scss";
 import Button from "../shared/ButtonComponent/Button";
 import BgDetails from "./BgDetails";
-import BirdFilter from "../DiscoverComponent/BirdFilter";
+import BirdFilter from "./BirdFilter";
 
 function HomeComponent(props) {
     const buttonCheckHandler = () => {

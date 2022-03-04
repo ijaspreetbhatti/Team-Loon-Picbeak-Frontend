@@ -10,8 +10,7 @@ import FooterComponent from "./components/shared/FooterComponent/FooterComponent
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomeComponent from "./components/HomeComponent/HomeComponent";
 import DonateComponent from "./components/DonateComponent/DonateComponent";
-import DetailDataDisplay from "./components/DetailComponent/DetailDataDisplay/DetailDataDisplay";
-import ProfileInformation from "./components/ProfileComponent/ProfileInformation"
+import Discover from "./components/DiscoverComponent/Discover";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -56,11 +55,11 @@ function App() {
                     <Route path="match" element={<MatchView />} />
                     <Route path="*" element={<HomeComponent />} />
                     <Route path="listview" element={<ListView />} />
-                    <Route path="profileInfo" element={<ProfileInformation />} />
+                    <Route path="Discover" element={<Discover />} />
                 </Routes>
             </Router>
             {/* <Login></Login> */}
-            {/* <FooterComponent /> */}
+            {/* <FooterComponent />*/}
         </div>
     );
 }

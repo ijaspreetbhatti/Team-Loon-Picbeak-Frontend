@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Button from '../../shared/ButtonComponent/Button.js';
 import './ListView.scss';
-import Audio from '../../shared/AudioComponent/Audio';
+// import Audio from '../../shared/AudioComponent/Audio';
+import BirdMatchCard from '../../shared/MatchCardComponent/BirdMatchCard';
+import DetailDataDisplay from '../../DetailComponent/DetailDataDisplay/DetailDataDisplay';
 
 function ListView() {
     const birdData = [
@@ -132,10 +134,18 @@ function ListView() {
         }
     ];
 
+    const [showDetails, setDetails ] = useState(false);
+
     function displayBirdDetails() {
-        alert('Clicked the details!');
+        if (!showDetails) {
+            setDetails(true);
+            console.log('details shown');
+        } else {
+            setDetails(false);
+        }
     };
 
+    if (!showDetails) {
     return (
         <div id="listView">
             <div>
@@ -144,16 +154,9 @@ function ListView() {
             </div>
             <div className="listViewContainer" id="listViewContainer">
                 {birdData.map(data => (
-                <div key={data.sciName} className='listViewCard' id={data.sciName.replace(/\s/g, '-')}>
-                    <Audio src={data.audioLink}/>
-                    <img src={data.imageLink} alt={data.commonName}/>
-                    <div className="listDetailCard">
-                        <div className="nameContainer">
-                            <p className="body2">{data.commonName}</p>
-                            <p>{data.sciName}</p>
-                        </div>
-                    </div>
-                </div>
+                <BirdMatchCard key={data.sciName} 
+                id={data.sciName} audioLink={data.audioLink} imageLink={data.imageLink}
+                alt={data.commonName} commonName={data.commonName} sciName={data.sciName} function={displayBirdDetails}/>
             ))}
             </div>
             <div>
@@ -161,6 +164,12 @@ function ListView() {
             <Button className="terciary" onClick={displayBirdDetails}>Switch to match view</Button>
         </div>
         );
-    }
+    } else {
+        return (
+        <DetailDataDisplay />
+        )
+    } 
+
+}
     
 export default ListView; 
