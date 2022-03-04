@@ -1,5 +1,6 @@
 import React from "react";
 import "./HomeScss/Population.scss";
+import SpeciesChart from "./SpeciesChart";
 
 function Population() {
     return (
@@ -13,6 +14,7 @@ function Population() {
                 environmental changes and provide guidance to set priorities to
                 the recovery of species at risk.
             </p>
+            <SpeciesChart />
         </div>
     );
 }
