@@ -11,7 +11,7 @@ function ListView() {
             commonName: "Varied Thrush",
             sciName: "Ixoreus naevius",
             imageLink: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`,
-            audioLink: "https://xeno-canto.org/sounds/uploaded/JHFICMRVUX/XC604686-180327_02%20Varied%20Thrush.mp3",
+            audioLink: "https://xeno-canto.org/audioLinks/uploaded/JHFICMRVUX/XC604686-180327_02%20Varied%20Thrush.mp3",
             description: "lorem ipsum dolor set",
             conservationStatus: "Low Concern",
             gallery: [
@@ -36,7 +36,7 @@ function ListView() {
             commonName: "Golden-crowned Kinglet",
             sciName: "Regulus satrapa",
             imageLink: `https://live.staticflickr.com/65535/51858746931_a65d3e7c77.jpg`,
-            audioLink: "https://xeno-canto.org/sounds/uploaded/YQNGFTBRRT/XC500965-GCKI_Baldy_2Sep2014_Harter_01.mp3",
+            audioLink: "https://xeno-canto.org/audioLinks/uploaded/YQNGFTBRRT/XC500965-GCKI_Baldy_2Sep2014_Harter_01.mp3",
             description: "lorem ipsum dolor set",
             conservationStatus: "Low Concern",
             gallery: [
@@ -61,7 +61,7 @@ function ListView() {
             commonName: "Glaucous-winged Gull",
             sciName: "Larus glaucescens",
             imageLink: `https://live.staticflickr.com/65535/51870485691_0549c81369.jpg`,
-            audioLink: "https://xeno-canto.org/sounds/uploaded/SFRRHMLGSK/XC612331-Glaucous%20winged%20Gull.mp3",
+            audioLink: "https://xeno-canto.org/audioLinks/uploaded/SFRRHMLGSK/XC612331-Glaucous%20winged%20Gull.mp3",
             description: "lorem ipsum dolor set",
             conservationStatus: "Low Concern",
             gallery: [
@@ -86,7 +86,7 @@ function ListView() {
             commonName: "Varied Thrush",
             sciName: "Ixoreus naevius 2",
             imageLink: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`,
-            audioLink: "https://xeno-canto.org/sounds/uploaded/JHFICMRVUX/XC604686-180327_02%20Varied%20Thrush.mp3",
+            audioLink: "https://xeno-canto.org/audioLinks/uploaded/JHFICMRVUX/XC604686-180327_02%20Varied%20Thrush.mp3",
             description: "lorem ipsum dolor set",
             conservationStatus: "Low Concern",
             gallery: [
@@ -111,7 +111,7 @@ function ListView() {
             commonName: "Golden-crowned Kinglet",
             sciName: "Regulus satrapa 2",
             imageLink: `https://live.staticflickr.com/65535/51858746931_a65d3e7c77.jpg`,
-            audioLink: "https://xeno-canto.org/sounds/uploaded/YQNGFTBRRT/XC500965-GCKI_Baldy_2Sep2014_Harter_01.mp3",
+            audioLink: "https://xeno-canto.org/audioLinks/uploaded/YQNGFTBRRT/XC500965-GCKI_Baldy_2Sep2014_Harter_01.mp3",
             description: "lorem ipsum dolor set",
             conservationStatus: "Low Concern",
             gallery: [
@@ -161,7 +161,7 @@ function ListView() {
             </div>
             <div>
             </div>
-            <a href="/match"><Button className="terciary changeViewBtn">Switch to match view</Button></a>
+            <Button className="terciary" onClick={displayBirdDetails}>Switch to match view</Button>
         </div>
         );
     } else {

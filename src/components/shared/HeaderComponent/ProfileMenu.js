@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Login from "../../LoginComponent/Login/Login";
 import "./Header.scss";
+import ProfileInformation from "../../ProfileComponent/ProfileInformation";
 
 export default function ProfileMenu() {
     const [showMenu, setMenu] = useState(false);

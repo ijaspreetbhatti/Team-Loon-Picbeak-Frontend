@@ -1,0 +1,53 @@
+@import "../../Variables/variables";
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.backGround{
+    background-color: $white;
+    opacity: 0.7;
+    position: fixed;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+}
+.card{
+    padding: 24px;
+    width: 294px;
+    .modalHeader{
+        position: relative;
+        span{
+            font-family: $header;
+            font-weight: 800;
+            font-size: 20px;
+            line-height: 24px;
+        }
+        .exit{
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            right: 5px;
+            top: 6px;
+        }
+    }
+    .modalImg{
+        background-image: url(./ProfileImg/picbeak-17.svg);
+        margin: auto;
+        width: 160px;
+        height: 160px;
+        margin-bottom: 24px;
+        margin-top: 25px;
+    }
+    .modalContent{
+        font-size: 14px;
+        line-height: 18px;
+        color: $discover;
+    }
+    .buttons{
+        margin-top: 40px;
+        display: grid;
+        gap: 8px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
