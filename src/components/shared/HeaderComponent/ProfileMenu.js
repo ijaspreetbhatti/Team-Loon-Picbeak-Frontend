@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Header.scss";
+import ProfileInformation from "../../ProfileComponent/ProfileInformation";
 
 export default function ProfileMenu() {
     const [showMenu, setMenu] = useState(false);
@@ -24,7 +25,7 @@ export default function ProfileMenu() {
             ></div>
             {showMenu ? (
                 <div className="profileMenu">
-                        <a href="*">Profile</a>
+                        <a href="/profile">Profile</a>
                         <a href="*">Log out</a>
                     </div>
             ) : null}

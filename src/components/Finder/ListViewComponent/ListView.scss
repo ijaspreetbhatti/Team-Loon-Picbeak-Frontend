@@ -6,14 +6,6 @@
     flex-direction: column;
     align-items: center;
 
-    .changeViewBtn {
-        position: fixed;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 1000;
-    }
-
     .listViewContainer {
         margin-bottom: 60px;
         display: grid;

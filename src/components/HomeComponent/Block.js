@@ -1,4 +1,3 @@
-import React from "react";
 import "./HomeScss/Block.scss";
 import Img1 from "./HomeImg/block1.png";
 import Img2 from "./HomeImg/block2.png";

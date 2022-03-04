@@ -10,11 +10,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomeComponent from "./components/HomeComponent/HomeComponent";
 import DonateComponent from "./components/DonateComponent/DonateComponent";
 import Discover from "./components/DiscoverComponent/Discover";
+import DetailDataDisplay from "./components/DetailComponent/DetailDataDisplay/DetailDataDisplay";
+import ProfileInformation from "./components/ProfileComponent/ProfileInformation";
 
 function App() {
     return (
         <div className="App">
             <Header />
+
             <Router>
                 <Routes>
                     <Route index element={<HomeComponent />} />
@@ -23,6 +26,7 @@ function App() {
                     <Route path="*" element={<HomeComponent />} />
                     <Route path="listview" element={<ListView />} />
                     <Route path="Discover" element={<Discover />} />
+                    <Route path="profile" element={<ProfileInformation />} />
                 </Routes>
             </Router>
             {/* <Login></Login> */}
