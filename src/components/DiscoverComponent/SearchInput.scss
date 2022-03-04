@@ -1,6 +1,11 @@
 @import "../../Variables/variables";
 
-.bird-filter {
+.search-block {
+    // margin: 0 auto;
+    // align-content: center;
+    justify-content: space-around;
+    flex-gap: 8px;
+    display: flex;
     .searchParent {
         background-image: url("./DiscoverIcons/search.svg");
         // background-position: 10px 12px;
@@ -8,21 +13,36 @@
         width: 75%;
         font-family: $header;
         font-weight: 400;
-        // color: $grey60;
+        color: $grey60;
         background-position: 10px 12px;
         background-position: left;
         background-position-x: 10px;
         background-color: #fafafa;
         border-radius: 24px;
-        padding: 10px;
-        width: 100%;
+        width: 294px;
+        height: 40px;
+
+        .searchBar {
+            padding: 10px;
+            margin-left: 0;
+            border: none;
+            background-color: #fafafa;
+            width: 70%;
+            outline: none;
+        }
     }
-    .searchBar {
-        padding: 10px;
-        margin-left: 30px;
+    button {
+        background-color: transparent;
         border: none;
-        width: 90%;
-        background-color: #fafafa;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        img {
+            width: 100%;
+            height: 100%;
+            // margin-left: 8px;
+        }
     }
 }
 
