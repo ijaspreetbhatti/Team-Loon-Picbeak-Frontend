@@ -24,6 +24,7 @@ function ProfileInformation(props) {
 
   const data = [pic, pic2];
   const birdArray = [];
+  
   for (let i = 0; i < data.length; i++) {
     birdArray.push(
       <div className="birdBox" key={i}>
@@ -43,15 +44,7 @@ function ProfileInformation(props) {
   };
 
   
-  
 
-// function addPhoto(){
-//   const [show, setShow] = useState(false)
-
-//     return(
-//     <Modal />
-//     )   
-//   }
   
   return (
     <div className="userProfileWrapper">
