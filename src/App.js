@@ -26,8 +26,6 @@ function App() {
                     <Route path="Discover" element={<Discover />} />
                 </Routes>
             </Router>
-            {/* <Login></Login> */}
-            {/* <FooterComponent />*/}
         </div>
     );
 }
