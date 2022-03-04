@@ -5,14 +5,19 @@ import Card from '../../shared/DialogComponent/Card';
 import "./Login.scss";
 
 function Login(props) {
+
+    if (!props.show) {
+        return null;
+    }
+
     return (
         <div>
-            <div className="modalbg"></div>
+            <div className="modalbg" onClick={props.onClose}></div>
             <Card>
                 <form>
                     <div className="modalHeader">
                         <h1>Log in</h1>
-                        <Button className="exit"></Button>
+                        <Button className="exit" onClick={props.onClose}></Button>
                     </div>
                     <div className="emailWrapper">
 
