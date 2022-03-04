@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import SearchInput from "./SearchInput";
 import Filter from "./Filter";
 import "./Discover.scss";
@@ -144,16 +144,6 @@ const Discover = () => {
         setShowModal((prev) => !prev);
     };
 
-    /** Close Modal When Background Clicked ******************* */
-    // const modalRef = useRef();
-
-    // const closeModal = (e) => {
-    //     if (modalRef.current === e.target) {
-    //         setShowModal(false);
-    //     }
-    // };
-    /********************************************************* */
-
     return (
         <div className="discover">
             <Filter
@@ -161,11 +151,7 @@ const Discover = () => {
                 openModal={openModal}
                 setShowModal={setShowModal}
             />
-            {/* <div
-                className="background"
-                ref={modalRef}
-                onClick={closeModal}
-            ></div> */}
+
             <h3>Discover bird species</h3>
             <p>
                 Explore birds species and start your own birdwatching session,

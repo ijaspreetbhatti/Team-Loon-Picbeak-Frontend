@@ -12,7 +12,6 @@ import DonateComponent from "./components/DonateComponent/DonateComponent";
 import Discover from "./components/DiscoverComponent/Discover";
 
 function App() {
-
     return (
         <div className="App">
             <Header />
