@@ -1,7 +1,6 @@
 // import logo from './logo.svg';
 import "./App.scss";
 import Login from "./components/LoginComponent/Login/Login";
-import { useEffect, useState } from "react";
 import "./App.scss";
 import MatchView from "./components/Finder/MatchViewComponent/MatchView";
 import ListView from "./components/Finder/ListViewComponent/ListView";
@@ -15,30 +14,9 @@ import DetailDataDisplay from "./components/DetailComponent/DetailDataDisplay/De
 import ProfileInformation from "./components/ProfileComponent/ProfileInformation";
 
 function App() {
-    const [loggedIn, setLoggedIn] = useState(false);
-
-    useEffect(() => {
-        const userInfo = localStorage.getItem("loggedIn");
-        if (userInfo === "1") {
-            setLoggedIn(true);
-            alert("You have logged in, Welcome :)");
-        }
-    }, []);
-
-    const loginHandler = (email, password) => {
-        localStorage.setItem("loggedIn", "1");
-        setLoggedIn(true);
-    };
-
-    const logoutHandler = () => {
-        localStorage.removeItem("loggedIn");
-        setLoggedIn(false);
-    };
 
     return (
         <div className="App">
-            {/*{!loggedIn && <Login onLogin={loginHandler} />} *?}
-            {/* {isLoggedIn && <Home onLogout={logoutHandler} />} */}
             <Header />
 
             <Router>

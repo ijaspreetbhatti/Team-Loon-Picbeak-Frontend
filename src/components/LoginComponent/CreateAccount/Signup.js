@@ -7,6 +7,7 @@ import './Signup.scss'
 function Signup() {
     return (
         <div>
+            <div className="modalbg"></div>
             <Card>
                 <form >
                     <div className="modalHeader">
