@@ -96,7 +96,7 @@ class ProfileMenu extends React.Component {
                 {
                     this.state.showMenu ? (
                         <div className="profileMenu" ref={(element)=>{this.dropdownMenu = element;}}>
-                            <a href="*">Profile</a>
+                            <a href="/profileInfo">Profile</a>
                             <a href="*">Log out</a>
                         </div>
                     )
