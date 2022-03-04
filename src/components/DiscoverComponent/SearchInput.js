@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SearchInput.scss";
-import FilterIcon from "./DiscoverIcons/filter.svg";
+import FilterIcon from "./DiscoverIcons/filterGreen.svg";
+import Button from "../shared/ButtonComponent/Button";
 
 function SearchInput({ openModal }) {
+    const [close, setClose] = useState(false);
+
+    const showClose = () => {
+        if (input.length > 0) {
+            setClose((prev) => !prev);
+        }
+    };
+
     return (
-        <div className="bird-filter">
+        <div className="search-block">
             <div className="searchParent">
                 <input
                     className="searchBar"
@@ -12,6 +21,7 @@ function SearchInput({ openModal }) {
                     id="searchInput"
                     placeholder="enter bird name"
                 />
+                <Button className="exit"></Button>
             </div>
             <button onClick={openModal}>
                 <img
