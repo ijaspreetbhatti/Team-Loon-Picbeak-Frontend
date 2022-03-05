@@ -7,10 +7,11 @@ import MatchView from "./components/Finder/MatchViewComponent/MatchView";
 import ListView from "./components/Finder/ListViewComponent/ListView";
 import Header from "./components/shared/HeaderComponent/Header";
 import FooterComponent from "./components/shared/FooterComponent/FooterComponent";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import HomeComponent from "./components/HomeComponent/HomeComponent";
 import DonateComponent from "./components/DonateComponent/DonateComponent";
 import Discover from "./components/DiscoverComponent/Discover";
+import DetailDataDisplay from "./components/DetailComponent/DetailDataDisplay/DetailDataDisplay";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -46,6 +47,7 @@ function App() {
                     <Route path="*" element={<HomeComponent />} />
                     <Route path="listview" element={<ListView />} />
                     <Route path="Discover" element={<Discover />} />
+                    <Route path="details" element={<DetailDataDisplay />} />
                 </Routes>
             </Router>
             {/* <Login></Login> */}
