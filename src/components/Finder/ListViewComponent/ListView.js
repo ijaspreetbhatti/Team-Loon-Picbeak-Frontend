@@ -131,63 +131,71 @@ function ListView() {
                     collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
                 }
             ]
-        }
-    
-        async function getAudio(sciName, birdRef) {
-            const audioData = await axios.get(`https://pic-beak-backend.herokuapp.com/api/v1/birds/${sciName}/audio`);
-            if(audioData) {
-                birdRef.audioLink = audioData.data.audioLink;
-            }
-        }
-
-        const getBirds = async () => {
-            const mainResponse = await axios.get(
-                'https://pic-beak-backend.herokuapp.com/api/v1/birds/?page= 0&recordsPerPage= 5&subnation=BC'
-                );
-    
-                // setBirdData(mainResponse.data);
-    
-                if(mainResponse.data && mainResponse.data.length > 0) {
-                    birdsData.forEach(bird => {
-                        const sciName = bird.sciName;
-                        getImage(sciName, bird);
-                        getAudio(sciName, bird);
-                    });
-                    // setBirdData(mainResponse.data);
-                }
-                setBirdData(mainResponse.data);
-         
-                // const allData = mainResponse.data;
-                // setBirdData(allData);
-            };
-            getBirds();
-        }, [birdsData]);
+        }]
+            
+            // useEffect(() => {
+            //     async function getImage(sciName, birdRef) {
+            //         const imgData = await axios.get(`https://pic-beak-backend.herokuapp.com/api/v1/birds/${sciName}/image`);
+            //         if(imgData) {
+            //             birdRef.imageLink = imgData.data.imageLink;
+            //         }
+            //     }
+            
+            //     async function getAudio(sciName, birdRef) {
+            //         const audioData = await axios.get(`https://pic-beak-backend.herokuapp.com/api/v1/birds/${sciName}/audio`);
+            //         if(audioData) {
+            //             birdRef.audioLink = audioData.data.audioLink;
+            //         }
+            //     }
         
-    console.log(birdsData);
-
-    return (
-        <div id="listView">
-            <div>
-                <h2>Explore birds and spot the one you're spying!</h2>
-                <h6>Showing birds around @location</h6>
-            </div>
-            <div className="listViewContainer" id="listViewContainer">
-                {birdsData.map((data, index) => (
-                <BirdMatchCard 
-                    key={data.imageLink} 
-                    id={data.sciName} 
-                    audioLink={data.audioLink}
-                    imageLink={data.imageLink}
-                    alt={data.commonName}
-                    commonName={data.commonName}
-                    sciName={data.sciName}/>
-            ))}
-            </div>
-            <div>
-            </div>
-            <Button className="terciary" onClick={displayBirdDetails}>Switch to match view</Button>
-        </div>
-        );
-}
-    
-export default ListView; 
+            //     const getBirds = async () => {
+            //         const mainResponse = await axios.get(
+            //             'https://pic-beak-backend.herokuapp.com/api/v1/birds/?page= 0&recordsPerPage= 5&subnation=BC'
+            //             );
+            
+            //             // setBirdData(mainResponse.data);
+            
+            //             if(mainResponse.data && mainResponse.data.length > 0) {
+            //                 birdsData.forEach(bird => {
+            //                     const sciName = bird.sciName;
+            //                     getImage(sciName, bird);
+            //                     getAudio(sciName, bird);
+            //                 });
+            //                 // setBirdData(mainResponse.data);
+            //             }
+            //             setBirdData(mainResponse.data);
+                 
+            //             // const allData = mainResponse.data;
+            //             // setBirdData(allData);
+            //         };
+            //         getBirds();
+            //     }, [birdsData]);
+                
+            // console.log(birdsData);
+        
+            return (
+                <div id="listView">
+                    <div>
+                        <h2>Explore birds and spot the one you're spying!</h2>
+                        <h6>Showing birds around @location</h6>
+                    </div>
+                    <div className="listViewContainer" id="listViewContainer">
+                        {birdData.map((data, index) => (
+                        <BirdMatchCard 
+                            key={data.imageLink} 
+                            id={data.sciName} 
+                            audioLink={data.audioLink}
+                            imageLink={data.imageLink}
+                            alt={data.commonName}
+                            commonName={data.commonName}
+                            sciName={data.sciName}/>
+                    ))}
+                    </div>
+                    <div>
+                    </div>
+                    <a href="/match"><Button className="terciary changeViewBtn">Switch to match view</Button></a>
+                </div>
+                );
+        }
+            
+        export default ListView; 
