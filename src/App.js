@@ -29,8 +29,6 @@ function App() {
                     <Route path="profile" element={<ProfileInformation />} />
                 </Routes>
             </Router>
-            {/* <Login></Login> */}
-            {/* <FooterComponent />*/}
         </div>
     );
 }

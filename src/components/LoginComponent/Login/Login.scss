@@ -3,20 +3,21 @@
 .modalbg {
     background-color: $white;
     opacity: 0.7;
+    left: 0;
+    top: 65;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     height: 100vh;
     width: 100vw;
 }
 
 form {
     background-color: #ffffff;
-    padding-left: 20px;
-    padding-right: 20px;
+    // padding-left: 20px;
+    // padding-right: 20px;
     display: flex;
     flex-direction: column;
     text-align: left;
-    padding: 24px;
 
     .modalHeader {
         h1 {
@@ -35,8 +36,44 @@ form {
         }
     }
 
+    .nicknameWrapper {
+        padding-top: 24px;
+        display: flex;
+        flex-direction: column;
+
+        label {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #283237;
+        }
+
+        input {
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid $grey40;
+        }
+    }
+
     .emailWrapper {
         padding-top: 24px;
+        display: flex;
+        flex-direction: column;
+
+        label {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #283237;
+        }
+
+        input {
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid $grey40;
+        }
+    }
+
+    .emailWrapper2 {
+        padding-top: 16px;
         display: flex;
         flex-direction: column;
 
@@ -82,6 +119,7 @@ form {
             text-decoration: none;
             color: $primary;
             font-weight: 700;
+            cursor: pointer;
         }
     }
 
@@ -106,6 +144,7 @@ form {
             text-decoration: none;
             color: $primary;
             font-weight: 700;
+            cursor: pointer;
         }
     }
 }
