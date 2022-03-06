@@ -158,17 +158,19 @@ const Discover = () => {
                 no matter where you are.
             </p>
             <SearchInput openModal={openModal} />
-            {birdData.map((data) => (
-                <BirdMatchCard
-                    key={data.sciName}
-                    id={data.sciName}
-                    audioLink={data.audioLink}
-                    imageLink={data.imageLink}
-                    alt={data.commonName}
-                    commonName={data.commonName}
-                    sciName={data.sciName}
-                />
-            ))}
+            <div className="cardParent">
+                {birdData.map((data) => (
+                    <BirdMatchCard
+                        key={data.sciName}
+                        id={data.sciName}
+                        audioLink={data.audioLink}
+                        imageLink={data.imageLink}
+                        alt={data.commonName}
+                        commonName={data.commonName}
+                        sciName={data.sciName}
+                    />
+                ))}
+            </div>
         </div>
     );
 };
