@@ -1,209 +1,232 @@
 @import "../../../Variables/variables";
 
 .primary-big {
-    font-family: $header;
-    background-color: $primary;
-    font-weight: 700;
-    color: $white;
-    padding: 16px 20px;
-    font-size: 20px;
-    border-radius: 68px;
-    border: none;
-    cursor: pointer;
+  font-family: $header;
+  background-color: $primary;
+  font-weight: 700;
+  color: $white;
+  padding: 16px 20px;
+  font-size: 20px;
+  border-radius: 68px;
+  border: none;
+  cursor: pointer;
 }
 
 .primary-big-light {
-    font-family: $header;
-    background-color: $primary-light;
-    font-weight: 700;
-    color: $white;
-    padding: 16px 20px;
-    font-size: 20px;
-    border-radius: 68px;
-    border: none;
-    cursor: pointer;
+  font-family: $header;
+  background-color: $primary-light;
+  font-weight: 700;
+  color: $white;
+  padding: 16px 20px;
+  font-size: 20px;
+  border-radius: 68px;
+  border: none;
+  cursor: pointer;
 }
 
 .primary-big-grey {
-    font-family: $header;
-    background-color: $grey40;
-    font-weight: 700;
-    color: $grey60;
-    padding: 16px 20px;
-    font-size: 20px;
-    border-radius: 68px;
-    border: none;
-    cursor: pointer;
+  font-family: $header;
+  background-color: $grey40;
+  font-weight: 700;
+  color: $grey60;
+  padding: 16px 20px;
+  font-size: 20px;
+  border-radius: 68px;
+  border: none;
+  cursor: pointer;
 }
 
 .primary {
-    font-family: $header;
-    background-color: $primary;
-    font-weight: 700;
-    color: $white;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 68px;
-    border: none;
-    cursor: pointer;
+  font-family: $header;
+  background-color: $primary;
+  font-weight: 700;
+  color: $white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 68px;
+  border: none;
+  cursor: pointer;
 }
 
 .primary-light {
-    font-family: $header;
-    background-color: $primary-light;
-    font-weight: 700;
-    color: $white;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 68px;
-    border: none;
-    cursor: pointer;
+  font-family: $header;
+  background-color: $primary-light;
+  font-weight: 700;
+  color: $white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 68px;
+  border: none;
+  cursor: pointer;
 }
 
 .primary-grey {
-    font-family: $header;
-    background-color: $grey40;
-    font-weight: 700;
-    color: $grey60;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 68px;
-    border: none;
-    cursor: pointer;
+  font-family: $header;
+  background-color: $grey40;
+  font-weight: 700;
+  color: $grey60;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 68px;
+  border: none;
+  cursor: pointer;
 }
 
 .secondary {
-    font-family: $header;
-    background-color: $grey20;
-    font-weight: 700;
-    color: $grey60;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 68px;
-    border: none;
-    cursor: pointer;
+  font-family: $header;
+  background-color: $grey20;
+  font-weight: 700;
+  color: $grey60;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 68px;
+  border: none;
+  cursor: pointer;
 }
 
 .secondary-greentxt {
-    font-family: $header;
-    background-color: $grey20;
-    font-weight: 700;
-    color: $primary;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 68px;
-    border: none;
-    cursor: pointer;
+  font-family: $header;
+  background-color: $grey20;
+  font-weight: 700;
+  color: $primary;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 68px;
+  border: none;
+  cursor: pointer;
 }
 
 .secondary-grey {
-    font-family: $header;
-    background-color: $grey40;
-    font-weight: 700;
-    color: $grey60;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 68px;
-    border: none;
-    cursor: pointer;
+  font-family: $header;
+  background-color: $grey40;
+  font-weight: 700;
+  color: $grey60;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 68px;
+  border: none;
+  cursor: pointer;
 }
 
 .terciary {
-    font-family: $header;
-    background-color: $white;
-    font-weight: 700;
-    color: $grey60;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 68px;
-    box-shadow: $shadow;
-    border: none;
-    cursor: pointer;
+  font-family: $header;
+  background-color: $white;
+  font-weight: 700;
+  color: $grey60;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 68px;
+  box-shadow: $shadow;
+  border: none;
+  cursor: pointer;
 }
 
 .terciary-blacktxt {
-    font-family: $header;
-    background-color: $white;
-    font-weight: 700;
-    color: $grey80;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 68px;
-    box-shadow: $shadow;
-    border: none;
-    cursor: pointer;
+  font-family: $header;
+  background-color: $white;
+  font-weight: 700;
+  color: $grey80;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 68px;
+  box-shadow: $shadow;
+  border: none;
+  cursor: pointer;
 }
 
 .terciary-grey {
-    font-family: $header;
-    background-color: $grey40;
-    font-weight: 700;
-    color: $grey60;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 68px;
-    border: none;
-    cursor: pointer;
+  font-family: $header;
+  background-color: $grey40;
+  font-weight: 700;
+  color: $grey60;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 68px;
+  border: none;
+  cursor: pointer;
 }
 
 .musical-light-red {
-    background-image: url(./ButtonIcons/MusicalNote1.svg);
-    background-color: $light-red;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    border-radius: 64px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+  background-image: url(./ButtonIcons/MusicalNote1.svg);
+  background-color: $light-red;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 64px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 
 .musical-secondary-red {
-    background-image: url(./ButtonIcons/MusicalNote2.svg);
-    background-color: $secondary-red;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    border-radius: 64px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+  background-image: url(./ButtonIcons/MusicalNote2.svg);
+  background-color: $secondary-red;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 64px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 
 .musical-grey {
-    background-image: url(./ButtonIcons/MusicalNote3.svg);
-    background-color: $grey40;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    border-radius: 64px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+  background-image: url(./ButtonIcons/MusicalNote3.svg);
+  background-color: $grey40;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 64px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 
 .adjust-secondary-green {
-    background-image: url(./ButtonIcons/Adjust1.svg);
-    background-color: $light-green;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    border-radius: 64px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+  background-image: url(./ButtonIcons/Adjust1.svg);
+  background-color: $light-green;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 64px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 
 .adjust-primary-green {
-    background-image: url(./ButtonIcons/Adjust2.svg);
-    background-color: $primary;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    border-radius: 64px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+  background-image: url(./ButtonIcons/Adjust2.svg);
+  background-color: $primary;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 64px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.camera-primary-red {
+  background-image: url(./ButtonIcons/camera1.svg);
+  background-color: $secondary-red;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 64px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.camera-secondary-red {
+  background-image: url(./ButtonIcons/camera2.svg);
+  background-color: $light-red;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 64px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 
 .camera-primary-red {

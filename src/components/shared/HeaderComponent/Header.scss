@@ -90,7 +90,7 @@
 
         .profileMenu {
             position: absolute;
-            bottom: -154px;
+            bottom: -158px;
             right: -1px;
             display: flex;
             flex-direction: column;
@@ -100,7 +100,7 @@
             width: 180px;
             border: 1px solid $grey40;
 
-            a {
+            button {
                 font: normal 700 16px/16px $header;
                 background: white;
                 border: none;
@@ -111,7 +111,7 @@
                 color: $grey100;
                 cursor: pointer;
             }
-            a:last-of-type {
+            button:last-of-type {
                 margin-bottom: 40px;
             }
         }
