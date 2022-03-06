@@ -11,11 +11,10 @@ import axios from 'axios';
 
 function MatchView() {
     const [birdsData, setBirdData] = useState([]);
-    const [index, setIndex] = useState(0);
     
-    const birdDataUpdate = useCallback(() => {
-        setBirdData(birdsData);
-    }, [birdsData]);
+    // const birdDataUpdate = useCallback(() => {
+    //     setBirdData(birdsData);
+    // }, [birdsData]);
     
     useEffect(() => {
         async function getImage(sciName, birdRef) {
@@ -53,21 +52,10 @@ function MatchView() {
                 // setBirdData(allData);
             };
             getBirds();
-        }, [birdDataUpdate]);
+        }, [birdsData]);
         
-    console.log(birdsData);
-    const [showDetails, setDetails ] = useState(false);
+    console.log(birdsData[0]);
 
-    function displayBirdDetails() {
-        if (!showDetails) {
-            setDetails(true);
-            console.log('details shown');
-        } else {
-            setDetails(false);
-        }
-    };
-
-    if (!showDetails) {
     return (
         <div id="matchView">
             <div>
@@ -75,7 +63,7 @@ function MatchView() {
                 <h6>Showing birds around @location</h6>
             </div>
             <div className="matchViewContainer" id="matchViewContainer">
-                <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+                <Swiper navigation={true} modules={[Navigation]} className="mySwiper" key={birdsData}>
                 {birdsData?.map((data, index) => (
                 <SwiperSlide key={index}> 
                     <MatchCard 
@@ -84,7 +72,7 @@ function MatchView() {
                         id={data.sciName}
                         sciName={data.sciName}
                         audioLink={data.audioLink}
-                        function={displayBirdDetails}
+                        // function={displayBirdDetails}
                         commonName={data.commonName}
                     />
                 </SwiperSlide>
@@ -96,11 +84,6 @@ function MatchView() {
             <a href="/listview"><Button className="terciary changeViewBtn">Switch to list view</Button></a>
         </div>
         );
-    } else {
-    return (
-        <DetailDataDisplay />
-    )
-    }
 }
     
 

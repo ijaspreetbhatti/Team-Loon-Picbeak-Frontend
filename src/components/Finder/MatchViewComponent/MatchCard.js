@@ -7,7 +7,7 @@ import DetailDataDisplay from '../../DetailComponent/DetailDataDisplay/DetailDat
 
 export default function MatchCard(props) {
     return(
-            <div className='matchViewCard' id={`${props.id.replace(/\s/g, '-')}-card`}>
+            <div className='matchViewCard' id={`${props.id.replace(/\s/g, '-')}-card`} key={props.key}>
                 <img src={props.imageLink} alt={props.alt}/>
                 <div className="matchDetailCard">
                     <div className="nameContainer">
@@ -22,7 +22,7 @@ export default function MatchCard(props) {
             </div>
     )
 }
-<MatchCard 
+/* <MatchCard 
 imageLink={data.imageLink}
 alt={data.commonName}
 id={data.sciName}
@@ -30,4 +30,4 @@ sciName={data.sciName}
 audioLink={data.audioLink}
 function={displayBirdDetails}
 commonName={data.commonName}
-/>
+/> */
