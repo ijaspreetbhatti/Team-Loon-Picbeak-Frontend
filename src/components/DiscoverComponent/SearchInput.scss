@@ -4,13 +4,15 @@
     // margin: 0 auto;
     // align-content: center;
     justify-content: space-around;
-    flex-gap: 8px;
+    // flex-gap: 8px;
     display: flex;
     .searchParent {
-        background-image: url("./DiscoverIcons/search.svg");
+        display: grid;
+        grid-template-columns: 0.5fr 3fr 0.5fr;
+        // background-image: url("./DiscoverIcons/search.svg");
         // background-position: 10px 12px;
         background-repeat: no-repeat;
-        width: 75%;
+        // width: %;
         font-family: $header;
         font-weight: 400;
         color: $grey60;
@@ -22,13 +24,20 @@
         width: 294px;
         height: 40px;
 
+        img {
+            margin: 8px auto 8px 20px;
+        }
+
         .searchBar {
             padding: 10px;
             margin-left: 0;
             border: none;
             background-color: #fafafa;
-            width: 70%;
+            // width: 70%;
             outline: none;
+        }
+        .exit {
+            color: $grey60;
         }
     }
     button {
