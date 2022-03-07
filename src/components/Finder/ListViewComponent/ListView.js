@@ -3,18 +3,13 @@ import Button from '../../shared/ButtonComponent/Button.js';
 import './ListView.scss';
 import BirdMatchCard from '../../shared/MatchCardComponent/BirdMatchCard';
 import DetailDataDisplay from '../../DetailComponent/DetailDataDisplay/DetailDataDisplay';
-import axios from 'axios';
+import axios, {Axios} from 'axios';
 
 function ListView() {
             
         const [birdsData, setBirdData] = useState([]);
         const [initialData, setInitial] = useState([]);
-        const birdsRef = React.createRef();
-        // birdsRef.current = birdsData;
-        
-        const birdDataUpdate = useCallback(() => {
-            setBirdData(birdsData);
-        }, [birdsData, birdsRef]);
+        const [loading, setloading] = useState(true);
         
         async function getImage(sciName, birdRef) {
             const imgData = await axios.get(`https://pic-beak-backend.herokuapp.com/api/v1/birds/${sciName}/image`);
@@ -31,19 +26,36 @@ function ListView() {
         }
         
         useEffect(() => {
+            const source = axios.CancelToken.source()
             const getBirds = async () => {
-                const mainResponse = await axios.get(
-                    'https://pic-beak-backend.herokuapp.com/api/v1/birds/?page= 0&recordsPerPage= 10&subnation=BC'
-                    );
-                    
-                    // if (birdsRef.current != birdsData) {
-                        setInitial(mainResponse.data);
-                        // setRerender(!rerender);
-                        console.log(initialData)
-                // };
+                // let mounted = true
+                
+                try {
+                    // const mainResponse = await axios
+                    await axios.get(
+                    'https://pic-beak-backend.herokuapp.com/api/v1/birds/?page= 0&recordsPerPage= 10&subnation=BC',
+                    {
+                        cancelToken: source.token,
+                    })
+                    .then((response) => {
+                        if (response) {
+                            setloading(false)
+                            setInitial(response.data);
+                            console.log(initialData)
+                        }
+                    })
+                    } catch (error) {
+                        if(Axios.isCancel(error)) {
+                        } else {
+                            throw error
+                        }
+                    }
+                    return function cleanup() {
+                        source.cancel()
+                };
             }
                 getBirds();
-        });
+        }, [initialData, birdsData]);
             
         useEffect(() => {
             const getDetails = async () => {
@@ -55,13 +67,13 @@ function ListView() {
                         getImage(sciName, bird);
                         getAudio(sciName, bird);
                         console.log(birdsData)
+                        setBirdData(birdsData);
                     });
-                    setBirdData(birdsData);
                     
                 };
             }
                 getDetails();
-            }, [initialData.length, birdsData]);
+            });
         
             return (
                 <div id="listView">
