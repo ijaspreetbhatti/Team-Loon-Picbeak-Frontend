@@ -1,4 +1,4 @@
-@import "../../../Variables/variables";
+@import "../../../../Variables/variables";
 
 .Donate {
     font-family: $header;
@@ -12,11 +12,11 @@
         }
         .bottom {
             position: absolute;
-            top: 25%;
+            top: 65%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1;
-            width: 100%;
+            width: 125%;
         }
     }
 
@@ -42,5 +42,31 @@
             cursor: pointer;
         }
     }
-  }
+    @media screen and (min-width: 768px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .imgContainer {
+            .bottom {
+                top: 50%;
+                right: 0;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+                width: 100%;
+            }
+        }
+        .donate-desc {
+            margin: auto auto 2rem auto;
 
+            h2,
+            p {
+                width: 354px;
+                margin: 2rem 0;
+            }
+            .buttonParent {
+                .primary {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}

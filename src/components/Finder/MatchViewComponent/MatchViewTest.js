@@ -7,14 +7,15 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 // import MatchCard from "./MatchCard";
-import axios, { Axios } from 'axios';
+import axios from 'axios';
 import Audio from '../../shared/AudioComponent/Audio';
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 function MatchView() {
     const [birdsData, setBirdData] = useState([]);
     const [initialData, setInitial] = useState([]);
-    const [loading, setloading] = useState(true)
+    const birdsRef = React.createRef();
+    // birdsRef.current = birdsData;
     
     // const birdDataUpdate = useCallback(() => {
     //     setBirdData(birdsData);
@@ -33,41 +34,22 @@ function MatchView() {
             birdRef.audioLink = audioData.data.audioLink;
         }
     }
-    
     useEffect(() => {
-        const source = axios.CancelToken.source()
         const getBirds = async () => {
-            // let mounted = true
-            
-            try {
-                // const mainResponse = await axios
-                await axios.get(
-                'https://pic-beak-backend.herokuapp.com/api/v1/birds/?page= 0&recordsPerPage= 5&subnation=BC',
-                {
-                    cancelToken: source.token,
-                })
-                .then((response) => {
-                    if (response) {
-                        setloading(false)
-                        setInitial(response.data);
-                        console.log(initialData)
-                    }
-                })
-                } catch (error) {
-                    if(Axios.isCancel(error)) {
-                    } else {
-                        throw error
-                    }
-                }
-                return function cleanup() {
-                    source.cancel()
-            };
+            const mainResponse = await axios.get(
+                'https://pic-beak-backend.herokuapp.com/api/v1/birds/?page= 0&recordsPerPage= 5&subnation=BC'
+                );
+                
+                // if (birdsRef.current != birdsData) {
+                    setInitial(mainResponse.data);
+                    // setRerender(!rerender);
+                    console.log(initialData)
+            // };
         }
             getBirds();
-    }, [initialData, birdsData]);
+    });
         
     useEffect(() => {
-        
         const getDetails = async () => {
             setBirdData(initialData);
 
@@ -75,15 +57,12 @@ function MatchView() {
                 birdsData.forEach(bird => {
                     const sciName = bird.sciName;
                     getImage(sciName, bird);
-                    getAudio(sciName, bird);
+                    // getAudio(sciName, bird);
                     setBirdData(birdsData);
-                    // setDataLoad(1)
+                    console.log(birdsData)
                 });
+            
             };
-            // return () => {
-            //     // source.cancel();
-            //     setDataLoad(true)
-            // };
         }
             getDetails();
         });
@@ -95,7 +74,7 @@ function MatchView() {
                 <h6>Showing birds around @location</h6>
             </div>
             <div className="matchViewContainer" id="matchViewContainer">
-                <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+                <Swiper navigation={true} modules={[Navigation]} className="mySwiper" key={birdsData}>
                 {birdsData?.map((data, index) => (
                 <SwiperSlide key={index}> 
                 <div className='matchViewCard' id={`${data.sciName.replace(/\s/g, '-')}-card`}>
@@ -107,11 +86,7 @@ function MatchView() {
                         </div>
                         <div className="buttonContainer">
                             <Audio src={data.audioLink}/>
-                            <Link to={{
-                                pathname: "/details",
-                                state: { birdPic: `${data.imageLink}`, sciName:`This Sciname`, commonName:`${data.commonName}`, from: 'match'}}} 
-                                element={<DetailDataDisplay />}>
-                                <Button className='primary matchCardBtn'>This is the one!</Button></Link>
+                            <Link to="/details" state = {{ from: '/match' }} element={<DetailDataDisplay />}><Button className='primary matchCardBtn'>This is the one!</Button></Link>
                         </div>
                     </div>
                 </div>

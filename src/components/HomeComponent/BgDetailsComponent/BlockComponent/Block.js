@@ -1,7 +1,7 @@
-import "./HomeScss/Block.scss";
-import Img1 from "./HomeImg/block1.png";
-import Img2 from "./HomeImg/block2.png";
-import Img3 from "./HomeImg/block3.png";
+import "./Block.scss";
+import Img1 from "../../HomeImg/block1.png";
+import Img2 from "../../HomeImg/block2.png";
+import Img3 from "../../HomeImg/block3.png";
 
 function Block(props) {
     return (

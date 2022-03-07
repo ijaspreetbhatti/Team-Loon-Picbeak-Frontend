@@ -59,6 +59,7 @@ function DetailDataDisplay(props) {
 
     }
   }
+  const sciName = props.sciName;
 
   return (
     <div className="birdProfileWrapper">
@@ -68,8 +69,8 @@ function DetailDataDisplay(props) {
         <div className="infoWrapper">
           <div className="titleBlock">
             <div className="nameBlock">
-              <span className="commonName">{birdData[0].commonName}</span>
-              <span className="scifcName">{birdData[0].sciName}</span>
+              <span className="commonName">{props.commonName}Steller's Jay</span>
+              <span className="scifcName">{sciName}Cyanocitta stelleri</span>
             </div>
             <Audio src={birdData[0].audioLink}/>
           </div>
