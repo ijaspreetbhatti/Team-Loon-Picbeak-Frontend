@@ -2,36 +2,51 @@
 import React, { useState } from "react";
 import Button from "../../shared/ButtonComponent/Button";
 import "./DetailDataDisplay.scss";
+import Audio from '../../shared/AudioComponent/Audio';
 
 function DetailDataDisplay(props) {
  
 
-  // const dataPic = [];
-  // for(let i = 0; i < birdData.length; i++){
-  //   if(birdData){
-  //     let pic = birdData[i].gallery;
-  //     for(let z = 0; z < pic.length; z++){
-  //       let gallery = pic[z].collectedBirdImage;
-  //       dataPic.push(<img className="galleryPic" src={pic} key={i} />);
+  const birdData = [
+    {
+      commonName: "Varied Thrush",
+      sciName: "Ixoreus naevius",
+      imageLink: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`,
+      audioLink: "https://xeno-canto.org/audioLinks/uploaded/JHFICMRVUX/XC604686-180327_02%20Varied%20Thrush.mp3",
+      description: "lorem ipsum dolor set",
+      conservationStatus: "Low Concern",
+      gallery: [
+          {
+              collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+          },
+          {
+              collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+          },
+          {
+              collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+          },
+          {
+              collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+          },
+          {
+              collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
+          }
+      ]
+  },
+  ]
 
-  //     }
-  //   }
+  const picArray = [];
+  for (let i = 0; i < 4; i++) {
+    if (i < birdData.length) {
+      let pic = birdData[i].gallery[i].collectedBirdImage;
+      picArray.push(<img className="galleryPic" src={pic} key={i} />);
+    }
+  }
+  let overlay = <span className="greyBoxNone">+{picArray.length - 4}</span>;
 
-  // }
-
-
-  // const picArray = [];
-  // for (let i = 0; i < 4; i++) {
-  //   if (i < dataPic.length) {
-  //     let pic = dataPic[i];
-  //     picArray.push(<img className="galleryPic" src={pic} key={i} />);
-  //   }
-  // }
-  // let overlay = <span className="greyBoxNone">+{dataPic.length - 4}</span>;
-
-  // if (dataPic.length > 4) {
-  //   overlay = <span className="greyBoxShow">+{dataPic.length - 4}</span>;
-  // }
+  if (picArray.length > 4) {
+    overlay = <span className="greyBoxShow">+{picArray.length - 4}</span>;
+  }
 
   const [learnMore, setLearnMore] = useState(false);
   const extraContent =
@@ -47,22 +62,22 @@ function DetailDataDisplay(props) {
 
   return (
     <div className="birdProfileWrapper">
-      <img className="postImage" src={props.birdPic} />
+      <img className="postImage" src={birdData[0].imageLink} />
 
       <div className="profileContainer" >
         <div className="infoWrapper">
           <div className="titleBlock">
             <div className="nameBlock">
-              <span className="commonName">{props.commonName}Steller's Jay</span>
-              <span className="scifcName">{props.sciName}Cyanocitta stelleri</span>
+              <span className="commonName">{birdData[0].commonName}</span>
+              <span className="scifcName">{birdData[0].sciName}</span>
             </div>
-            <Button className="musical-light-red"></Button>
+            <Audio src={birdData[0].audioLink}/>
           </div>
 
-          <span className="status">{props.conservation}Low conservation concern</span>
+          <span className="status">{birdData[0].conservationStatus}</span>
 
           <span className="content">
-            {props.content}
+            {birdData[0].description}
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum
             quam vel lobortis molestie. Praesent metus ipsum, blandit
             acscelerisque a, vehicula eget sapien. Phasellus quis sem
@@ -82,7 +97,7 @@ function DetailDataDisplay(props) {
         <div className="galleryWrapper">
           <span className="galleryTitle">Gallery</span>
           <div className="galleryContainer">
-            {props.gallery}
+            {picArray}
             {/* {overlay} */}
           </div>
         </div>

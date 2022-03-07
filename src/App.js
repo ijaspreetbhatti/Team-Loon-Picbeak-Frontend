@@ -28,10 +28,11 @@ function App() {
                     <Route path="listview" element={<ListView />} />
                     <Route path="Discover" element={<Discover />} />
                     <Route path="profile" element={<ProfileInformation />} />
+                    <Route path="birdProfile" element={<DetailDataDisplay />} />
                 </Routes>
             </Router>
             {/* <Login></Login> */}
-            {/* <FooterComponent />*/}
+            {/* <FooterComponent /> */}
         </div>
     );
 }

@@ -1,0 +1,139 @@
+@import "../../../Variables/variables";
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.backGround{
+    background-color: $white;
+    opacity: 0.7;
+    position: fixed;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+}
+.card{
+    padding: 24px;
+    width: 294px;
+    z-index: 3;
+    .editProfile{
+        text-align: center;
+        padding: 0;
+        .modalHeader{
+            position: relative;
+            span{
+                font-family: $header;
+                font-weight: 800;
+                font-size: 20px;
+                line-height: 24px;
+            }
+            .exit{
+                position: absolute;
+                width: 13px;
+                height: 13px;
+                right: 5px;
+                top: 0;
+            }
+        }
+        .green{
+            background-image: url(../PortraitIcons/green.svg);
+            margin: auto;
+            width: 90px;
+            height: 90px;
+            margin-bottom: 24px;
+            margin-top: 24px;
+
+            .edit-secondary-red{
+                margin-top: 50px;
+                margin-left: 50px;
+            }
+        }
+        .red{
+            background-image: url(../PortraitIcons/red.svg);
+            margin: auto;
+            width: 90px;
+            height: 90px;
+            margin-bottom: 24px;
+            margin-top: 24px;
+
+            .edit-secondary-red{
+                margin-top: 50px;
+                margin-left: 50px;
+            }
+        }
+
+        .yellow{
+            background-image: url(../PortraitIcons/yellow.svg);
+            margin: auto;
+            width: 90px;
+            height: 90px;
+            margin-bottom: 24px;
+            margin-top: 24px;
+
+            .edit-secondary-red{
+                margin-top: 50px;
+                margin-left: 50px;
+            }
+        }
+
+        .blue{
+            background-image: url(../PortraitIcons/blue.svg);
+            margin: auto;
+            width: 90px;
+            height: 90px;
+            margin-bottom: 24px;
+            margin-top: 24px;
+
+            .edit-secondary-red{
+                margin-top: 50px;
+                margin-left: 50px;
+            }
+        }
+
+        .nicknameWrapper{
+            display: flex;
+            flex-direction: column;
+            font-family: $header;
+            font-size: 14px;
+            line-height: 18px;
+            color: $grey80;
+            text-align: left;
+
+            input{
+                margin-top: 8px;
+               
+                padding: 12px 20px;
+                border: 1px solid #E0E0E0;
+                box-sizing: border-box;
+                border-radius: 8px;
+                
+            }
+        }
+        .emailWrapper{
+            display: flex;
+            flex-direction: column;
+            font-family: $header;
+            font-size: 14px;
+            line-height: 18px;
+            color: $grey80;
+            text-align: left;
+            input{
+                margin-top: 8px;
+                padding: 12px 20px;
+                border: 1px solid #E0E0E0;
+                box-sizing: border-box;
+                border-radius: 8px;
+            }
+        }
+        .buttons-edit{
+            margin-top: 40px;
+            display: grid;
+            gap: 8px;
+            grid-template-columns: 1fr 1fr;
+            .primary {
+                width: auto;
+                height: 46px;
+                line-height: 10px;
+            }
+        }
+    }
+}

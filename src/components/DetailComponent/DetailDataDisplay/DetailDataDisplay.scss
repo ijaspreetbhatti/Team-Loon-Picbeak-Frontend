@@ -7,9 +7,10 @@
   justify-content: center;
   font-family: $header;
   margin-top: 64px;
-  width: 390px;
+  width: 100%;
 
   .postImage {
+    
     position: fixed;
     top: 64px;
     width: 100%;
