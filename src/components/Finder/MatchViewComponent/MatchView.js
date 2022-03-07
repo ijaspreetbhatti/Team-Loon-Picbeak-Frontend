@@ -6,17 +6,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import MatchCard from "./MatchCard";
+// import MatchCard from "./MatchCard";
 import axios from 'axios';
 import Audio from '../../shared/AudioComponent/Audio';
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 function MatchView() {
     const [birdsData, setBirdData] = useState([]);
+    const [initialData, setInitial] = useState([]);
+    const birdsRef = React.createRef();
+    // birdsRef.current = birdsData;
     
-    const birdDataUpdate = useCallback(() => {
-        setBirdData(birdsData);
-    }, [birdsData]);
+    // const birdDataUpdate = useCallback(() => {
+    //     setBirdData(birdsData);
+    // }, [birdsData, birdsRef]);
     
     async function getImage(sciName, birdRef) {
         const imgData = await axios.get(`https://pic-beak-backend.herokuapp.com/api/v1/birds/${sciName}/image`);
@@ -36,26 +39,33 @@ function MatchView() {
             const mainResponse = await axios.get(
                 'https://pic-beak-backend.herokuapp.com/api/v1/birds/?page= 0&recordsPerPage= 5&subnation=BC'
                 );
-    
-                // setBirdData(mainResponse.data);
-    
-                if(mainResponse.data && mainResponse.data.length > 0) {
-                    birdsData.forEach(bird => {
-                        const sciName = bird.sciName;
-                        getImage(sciName, bird);
-                        // getAudio(sciName, bird);
-                    });
-                //     // setBirdData(mainResponse.data);
-                }
-                setBirdData(mainResponse.data);
-         
-                // const allData = mainResponse.data;
-                // setBirdData(allData);
-            };
+                
+                // if (birdsRef.current != birdsData) {
+                    setInitial(mainResponse.data);
+                    // setRerender(!rerender);
+                    console.log(initialData)
+            // };
+        }
             getBirds();
-        }, [birdsData.length]);
+    });
         
-    console.log(birdsData[0]);
+    useEffect(() => {
+        const getDetails = async () => {
+            setBirdData(initialData);
+
+            if(birdsData && birdsData.length > 0) {
+                birdsData.forEach(bird => {
+                    const sciName = bird.sciName;
+                    getImage(sciName, bird);
+                    // getAudio(sciName, bird);
+                    setBirdData(birdsData);
+                    console.log(birdsData)
+                });
+            
+            };
+        }
+            getDetails();
+        });
 
     return (
         <div id="matchView">
