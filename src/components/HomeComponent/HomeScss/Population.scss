@@ -1,23 +1,35 @@
 @import "../../../Variables/variables";
 
 .birdPopulation {
-  background-color: $light-yellow;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  font-family: $header;
-  color: $grey100;
+    background-color: $light-yellow;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    font-family: $header;
+    color: $grey100;
 
-  h2 {
-    font-weight: 800;
-    margin-left: 6%;
-    text-align: left;
-    width: 64%;
-  }
+    h2 {
+        font-weight: 800;
+        margin-left: 6%;
+        text-align: left;
+        width: 75%;
+    }
 
-  p {
-    margin: 2rem auto;
-    width: 88%;
-    text-align: left;
-    font-weight: 400;
-  }
+    p {
+        margin: 2rem auto;
+        width: 88%;
+        text-align: left;
+        font-weight: 400;
+    }
+
+    @media screen and (min-width: 768px) {
+        // display: flex;
+        // justify-content: space-around;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        #myChart {
+            padding-right: 0;
+            width: 40%;
+        }
+    }
 }

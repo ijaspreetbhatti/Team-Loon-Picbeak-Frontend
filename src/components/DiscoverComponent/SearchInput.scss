@@ -1,18 +1,12 @@
 @import "../../Variables/variables";
 
 .search-block {
-    // margin: 0 auto;
-    // align-content: center;
     justify-content: space-around;
-    // flex-gap: 8px;
     display: flex;
     .searchParent {
         display: grid;
         grid-template-columns: 0.5fr 3fr 0.5fr;
-        // background-image: url("./DiscoverIcons/search.svg");
-        // background-position: 10px 12px;
         background-repeat: no-repeat;
-        // width: %;
         font-family: $header;
         font-weight: 400;
         color: $grey60;
@@ -33,7 +27,6 @@
             margin-left: 0;
             border: none;
             background-color: #fafafa;
-            // width: 70%;
             outline: none;
         }
         .exit {
@@ -47,30 +40,10 @@
         width: 40px;
         height: 40px;
         border-radius: 20px;
+        cursor: pointer;
         img {
             width: 100%;
             height: 100%;
-            // margin-left: 8px;
         }
     }
 }
-
-// #myInput {
-//     backgro#myInput {
-//   background-image: url('/css/searchicon.png');
-//   background-position: 10px 12px;
-//   background-repeat: no-repeat;
-//   width: 100%;
-//   font-size: 16px;
-//   padding: 12px 20px 12px 40px;
-//   border: 1px solid #ddd;
-//   margin-bottom: 12px;
-// }und-image: url('/css/searchicon.png');
-//   background-position: 10px 12px;
-//   background-repeat: no-repeat;
-//   width: 100%;
-//   font-size: 16px;
-//   padding: 12px 20px 12px 40px;
-//   border: 1px solid #ddd;
-//   margin-bottom: 12px;
-// }
