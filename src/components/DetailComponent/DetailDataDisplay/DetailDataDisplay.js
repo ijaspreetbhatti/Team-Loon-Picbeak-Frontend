@@ -44,6 +44,7 @@ function DetailDataDisplay(props) {
 
     }
   }
+  const sciName = props.sciName;
 
   return (
     <div className="birdProfileWrapper">
@@ -54,7 +55,7 @@ function DetailDataDisplay(props) {
           <div className="titleBlock">
             <div className="nameBlock">
               <span className="commonName">{props.commonName}Steller's Jay</span>
-              <span className="scifcName">{props.sciName}Cyanocitta stelleri</span>
+              <span className="scifcName">{sciName}Cyanocitta stelleri</span>
             </div>
             <Button className="musical-light-red"></Button>
           </div>

@@ -10,6 +10,7 @@
         margin-bottom: 60px;
         display: grid;
         grid-template-columns: auto auto;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
         grid-auto-flow: row;
         gap: 20px;
         // margin: 0 24px;
@@ -30,6 +31,15 @@
         text-align: center;
         font-family: $header;
         margin: 0 0 40px 0;
+    }
+    .changeViewBtn {
+        position: fixed;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        width: 200px;
+        bottom: 24px;
+        z-index: 100;
     }
 }
 

@@ -27,6 +27,7 @@ function App() {
                     <Route path="listview" element={<ListView />} />
                     <Route path="discover" element={<Discover />} />
                     <Route path="profile" element={<ProfileInformation />} />
+                    <Route path="details" element={<DetailDataDisplay/>}/>
                 </Routes>
             </Router>
         </div>
