@@ -46,4 +46,13 @@
             height: 100%;
         }
     }
+
+    @media screen and (min-width: 768px) {
+        justify-content: center;
+        gap: 8px;
+        .searchParent {
+            width: 64%;
+            grid-template-columns: 0.5fr 6fr 0.5fr;
+        }
+    }
 }
