@@ -49,61 +49,81 @@ function Filter({ showModal, openModal, setShowModal }) {
                         <form>
                             <fieldset>
                                 <legend>By conservation status</legend>
-                                <label>
-                                    Low conservation concern
+                                <div className="option">
                                     <input
+                                        className="visually-hidden"
+                                        id="low"
                                         type="radio"
                                         value="low"
                                         name="status"
                                     />
-                                </label>
-                                <label>
-                                    Moderate conservation concern
+                                    <label for="low">
+                                        Low conservation concern
+                                    </label>
+                                </div>
+                                <div className="option">
                                     <input
+                                        className="visually-hidden"
+                                        id="moderate"
                                         type="radio"
                                         value="moderate"
                                         name="status"
                                     />
-                                </label>
-                                <label>
-                                    High conservation concern
+                                    <label for="moderate">
+                                        Moderate conservation concern
+                                    </label>
+                                </div>
+                                <div className="option">
                                     <input
+                                        className="visually-hidden"
+                                        id="high"
                                         type="radio"
                                         value="high"
                                         name="status"
                                     />
-                                </label>
+                                    <label for="high">
+                                        High conservation concern
+                                    </label>
+                                </div>
                             </fieldset>
 
                             <fieldset>
                                 <legend>By size</legend>
-                                <label>
-                                    Small
+                                <div className="option">
                                     <input
+                                        className="visually-hidden"
+                                        id="small"
                                         type="radio"
                                         value="small"
                                         name="size"
                                     />
-                                </label>
-                                <label>
-                                    Medium
+                                    <label for="small">Small</label>
+                                </div>
+                                <div className="option">
                                     <input
+                                        className="visually-hidden"
+                                        id="medium"
                                         type="radio"
                                         value="medium"
                                         name="size"
                                     />
-                                </label>
-                                <label>
-                                    Large
+                                    <label for="medium">Medium</label>
+                                </div>
+                                <div className="option">
                                     <input
+                                        className="visually-hidden"
+                                        id="large"
                                         type="radio"
                                         value="large"
                                         name="size"
                                     />
-                                </label>
+                                    <label for="large">Large</label>
+                                </div>
                             </fieldset>
-                            <Button className="secondary">Clear</Button>
-                            <Button className="primary">Apply</Button>
+                            <div class="btn-container">
+                                <Button className="secondary">Clear</Button>
+                                <Button className="primary">Apply</Button>
+                            </div>
                         </form>
                     </div>
                 </div>
