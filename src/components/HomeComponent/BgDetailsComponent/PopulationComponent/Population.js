@@ -1,6 +1,6 @@
 import React from "react";
-import "./HomeScss/Population.scss";
-import SpeciesChart from "./SpeciesChart";
+import "./Population.scss";
+import SpeciesChart from "../../SpeciesChart";
 
 function Population() {
     return (

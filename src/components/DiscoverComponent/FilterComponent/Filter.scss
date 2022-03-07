@@ -1,4 +1,4 @@
-@import "../../Variables/variables";
+@import "../../../Variables/variables";
 
 .Filter {
     .filterBackground {
@@ -37,7 +37,7 @@
             }
 
             .closeIcon {
-                background-image: url("./DiscoverIcons/close.svg");
+                background-image: url("../DiscoverIcons/close.svg");
                 background-repeat: no-repeat;
                 width: 24px;
                 height: 24px;

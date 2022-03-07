@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import SearchInput from "./SearchInput";
-import Filter from "./Filter";
+import SearchInput from "./SearchInputComponent/SearchInput";
+import Filter from "./FilterComponent/Filter";
 import "./Discover.scss";
 import BirdMatchCard from "../shared/MatchCardComponent/BirdMatchCard";
 

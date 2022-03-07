@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useEffect } from "react";
-import Button from "../shared/ButtonComponent/Button";
+import Button from "../../shared/ButtonComponent/Button";
 import "./Filter.scss";
 
 function Filter({ showModal, openModal, setShowModal }) {

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./SearchInput.scss";
-import FilterIcon from "./DiscoverIcons/filterGreen.svg";
-import Button from "../shared/ButtonComponent/Button";
-import seachIcon from "./DiscoverIcons/search.svg";
+import FilterIcon from "../DiscoverIcons/filterGreen.svg";
+import Button from "../../shared/ButtonComponent/Button";
+import seachIcon from "../DiscoverIcons/search.svg";
 
 function SearchInput({ openModal }) {
     const [close, setClose] = useState(false);
