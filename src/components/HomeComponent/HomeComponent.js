@@ -6,7 +6,7 @@ import BirdFilter from "./BirdFilter";
 
 function HomeComponent(props) {
     const buttonCheckHandler = () => {
-        document.getElementById("searchInput").focus();
+        document.getElementById("BirdFilter").scrollIntoView();
     };
 
     return (
