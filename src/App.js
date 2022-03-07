@@ -31,8 +31,6 @@ function App() {
                     <Route path="birdProfile" element={<DetailDataDisplay />} />
                 </Routes>
             </Router>
-            {/* <Login></Login> */}
-            {/* <FooterComponent /> */}
         </div>
     );
 }
