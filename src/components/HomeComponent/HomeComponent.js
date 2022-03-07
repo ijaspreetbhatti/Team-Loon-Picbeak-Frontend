@@ -1,7 +1,7 @@
 import React from "react";
 import "./HomeComponent.scss";
 import Button from "../shared/ButtonComponent/Button";
-import BgDetails from "./BgDetails";
+import BgDetails from "./BgDetailsComponent/BgDetails";
 import BirdFilter from "./BirdFilter";
 
 function HomeComponent(props) {

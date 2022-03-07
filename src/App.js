@@ -14,7 +14,6 @@ import DetailDataDisplay from "./components/DetailComponent/DetailDataDisplay/De
 import ProfileInformation from "./components/ProfileComponent/ProfileInformation";
 
 function App() {
-
     return (
         <div className="App">
             <Header />
@@ -26,7 +25,7 @@ function App() {
                     <Route path="match" element={<MatchView />} />
                     <Route path="*" element={<HomeComponent />} />
                     <Route path="listview" element={<ListView />} />
-                    <Route path="Discover" element={<Discover />} />
+                    <Route path="discover" element={<Discover />} />
                     <Route path="profile" element={<ProfileInformation />} />
                 </Routes>
             </Router>
