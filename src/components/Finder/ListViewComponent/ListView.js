@@ -53,7 +53,7 @@ function ListView() {
                     birdsData.forEach(bird => {
                         const sciName = bird.sciName;
                         getImage(sciName, bird);
-                        // getAudio(sciName, bird);
+                        getAudio(sciName, bird);
                         console.log(birdsData)
                     });
                     setBirdData(birdsData);

@@ -16,9 +16,9 @@ function MatchView() {
     const [initialData, setInitial] = useState([]);
     const [loading, setloading] = useState(true)
     
-    // const birdDataUpdate = useCallback(() => {
-    //     setBirdData(birdsData);
-    // }, [birdsData, birdsRef]);
+    const birdDataUpdate = useCallback(() => {
+        setBirdData(birdsData);
+    }, [birdsData, birdsRef]);
     
     async function getImage(sciName, birdRef) {
         const imgData = await axios.get(`https://pic-beak-backend.herokuapp.com/api/v1/birds/${sciName}/image`);
@@ -75,7 +75,7 @@ function MatchView() {
                 birdsData.forEach(bird => {
                     const sciName = bird.sciName;
                     getImage(sciName, bird);
-                    // getAudio(sciName, bird);
+                    getAudio(sciName, bird);
                     setBirdData(birdsData);
                     // setDataLoad(1)
                 });
