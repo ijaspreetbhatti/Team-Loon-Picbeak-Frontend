@@ -13,7 +13,8 @@ export default function BirdMatchCard(props) {
         >
             <Audio src={props.audioLink} />
             <img src={props.imageLink} alt={props.alt} />
-            <Link to="/details" state={{from: 'listview'}} element={<DetailDataDisplay/>}>
+            <Link to={{
+                pathname: "/details"}} state={{from: 'listview', data: props.data}} element={<DetailDataDisplay/>}>
             <div className="listDetailCard">
                 <div className="nameContainer">
                     <p className="body2">{props.commonName}</p>

@@ -16,16 +16,11 @@ function MatchView() {
     const [loading, setloading] = useState(true);
     const mounted = useRef();
     const [didRanGetDetails, setdidRanGetDetails] = useState(false);
-
-    // const birdDataUpdate = useCallback(() => {
-    //     setBirdData(birdsData);
-    // }, [birdsData, birdsRef]);
+    
 
     const getBirds = async () => {
-        // let mounted = true
         const source = axios.CancelToken.source();
         try {
-            // const mainResponse = await axios
             await axios
                 .get(
                     "https://pic-beak-backend.herokuapp.com/api/v1/birds/?page= 0&recordsPerPage= 5&subnation=BC",
@@ -88,7 +83,6 @@ function MatchView() {
                     const sciName = bird.sciName;
                     getImage(sciName, bird);
                     getAudio(sciName, bird);
-                    // setDataLoad(1)
                 });
             }
             // return () => {
@@ -127,22 +121,12 @@ function MatchView() {
                                     </div>
                                     <div className="buttonContainer">
                                         <Audio src={data.audioLink} />
-                                        <Link
-                                            to={{
-                                                pathname: "/details",
-                                                state: {
-                                                    birdPic: `${data.imageLink}`,
-                                                    sciName: `This Sciname`,
-                                                    commonName: `${data.commonName}`,
-                                                    from: "match",
-                                                },
-                                            }}
-                                            element={<DetailDataDisplay />}
-                                        >
-                                            <Button className="primary matchCardBtn">
-                                                This is the one!
-                                            </Button>
-                                        </Link>
+                                        <Link to={{
+                                            pathname: "/details"}} state={{from: 'match', data: data}} element={<DetailDataDisplay/>}>
+                                                <Button className="primary matchCardBtn">
+                                                    This is the one!
+                                                </Button>
+                                            </Link>
                                     </div>
                                 </div>
                             </div>
@@ -159,6 +143,24 @@ function MatchView() {
         </div>
     );
 }
+
+
+/* <Link
+to={{
+    pathname: "/details",
+    state: {
+        birdPic: `${data.imageLink}`,
+        sciName: `This Sciname`,
+        commonName: `${data.commonName}`,
+        from: "match",
+    },
+}}
+element={<DetailDataDisplay />}
+>
+<Button className="primary matchCardBtn">
+    This is the one!
+</Button>
+</Link> */
 
 // <MatchCard
 //     // onChange={setBirdData(birdsData)}
