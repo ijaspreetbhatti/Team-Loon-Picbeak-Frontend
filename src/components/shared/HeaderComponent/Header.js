@@ -1,8 +1,7 @@
 import React from "react";
 import "./Header.scss";
-import MainMenu from './MainMenu';
-import ProfileMenu from './ProfileMenu';
-import { HashLink as Link } from 'react-router-hash-link';
+import MainMenu from "./MainMenu";
+import ProfileMenu from "./ProfileMenu";
 
 export default function Header() {
     return (
