@@ -1,8 +1,8 @@
-// import React from "react";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Button from "../../shared/ButtonComponent/Button";
 import "./DetailDataDisplay.scss";
 import { useLocation } from 'react-router-dom';
+import axios, { Axios } from "axios";
 import Audio from '../../shared/AudioComponent/Audio';
 
 function DetailDataDisplay(props) {
@@ -10,59 +10,48 @@ function DetailDataDisplay(props) {
   const { data } = location.state;
 
 
-  const birdData = [
-    {
-      commonName: "Varied Thrush",
-      sciName: "Ixoreus naevius",
-      imageLink: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`,
-      audioLink: "https://xeno-canto.org/audioLinks/uploaded/JHFICMRVUX/XC604686-180327_02%20Varied%20Thrush.mp3",
-      description: "lorem ipsum dolor set",
-      conservationStatus: "Low Concern",
-      gallery: [
-          {
-              collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
-          },
-          {
-              collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
-          },
-          {
-              collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
-          },
-          {
-              collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
-          },
-          {
-              collectedBirdImage: `https://live.staticflickr.com/65535/51847099343_15c437f1fa.jpg`
-          }
-      ]
-  },
-  ]
-
   const picArray = [];
-  for (let i = 0; i < 4; i++) {
-    if (i < birdData.length) {
-      let pic = birdData[i].gallery[i].collectedBirdImage;
-      picArray.push(<img className="galleryPic" src={pic} key={i} />);
-    }
-  }
-  let overlay = <span className="greyBoxNone">+{picArray.length - 4}</span>;
 
-  if (picArray.length > 4) {
-    overlay = <span className="greyBoxShow">+{picArray.length - 4}</span>;
-  }
+  // let overlay = <span className="greyBoxNone">+{picArray.length - 4}</span>;
 
-  const [learnMore, setLearnMore] = useState(false);
-  const extraContent =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum";
-  const linkName = learnMore ? "Learn Less" : "Learn More";
+  // if (picArray.length > 4) {
+  //   overlay = <span className="greyBoxShow">+{picArray.length - 4}</span>;
+  // }
+
+  // const [learnMore, setLearnMore] = useState(false);
+  // const linkName = learnMore ? "Learn Less" : "Learn More";
   
+  const [description, setDescription] = useState();
 
-  function collectBird(){
-    if(true){
+  useEffect(() => {
+        async function getDescription() {
+            const birdDescription = await axios.get(
+                `https://pic-beak-backend.herokuapp.com/api/v1/birds/${data.sciName}/description`
+            );
 
-    }
-  }
-  const sciName = props.sciName;
+            setDescription(birdDescription.data.description);
+        }
+        getDescription();}, []);
+
+const [gallery, setGallery] = useState([]);
+
+useEffect(() => {
+      async function getGallery() {
+          const birdGallery = await axios.get(
+              `https://pic-beak-backend.herokuapp.com/api/v1/birds/${data.sciName}/gallery`
+          );
+            if(birdGallery.data.gallery > 4){
+              for (let i = 0; i < 4; i++) {
+                let pic = birdGallery[i].data.gallery[i].collectedBirdImage;
+                // picArray.push(<img className="galleryPic" src={pic} key={i} />);
+              }
+            }
+          setGallery(birdGallery.data.gallery);
+      }
+      getGallery();
+}, []);
+
+  
 
   return (
     <div className="birdProfileWrapper">
@@ -81,12 +70,9 @@ function DetailDataDisplay(props) {
           <span className="status">Low conservation Concern</span>
 
           <span className="content">
-            {birdData[0].description}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum
-            quam vel lobortis molestie. Praesent metus ipsum, blandit
-            acscelerisque a, vehicula eget sapien. Phasellus quis sem
-            bibendumpretium mauris quis, varius sapien. Mauris sit amet nisi.
-            {learnMore && extraContent}
+            {description}
+            
+            {/* {learnMore && extraContent}
             <a
               className="learn-more-link"
               onClick={() => {
@@ -94,14 +80,14 @@ function DetailDataDisplay(props) {
               }}
             >
               {linkName}
-            </a>
+            </a> */}
           </span>
         </div>
 
         <div className="galleryWrapper">
           <span className="galleryTitle">Gallery</span>
           <div className="galleryContainer">
-            {picArray}
+            {gallery}
             {/* {overlay} */}
           </div>
         </div>
@@ -109,7 +95,7 @@ function DetailDataDisplay(props) {
 
       <div className="footerWrapper">
         <span>Are you spotting this bird?</span>
-        <Button className="primary" onClick={collectBird}>Collect</Button>
+        <Button className="primary" >Collect</Button>
       </div>
     </div>
   );
