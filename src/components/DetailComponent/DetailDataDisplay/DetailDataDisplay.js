@@ -58,8 +58,8 @@ function DetailDataDisplay(props) {
         <div className="infoWrapper">
           <div className="titleBlock">
             <div className="nameBlock">
-              <span className="commonName">{data.sciName}</span>
-              <span className="scifcName">{data.commonName}</span>
+            <span className="commonName">{data.commonName}</span>
+              <span className="scifcName">{data.sciName}</span>
             </div>
             <Audio className="musical-light-red" src={data.audioLink}></Audio>
           </div>
