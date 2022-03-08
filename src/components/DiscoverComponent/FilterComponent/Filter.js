@@ -1,6 +1,7 @@
 import React, { useCallback, useRef, useEffect } from "react";
 import Button from "../../shared/ButtonComponent/Button";
 import "./Filter.scss";
+import provinces from "./provinces.json";
 
 function Filter({ showModal, openModal, setShowModal }) {
     /** Close Modal When ESC Key Peressed ******************* */
@@ -47,80 +48,71 @@ function Filter({ showModal, openModal, setShowModal }) {
                             ></div>
                         </div>
                         <form>
-                            <fieldset>
-                                <legend>By conservation status</legend>
-                                <div className="option">
-                                    <input
-                                        className="visually-hidden"
-                                        id="low"
-                                        type="radio"
-                                        value="low"
-                                        name="status"
-                                    />
-                                    <label for="low">
-                                        Low conservation concern
-                                    </label>
-                                </div>
-                                <div className="option">
-                                    <input
-                                        className="visually-hidden"
-                                        id="moderate"
-                                        type="radio"
-                                        value="moderate"
-                                        name="status"
-                                    />
-                                    <label for="moderate">
-                                        Moderate conservation concern
-                                    </label>
-                                </div>
-                                <div className="option">
-                                    <input
-                                        className="visually-hidden"
-                                        id="high"
-                                        type="radio"
-                                        value="high"
-                                        name="status"
-                                    />
-                                    <label for="high">
-                                        High conservation concern
-                                    </label>
-                                </div>
-                            </fieldset>
+                            <div className="fieldSets">
+                                <fieldset>
+                                    <legend>By conservation status</legend>
+                                    <div className="option">
+                                        <input
+                                            className="visually-hidden"
+                                            id="low"
+                                            type="radio"
+                                            value="G5"
+                                            name="status"
+                                        />
+                                        <label htmlFor="low">
+                                            Low conservation concern
+                                        </label>
+                                    </div>
+                                    <div className="option">
+                                        <input
+                                            className="visually-hidden"
+                                            id="moderate"
+                                            type="radio"
+                                            value="G4"
+                                            name="status"
+                                        />
+                                        <label htmlFor="moderate">
+                                            Moderate conservation concern
+                                        </label>
+                                    </div>
+                                    <div className="option">
+                                        <input
+                                            className="visually-hidden"
+                                            id="high"
+                                            type="radio"
+                                            value="G3"
+                                            name="status"
+                                        />
+                                        <label htmlFor="high">
+                                            High conservation concern
+                                        </label>
+                                    </div>
+                                </fieldset>
 
-                            <fieldset>
-                                <legend>By size</legend>
-                                <div className="option">
-                                    <input
-                                        className="visually-hidden"
-                                        id="small"
-                                        type="radio"
-                                        value="small"
-                                        name="size"
-                                    />
-                                    <label for="small">Small</label>
-                                </div>
-                                <div className="option">
-                                    <input
-                                        className="visually-hidden"
-                                        id="medium"
-                                        type="radio"
-                                        value="medium"
-                                        name="size"
-                                    />
-                                    <label for="medium">Medium</label>
-                                </div>
-                                <div className="option">
-                                    <input
-                                        className="visually-hidden"
-                                        id="large"
-                                        type="radio"
-                                        value="large"
-                                        name="size"
-                                    />
-                                    <label for="large">Large</label>
-                                </div>
-                            </fieldset>
-                            <div class="btn-container">
+                                <fieldset>
+                                    <legend>By Province/Territory</legend>
+                                    {provinces.map((province) => {
+                                        return (
+                                            <div
+                                                className="option"
+                                                key={province.value}
+                                            >
+                                                <input
+                                                    className="visually-hidden"
+                                                    type="radio"
+                                                    value={province.value}
+                                                    name="size"
+                                                    id={province.value}
+                                                />
+                                                <label htmlFor="{province.value}">
+                                                    {province.label}
+                                                </label>
+                                            </div>
+                                        );
+                                    })}
+                                </fieldset>
+                            </div>
+                            <div className="btn-container">
                                 <Button className="secondary">Clear</Button>
                                 <Button className="primary">Apply</Button>
                             </div>
