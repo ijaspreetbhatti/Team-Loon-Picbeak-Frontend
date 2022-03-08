@@ -41,7 +41,7 @@ function Login(props) {
                         <div className="buttonWrapper">
                             <Button type="submit" className="primary">Log in</Button>
                         </div>
-                        <span>New to Picbeak? <a onClick={() => setChangeModal(true)}>Creat account</a></span>
+                        <span>New to Picbeak? <a onClick={() => setChangeModal(true)}>Create account</a></span>
                     </form>
                 ) : (
                     <form >
@@ -79,7 +79,7 @@ function Login(props) {
                         <div className="buttonWrapper">
                             <Button type="submit" className="primary">Log in</Button>
                         </div>
-                        <span>Already have an account? <a onClick={() => setChangeModal(false)}>Log in</a></span>
+                        <span>Already have an account? <a onClick={() => setChangeModal(false)}>Create</a></span>
                     </form>
                 )}
 
