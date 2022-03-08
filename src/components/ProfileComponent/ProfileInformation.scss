@@ -2,11 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
 .userProfileWrapper {
-  width: 390px;
-  background-color: $light-yellow;
+  width: 100%;
   .userProfileContainer {
     background-color: $light-yellow;
-    position: fixed;
+    position: sticky;
     padding: 24px;
     height: 390px;
     width: -webkit-fill-available;
@@ -16,10 +15,31 @@
       
 
       .portrait {
-        background-image: url(./PortraitIcons/yellow.svg);
-        width: 90px;
-        height: 90px;
         margin-right: 24px;
+        .green{
+          background-image: url(./PortraitIcons/green.svg);
+          width: 90px;
+          height: 90px;
+          
+        }
+        .red{
+          background-image: url(./PortraitIcons/red.svg);
+          width: 90px;
+          height: 90px;
+          
+        }
+        .blue{
+          background-image: url(./PortraitIcons/blue.svg);
+          width: 90px;
+          height: 90px;
+          
+        }
+        .yellow{
+          background-image: url(./PortraitIcons/yellow.svg);
+          width: 90px;
+          height: 90px;
+       
+        }
       }
 
       .userName {
@@ -46,7 +66,7 @@
     height: 1000px;
     padding: 24px;
     border-radius: 24px;
-    // width: 100%;
+    width: -webkit-fill-available;
 
     .beakpediaTitle {
       font-family: $header;
