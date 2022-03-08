@@ -4,20 +4,29 @@ import './ListView.scss';
 import BirdMatchCard from '../../shared/MatchCardComponent/BirdMatchCard';
 import DetailDataDisplay from '../../DetailComponent/DetailDataDisplay/DetailDataDisplay';
 import axios, {Axios} from 'axios';
+import { Link, useNavigate } from "react-router-dom";
+
 
 function ListView() {
-            
+
     const [birdsData, setBirdData] = useState([]);
     const [loading, setloading] = useState(true);
-    const [didRanGetDetails, setdidRanGetDetails] = useState(false);
+    const [location, setLocation] = useState(null);
     const mounted = useRef();
+    const [didRanGetDetails, setdidRanGetDetails] = useState(false);
+
+    const navigate = useNavigate();
+
+    // const birdDataUpdate = useCallback(() => {
+    //     setBirdData(birdsData);
+    // }, [birdsData, birdsRef]);
 
     const getBirds = async () => {
         const source = axios.CancelToken.source();
         try {
             await axios
                 .get(
-                    "https://pic-beak-backend.herokuapp.com/api/v1/birds/?page= 0&recordsPerPage= 10&subnation=BC",
+                    `https://pic-beak-backend.herokuapp.com/api/v1/birds/location?lat=${location.lat}&lng=${location.lng}&maxResults=15`,
                     {
                         cancelToken: source.token,
                     }
@@ -29,7 +38,7 @@ function ListView() {
                     }
                 });
         } catch (error) {
-            if (Axios.isCancel(error)) {
+            if (axios.isCancel(error)) {
             } else {
                 throw error;
             }
@@ -42,14 +51,26 @@ function ListView() {
     // componentDidMount
     useEffect(() => {
         if (mounted) {
-            console.log("MOUNTED");
-            getBirds();
+            console.log("Component mounted");
+            if (JSON.parse(localStorage.getItem("location"))) {
+                setLocation(JSON.parse(localStorage.getItem("location")));
+            } else {
+                navigate("/*");
+            }
         } else {
             console.log("NOT MOUNTED");
         }
     }, []);
 
     useEffect(() => {
+        console.log("Location Effect");
+        if (location) {
+            getBirds();
+        }
+    }, [location]);
+
+    useEffect(() => {
+        console.log("Birds Data Effect");
         if (birdsData && birdsData.length > 0 && !didRanGetDetails) {
             setdidRanGetDetails(true);
             async function getImage(sciName, birdRef) {
@@ -90,7 +111,7 @@ function ListView() {
                 <div id="listView">
                     <div>
                         <h2>Explore birds and spot the one you're spying!</h2>
-                        <h6>Showing birds around @location</h6>
+                        <h6>Showing birds around {location ? location.city : "location"}</h6>
                     </div>
                     <div className="listViewContainer" id="listViewContainer">
                         {birdsData.map((data) => (

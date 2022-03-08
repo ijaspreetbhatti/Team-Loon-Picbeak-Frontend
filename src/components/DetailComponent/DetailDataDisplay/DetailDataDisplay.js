@@ -64,7 +64,7 @@ function DetailDataDisplay(props) {
             <Audio className="musical-light-red" src={data.audioLink}></Audio>
           </div>
 
-          <span className="status">{data.conservationStatus}</span>
+          <span className="status">Low conservation Concern</span>
 
           <span className="content">
             {props.content}

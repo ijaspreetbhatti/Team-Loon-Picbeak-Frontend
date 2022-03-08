@@ -115,8 +115,7 @@ function MatchView() {
             <div>
                 <h2>Explore birds and spot the one you're spying!</h2>
                 <h6>
-                    Showing birds around @
-                    {location ? location.city : "location"}
+                    Showing birds around {location ? location.city : "location"}
                 </h6>
             </div>
             <div className="matchViewContainer" id="matchViewContainer">
