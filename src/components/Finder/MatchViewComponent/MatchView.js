@@ -131,7 +131,8 @@ function MatchView() {
                                 id={`${data.sciName.replace(/\s/g, "-")}-card`}
                             >
                                 <img
-                                    src={data.imageLink}
+                                    src={!data.imageLink ? "./assets/images/picbeakLoading.png" : data.imageLink}
+                                    className={!data.imageLink ? 'loadImg' : 'matchLoadedImg'}
                                     alt={data.commonName}
                                 />
                                 <div className="matchDetailCard">

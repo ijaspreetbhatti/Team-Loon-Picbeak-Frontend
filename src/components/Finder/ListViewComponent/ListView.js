@@ -119,11 +119,12 @@ function ListView() {
                             key={data.sciName} 
                             id={data.sciName} 
                             audioLink={data.audioLink}
-                            imageLink={data.imageLink}
+                            imageLink={!data.imageLink ? "./assets/images/picbeakLoading.png" : data.imageLink}
                             alt={data.commonName}
                             commonName={data.commonName}
                             sciName={data.sciName}
                             data={data}
+                            class={!data.imageLink ? 'loadImg' : 'matchLoadedImg'}
                             />
                     ))}
                     </div>
