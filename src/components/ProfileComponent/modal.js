@@ -23,7 +23,7 @@ function Modal(props) {
                 Capture a photo of @birdname to have it displayed in the gallery.
                 </span>
                 <div className="buttons">
-                    <Button className="primary-grey">Maybe later</Button>
+                    <Button className="primary-grey" onClick={props.onClose}>Maybe later</Button>
                     <Button className="primary">Add photo</Button>
                 </div>
             </Card>
