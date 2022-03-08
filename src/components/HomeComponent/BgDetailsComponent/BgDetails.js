@@ -1,7 +1,7 @@
 import React from "react";
-import Block from "./Block";
-import Donate from "./Donate";
-import Population from "./Population";
+import Block from "./BlockComponent/Block";
+import Donate from "./DonateComponent/Donate";
+import Population from "./PopulationComponent/Population";
 import "./BgDetails.scss";
 
 const BgDetails = (props) => {

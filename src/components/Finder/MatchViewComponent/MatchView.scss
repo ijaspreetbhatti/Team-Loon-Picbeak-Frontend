@@ -4,10 +4,34 @@
     margin: 0 24px 24px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
+    position: relative;
 
+    .changeViewBtn {
+        position: fixed;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+    }
+    
+    .swiper-button-next, .swiper-button-prev {
+        display: hidden;
+    }
+
+    .swiper-button-next:after, .swiper-button-prev:after {
+        display: none;
+    }
+
+    .swiper .swiper-wrapper .swiper-slide, .swiper .swiper-wrapper .swiper-slide-active {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    } 
     #matchViewCardContainer {
         margin-bottom: 60px;
+        height: 470px;
+
     }
 
     h2{
@@ -25,15 +49,15 @@
         color: $grey80;
         text-align: center;
         font-family: $header;
-        margin: 0 0 40px 0;
+        margin: 0;
     }
 
     .matchViewCard:first-of-type {
-        margin-top: 0;
+        margin-top: 40px;
     }
     
     .matchViewCard {
-        max-width: 300px;
+        width: 300px;
         box-shadow: $shadow;
         border-radius: 24px;
         overflow: hidden;
@@ -46,7 +70,7 @@
         
         img {
             max-width: 100%;
-            height:340px;
+            height:90%;
             position: absolute;
             top: 0;
             object-fit: cover;
@@ -55,15 +79,31 @@
             grid-column: 1 /1;
         }
 
-        .matchDetailCard {
-            display: grid;
-            grid-template-rows: auto auto;
-            border-radius: 24px;
-            grid-row: 1/1;
-            grid-column: 1 /1;
-            max-height: 200px;
-            z-index: 1;
-            background: white;
+        .loadImg {
+            object-fit: contain;
+            width: 70%;
+            object-position: top;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 70px;
+        }
+
+    .matchDetailCard {
+      display: grid;
+      grid-template-rows: auto auto;
+      border-radius: 24px;
+      grid-row: 1/1;
+      grid-column: 1 /1;
+      max-height: 200px;
+      z-index: 1;
+      background: white;
+
+      .buttonContainer {
+          display: grid;
+          grid-template-columns: 40px auto;
+          margin: 12px 24px 24px;
+          gap: 8px;
+      }
 
             .nameContainer {
                 grid-row: 1 / span 1;
@@ -77,20 +117,18 @@
                     margin: 24px 24px 4px 24px;
                 }
 
-                p {
-                    font-family: $header;
-                    font-size: 14px;
-                    margin: 0px 24px 4px 24px;
-                }
-            }
+        h2 {
+          text-align: left;
+          font-family: $header;
+          margin: 24px 24px 4px 24px;
+        }
 
-            .buttonContainer {
-                grid-row: 2 / span 1;
-                display: grid;
-                grid-template-columns: 50px auto;
-                margin: 24px;
-                column-gap: 8px;
-                align-items: center;
+        p {
+          font-family: $header;
+          font-size: 14px;
+          margin: 0px 24px 4px 24px;
+        }
+      }
 
                 .audio {
                     grid-column: 1 / span 1;
@@ -106,17 +144,55 @@
                     }
                 }
 
-                .matchCardBtn, .primary {
-                    margin: 0;
-                    width: 100%;
-                    height: 40px;
-                    padding: 0;
-                }
+        .audio {
+          border-radius: 100px;
+          width: 40px;
+          height: 40px;
+          border: none;
+          grid-column: 1 / span 1;
+        }
 
-                .matchCardBtn {
-                    grid-column: 2 / span 1;
-                }
-            }
+        .matchCardBtn,
+        .primary {
+          margin: 0;
+          width: 100%;
+          height: 40px;
+          padding: 0;
+        }
+
+        a .matchCardBtn {
+          grid-column: 2 / span 1;
+        }
+      }
+    }
+
+    @media screen and (min-width: 1000px) {
+
+        #matchViewContainer {
+            width: 480px;
+            align-self: center;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            display: block;
+            background-color: white;
+            border-radius: 100px;
+            box-shadow: $shadow;
+            width: 40px;
+            height: 40px;
+        }
+    
+        .swiper-button-next {
+            background-image: url(../../../../public/assets/icons/right.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    
+        .swiper-button-prev {
+            background-image: url(../../../../public/assets/icons/left.svg);
+            background-position: center;
+            background-repeat: no-repeat;
         }
     }
 }
+

@@ -1,4 +1,4 @@
-@import "../../Variables/variables";
+@import "../../../../Variables/variables";
 
 .birdPopulation {
     background-color: $light-yellow;
@@ -11,7 +11,7 @@
         font-weight: 800;
         margin-left: 6%;
         text-align: left;
-        width: 64%;
+        width: 75%;
     }
 
     p {
@@ -19,5 +19,17 @@
         width: 88%;
         text-align: left;
         font-weight: 400;
+    }
+
+    @media screen and (min-width: 768px) {
+        // display: flex;
+        // justify-content: space-around;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        #myChart {
+            padding-right: 0;
+            width: 40%;
+        }
     }
 }

@@ -1,0 +1,46 @@
+@import "../../Variables/variables";
+
+.discover {
+    font-family: $header;
+    text-align: center;
+    h3 {
+        font-weight: 800;
+        color: $grey100;
+        width: 88%;
+        text-align: left;
+        margin: 0 auto 2rem auto;
+        font-size: 24px;
+        padding-top: 2rem;
+    }
+    p {
+        color: $discover;
+        width: 88%;
+        margin: 2rem auto;
+        text-align: left;
+        font-size: 14px;
+    }
+
+    .cardParent {
+        margin-top: 3rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 8px;
+        padding: 0 24px;
+    }
+    .birdMatchCard {
+        margin-bottom: 1rem;
+    }
+
+    @media screen and (min-width: 768px) {
+        h3,
+        p {
+            margin-left: 16%;
+        }
+        .cardParent {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+    }
+}

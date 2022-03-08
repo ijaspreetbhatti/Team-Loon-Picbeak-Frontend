@@ -7,8 +7,14 @@
     border-bottom: 1px solid $grey40;
     align-items: center;
     margin-bottom: 0;
-    position: relative;
+    // position: relative;
     z-index: 100;
+    height: 64px;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    right: 0;
+    background: white;
 
     .headerLeft {
         background-image: url(./HeaderIcons/picbeak-icon.svg);
@@ -20,44 +26,51 @@
         width: 40px;
         height: 40px;
         cursor: pointer;
+        justify-content: center;
+
+        img {
+            display: none;
+        }
     }
-    
-    
+
     .headerRight {
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
-        
+
         .desktopNav {
             display: none;
         }
 
         .navMenu {
             position: absolute;
-            bottom: -274px;
-            right: 0;
+            bottom: -266px;
+            right: -1px;
             display: flex;
             flex-direction: column;
-            height:auto;
+            height: auto;
             background-color: white;
             z-index: 10;
             width: 180px;
             border: 1px solid $grey40;
 
-        button {
-            font: normal 700 16px/16px $header;
-            background: white;
-            border: none;
-            text-align:right;
-            margin-right: 24px;
-            margin-top: 40px;
+            a {
+                font: normal 700 16px/16px $header;
+                background: white;
+                border: none;
+                text-align: right;
+                margin-right: 24px;
+                margin-top: 40px;
+                text-decoration: none;
+                color: $grey100;
+            }
+            a:last-of-type {
+                margin-bottom: 40px;
+            }
         }
-        button:last-of-type {
-            margin-bottom: 40px;
-        }
-    }
 
-        .navMenuIcon {
+        .navMenuIcon,
+        .active-nav {
             background-image: url(./HeaderIcons/menu.svg);
             background-color: white;
             background-repeat: no-repeat;
@@ -66,21 +79,22 @@
             width: 30px;
             height: 30px;
             cursor: pointer;
-            margin-right:30px;
+            margin-right: 30px;
             padding: 4px;
-
-            &:active {
-                border-radius: 64px;
-                background-color: $secondary-yellow;
-            }
         }
+
+        .active-nav {
+            background-color: $light-green;
+            border-radius: 64px;
+        }
+
         .profileMenu {
             position: absolute;
             bottom: -158px;
-            right: 0;
+            right: -1px;
             display: flex;
             flex-direction: column;
-            height:auto;
+            height: auto;
             background-color: white;
             z-index: 10;
             width: 180px;
@@ -90,15 +104,20 @@
                 font: normal 700 16px/16px $header;
                 background: white;
                 border: none;
-                text-align:right;
+                text-align: right;
                 margin-top: 40px;
                 margin-right: 24px;
+                text-decoration: none;
+                color: $grey100;
+                cursor: pointer;
             }
             button:last-of-type {
                 margin-bottom: 40px;
             }
         }
-        .profileLink {
+
+        .profileLink,
+        .active {
             background-image: url(./HeaderIcons/account.svg);
             background-color: white;
             background-repeat: no-repeat;
@@ -108,35 +127,46 @@
             height: 30px;
             padding: 4px;
             cursor: pointer;
-
-            
-            &:active {
-                border-radius: 64px;
-                background-color: $secondary-yellow;
-            }
+        }
+        .active {
+            background-color: $light-green;
+            border-radius: 64px;
         }
     }
 
-    @media screen and (min-width: 1000px) {
+    @media screen and (min-width: 1200px) {
+        padding: 0 206px;
+
         .navMenuIcon {
             display: none;
         }
 
         .headerLeft {
-            background-image: url(./HeaderIcons/full-picbeak-logo.svg);
-            width: 150px;
+            background-image: none;
+            height: auto;
+            img {
+                display: block;
+            }
         }
 
+        .headerRight {
+            .profileMenu,
+            .active {
+                right: 210px;
+            }
+        }
         .headerRight .desktopNav {
-                display: flex;
-                margin: 0 40px 0 0;
-                gap: 40px;
+            display: flex;
+            margin: 0 40px 0 0;
+            gap: 40px;
 
-                button {
-                    font: normal 700 16px/16px $header;
-                    background: white;
-                    border: none;
-                }
+            a {
+                font: normal 700 16px/16px $header;
+                background: white;
+                border: none;
+                text-decoration: none;
+                color: $grey100;
             }
         }
     }
+}

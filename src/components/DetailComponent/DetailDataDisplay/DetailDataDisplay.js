@@ -2,46 +2,72 @@
 import React, { useState } from "react";
 import Button from "../../shared/ButtonComponent/Button";
 import "./DetailDataDisplay.scss";
+import { useLocation } from 'react-router-dom';
+import Audio from '../../shared/AudioComponent/Audio';
 
 function DetailDataDisplay(props) {
+  const location = useLocation()
+  const { data } = location.state;
+
+
+  // const dataPic = [];
+  // for(let i = 0; i < birdData.length; i++){
+  //   if(birdData){
+  //     let pic = birdData[i].gallery;
+  //     for(let z = 0; z < pic.length; z++){
+  //       let gallery = pic[z].collectedBirdImage;
+  //       dataPic.push(<img className="galleryPic" src={pic} key={i} />);
+
+  //     }
+  //   }
+
+  // }
+
+
+  // const picArray = [];
+  // for (let i = 0; i < 4; i++) {
+  //   if (i < dataPic.length) {
+  //     let pic = dataPic[i];
+  //     picArray.push(<img className="galleryPic" src={pic} key={i} />);
+  //   }
+  // }
+  // let overlay = <span className="greyBoxNone">+{dataPic.length - 4}</span>;
+
+  // if (dataPic.length > 4) {
+  //   overlay = <span className="greyBoxShow">+{dataPic.length - 4}</span>;
+  // }
+
   const [learnMore, setLearnMore] = useState(false);
   const extraContent =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum";
   const linkName = learnMore ? "Learn Less" : "Learn More";
-  const pic =
-    "https://3rvxro1qhiaouxf3h3et9bah-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/33709comox09Stellar.jpg";
+  
 
-  const test = [pic, pic, pic, pic, pic];
-  const picArray = [];
-  for (let i = 0; i < 4; i++) {
-    if (i < test.length) {
-      let pic = test[i];
-      picArray.push(<img className="galleryPic" src={pic} key={i} />);
+  function collectBird(){
+    if(true){
+
     }
   }
-  let overlay = <span className="greyBoxNone">+{test.length - 4}</span>;
-
-  if (test.length > 4) {
-    overlay = <span className="greyBoxShow">+{test.length - 4}</span>;
-  }
+  const sciName = props.sciName;
 
   return (
     <div className="birdProfileWrapper">
-      <img className="postImage" src={props.birdPic} />
+      <img className="postImage" src={data.imageLink} />
 
-      <div className="profileContainer">
+      <div className="profileContainer" >
         <div className="infoWrapper">
           <div className="titleBlock">
             <div className="nameBlock">
-              <span className="commonName">Steller's Jay</span>
-              <span className="scifcName">Cyanocitta stelleri</span>
+            <span className="commonName">{data.commonName}</span>
+              <span className="scifcName">{data.sciName}</span>
             </div>
-            <Button className="musical-light-red"></Button>
+            <Audio className="musical-light-red" src={data.audioLink}></Audio>
           </div>
 
-          <span className="status">Low conservation concern</span>
+          <span className="status">Low conservation Concern</span>
 
           <span className="content">
+            {props.content}
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum
             quam vel lobortis molestie. Praesent metus ipsum, blandit
             acscelerisque a, vehicula eget sapien. Phasellus quis sem
@@ -61,15 +87,15 @@ function DetailDataDisplay(props) {
         <div className="galleryWrapper">
           <span className="galleryTitle">Gallery</span>
           <div className="galleryContainer">
-            {picArray}
-            {overlay}
+            {props.gallery}
+            {/* {overlay} */}
           </div>
         </div>
       </div>
 
       <div className="footerWrapper">
         <span>Are you spotting this bird?</span>
-        <Button className="primary">Collect</Button>
+        <Button className="primary" onClick={collectBird}>Collect</Button>
       </div>
     </div>
   );
