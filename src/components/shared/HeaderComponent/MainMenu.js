@@ -29,7 +29,7 @@ export default function MainMenu() {
                     <a href="*" id="homeBtn">
                         Home
                     </a>
-                    <a href="/match">Identify Birds</a>
+                    <a href="/">Identify Birds</a>
                     <a href="/discover">Discover Birds</a>
                     <a href="/donate">Donate</a>
                 </div>

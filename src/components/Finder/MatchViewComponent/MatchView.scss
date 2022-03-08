@@ -79,6 +79,15 @@
             grid-column: 1 /1;
         }
 
+        .loadImg {
+            object-fit: contain;
+            width: 70%;
+            object-position: top;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 70px;
+        }
+
     .matchDetailCard {
       display: grid;
       grid-template-rows: auto auto;

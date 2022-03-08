@@ -8,7 +8,7 @@
         opacity: 0.7;
         position: fixed;
         align-items: center;
-        z-index: 2;
+        z-index: 1000;
     }
 
     .modalWrapper {
@@ -17,7 +17,7 @@
         height: 500px;
         box-shadow: $shadow;
         background: $white;
-        z-index: 10;
+        z-index: 1000;
         border-radius: 24px;
         left: 50%;
         top: 50%;
@@ -46,70 +46,77 @@
             }
         }
         form {
-            fieldset {
-                border: none;
-                display: grid;
-                grid-template-columns: 1fr;
-                margin: 2rem auto 0 24px;
-                padding: 0;
-                legend {
-                    font-weight: 800;
-                    font-size: 20px;
-                }
+            height: 80%;
+            .fieldSets {
+                height: 100%;
+                overflow: auto;
+                fieldset {
+                    overflow: auto;
+                    border: none;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    margin: 2rem auto 0 24px;
+                    padding: 0;
+                    legend {
+                        font-weight: 800;
+                        font-size: 20px;
+                    }
 
-                .option {
-                    margin-top: 8px;
-                    .visually-hidden {
+                    .option {
+                        margin-top: 8px;
+                        .visually-hidden {
+                            position: absolute;
+                            white-space: nowrap;
+                            width: 1px;
+                            height: 1px;
+                            overflow: hidden;
+                            border: 0;
+                            padding: 0;
+                            clip: rect(0 0 0 0);
+                            clip-path: inset(50%);
+                            margin: -1px;
+                        }
+                    }
+                    label {
+                        cursor: pointer;
+                        padding-left: 30px;
+                        position: relative;
+                    }
+
+                    label::before,
+                    label::after {
+                        content: "";
+                        display: block;
                         position: absolute;
-                        white-space: nowrap;
-                        width: 1px;
-                        height: 1px;
-                        overflow: hidden;
-                        border: 0;
-                        padding: 0;
-                        clip: rect(0 0 0 0);
-                        clip-path: inset(50%);
-                        margin: -1px;
+                    }
+
+                    label::before {
+                        border-radius: 0%;
+                        border: 2px solid $checkbox;
+                        width: 12px;
+                        height: 12px;
+                        transform: translateY(-50%);
+                        top: 50%;
+                        left: 5px;
+                    }
+
+                    label::after {
+                        border-bottom: 2px solid $checkbox;
+                        border-left: 2px solid $checkbox;
+                        opacity: 0;
+                        height: 4px;
+                        width: 6px;
+                        transform: rotate(-45deg);
+                        top: 7px;
+                        left: 9px;
+                    }
+
+                    input:checked + label::after {
+                        opacity: 1;
                     }
                 }
-                label {
-                    cursor: pointer;
-                    padding-left: 30px;
-                    position: relative;
-                }
-
-                label::before,
-                label::after {
-                    content: "";
-                    display: block;
-                    position: absolute;
-                }
-
-                label::before {
-                    border-radius: 0%;
-                    border: 2px solid $checkbox;
-                    width: 12px;
-                    height: 12px;
-                    transform: translateY(-50%);
-                    top: 50%;
-                    left: 5px;
-                }
-
-                label::after {
-                    border-bottom: 2px solid $checkbox;
-                    border-left: 2px solid $checkbox;
-                    opacity: 0;
-                    height: 4px;
-                    width: 6px;
-                    transform: rotate(-45deg);
-                    top: 7px;
-                    left: 9px;
-                }
-
-                input:checked + label::after {
-                    opacity: 1;
-                }
             }
+
             .btn-container {
                 display: flex;
                 gap: 8px;
