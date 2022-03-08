@@ -2,10 +2,13 @@
 import React, { useState } from "react";
 import Button from "../../shared/ButtonComponent/Button";
 import "./DetailDataDisplay.scss";
+import { useLocation } from 'react-router-dom';
 import Audio from '../../shared/AudioComponent/Audio';
 
 function DetailDataDisplay(props) {
- 
+  const location = useLocation()
+  const { data } = location.state;
+
 
   const birdData = [
     {
@@ -63,19 +66,19 @@ function DetailDataDisplay(props) {
 
   return (
     <div className="birdProfileWrapper">
-      <img className="postImage" src={birdData[0].imageLink} />
+      <img className="postImage" src={data.imageLink} />
 
       <div className="profileContainer" >
         <div className="infoWrapper">
           <div className="titleBlock">
             <div className="nameBlock">
-              <span className="commonName">{props.commonName}Steller's Jay</span>
-              <span className="scifcName">{sciName}Cyanocitta stelleri</span>
+            <span className="commonName">{data.commonName}</span>
+              <span className="scifcName">{data.sciName}</span>
             </div>
-            <Audio src={birdData[0].audioLink}/>
+            <Audio className="musical-light-red" src={data.audioLink}></Audio>
           </div>
 
-          <span className="status">{birdData[0].conservationStatus}</span>
+          <span className="status">Low conservation Concern</span>
 
           <span className="content">
             {birdData[0].description}

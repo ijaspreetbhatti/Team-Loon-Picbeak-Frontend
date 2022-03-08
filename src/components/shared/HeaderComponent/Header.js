@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.scss";
 import MainMenu from './MainMenu';
 import ProfileMenu from './ProfileMenu';
+import { HashLink as Link } from 'react-router-hash-link';
 
 export default function Header() {
     return (
@@ -13,7 +14,7 @@ export default function Header() {
             </a>
             <div className="headerRight">
                 <div className="desktopNav">
-                    <a href="/match">Identify Birds</a>
+                    <a href="/">Identify Birds</a>
                     <a href="/discover">Discover Birds</a>
                     <a href="/donate">Donate</a>
                 </div>
