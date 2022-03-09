@@ -1,0 +1,62 @@
+@import "../../../Variables/variables";
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.backGround{
+    background-color: $white;
+    opacity: 0.7;
+    position: fixed;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+}
+.card{
+    padding: 24px;
+    width: 294px;
+    z-index: 3;
+    .modalHeader{
+        position: relative;
+        span{
+            font-family: $header;
+            font-weight: 800;
+            font-size: 20px;
+            line-height: 24px;
+        }
+        .exit{
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            right: 5px;
+            top: 6px;
+        }
+    }
+    .portraitWrapper{
+        margin-top: 25px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 12px;
+
+        .portrait-green{
+            width: 90px;
+            height: 90px;
+            background-image: url(../PortraitIcons/green.svg);
+        }
+        .portrait-yellow{
+            width: 90px;
+            height: 90px;
+            background-image: url(../PortraitIcons/yellow.svg);
+        }
+        .portrait-red{
+            width: 90px;
+            height: 90px;
+            background-image: url(../PortraitIcons/red.svg);
+        }
+        .portrait-blue{
+            width: 90px;
+            height: 90px;
+            background-image: url(../PortraitIcons/blue.svg);
+        }
+    }
+
+}

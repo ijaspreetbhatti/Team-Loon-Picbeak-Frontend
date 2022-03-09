@@ -1,9 +1,10 @@
-import { render } from "@testing-library/react";
 import React, { useState } from "react";
 import Button from "../shared/ButtonComponent/Button";
 import "./ProfileInformation.scss";
-import Card from '../shared/DialogComponent/Card';
 import Modal from './modal';
+import EditProfile from './Edit/editProfile';
+import EditPortrait from "../ProfileComponent/Edit/editPortrait";
+import Snack from "../ProfileComponent/Edit/snack";
 
 function ProfileInformation(props) {
   const pic = {
@@ -21,6 +22,10 @@ function ProfileInformation(props) {
   };
   
   const [show, setShow] = useState(false)
+  const [showEdit, setShowEdit] = useState(false)
+  const [showicon, setShowIcon] = useState(false)
+  let [portrait, setPortrait] = useState(["green"])
+  const [snack, setSnack] = useState(false)
 
   const data = [pic, pic2];
   const birdArray = [];
@@ -42,30 +47,34 @@ function ProfileInformation(props) {
   const divStyle = {
     width: (data.length*0.6) * 10,
   };
-
-  
-
   
   return (
     <div className="userProfileWrapper">
       <div className="userProfileContainer">
         <div className="userInfo">
-          <div className="portrait"></div>
-          <span className="userName">Chickadeanny</span>
+          <div className="portrait">
+            <div className={portrait[0]}></div>
+          </div>
+          <span className="userName">{props.nickName}Chickadeanny</span>
         </div>
         <div className="button">
-          <Button className="primary">Edit</Button>
+          <Button className="primary" onClick={() => setShowEdit(true) }>Edit</Button>
           <Button className="primary">Share</Button>
         </div>
       </div>
 
       <div className="beakpediaWrapper">
+        <EditPortrait onClose={() => {setShowIcon(false); setShowEdit(true);}} showicon={showicon} changeIcon={(e) => setPortrait(portrait[0]=[e])}/>
+        <EditProfile  onClose={() => setShowEdit(false)} showedit={showEdit} onClick={() => setShowIcon(true)} portraitIcon={portrait[0]} showSnack={() => setSnack(true)}/>
+        <Snack showSnack={snack}/>
+        
         <span className="beakpediaTitle">Beakpedia</span>
         <div className="collectBar">
           <div className="progressBar" style={divStyle}></div>
         </div>
         <span className="collectInfo">{data.length} / 512 birds collected</span>
         <div className="birdCollection">{birdArray}</div>
+        
       </div>
     </div>
   );

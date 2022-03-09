@@ -31,7 +31,6 @@
     #matchViewCardContainer {
         margin-bottom: 60px;
         height: 470px;
-
     }
 
     h2{
@@ -58,7 +57,7 @@
     
     .matchViewCard {
         width: 300px;
-        box-shadow: $shadow;
+        box-shadow: $shadow2;
         border-radius: 24px;
         overflow: hidden;
         display: grid;
@@ -180,6 +179,7 @@
             box-shadow: $shadow;
             width: 40px;
             height: 40px;
+            margin: 0 2px;
         }
     
         .swiper-button-next {
