@@ -1,7 +1,6 @@
 import React, { useCallback, useRef, useEffect } from "react";
 import Button from "../../shared/ButtonComponent/Button";
 import "./Filter.scss";
-import provinces from "./provinces.json";
 
 function Filter({ showModal, openModal, setShowModal }) {
     /** Close Modal When ESC Key Peressed ******************* */
@@ -30,6 +29,12 @@ function Filter({ showModal, openModal, setShowModal }) {
     };
     /********************************************************* */
 
+    const radioDeselection = () => {
+        for (const element of document.getElementsByName("status")) {
+            element.checked = false;
+        }
+    };
+
     const path =
         "https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=BC&gRank=G1&searchKeyword=Hawk";
 
@@ -53,6 +58,7 @@ function Filter({ showModal, openModal, setShowModal }) {
                         <form>
                             <div className="fieldSets">
                                 <fieldset>
+                                    {/** STATUS */}
                                     <legend>By conservation status</legend>
                                     <div className="option">
                                         <input
@@ -93,30 +99,157 @@ function Filter({ showModal, openModal, setShowModal }) {
                                 </fieldset>
 
                                 <fieldset>
+                                    {/** PROVINCE */}
                                     <legend>By Province/Territory</legend>
-                                    {provinces.map((province) => {
-                                        return (
-                                            <div
-                                                className="option"
-                                                key={province.value}
-                                            >
-                                                <input
-                                                    className="visually-hidden"
-                                                    type="radio"
-                                                    value={province.value}
-                                                    name="province"
-                                                    id={province.value}
-                                                />
-                                                <label htmlFor="{province.value}">
-                                                    {province.value}
-                                                </label>
-                                            </div>
-                                        );
-                                    })}
+                                    <div className="option">
+                                        <input
+                                            className="visually-hidden"
+                                            id="ab"
+                                            type="radio"
+                                            value="AB"
+                                            name="province"
+                                        ></input>
+                                        <label htmlFor="ab">Alberta</label>
+                                    </div>
+                                    <div className="option">
+                                        <input
+                                            className="visually-hidden"
+                                            id="bc"
+                                            type="radio"
+                                            value="BC"
+                                            name="province"
+                                        ></input>
+                                        <label htmlFor="bc">
+                                            British Columbia
+                                        </label>
+                                    </div>
+                                    <div className="option">
+                                        <input
+                                            className="visually-hidden"
+                                            id="mb"
+                                            type="radio"
+                                            value="MB"
+                                            name="province"
+                                        ></input>
+                                        <label htmlFor="mb">Manitoba</label>
+                                    </div>
+                                    <div className="option">
+                                        <input
+                                            className="visually-hidden"
+                                            id="nb"
+                                            type="radio"
+                                            value="NB"
+                                            name="province"
+                                        ></input>
+                                        <label htmlFor="nb">
+                                            New Brunswick
+                                        </label>
+                                    </div>
+                                    <div className="option">
+                                        <input
+                                            className="visually-hidden"
+                                            id="nl"
+                                            type="radio"
+                                            value="NL"
+                                            name="province"
+                                        ></input>
+                                        <label htmlFor="nl">
+                                            Newfoundland and Labrador
+                                        </label>
+                                    </div>
+                                    <div className="option">
+                                        <input
+                                            className="visually-hidden"
+                                            id="nt"
+                                            type="radio"
+                                            value="NT"
+                                            name="province"
+                                        ></input>
+                                        <label htmlFor="nt">
+                                            Northwest Territories
+                                        </label>
+                                    </div>
+                                    <div className="option">
+                                        <input
+                                            className="visually-hidden"
+                                            id="ns"
+                                            type="radio"
+                                            value="NS"
+                                            name="province"
+                                        ></input>
+                                        <label htmlFor="ns">Nova Scotia</label>
+                                    </div>
+                                    <div className="option">
+                                        <input
+                                            className="visually-hidden"
+                                            id="nu"
+                                            type="radio"
+                                            value="NU"
+                                            name="province"
+                                        ></input>
+                                        <label htmlFor="nu">Nunavut</label>
+                                    </div>
+                                    <div className="option">
+                                        <input
+                                            className="visually-hidden"
+                                            id="on"
+                                            type="radio"
+                                            value="ON"
+                                            name="province"
+                                        ></input>
+                                        <label htmlFor="on">Ontario</label>
+                                    </div>
+                                    <div className="option">
+                                        <input
+                                            className="visually-hidden"
+                                            id="pe"
+                                            type="radio"
+                                            value="PE"
+                                            name="province"
+                                        ></input>
+                                        <label htmlFor="pe">
+                                            Prince Edward Island
+                                        </label>
+                                    </div>
+                                    <div className="option">
+                                        <input
+                                            className="visually-hidden"
+                                            id="qc"
+                                            type="radio"
+                                            value="QC"
+                                            name="province"
+                                        ></input>
+                                        <label htmlFor="qc">Quebec</label>
+                                    </div>
+                                    <div className="option">
+                                        <input
+                                            className="visually-hidden"
+                                            id="sk"
+                                            type="radio"
+                                            value="SK"
+                                            name="province"
+                                        ></input>
+                                        <label htmlFor="sk">Saskatchewan</label>
+                                    </div>
+                                    <div className="option">
+                                        <input
+                                            className="visually-hidden"
+                                            id="yt"
+                                            type="radio"
+                                            value="YT"
+                                            name="province"
+                                        ></input>
+                                        <label htmlFor="yt">Yukon</label>
+                                    </div>
                                 </fieldset>
                             </div>
                             <div className="btn-container">
-                                <Button className="secondary">Clear</Button>
+                                <Button
+                                    className="secondary"
+                                    onClick={radioDeselection}
+                                >
+                                    Clear
+                                </Button>
                                 <Button className="primary">Apply</Button>
                             </div>
                         </form>
