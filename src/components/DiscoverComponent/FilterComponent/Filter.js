@@ -30,6 +30,9 @@ function Filter({ showModal, openModal, setShowModal }) {
     };
     /********************************************************* */
 
+    const path =
+        "https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=BC&gRank=G1&searchKeyword=Hawk";
+
     return (
         <div className="Filter">
             {showModal ? (
@@ -101,11 +104,11 @@ function Filter({ showModal, openModal, setShowModal }) {
                                                     className="visually-hidden"
                                                     type="radio"
                                                     value={province.value}
-                                                    name="size"
+                                                    name="province"
                                                     id={province.value}
                                                 />
                                                 <label htmlFor="{province.value}">
-                                                    {province.label}
+                                                    {province.value}
                                                 </label>
                                             </div>
                                         );
