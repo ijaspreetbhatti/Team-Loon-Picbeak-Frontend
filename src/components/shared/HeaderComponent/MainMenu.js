@@ -1,5 +1,7 @@
 import React from "react";
 import "./Header.scss";
+import { HashLink } from 'react-router-hash-link';
+
 
 export default function MainMenu(props) {
 
@@ -18,7 +20,7 @@ export default function MainMenu(props) {
                     <a href="*" id="homeBtn">
                         Home
                     </a>
-                    <a href="/">Identify Birds</a>
+                    <HashLink to="/*#BirdFilter" onClick={props.hideMenu}>Identify Birds</HashLink>
                     <a href="/discover">Discover Birds</a>
                     <a href="/donate">Donate</a>
                 </div>

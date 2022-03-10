@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./Header.scss";
 import MainMenu from "./MainMenu";
 import ProfileMenu from "./ProfileMenu";
+import { HashLink } from 'react-router-hash-link';
 
 export default function Header() {
     const [showProfileMenu, setProfileMenu] = useState(false);
@@ -29,6 +30,10 @@ export default function Header() {
         }
     }
 
+    const hideMain = (event) => {
+        setMainMenu(false);
+    }
+
     return (
         <div className="headerContainer">
             <a href="*">
@@ -38,11 +43,11 @@ export default function Header() {
             </a>
             <div className="headerRight">
                 <div className="desktopNav">
-                    <a href="/">Identify Birds</a>
+                    <HashLink to="/*#BirdFilter">Identify Birds</HashLink>
                     <a href="/discover">Discover Birds</a>
                     <a href="/donate">Donate</a>
                 </div>
-                <MainMenu handleMainMenu={handleMainMenu} mainMenuDisplay={showMainMenu}/>
+                <MainMenu handleMainMenu={handleMainMenu} mainMenuDisplay={showMainMenu} hideMenu={hideMain}/>
                 <ProfileMenu handleProfileMenu={handleProfileMenu} profileMenuDisplay={showProfileMenu}/>
             </div>
         </div>

@@ -16,9 +16,8 @@ import ProfileInformation from "./components/ProfileComponent/ProfileInformation
 function App() {
     return (
         <div className="App">
-            <Header />
-
             <Router>
+            <Header />
                 <Routes>
                     <Route index element={<HomeComponent />} />
                     <Route path="donate" element={<DonateComponent />} />
@@ -28,6 +27,7 @@ function App() {
                     <Route path="discover" element={<Discover />} />
                     <Route path="profile" element={<ProfileInformation />} />
                     <Route path="details" element={<DetailDataDisplay/>}/>
+                    <Route path="home/birdfilter" element={<HomeComponent />}/>
                 </Routes>
             </Router>
         </div>
