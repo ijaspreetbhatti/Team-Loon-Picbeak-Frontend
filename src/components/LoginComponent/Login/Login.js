@@ -18,7 +18,7 @@ function Login(props) {
 
         event.preventDefault();
 
-        let config = {
+        let signupConfig = {
             headers: {
                 'Content-Type': 'application/json;charset=UTF-8',
                 "Access-Control-Allow-Origin": "*",
@@ -30,30 +30,36 @@ function Login(props) {
 
 
         await axios
-            .post('http://localhost:8080/api/v1/profiles', data, config)
-            .then(res => console.log("iketa yoo", res))
+            .post('http://localhost:8080/api/v1/profiles', data, signupConfig)
+            .then(
+                res => console.log("User Created: ", res),
+                setEmail(''),
+                setPassword(''),
+                setnickName(''),
+                setChangeModal(false)
+            )
             .catch(error => console.error(error))
+    }
 
-        // try {
-        //     const response = await axios.post('http://localhost:8080/api/v1/profiles', data)
-        //         .then(res => console.log("iketa yoo"))
-        //         .catch(error => console.error(error))
+    async function loginUser(event) {
+        event.preventDefault();
 
+        const loginConfig = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
 
+        const user = JSON.stringify({ email, password })
 
-        //     //console.log(response);
-        // } catch (error) { }
+        await axios
+            .post('http://localhost:8080/api/v1/login/', user, loginConfig)
+            .then(
 
-        // event.preventDefault();
-        // const response = await axios.post('https://pic-beak-backend.herokuapp.com/api/v1/profiles', {
-        //     body: {
-        //         nickName, email, password
-        //     }
-        // })
-
-        // const data = await response.json();
-
-        // console.log(data);
+            )
+            .catch(
+                error => console.error(error)
+            )
     }
 
     if (!props.show) {
@@ -65,7 +71,7 @@ function Login(props) {
             <div className="modalbg" onClick={props.onClose}></div>
             <Card>
                 {!changeModal ? (
-                    <form>
+                    <form onSubmit={loginUser}>
                         <div className="modalHeader">
                             <h1>Log in</h1>
                             <Button className="exit" onClick={props.onClose}></Button>
@@ -77,6 +83,7 @@ function Login(props) {
                                 type="email"
                                 id="email"
                                 name="email"
+                                onChange={(e) => setEmail(e.target.value)}
                                 value={email} />
 
                         </div>
@@ -86,6 +93,7 @@ function Login(props) {
                                 type="password"
                                 id="password"
                                 name="password"
+                                onChange={(e) => setPassword(e.target.value)}
                                 value={password} />
                             <button href="/">Forgot password?</button>
                         </div>
@@ -134,7 +142,7 @@ function Login(props) {
                         </div>
 
                         <div className="buttonWrapper">
-                            <Button type="submit" className="primary">Create</Button>
+                            <Button type="submit" className="primary"> Create</Button>
                         </div>
                         <span>Already have an account? <button onClick={() => setChangeModal(false)}>Log in</button></span>
                     </form>
