@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import "./Header.scss";
 import MainMenu from "./MainMenu";
 import ProfileMenu from "./ProfileMenu";
-import onClickOutside from "react-onclickoutside";
 
 export default function Header() {
     const [showProfileMenu, setProfileMenu] = useState(false);

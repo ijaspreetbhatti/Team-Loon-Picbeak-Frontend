@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../../shared/ButtonComponent/Button.js';
 import './MatchView.scss';
 import Audio from '../../shared/AudioComponent/Audio';
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import DetailDataDisplay from '../../DetailComponent/DetailDataDisplay/DetailDataDisplay.js';
 
 export default function MatchCard(props) {

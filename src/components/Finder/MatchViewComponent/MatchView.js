@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 
 function MatchView() {
     const [birdsData, setBirdData] = useState([]);
-    const [loading, setloading] = useState(true);
     const [location, setLocation] = useState(null);
     const mounted = useRef();
     // const [didRanGetDetails, setdidRanGetDetails] = useState(false);
@@ -30,7 +29,6 @@ function MatchView() {
                 )
                 .then((response) => {
                     if (response) {
-                        setloading(false);
                         setBirdData(response.data);
                         console.log(birdsData);
                     }
