@@ -70,7 +70,7 @@ useEffect(() => {
           <span className="status">Low conservation Concern</span>
 
           <span className="content">
-            {description}
+            {data.description}
             
             {/* {learnMore && extraContent}
             <a

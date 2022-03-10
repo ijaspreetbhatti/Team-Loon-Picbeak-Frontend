@@ -7,8 +7,8 @@ import DetailDataDisplay from '../../DetailComponent/DetailDataDisplay/DetailDat
 
 export default function MatchCard(props) {
     return(
-            <div className='matchViewCard' id={`${props.id.replace(/\s/g, '-')}-card`} key={props.thisKey}>
-                <img src={props.imageLink} alt={props.alt}/>
+            <div className='matchViewCard' id={`${props.id.replace(/\s/g, '-')}-card`}>
+                <img src={props.imageLink} alt={props.alt} className={props.class}/>
                 <div className="matchDetailCard">
                     <div className="nameContainer">
                         <h2>{props.commonName}</h2>
@@ -16,7 +16,12 @@ export default function MatchCard(props) {
                     </div>
                     <div className="buttonContainer">
                         <Audio src={props.audioLink}/>
-                        <Link to="/details" state = {{ from: '/match' }} element={<DetailDataDisplay />}><Button className='primary matchCardBtn'>This is the one!</Button></Link>
+                        <Link to={{
+                            pathname: "/details"}}
+                            state={{from: 'match', data: props.data}}
+                            element={<DetailDataDisplay/>}>
+                            <Button className='primary matchCardBtn'>This is the one!</Button>
+                        </Link>
                     </div>
                 </div>
             </div>

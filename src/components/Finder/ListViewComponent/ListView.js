@@ -17,10 +17,6 @@ function ListView() {
 
     const navigate = useNavigate();
 
-    // const birdDataUpdate = useCallback(() => {
-    //     setBirdData(birdsData);
-    // }, [birdsData, birdsRef]);
-
     const getBirds = async () => {
         const source = axios.CancelToken.source();
         try {
@@ -68,44 +64,6 @@ function ListView() {
             getBirds();
         }
     }, [location]);
-
-    useEffect(() => {
-        console.log("Birds Data Effect");
-        if (birdsData && birdsData.length > 0 && !didRanGetDetails) {
-            setdidRanGetDetails(true);
-            async function getImage(sciName, birdRef) {
-                const imgData = await axios.get(
-                    `https://pic-beak-backend.herokuapp.com/api/v1/birds/${sciName}/image`
-                );
-                if (imgData) {
-                    birdRef.imageLink = imgData.data.imageLink;
-                    setBirdData([...birdsData]);
-                }
-            }
-
-            async function getAudio(sciName, birdRef) {
-                const audioData = await axios.get(
-                    `https://pic-beak-backend.herokuapp.com/api/v1/birds/${sciName}/audio`
-                );
-                if (audioData) {
-                    birdRef.audioLink = audioData.data.audioLink;
-                    setBirdData([...birdsData]);
-                }
-            }
-            console.log("GET DETAILS >>> ", birdsData);
-            if (birdsData && birdsData.length > 0) {
-                birdsData.forEach((bird) => {
-                    const sciName = bird.sciName;
-                    getImage(sciName, bird);
-                    getAudio(sciName, bird);
-                });
-            }
-            // return () => {
-            //     // source.cancel();
-            //     setDataLoad(true)
-            // };
-        }
-    }, [birdsData, didRanGetDetails]);
         
             return (
                 <div id="listView">
@@ -114,9 +72,9 @@ function ListView() {
                         <h6>Showing birds around {location ? location.city : "location"}</h6>
                     </div>
                     <div className="listViewContainer" id="listViewContainer">
-                        {birdsData.map((data) => (
+                        {birdsData.map((data, index) => (
                         <BirdMatchCard 
-                            key={data.sciName} 
+                            key={index} 
                             id={data.sciName} 
                             audioLink={data.audioLink}
                             imageLink={!data.imageLink ? "./assets/images/picbeakLoading.png" : data.imageLink}
