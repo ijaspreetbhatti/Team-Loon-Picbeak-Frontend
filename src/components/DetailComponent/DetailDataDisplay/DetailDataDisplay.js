@@ -120,12 +120,29 @@ function DetailDataDisplay(props) {
             <Audio className="musical-light-red" src={data.audioLink}></Audio>
           </div>
 
+<<<<<<< HEAD
           <span className="status">
             <div className={status.replace(/\s/g, "-")}>{status}</div>
           </span>
 
           <span className="description">
             <Description />
+=======
+          <span className="status">Low conservation Concern</span>
+
+          <span className="content">
+            {data.description}
+            
+            {/* {learnMore && extraContent}
+            <a
+              className="learn-more-link"
+              onClick={() => {
+                setLearnMore(!learnMore);
+              }}
+            >
+              {linkName}
+            </a> */}
+>>>>>>> develop
           </span>
         </div>
 

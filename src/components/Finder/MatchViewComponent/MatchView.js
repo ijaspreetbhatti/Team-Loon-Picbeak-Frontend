@@ -1,28 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
 import Button from "../../shared/ButtonComponent/Button.js";
 import "./MatchView.scss";
-import DetailDataDisplay from "../../DetailComponent/DetailDataDisplay/DetailDataDisplay";
+import MatchCard from './MatchCard';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-// import MatchCard from "./MatchCard";
-import axios, { Axios } from "axios";
-import Audio from "../../shared/AudioComponent/Audio";
-import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function MatchView() {
     const [birdsData, setBirdData] = useState([]);
-    const [loading, setloading] = useState(true);
     const [location, setLocation] = useState(null);
     const mounted = useRef();
-    const [didRanGetDetails, setdidRanGetDetails] = useState(false);
+    // const [didRanGetDetails, setdidRanGetDetails] = useState(false);
 
     const navigate = useNavigate();
-
-    // const birdDataUpdate = useCallback(() => {
-    //     setBirdData(birdsData);
-    // }, [birdsData, birdsRef]);
 
     const getBirds = async () => {
         const source = axios.CancelToken.source();
@@ -36,8 +29,8 @@ function MatchView() {
                 )
                 .then((response) => {
                     if (response) {
-                        setloading(false);
                         setBirdData(response.data);
+                        console.log(birdsData);
                     }
                 });
         } catch (error) {
@@ -72,44 +65,6 @@ function MatchView() {
         }
     }, [location]);
 
-    useEffect(() => {
-        console.log("Birds Data Effect");
-        if (birdsData && birdsData.length > 0 && !didRanGetDetails) {
-            setdidRanGetDetails(true);
-            async function getImage(sciName, birdRef) {
-                const imgData = await axios.get(
-                    `https://pic-beak-backend.herokuapp.com/api/v1/birds/${sciName}/image`
-                );
-                if (imgData) {
-                    birdRef.imageLink = imgData.data.imageLink;
-                    setBirdData([...birdsData]);
-                }
-            }
-
-            async function getAudio(sciName, birdRef) {
-                const audioData = await axios.get(
-                    `https://pic-beak-backend.herokuapp.com/api/v1/birds/${sciName}/audio`
-                );
-                if (audioData) {
-                    birdRef.audioLink = audioData.data.audioLink;
-                    setBirdData([...birdsData]);
-                }
-            }
-            console.log("GET DETAILS >>> ", birdsData);
-            if (birdsData && birdsData.length > 0) {
-                birdsData.forEach((bird) => {
-                    const sciName = bird.sciName;
-                    getImage(sciName, bird);
-                    getAudio(sciName, bird);
-                });
-            }
-            // return () => {
-            //     // source.cancel();
-            //     setDataLoad(true)
-            // };
-        }
-    }, [birdsData, didRanGetDetails]);
-
     return (
         <div id="matchView">
             <div>
@@ -126,31 +81,16 @@ function MatchView() {
                 >
                     {birdsData?.map((data, index) => (
                         <SwiperSlide key={index}>
-                            <div
-                                className="matchViewCard"
-                                id={`${data.sciName.replace(/\s/g, "-")}-card`}
-                            >
-                                <img
-                                    src={!data.imageLink ? "./assets/images/picbeakLoading.png" : data.imageLink}
-                                    className={!data.imageLink ? 'loadImg' : 'matchLoadedImg'}
-                                    alt={data.commonName}
-                                />
-                                <div className="matchDetailCard">
-                                    <div className="nameContainer">
-                                        <h2>{data.commonName}</h2>
-                                        <p>{data.sciName}</p>
-                                    </div>
-                                    <div className="buttonContainer">
-                                        <Audio src={data.audioLink} />
-                                        <Link to={{
-                                            pathname: "/details"}} state={{from: 'match', data: data}} element={<DetailDataDisplay/>}>
-                                                <Button className="primary matchCardBtn">
-                                                    This is the one!
-                                                </Button>
-                                            </Link>
-                                    </div>
-                                </div>
-                            </div>
+                            <MatchCard
+                                imageLink={!data.imageLink ? "./assets/images/picbeakLoading.png" : data.imageLink}
+                                alt={data.commonName}
+                                id={data.sciName}
+                                sciName={data.sciName}
+                                audioLink={data.audioLink}
+                                commonName={data.commonName}
+                                data={data}
+                                class = {!data.imageLink ? 'loadImg' : 'matchLoadedImg'}
+                            />
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -164,35 +104,5 @@ function MatchView() {
         </div>
     );
 }
-
-
-/* <Link
-to={{
-    pathname: "/details",
-    state: {
-        birdPic: `${data.imageLink}`,
-        sciName: `This Sciname`,
-        commonName: `${data.commonName}`,
-        from: "match",
-    },
-}}
-element={<DetailDataDisplay />}
->
-<Button className="primary matchCardBtn">
-    This is the one!
-</Button>
-</Link> */
-
-// <MatchCard
-//     // onChange={setBirdData(birdsData)}
-//     thisKey={index}
-//     imageLink={data.imageLink}
-//     alt={data.commonName}
-//     id={data.sciName}
-//     sciName={data.sciName}
-//     audioLink={data.audioLink}
-//     // function={displayBirdDetails}
-//     commonName={data.commonName}
-// />
 
 export default MatchView;

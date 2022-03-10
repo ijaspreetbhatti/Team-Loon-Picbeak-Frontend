@@ -2,12 +2,11 @@ import React from "react";
 import "./BirdMatchCard.scss";
 import Audio from "../AudioComponent/Audio";
 import DetailDataDisplay from "../../DetailComponent/DetailDataDisplay/DetailDataDisplay";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function BirdMatchCard(props) {
     return (
         <div
-            key={props.key}
             className="birdMatchCard listViewCard"
             id={props.id.replace(/\s/g, "-")}
         >
