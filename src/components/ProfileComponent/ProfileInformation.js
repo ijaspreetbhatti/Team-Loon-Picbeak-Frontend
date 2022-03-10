@@ -25,6 +25,7 @@ function ProfileInformation(props) {
   const [showEdit, setShowEdit] = useState(false)
   const [showicon, setShowIcon] = useState(false)
   let [portrait, setPortrait] = useState(["green"])
+  let [changePortrait, setChangePortrait] = useState(["green"])
   const [snack, setSnack] = useState(false)
 
   const data = [pic, pic2];
@@ -64,8 +65,8 @@ function ProfileInformation(props) {
       </div>
 
       <div className="beakpediaWrapper">
-        <EditPortrait onClose={() => {setShowIcon(false); setShowEdit(true);}} showicon={showicon} changeIcon={(e) => setPortrait(portrait[0]=[e])}/>
-        <EditProfile  onClose={() => setShowEdit(false)} showedit={showEdit} onClick={() => setShowIcon(true)} portraitIcon={portrait[0]} showSnack={() => setSnack(true)}/>
+        <EditPortrait onClose={() => {setShowIcon(false); setShowEdit(true);}} showicon={showicon} changeIcon={(e) => setChangePortrait(changePortrait[0]=[e])}/>
+        <EditProfile  onClose={() => setShowEdit(false)} showedit={showEdit} onClick={() => setShowIcon(true)} portraitIcon={changePortrait[0]} showSnack={() => setSnack(true)}/>
         <Snack showSnack={snack}/>
         
         <span className="beakpediaTitle">Beakpedia</span>

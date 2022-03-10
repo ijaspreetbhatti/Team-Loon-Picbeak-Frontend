@@ -34,7 +34,7 @@ export default function ProfileMenu() {
             ></div>
             {showMenu ? (
                 <div className="profileMenu">
-                    <button>Profile</button>
+                    <button><a href="/profile">Profile</a></button>
                     <button onClick={showLoginModal}>Log in</button>
                 </div>
             ) : null}
