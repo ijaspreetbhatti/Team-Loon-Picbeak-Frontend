@@ -120,14 +120,6 @@ function DetailDataDisplay(props) {
             <Audio className="musical-light-red" src={data.audioLink}></Audio>
           </div>
 
-<<<<<<< HEAD
-          <span className="status">
-            <div className={status.replace(/\s/g, "-")}>{status}</div>
-          </span>
-
-          <span className="description">
-            <Description />
-=======
           <span className="status">Low conservation Concern</span>
 
           <span className="content">
@@ -142,7 +134,6 @@ function DetailDataDisplay(props) {
             >
               {linkName}
             </a> */}
->>>>>>> develop
           </span>
         </div>
 
