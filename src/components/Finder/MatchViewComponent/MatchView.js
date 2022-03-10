@@ -6,17 +6,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-// import MatchCard from "./MatchCard";
-import axios, { Axios } from "axios";
-import Audio from "../../shared/AudioComponent/Audio";
-import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function MatchView() {
     const [birdsData, setBirdData] = useState([]);
     const [loading, setloading] = useState(true);
     const [location, setLocation] = useState(null);
     const mounted = useRef();
-    const [didRanGetDetails, setdidRanGetDetails] = useState(false);
+    // const [didRanGetDetails, setdidRanGetDetails] = useState(false);
 
     const navigate = useNavigate();
 
