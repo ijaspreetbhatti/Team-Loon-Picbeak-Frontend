@@ -1,28 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.scss";
 
-export default function MainMenu() {
-    const [showMenu, setMenu] = useState(false);
-
-    const changeMenu = (event) => {
-        event.preventDefault();
-
-        if (!showMenu) {
-            setMenu(true);
-        } else if(showMenu) {
-            setMenu(false);
-        }
-    }
+export default function MainMenu(props) {
 
     return (
         <div className="menuContainer">
             <div
-                onClick={changeMenu}
+                onClick={event => props.handleMainMenu(event)}
                 className={
-                    showMenu ? "active-nav" : "navMenuIcon"
+                    props.mainMenuDisplay ? "active-nav" : "navMenuIcon"
                 }
             ></div>
-            {showMenu ? (
+            {props.mainMenuDisplay ? (
                 <div
                     className="navMenu"
                 >
