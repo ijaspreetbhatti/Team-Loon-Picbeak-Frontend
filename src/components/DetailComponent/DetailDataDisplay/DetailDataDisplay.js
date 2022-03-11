@@ -9,9 +9,8 @@ import styled, { css } from "styled-components";
 function DetailDataDisplay(props) {
   const location = useLocation()
   const { data } = location.state;
-  const [description, setDescription] = useState();
   const [gallery, setGallery] = useState([]);
-  const [status, setStatus] = useState();
+  // const [status, setStatus] = useState();
 
 
   const picArray = [];
@@ -21,47 +20,40 @@ function DetailDataDisplay(props) {
   // if (picArray.length > 4) {
   //   overlay = <span className="greyBoxShow">+{picArray.length - 4}</span>;
   // }
-    useEffect(() => {
-      async function getDescription() {
-          const birdDescription = await axios.get(
-              `https://pic-beak-backend.herokuapp.com/api/v1/birds/${data.sciName}/description`
-          );
 
-          setDescription(birdDescription.data.description);
+    const Status =()=>{
+      let status = data.conservationStatus;
+      console.log(status)
+      if(status == ("G1" || "T1" || "G2" || "T2")){
+        status = "High conservation concern";
+      }else if(status == ("G3" || "T3")){
+        status = "Moderate conservation concern";
       }
-      getDescription();}, []);
+      else {
+        status = "Low conservation concern";
+      }
 
-    useEffect(() => {
-      async function getStatus() {
-          const birdStatus = await axios.get(
-              `https://pic-beak-backend.herokuapp.com/api/v1/birds/${data.sciName}`
-          );
-          console.log(birdStatus.data.conservationStatus)
-            if(birdStatus.data.conservationStatus == ("G1" || "T1" || "G2" || "T2")){ 
-              birdStatus.data.conservationStatus = "High conservation concern";
-            }else if(birdStatus.data.conservationStatus == ("G3" || "T3")){
-              birdStatus.data.conservationStatus = "Moderate conservation concern";
-            }
-            else {
-              birdStatus.data.conservationStatus = "Low conservation concern";
-            }
-          setStatus(birdStatus.data.conservationStatus);
-          console.log(birdStatus.data.conservationStatus)
-      }
-      getStatus();}, []);
+      return(
+        <div>
+          <div>{status}</div>
+        </div>
+      );
+    };
+
 
     useEffect(() => {
       async function getGallery() {
           const birdGallery = await axios.get(
               `https://pic-beak-backend.herokuapp.com/api/v1/birds/${data.sciName}/gallery`
           );
-            if(birdGallery.data.gallery > 4){
-              for (let i = 0; i < 4; i++) {
-                let pic = birdGallery[i].data.gallery[i].collectedBirdImage;
-                // picArray.push(<img className="galleryPic" src={pic} key={i} />);
-              }
-            }
+            // if(birdGallery.data.gallery > 4){
+            //   for (let i = 0; i < 4; i++) {
+            //     let pic = birdGallery[i].data.gallery[i].collectedBirdImage;
+            //     // picArray.push(<img className="galleryPic" src={pic} key={i} />);
+            //   }
+            // }
           setGallery(birdGallery.data.gallery);
+          console.log(birdGallery.data.gallery)
       }
       getGallery();}, []);
 
@@ -92,7 +84,7 @@ function DetailDataDisplay(props) {
 
     return (
         <div>
-        <DescriptionText learnMore={isLearnMore}>{description}</DescriptionText>
+        <DescriptionText learnMore={isLearnMore}>{data.description}</DescriptionText>
         <div className="learn-more-link" onClick={toggleReadMore}>
           {isLearnMore ? "Learn more" : "Learn less"}
         </div>
@@ -120,20 +112,10 @@ function DetailDataDisplay(props) {
             <Audio className="musical-light-red" src={data.audioLink}></Audio>
           </div>
 
-          <span className="status">Low conservation Concern</span>
+          <span className="status"><Status/></span>
 
-          <span className="content">
-            {data.description}
-            
-            {/* {learnMore && extraContent}
-            <a
-              className="learn-more-link"
-              onClick={() => {
-                setLearnMore(!learnMore);
-              }}
-            >
-              {linkName}
-            </a> */}
+          <span className="description">
+            <Description />
           </span>
         </div>
 
