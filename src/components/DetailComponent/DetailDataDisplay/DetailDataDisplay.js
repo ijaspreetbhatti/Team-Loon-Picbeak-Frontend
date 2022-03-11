@@ -26,18 +26,21 @@ function DetailDataDisplay(props) {
       console.log(status)
       if(status == ("G1" || "T1" || "G2" || "T2")){
         status = "High conservation concern";
+        return(
+            <div className="high">{status}</div>
+        );
       }else if(status == ("G3" || "T3")){
         status = "Moderate conservation concern";
+        return(
+            <div className="moderate">{status}</div>
+        );
       }
       else {
         status = "Low conservation concern";
+        return(
+            <div className="low">{status}</div>
+        );
       }
-
-      return(
-        <div>
-          <div>{status}</div>
-        </div>
-      );
     };
 
 
@@ -46,14 +49,8 @@ function DetailDataDisplay(props) {
           const birdGallery = await axios.get(
               `https://pic-beak-backend.herokuapp.com/api/v1/birds/${data.sciName}/gallery`
           );
-            // if(birdGallery.data.gallery > 4){
-            //   for (let i = 0; i < 4; i++) {
-            //     let pic = birdGallery[i].data.gallery[i].collectedBirdImage;
-            //     // picArray.push(<img className="galleryPic" src={pic} key={i} />);
-            //   }
-            // }
+
           setGallery(birdGallery.data.gallery);
-          console.log(birdGallery.data.gallery)
       }
       getGallery();}, []);
 

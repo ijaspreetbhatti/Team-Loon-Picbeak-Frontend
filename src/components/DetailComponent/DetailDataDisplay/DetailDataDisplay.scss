@@ -56,15 +56,36 @@
       }
 
       .status {        
-        
+        .high{
           width: fit-content;
-        margin-top: 16px;
-        background-color: $light-green;
-        border-radius: 20px;
-        padding: 4px 8px 6px 8px;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 18px;
+          margin-top: 16px;
+          background-color: $light-red;
+          border-radius: 20px;
+          padding: 4px 8px 6px 8px;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 18px;
+        }
+        .moderate{
+          width: fit-content;
+          margin-top: 16px;
+          background-color: $light-yellow;
+          border-radius: 20px;
+          padding: 4px 8px 6px 8px;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 18px;
+        }
+        .low{
+          width: fit-content;
+          margin-top: 16px;
+          background-color: $light-green;
+          border-radius: 20px;
+          padding: 4px 8px 6px 8px;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 18px;
+        }
         
       }
 
@@ -153,4 +174,7 @@
       width: 139px;
     }
   }
+
 }
+
+
