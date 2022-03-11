@@ -50,7 +50,8 @@ function DetailDataDisplay(props) {
               `https://pic-beak-backend.herokuapp.com/api/v1/birds/${data.sciName}/gallery`
           );
 
-          setGallery(birdGallery.data.gallery);
+          setGallery(birdGallery.data);
+          console.log(birdGallery.data)
       }
       getGallery();}, []);
 
@@ -90,11 +91,6 @@ function DetailDataDisplay(props) {
   };
 
 
-
-
-
-  
-
   return (
     <div className="birdProfileWrapper">
       <img className="postImage" src={data.imageLink} />
@@ -119,8 +115,9 @@ function DetailDataDisplay(props) {
         <div className="galleryWrapper">
           <span className="galleryTitle">Gallery</span>
           <div className="galleryContainer">
-            {gallery}
-            {/* {overlay} */}
+            {gallery.map(src =>  (
+              <img src={src}/>
+            ))}
           </div>
         </div>
       </div>
