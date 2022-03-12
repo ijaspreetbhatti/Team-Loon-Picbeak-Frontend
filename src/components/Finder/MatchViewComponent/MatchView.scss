@@ -79,12 +79,11 @@
         }
 
         .loadImg {
-            object-fit: contain;
-            width: 70%;
+            object-fit: cover;
+            height: 80%;
             object-position: top;
             left: 50%;
             transform: translateX(-50%);
-            top: 70px;
         }
 
     .matchDetailCard {
