@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 function MatchView() {
     const [birdsData, setBirdData] = useState([]);
     const [location, setLocation] = useState(null);
+    const [loading, setLoading] = useState(true);
     const mounted = useRef();
     // const [didRanGetDetails, setdidRanGetDetails] = useState(false);
 
@@ -30,6 +31,7 @@ function MatchView() {
                 .then((response) => {
                     if (response) {
                         setBirdData(response.data);
+                        setLoading(false)
                         console.log(birdsData);
                     }
                 });
@@ -79,10 +81,26 @@ function MatchView() {
                     modules={[Navigation]}
                     className="mySwiper"
                 >
-                    {birdsData?.map((data, index) => (
+            {loading ? (
+                <SwiperSlide>
+                 <div className='matchViewCard'>
+                    <img src="./assets/images/picbeakPlaceholder.svg" alt="loading data..." className="loadImg"/>
+                    <div className="matchDetailCard">
+                        <div className="nameContainer">
+                            <h2>Loading bird data...</h2>
+                        </div>
+                        <div className="buttonContainer">
+                            <div className="musical-grey"></div>
+                            <Button className='primary-grey matchCardBtn'>This is the one!</Button>
+                    </div>
+                    </div>
+                </div>
+                </SwiperSlide>
+            ) :
+                    birdsData?.map((data, index) => (
                         <SwiperSlide key={index}>
                             <MatchCard
-                                imageLink={!data.imageLink ? "./assets/images/picbeakLoading.png" : data.imageLink}
+                                imageLink={!data.imageLink ? "./assets/images/picbeakPlaceholder.svg" : data.imageLink}
                                 alt={data.commonName}
                                 id={data.sciName}
                                 sciName={data.sciName}
@@ -92,7 +110,8 @@ function MatchView() {
                                 class = {!data.imageLink ? 'loadImg' : 'matchLoadedImg'}
                             />
                         </SwiperSlide>
-                    ))}
+                    ))
+                }
                 </Swiper>
             </div>
             <div></div>
@@ -106,3 +125,4 @@ function MatchView() {
 }
 
 export default MatchView;
+

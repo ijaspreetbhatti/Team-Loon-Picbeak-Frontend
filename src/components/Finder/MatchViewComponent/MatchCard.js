@@ -18,7 +18,7 @@ export default function MatchCard(props) {
                         <Audio src={props.audioLink}/>
                         <Link to={{
                             pathname: "/details"}}
-                            state={{from: 'match', data: props.data}}
+                            state={{from: 'matchview', data: props.data}}
                             element={<DetailDataDisplay/>}>
                             <Button className='primary matchCardBtn'>This is the one!</Button>
                         </Link>

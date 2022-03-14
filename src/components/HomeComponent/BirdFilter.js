@@ -24,7 +24,7 @@ function BirdFilter() {
                     cities.find((city) => city.id === selectedOption.value)
                 )
             );
-            navigate("match");
+            navigate("matchview");
         }
     };
     return (

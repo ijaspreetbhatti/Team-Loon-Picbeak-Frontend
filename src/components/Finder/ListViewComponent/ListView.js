@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 function ListView() {
     const [birdsData, setBirdData] = useState([]);
-    // const [loading, setloading] = useState(true);
+    const [loading, setloading] = useState(true);
     const [location, setLocation] = useState(null);
     const mounted = useRef();
     // const [didRanGetDetails, setdidRanGetDetails] = useState(false);
@@ -27,8 +27,8 @@ function ListView() {
                 )
                 .then((response) => {
                     if (response) {
-                        // setloading(false);
                         setBirdData(response.data);
+                        setloading(false);
                     }
                 });
         } catch (error) {
@@ -70,23 +70,42 @@ function ListView() {
                 <h6>Showing birds around {location ? location.city : "location"}</h6>
             </div>
             <div className="listViewContainer" id="listViewContainer">
-                {birdsData.map((data, index) => (
-                <BirdMatchCard 
-                    key={index} 
-                    id={data.sciName} 
-                    audioLink={data.audioLink}
-                    imageLink={!data.imageLink ? "./assets/images/picbeakLoading.png" : data.imageLink}
-                    alt={data.commonName}
-                    commonName={data.commonName}
-                    sciName={data.sciName}
-                    data={data}
-                    class={!data.imageLink ? 'loadImg' : 'matchLoadedImg'}
-                    />
-            ))}
+                {loading ? (
+                    <>
+                        <div className="birdMatchCard listViewCard loadCard">
+                            <img src="./assets/images/picbeakPlaceholder.svg" alt="loading data..." className="loadImgList"/>
+                        </div>
+                        <div className="birdMatchCard listViewCard loadCard">
+                            <img src="./assets/images/picbeakPlaceholder.svg" alt="loading data..." className="loadImgList"/>
+                        </div>
+                        <div className="birdMatchCard listViewCard loadCard">
+                            <img src="./assets/images/picbeakPlaceholder.svg" alt="loading data..." className="loadImgList"/>
+                        </div>
+                        <div className="birdMatchCard listViewCard loadCard">
+                            <img src="./assets/images/picbeakPlaceholder.svg" alt="loading data..." className="loadImgList"/>
+                        </div>
+                        <div className="birdMatchCard listViewCard loadCard">
+                            <img src="./assets/images/picbeakPlaceholder.svg" alt="loading data..." className="loadImgList"/>
+                        </div>
+                    </>
+                ) : (
+                    birdsData.map((data, index) => (
+                    <BirdMatchCard 
+                        key={index} 
+                        id={data.sciName} 
+                        audioLink={data.audioLink}
+                        imageLink={!data.imageLink ? "./assets/images/picbeakPlaceholder.svg" : data.imageLink}
+                        alt={data.commonName}
+                        commonName={data.commonName}
+                        sciName={data.sciName}
+                        data={data}
+                        class={!data.imageLink ? 'loadImgList' : 'matchLoadedImg'}
+                        />
+            )))}
             </div>
             <div>
             </div>
-            <a href="/match"><Button className="terciary changeViewBtn">Switch to match view</Button></a>
+            <a href="/matchview"><Button className="terciary changeViewBtn">Switch to match view</Button></a>
         </div>
         );
     }

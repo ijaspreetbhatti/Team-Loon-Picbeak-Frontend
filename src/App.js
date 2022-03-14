@@ -21,7 +21,7 @@ function App() {
                 <Routes>
                     <Route index element={<HomeComponent />} />
                     <Route path="donate" element={<DonateComponent />} />
-                    <Route path="match" element={<MatchView />} />
+                    <Route path="matchview" element={<MatchView />} />
                     <Route path="*" element={<HomeComponent />} />
                     <Route path="listview" element={<ListView />} />
                     <Route path="discover" element={<Discover />} />
