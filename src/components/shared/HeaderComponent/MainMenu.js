@@ -1,35 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.scss";
+import { HashLink } from 'react-router-hash-link';
 
-export default function MainMenu() {
-    const [showMenu, setMenu] = useState(false);
 
-    const changeMenu = (event) => {
-        event.preventDefault();
-
-        if (!showMenu) {
-            setMenu(true);
-        } else if(showMenu) {
-            setMenu(false);
-        }
-    }
+export default function MainMenu(props) {
 
     return (
         <div className="menuContainer">
             <div
-                onClick={changeMenu}
+                onClick={event => props.handleMainMenu(event)}
                 className={
-                    showMenu ? "active-nav" : "navMenuIcon"
+                    props.mainMenuDisplay ? "active-nav" : "navMenuIcon"
                 }
             ></div>
-            {showMenu ? (
+            {props.mainMenuDisplay ? (
                 <div
                     className="navMenu"
                 >
                     <a href="*" id="homeBtn">
                         Home
                     </a>
-                    <a href="/match">Identify Birds</a>
+                    <HashLink to="/*#BirdFilter" onClick={props.hideMenu}>Identify Birds</HashLink>
                     <a href="/discover">Discover Birds</a>
                     <a href="/donate">Donate</a>
                 </div>

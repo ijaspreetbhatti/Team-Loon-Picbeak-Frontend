@@ -116,7 +116,7 @@
   padding: 12px 20px;
   font-size: 16px;
   border-radius: 68px;
-  box-shadow: $shadow;
+  box-shadow: $shadow2;
   border: none;
   cursor: pointer;
 }
@@ -262,4 +262,16 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
+}
+
+.edit-secondary-red {
+  background-image: url(./ButtonIcons/editPen.svg);
+  background-color: $light-red;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 64px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
