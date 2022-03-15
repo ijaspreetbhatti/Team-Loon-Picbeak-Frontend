@@ -26,7 +26,7 @@ export default function ProfileMenu(props) {
             ></div>
             {props.profileMenuDisplay ? (
                 <div className="profileMenu">
-                    <button>Profile</button>
+                    <button><a href="/profile">Profile</a></button>
                     {localStorage.getItem('userInfo') ? (<button onClick={() => showLogin()}>Log out</button>) : (<button onClick={showLoginModal}>Log in</button>)}
                 </div>
             ) : null}
