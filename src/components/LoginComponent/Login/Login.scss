@@ -113,13 +113,17 @@ form {
             border: 1px solid $grey40;
         }
 
-        a {
+        button {
+            padding: 0;
+            border: none;
+            background-color: $white;
             font-size: 14px;
             margin-top: 8px;
             text-decoration: none;
             color: $primary;
             font-weight: 700;
             cursor: pointer;
+            text-align: left;
         }
     }
 
@@ -138,7 +142,9 @@ form {
         font-size: 14px;
         margin-top: 16px;
 
-        a {
+        button {
+            border: none;
+            background-color: $white;
             font-size: 14px;
             margin-top: 8px;
             text-decoration: none;

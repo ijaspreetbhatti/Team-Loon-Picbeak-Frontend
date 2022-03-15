@@ -58,6 +58,7 @@ export default function Header() {
                 <ProfileMenu
                     handleProfileMenu={handleProfileMenu}
                     profileMenuDisplay={showProfileMenu}
+                    setProfileMenu={setProfileMenu}
                 />
             </div>
         </div>
