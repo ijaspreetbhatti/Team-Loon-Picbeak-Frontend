@@ -1,9 +1,9 @@
-import React, { useCallback, useRef, useEffect } from "react";
+import React, { useCallback, useRef, useEffect, useState } from "react";
 import Button from "../../shared/ButtonComponent/Button";
 import "./Filter.scss";
 import axios from "axios";
 
-function Filter({ showModal, openModal, setShowModal }) {
+function Filter({ showModal, openModal, setShowModal }, props) {
     /** Close Modal When ESC Key Peressed ******************* */
     const keyPress = useCallback(
         (e) => {
@@ -39,7 +39,7 @@ function Filter({ showModal, openModal, setShowModal }) {
     const fliterBirds = () => {
         axios
             .get(
-                `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=BC&gRank=G1&searchKeyword=Hawks`
+                `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=${prov}&gRank=${status}&searchKeyword=${props.birdName}`
             )
             .then((results) => console.log(results))
             .catch((err) => console.log(err));
@@ -47,33 +47,12 @@ function Filter({ showModal, openModal, setShowModal }) {
 
     useEffect(() => fliterBirds());
 
-    // const getBirds = async () => {
-    //     const source = axios.CancelToken.source();
-    //     try {
-    //         await axios
-    //             .get(
-    //                 `https://pic-beak-backend.herokuapp.com/api/v1/birds/location?lat=${location.lat}&lng=${location.lng}&maxResults=15`,
-    //                 {
-    //                     cancelToken: source.token,
-    //                 }
-    //             )
-    //             .then((response) => {
-    //                 if (response) {
-    //                     setBirdData(response.data);
-    //                     setLoading(false)
-    //                     console.log(birdsData);
-    //                 }
-    //             });
-    //     } catch (error) {
-    //         if (axios.isCancel(error)) {
-    //         } else {
-    //             throw error;
-    //         }
-    //     }
-    //     return function cleanup() {
-    //         source.cancel();
-    //     };
-    // };
+    const [status, setStatus] = useState("");
+    console.log(status);
+
+    const [prov, setProv] = useState("");
+    console.log(prov);
+    console.log(props.birdName);
 
     return (
         <div className="Filter">
@@ -104,6 +83,9 @@ function Filter({ showModal, openModal, setShowModal }) {
                                             type="radio"
                                             value="G5"
                                             name="status"
+                                            onChange={(e) =>
+                                                setStatus(e.target.value)
+                                            }
                                         />
                                         <label htmlFor="low">
                                             Low conservation concern
@@ -116,6 +98,9 @@ function Filter({ showModal, openModal, setShowModal }) {
                                             type="radio"
                                             value="G4"
                                             name="status"
+                                            onChange={(e) =>
+                                                setStatus(e.target.value)
+                                            }
                                         />
                                         <label htmlFor="moderate">
                                             Moderate conservation concern
@@ -128,6 +113,9 @@ function Filter({ showModal, openModal, setShowModal }) {
                                             type="radio"
                                             value="G3"
                                             name="status"
+                                            onChange={(e) =>
+                                                setStatus(e.target.value)
+                                            }
                                         />
                                         <label htmlFor="high">
                                             High conservation concern
@@ -145,6 +133,9 @@ function Filter({ showModal, openModal, setShowModal }) {
                                             type="radio"
                                             value="AB"
                                             name="province"
+                                            onChange={(e) =>
+                                                setProv(e.target.value)
+                                            }
                                         ></input>
                                         <label htmlFor="ab">Alberta</label>
                                     </div>
@@ -155,6 +146,9 @@ function Filter({ showModal, openModal, setShowModal }) {
                                             type="radio"
                                             value="BC"
                                             name="province"
+                                            onChange={(e) =>
+                                                setProv(e.target.value)
+                                            }
                                         ></input>
                                         <label htmlFor="bc">
                                             British Columbia
@@ -167,6 +161,9 @@ function Filter({ showModal, openModal, setShowModal }) {
                                             type="radio"
                                             value="MB"
                                             name="province"
+                                            onChange={(e) =>
+                                                setProv(e.target.value)
+                                            }
                                         ></input>
                                         <label htmlFor="mb">Manitoba</label>
                                     </div>
@@ -177,6 +174,9 @@ function Filter({ showModal, openModal, setShowModal }) {
                                             type="radio"
                                             value="NB"
                                             name="province"
+                                            onChange={(e) =>
+                                                setProv(e.target.value)
+                                            }
                                         ></input>
                                         <label htmlFor="nb">
                                             New Brunswick
@@ -189,6 +189,9 @@ function Filter({ showModal, openModal, setShowModal }) {
                                             type="radio"
                                             value="NL"
                                             name="province"
+                                            onChange={(e) =>
+                                                setProv(e.target.value)
+                                            }
                                         ></input>
                                         <label htmlFor="nl">
                                             Newfoundland and Labrador
@@ -201,6 +204,9 @@ function Filter({ showModal, openModal, setShowModal }) {
                                             type="radio"
                                             value="NT"
                                             name="province"
+                                            onChange={(e) =>
+                                                setProv(e.target.value)
+                                            }
                                         ></input>
                                         <label htmlFor="nt">
                                             Northwest Territories
@@ -213,6 +219,9 @@ function Filter({ showModal, openModal, setShowModal }) {
                                             type="radio"
                                             value="NS"
                                             name="province"
+                                            onChange={(e) =>
+                                                setProv(e.target.value)
+                                            }
                                         ></input>
                                         <label htmlFor="ns">Nova Scotia</label>
                                     </div>
@@ -223,6 +232,9 @@ function Filter({ showModal, openModal, setShowModal }) {
                                             type="radio"
                                             value="NU"
                                             name="province"
+                                            onChange={(e) =>
+                                                setProv(e.target.value)
+                                            }
                                         ></input>
                                         <label htmlFor="nu">Nunavut</label>
                                     </div>
@@ -233,6 +245,9 @@ function Filter({ showModal, openModal, setShowModal }) {
                                             type="radio"
                                             value="ON"
                                             name="province"
+                                            onChange={(e) =>
+                                                setProv(e.target.value)
+                                            }
                                         ></input>
                                         <label htmlFor="on">Ontario</label>
                                     </div>
@@ -243,6 +258,9 @@ function Filter({ showModal, openModal, setShowModal }) {
                                             type="radio"
                                             value="PE"
                                             name="province"
+                                            onChange={(e) =>
+                                                setProv(e.target.value)
+                                            }
                                         ></input>
                                         <label htmlFor="pe">
                                             Prince Edward Island
@@ -255,6 +273,9 @@ function Filter({ showModal, openModal, setShowModal }) {
                                             type="radio"
                                             value="QC"
                                             name="province"
+                                            onChange={(e) =>
+                                                setProv(e.target.value)
+                                            }
                                         ></input>
                                         <label htmlFor="qc">Quebec</label>
                                     </div>
@@ -265,6 +286,9 @@ function Filter({ showModal, openModal, setShowModal }) {
                                             type="radio"
                                             value="SK"
                                             name="province"
+                                            onChange={(e) =>
+                                                setProv(e.target.value)
+                                            }
                                         ></input>
                                         <label htmlFor="sk">Saskatchewan</label>
                                     </div>
@@ -275,6 +299,9 @@ function Filter({ showModal, openModal, setShowModal }) {
                                             type="radio"
                                             value="YT"
                                             name="province"
+                                            onChange={(e) =>
+                                                setProv(e.target.value)
+                                            }
                                         ></input>
                                         <label htmlFor="yt">Yukon</label>
                                     </div>
@@ -287,7 +314,12 @@ function Filter({ showModal, openModal, setShowModal }) {
                                 >
                                     Clear
                                 </Button>
-                                <Button className="primary">Apply</Button>
+                                <Button
+                                    className="primary"
+                                    onClick={fliterBirds}
+                                >
+                                    Apply
+                                </Button>
                             </div>
                         </form>
                     </div>
