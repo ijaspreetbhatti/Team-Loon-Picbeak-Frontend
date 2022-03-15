@@ -11,11 +11,13 @@
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-lines-ellipsis": "^0.15.0",
     "react-responsive-carousel": "^3.2.22",
     "react-router-dom": "^6.2.1",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.0",
     "react-select": "^5.2.2",
+    "styled-components": "^5.3.3",
     "swiper": "^8.0.6",
     "web-vitals": "^2.1.4"
   },

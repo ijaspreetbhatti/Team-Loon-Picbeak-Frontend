@@ -24,7 +24,8 @@
     padding: 24px;
     border-radius: 24px 24px 0px 0px;
     background-color: $white;
-    height: 1000px;
+    height: auto;
+    padding-bottom: 150px;
     box-shadow: $shadow;
 
     .infoWrapper {
@@ -55,29 +56,55 @@
       }
 
       .status {
-        width: fit-content;
-        margin-top: 16px;
-        background-color: $light-green;
-        border-radius: 20px;
-        padding: 4px 8px 6px 8px;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 18px;
+        text-align: left;        
+        .high{
+          width: fit-content;
+          margin-top: 16px;
+          background-color: $light-red;
+          border-radius: 20px;
+          padding: 4px 8px 6px 8px;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 18px;
+        }
+        .moderate{
+          width: fit-content;
+          margin-top: 16px;
+          background-color: $light-yellow;
+          border-radius: 20px;
+          padding: 4px 8px 6px 8px;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 18px;
+        }
+        .low{
+          width: fit-content;
+          margin-top: 16px;
+          background-color: $light-green;
+          border-radius: 20px;
+          padding: 4px 8px 6px 8px;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 18px;
+        }
+        
       }
 
-      .content {
+      .description {
         margin-top: 24px;
         font-weight: 400;
         font-size: 14px;
         line-height: 18px;
         text-align: left;
+        height: auto;
+        
 
         .learn-more-link {
           font-weight: 800;
           color: $primary;
-          margin-left: 5px;
         }
       }
+      
     }
     .galleryWrapper {
       margin-top: 24px;
@@ -148,4 +175,41 @@
       width: 139px;
     }
   }
+  @media screen and (min-width: 1200px){
+    display: grid;
+    margin-top: 86px;
+    margin-bottom: 100px;
+    grid-template-columns: 1.15fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    grid-template-areas:
+    "img detail"
+    ;
+
+    .postImage{
+      grid-area: img;
+      width: 400px;
+      height: 400px;
+      border-radius: 24px;
+      margin: 0 auto;
+      margin-right: 77px;
+    }
+    .profileContainer{
+      grid-area: detail;
+      position: relative;
+      top: 0;
+      box-shadow: none;
+      width: 342px;
+      height: auto;
+      padding-bottom: 0;
+      grid-row: 1 / span 2;
+    }
+    .footerWrapper{
+      position: revert;
+      margin-right: 77px;
+      width: 400px;
+      justify-self: end;
+    }
+  }
 }
+
+
