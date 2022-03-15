@@ -140,21 +140,6 @@ const Discover = () => {
 
     const [showModal, setShowModal] = useState(false);
 
-    /** additional code ****************************************/
-    const [close, setClose] = useState(false);
-    const [birdName, setBirdName] = useState("");
-
-    const handleBirdName = (e) => {
-        setBirdName(e.target.value);
-        e.target.value.length > 0 ? setClose(true) : setClose(false);
-    };
-
-    const resetBirdName = () => {
-        setBirdName("");
-        setClose(false);
-    };
-    /************************************************************* */
-
     const openModal = () => {
         setShowModal((prev) => !prev);
     };
@@ -165,7 +150,6 @@ const Discover = () => {
                 showModal={showModal}
                 openModal={openModal}
                 setShowModal={setShowModal}
-                birdName={birdName}
             />
 
             <h3>Discover bird species</h3>
@@ -173,13 +157,7 @@ const Discover = () => {
                 Explore birds species and start your own birdwatching session,
                 no matter where you are.
             </p>
-            <SearchInput
-                openModal={openModal}
-                resetBirdName={resetBirdName}
-                handleBirdName={handleBirdName}
-                birdName={birdName}
-                close={close}
-            />
+            <SearchInput openModal={openModal} />
             <div className="cardParent">
                 {birdData.map((data) => (
                     <BirdMatchCard
