@@ -4,37 +4,24 @@ import FilterIcon from "../DiscoverIcons/filterGreen.svg";
 import Button from "../../shared/ButtonComponent/Button";
 import seachIcon from "../DiscoverIcons/search.svg";
 
-function SearchInput({ openModal }) {
-    const [close, setClose] = useState(false);
-    const [birdName, setBirdName] = useState("");
-
-    const handleBirdName = (e) => {
-        setBirdName(e.target.value);
-        e.target.value.length > 0 ? setClose(true) : setClose(false);
-    };
-
-    const resetBirdName = () => {
-        setBirdName("");
-        setClose(false);
-    };
-
+function SearchInput({ openModal }, props) {
     return (
         <div className="search-block">
             <div className="searchParent">
                 <img src={seachIcon} alt="search icon" />
                 <input
-                    onChange={handleBirdName}
-                    value={birdName}
+                    onChange={props.handleBirdName}
+                    value={props.birdName}
                     className="searchBar"
                     type="text"
                     id="searchInput"
                     placeholder="enter bird name"
                 />
-                {!close ? null : (
+                {!props.close ? null : (
                     <Button
                         className="exit"
-                        close={close}
-                        onClick={resetBirdName}
+                        close={props.close}
+                        onClick={props.resetBirdName}
                     ></Button>
                 )}
             </div>
