@@ -1,6 +1,7 @@
 import React, { useCallback, useRef, useEffect } from "react";
 import Button from "../../shared/ButtonComponent/Button";
 import "./Filter.scss";
+import axios from "axios";
 
 function Filter({ showModal, openModal, setShowModal }) {
     /** Close Modal When ESC Key Peressed ******************* */
@@ -35,8 +36,44 @@ function Filter({ showModal, openModal, setShowModal }) {
         }
     };
 
-    const path =
-        "https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=BC&gRank=G1&searchKeyword=Hawk";
+    const fliterBirds = () => {
+        axios
+            .get(
+                `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=BC&gRank=G1&searchKeyword=Hawks`
+            )
+            .then((results) => console.log(results))
+            .catch((err) => console.log(err));
+    };
+
+    useEffect(() => fliterBirds());
+
+    // const getBirds = async () => {
+    //     const source = axios.CancelToken.source();
+    //     try {
+    //         await axios
+    //             .get(
+    //                 `https://pic-beak-backend.herokuapp.com/api/v1/birds/location?lat=${location.lat}&lng=${location.lng}&maxResults=15`,
+    //                 {
+    //                     cancelToken: source.token,
+    //                 }
+    //             )
+    //             .then((response) => {
+    //                 if (response) {
+    //                     setBirdData(response.data);
+    //                     setLoading(false)
+    //                     console.log(birdsData);
+    //                 }
+    //             });
+    //     } catch (error) {
+    //         if (axios.isCancel(error)) {
+    //         } else {
+    //             throw error;
+    //         }
+    //     }
+    //     return function cleanup() {
+    //         source.cancel();
+    //     };
+    // };
 
     return (
         <div className="Filter">

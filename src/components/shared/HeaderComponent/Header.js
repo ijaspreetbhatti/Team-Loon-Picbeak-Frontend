@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./Header.scss";
 import MainMenu from "./MainMenu";
 import ProfileMenu from "./ProfileMenu";
-import { HashLink } from 'react-router-hash-link';
+import { HashLink } from "react-router-hash-link";
 
 export default function Header() {
     const [showProfileMenu, setProfileMenu] = useState(false);
@@ -17,8 +17,8 @@ export default function Header() {
         } else {
             setProfileMenu(false);
         }
-    }
-    
+    };
+
     const handleMainMenu = (event) => {
         event.preventDefault();
 
@@ -28,17 +28,20 @@ export default function Header() {
         } else {
             setMainMenu(false);
         }
-    }
+    };
 
     const hideMain = (event) => {
         setMainMenu(false);
-    }
+    };
 
     return (
         <div className="headerContainer">
             <a href="*">
                 <div className="headerLeft">
-                    <img src="./assets/images/fullLogo.svg" alt="picbeak logo"></img>
+                    <img
+                        src="./assets/images/fullLogo.svg"
+                        alt="picbeak logo"
+                    ></img>
                 </div>
             </a>
             <div className="headerRight">
@@ -47,8 +50,15 @@ export default function Header() {
                     <a href="/discover">Discover Birds</a>
                     <a href="/donate">Donate</a>
                 </div>
-                <MainMenu handleMainMenu={handleMainMenu} mainMenuDisplay={showMainMenu} hideMenu={hideMain}/>
-                <ProfileMenu handleProfileMenu={handleProfileMenu} profileMenuDisplay={showProfileMenu}/>
+                <MainMenu
+                    handleMainMenu={handleMainMenu}
+                    mainMenuDisplay={showMainMenu}
+                    hideMenu={hideMain}
+                />
+                <ProfileMenu
+                    handleProfileMenu={handleProfileMenu}
+                    profileMenuDisplay={showProfileMenu}
+                />
             </div>
         </div>
     );
