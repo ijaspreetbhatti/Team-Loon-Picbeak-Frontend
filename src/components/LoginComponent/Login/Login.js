@@ -12,8 +12,6 @@ function Login(props) {
     const [password, setPassword] = useState('');
     const [loggedIn, setLoggedIn] = useState(false);
 
-
-
     async function registerUser(event) {
 
         event.preventDefault();
@@ -41,25 +39,33 @@ function Login(props) {
             .catch(error => console.error(error))
     }
 
-    async function loginUser(event) {
-        event.preventDefault();
+    const loginUser = async (e) => {
+        e.preventDefault();
 
-        const loginConfig = {
-            headers: {
-                'Content-Type': 'application/json'
+        try {
+            let loginConfig = {
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8',
+                    "Access-Control-Allow-Origin": "*",
+                }
+            };
+
+            const { data } = await axios.post('http://localhost:8080/api/v1/login/', { email, password }, loginConfig)
+
+            setEmail('')
+            setPassword('')
+            setnickName('')
+            console.log(data);
+
+            localStorage.setItem('userInfo', JSON.stringify(data))
+
+            if (localStorage.getItem('userInfo')) {
+                props.onClose(false)
             }
+
+        } catch (error) {
+            console.error(error)
         }
-
-        const user = JSON.stringify({ email, password })
-
-        await axios
-            .post('http://localhost:8080/api/v1/login/', user, loginConfig)
-            .then(
-
-            )
-            .catch(
-                error => console.error(error)
-            )
     }
 
     if (!props.show) {
