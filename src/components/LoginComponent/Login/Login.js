@@ -28,7 +28,7 @@ function Login(props) {
 
 
         await axios
-            .post('http://localhost:8080/api/v1/profiles', data, signupConfig)
+            .post('https://pic-beak-backend.herokuapp.com/api/v1/profiles', data, signupConfig)
             .then(
                 res => console.log("User Created: ", res),
                 setEmail(''),
@@ -50,7 +50,7 @@ function Login(props) {
                 }
             };
 
-            const { data } = await axios.post('http://localhost:8080/api/v1/login/', { email, password }, loginConfig)
+            const { data } = await axios.post('https://pic-beak-backend.herokuapp.com/api/v1/login/', { email, password }, loginConfig)
 
             setEmail('')
             setPassword('')
