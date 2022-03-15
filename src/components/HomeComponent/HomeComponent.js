@@ -3,6 +3,7 @@ import "./HomeComponent.scss";
 import Button from "../shared/ButtonComponent/Button";
 import BgDetails from "./BgDetailsComponent/BgDetails";
 import BirdFilter from "./BirdFilter";
+import FooterComponent from "../shared/FooterComponent/FooterComponent";
 
 function HomeComponent(props) {
     const buttonCheckHandler = () => {
@@ -31,6 +32,7 @@ function HomeComponent(props) {
             </div>
             <BirdFilter></BirdFilter>
             <BgDetails></BgDetails>
+            <FooterComponent/>
         </div>
     );
 }

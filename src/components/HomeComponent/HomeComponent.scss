@@ -1,4 +1,9 @@
 @import "../../Variables/variables";
+.home {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
 .bannerContainer {
     background-color: $light-yellow;
     padding: 42px 6vw;
