@@ -4,6 +4,7 @@
     font-family: $header;
     color: $grey100;
     margin-top: 2rem;
+    overflow: hidden;
     .imgContainer {
         position: relative;
         .front {
@@ -17,6 +18,7 @@
             transform: translate(-50%, -50%);
             z-index: 1;
             width: 125%;
+            overflow: hidden;
         }
     }
 
