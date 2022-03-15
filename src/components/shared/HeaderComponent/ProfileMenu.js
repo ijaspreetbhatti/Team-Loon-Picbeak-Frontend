@@ -8,7 +8,12 @@ export default function ProfileMenu(props) {
 
     const showLoginModal = () => {
         setLoginModal(true);
-        // setMenu(false);
+        props.setProfileMenu(false)
+    }
+
+    const showLogin = () => {
+        localStorage.removeItem('userInfo')
+        props.setProfileMenu(false)
     }
 
     return (
@@ -21,8 +26,8 @@ export default function ProfileMenu(props) {
             ></div>
             {props.profileMenuDisplay ? (
                 <div className="profileMenu">
-                    <button><a href="/profile">Profile</a></button>
-                    <button onClick={showLoginModal}>Log in</button>
+                    <button>Profile</button>
+                    {localStorage.getItem('userInfo') ? (<button onClick={() => showLogin()}>Log out</button>) : (<button onClick={showLoginModal}>Log in</button>)}
                 </div>
             ) : null}
             <Login onClose={() => setLoginModal(false)} show={loginModal} />
