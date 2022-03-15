@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./Header.scss";
 import MainMenu from "./MainMenu";
 import ProfileMenu from "./ProfileMenu";
@@ -18,7 +18,7 @@ export default function Header() {
             setProfileMenu(false);
         }
     }
-    
+
     const handleMainMenu = (event) => {
         event.preventDefault();
 
@@ -47,8 +47,8 @@ export default function Header() {
                     <a href="/discover">Discover Birds</a>
                     <a href="/donate">Donate</a>
                 </div>
-                <MainMenu handleMainMenu={handleMainMenu} mainMenuDisplay={showMainMenu} hideMenu={hideMain}/>
-                <ProfileMenu handleProfileMenu={handleProfileMenu} profileMenuDisplay={showProfileMenu}/>
+                <MainMenu handleMainMenu={handleMainMenu} mainMenuDisplay={showMainMenu} hideMenu={hideMain} />
+                <ProfileMenu handleProfileMenu={handleProfileMenu} profileMenuDisplay={showProfileMenu} setProfileMenu={setProfileMenu} />
             </div>
         </div>
     );
