@@ -30,29 +30,43 @@ function Filter({ showModal, openModal, setShowModal }, props) {
     };
     /********************************************************* */
 
-    const radioDeselection = () => {
-        for (const element of document.getElementsByName("status")) {
-            element.checked = false;
-        }
-    };
-
-    const fliterBirds = () => {
-        axios
-            .get(
-                `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=${prov}&gRank=${status}&searchKeyword=${props.birdName}`
-            )
-            .then((results) => console.log(results))
-            .catch((err) => console.log(err));
-    };
-
-    useEffect(() => fliterBirds());
-
     const [status, setStatus] = useState("");
     console.log(status);
 
     const [prov, setProv] = useState("");
     console.log(prov);
+
+    const fliterBirds = () => {
+        let url = `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=${prov}&conservationStatus=${status}`;
+
+        axios
+            .get(
+                url
+                // if (props.birdName === undefined) {
+
+                // `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=${prov}&conservationStatus=${status}&searchKeyword=${props.birdName}`
+                // } else if (status === "") {
+                // }
+            )
+            .then((results) => console.log(results))
+            .catch((err) => console.log(err));
+        console.log(url);
+    };
+
+    useEffect(() => fliterBirds());
+
+    // const [status, setStatus] = useState("");
+    // console.log(status);
+
+    // const [prov, setProv] = useState("");
+    // console.log(prov);
     console.log(props.birdName);
+
+    const [check, setCheck] = useState(false);
+
+    const clearCheck = () => {
+        setCheck(check);
+    };
 
     return (
         <div className="Filter">
@@ -85,6 +99,10 @@ function Filter({ showModal, openModal, setShowModal }, props) {
                                             name="status"
                                             onChange={(e) =>
                                                 setStatus(e.target.value)
+                                            }
+                                            // checked={checked}
+                                            onClick={() =>
+                                                setCheck((check) => !check)
                                             }
                                         />
                                         <label htmlFor="low">
@@ -310,7 +328,8 @@ function Filter({ showModal, openModal, setShowModal }, props) {
                             <div className="btn-container">
                                 <Button
                                     className="secondary"
-                                    onClick={radioDeselection}
+                                    // onClick={() => setChecked(() => (false))}
+                                    onClick={clearCheck}
                                 >
                                     Clear
                                 </Button>
