@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+
+import React from "react";
 import "./SearchInput.scss";
 import FilterIcon from "../DiscoverIcons/filterGreen.svg";
 import Button from "../../shared/ButtonComponent/Button";
 import seachIcon from "../DiscoverIcons/search.svg";
 
 function SearchInput({ openModal }, props) {
+
+
     return (
         <div className="search-block">
             <div className="searchParent">

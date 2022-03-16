@@ -4,6 +4,10 @@ import "./Filter.scss";
 import axios from "axios";
 
 function Filter({ showModal, openModal, setShowModal }, props) {
+    const [status, setStatus] = useState("");
+    const [prov, setProv] = useState("");
+    const [birds, setBirds] = useState([]);
+
     /** Close Modal When ESC Key Peressed ******************* */
     const keyPress = useCallback(
         (e) => {
@@ -30,37 +34,39 @@ function Filter({ showModal, openModal, setShowModal }, props) {
     };
     /********************************************************* */
 
-    const [status, setStatus] = useState("");
-    console.log(status);
-
-    const [prov, setProv] = useState("");
-    console.log(prov);
-
     const fliterBirds = () => {
-        let url = `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=${prov}&conservationStatus=${status}`;
+        let url;
+
+        if (props.birdName && prov !== "" && status !== "") {
+            url = `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=${prov}&conservationStatus=${status}&searchKeyword=${props.birdName}`;
+            console.log(props.birdName);
+        } else if (props.birdName) {
+            url = `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&searchKeyword=${props.birdName}`;
+            console.log(props.birdName);
+        } else {
+            url = `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=${prov}&conservationStatus=${status}`;
+        }
+
+        console.log(url);
 
         axios
-            .get(
-                url
-                // if (props.birdName === undefined) {
-
-                // `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=${prov}&conservationStatus=${status}&searchKeyword=${props.birdName}`
-                // } else if (status === "") {
-                // }
-            )
-            .then((results) => console.log(results))
+            .get(`${url}`)
+            .then((response) => {
+                if (response) {
+                    setBirds(response);
+                    console.log(birds);
+                    props.filteredData(birds);
+                }
+            })
             .catch((err) => console.log(err));
         console.log(url);
     };
 
-    useEffect(() => fliterBirds());
+    // useEffect(() => fliterBirds(), [prov, status]);
 
-    // const [status, setStatus] = useState("");
-    // console.log(status);
-
-    // const [prov, setProv] = useState("");
-    // console.log(prov);
-    console.log(props.birdName);
+    useEffect(() => {
+        fliterBirds();
+    }, [prov, status, props.birdName]);
 
     const [check, setCheck] = useState(false);
 
@@ -335,7 +341,9 @@ function Filter({ showModal, openModal, setShowModal }, props) {
                                 </Button>
                                 <Button
                                     className="primary"
-                                    onClick={fliterBirds}
+                                    onClick={closeModal}
+                                    // setProv={prov}
+                                    // setStatus={status}
                                 >
                                     Apply
                                 </Button>

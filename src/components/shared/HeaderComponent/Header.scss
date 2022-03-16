@@ -110,6 +110,11 @@
                 text-decoration: none;
                 color: $grey100;
                 cursor: pointer;
+
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                }
             }
             button:last-of-type {
                 margin-bottom: 40px;
