@@ -1,0 +1,19 @@
+@import "../../../Variables/variables";
+
+.popMsg {
+    z-index: 100;
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 342px;
+    max-width: 444px;
+    background-color: $grey100;
+    color: $white;
+    font-family: $header;
+    font-weight: 800;
+    font-size: 20px;
+    padding: 34px 32px;
+    border-radius: 68px;
+}
