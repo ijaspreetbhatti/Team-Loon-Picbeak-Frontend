@@ -25,11 +25,26 @@
         // display: flex;
         // justify-content: space-around;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1.7fr;
+        .description {
+            margin: auto auto auto 15%;
+            h2 {
+                width: 65%;
+                // margin: 0 auto;
+            }
+
+            p {
+                width: 62%;
+                margin-left: 6%;
+            }
+        }
 
         #myChart {
-            padding-right: 0;
-            width: 40%;
+            padding: 0;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            grid-column: 2 / span 1;
         }
     }
 }
