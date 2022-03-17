@@ -7,7 +7,7 @@
     bottom: 24px;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    width: 342px;
+    width: 75%;
     max-width: 444px;
     background-color: $grey100;
     color: $white;
@@ -16,4 +16,24 @@
     font-size: 20px;
     padding: 34px 32px;
     border-radius: 68px;
+    display: none;
+}
+
+.animation {
+    animation: welcome 10s;
+    display: block;
+}
+
+@keyframes welcome {
+    0% {
+        color: red;
+    }
+
+    50% {
+        color: orange;
+    }
+
+    100% {
+        background-color: green;
+    }
 }
