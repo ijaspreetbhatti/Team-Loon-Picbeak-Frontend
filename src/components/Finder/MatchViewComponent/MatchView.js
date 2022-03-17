@@ -83,11 +83,11 @@ function MatchView() {
                 >
             {loading ? (
                 <SwiperSlide>
-                 <div className='matchViewCard'>
-                    <img src="./assets/images/picbeakPlaceholder.svg" alt="loading data..." className="loadImg"/>
+                <div className='matchViewCard'>
+                    <img src="./assets/images/picbeakPlaceholder.svg" alt="Spotting birds..." className="loadImg"/>
                     <div className="matchDetailCard">
                         <div className="nameContainer">
-                            <h2>Loading bird data...</h2>
+                            <h2>Spotting birds...</h2>
                         </div>
                         <div className="buttonContainer">
                             <div className="musical-grey"></div>

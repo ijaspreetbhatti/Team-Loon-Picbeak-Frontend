@@ -15,7 +15,13 @@ export default function MatchCard(props) {
                         <p>{props.sciName}</p>
                     </div>
                     <div className="buttonContainer">
-                        <Audio src={props.audioLink}/>
+                        {props.audioLink ? (
+                            <Audio src={props.audioLink} />
+                        ) : (
+                            <div className="audioContainer">
+                                <button className="musical-grey"></button>
+                            </div>
+                        )}
                         <Link to={{
                             pathname: "/details"}}
                             state={{from: 'matchview', data: props.data}}
