@@ -1,11 +1,15 @@
-import React from 'react'
+// import React from 'react'
+import React, { useState, useEffect } from "react";
 import Card from "../../shared/DialogComponent/Card";
 import "../../shared/DialogComponent/Card.scss";
 import Button from "../../shared/ButtonComponent/Button";
 import "./login-modal.scss";
+import Login from "../../LoginComponent/Login/Login";
 
 function LoginModal(props) {
-    if(!props.showLogin){
+    const [loginModal, setLoginModal] = useState()
+
+    if(!props.showLoginModal){
         return null
     }
     return (
@@ -24,7 +28,8 @@ function LoginModal(props) {
                 </span>
                 <div className="Login-buttons">
                     <Button className="primary-grey" onClick={props.onClose}>Cancel</Button>
-                    <Button className="primary">Log in</Button>
+                    <Button className="primary" onClick={()=> {setLoginModal(true); props.onClose();}}>Log in</Button>
+                    {/* <Login onClose={()=> setLoginModal(false) }show={loginModal}/> */}
                 </div>
             </Card>
         </div>

@@ -7,13 +7,16 @@ import Audio from '../../shared/AudioComponent/Audio';
 import styled, { css } from "styled-components";
 import LoginModal from "../modal/login-modal";
 import CollectModal from '../modal/collected-modal';
+import Login from "../../LoginComponent/Login/Login";
 
 function DetailDataDisplay(props) {
   const location = useLocation()
   const { data } = location.state;
   const [gallery, setGallery] = useState([]);
   const [showLogin, setShowLogin] = useState(false);
-  // const [showCollect, setShowCollect] = useState(false);
+  const [showCollect, setShowCollect] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [loginModal, setLoginModal] = useState()
   // const [status, setStatus] = useState();
 
 
@@ -24,6 +27,14 @@ function DetailDataDisplay(props) {
   // if (picArray.length > 4) {
   //   overlay = <span className="greyBoxShow">+{picArray.length - 4}</span>;
   // }
+
+    const CheckLogin =() => {
+      if(localStorage.getItem('userInfo')){
+          setShowCollect(true);
+      }else{
+          setShowLoginModal(true)
+      }
+    }
 
     const Status =()=>{
       let status = data.conservationStatus;
@@ -94,27 +105,6 @@ function DetailDataDisplay(props) {
     );
   };
 
-  // const CheckLogin = () =>{
-  //   const [showCollect, setShowCollect] = useState(false);
-  //   const [showLogin, setShowLogin] = useState(false);
-
-  //   if(!user){
-  //     return(
-  //       <div>
-  //         <LoginModal showLogin={showLogin} onClose={() => setShowLogin(false)}/>
-  //       </div>
-  //     )
-  //   }else{
-  //     return(
-  //       <div>
-  //         <CollectModal showCollect={showCollect} onClose={() => setShowCollect(false)}/>
-  //       </div>
-  //     )
-  //   }
-
-    
-  // }
-
 
   return (
     <div className="birdProfileWrapper">
@@ -147,11 +137,14 @@ function DetailDataDisplay(props) {
       </div>
 
       <div className="footerWrapper">
-        <span>Are you spotting this bird?</span>
-        <Button className="primary" >Collect</Button>
-        {/* <LoginModal showLogin={showLogin} onClose={() => setShowLogin(false)}/> */}
-        {/* <CollectModal showCollect={showCollect} onClose={() => setShowCollect(false)}/> */}
-      </div>
+        <span className="footerContainer">
+          <span>Are you spotting this bird?</span>
+        <Button className="primary" onClick={() => CheckLogin() }>Collect</Button>
+        </span>
+        <CollectModal showCollect={showCollect} onClose={() => setShowCollect(false)}/>
+        <LoginModal showLoginModal={showLoginModal} onClose={() => setShowLoginModal(false)}/>
+        <Login onClose={()=> setLoginModal(false)} show={loginModal}/>
+        </div>
     </div>
   );
 }
