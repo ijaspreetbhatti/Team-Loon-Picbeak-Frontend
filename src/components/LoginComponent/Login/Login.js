@@ -38,8 +38,7 @@ function Login(props) {
                 setChangeModal(false),
                 localStorage.setItem('userInfo', JSON.stringify(email)),
                 props.onClose(false),
-                props.setPopUp(true),
-                console.log('Account created')
+                props.setShowPopUp(),
             )
             .catch(error => console.error(error))
     }
