@@ -10,8 +10,14 @@ export default function BirdMatchCard(props) {
             className="birdMatchCard listViewCard"
             id={props.id.replace(/\s/g, "-")}
         >
-            <Audio src={props.audioLink} />
-            <img src={props.imageLink} alt={props.alt} className={props.class}/>
+            {props.audioLink ? (
+                <Audio src={props.audioLink} />
+            ) : (
+                <div className="audioContainer">
+                    <button className="musical-grey"></button>
+                </div>
+            )}
+            <img src={props.imageLink ? props.imageLink : "./assets/images/picbeakPlaceholder.svg"} alt={props.alt} className={props.class}/>
             <Link to={{
                 pathname: "/details"}} state={{from: 'listview', data: props.data}} element={<DetailDataDisplay/>}>
             <div className="listDetailCard">

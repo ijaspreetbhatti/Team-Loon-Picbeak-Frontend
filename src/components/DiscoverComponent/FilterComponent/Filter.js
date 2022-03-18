@@ -1,10 +1,14 @@
+
 import React, { useCallback, useRef, useEffect, useState } from "react";
 import Button from "../../shared/ButtonComponent/Button";
 import "./Filter.scss";
 import axios from "axios";
 
 function Filter({ showModal, openModal, setShowModal }, props) {
-    /** Close Modal When ESC Key Peressed ******************* */
+    const [status, setStatus] = useState("");
+    const [prov, setProv] = useState("");
+    const [birds, setBirds] = useState([]);
+
     const keyPress = useCallback(
         (e) => {
             if (e.key === "Escape" && showModal) {
@@ -36,23 +40,43 @@ function Filter({ showModal, openModal, setShowModal }, props) {
         }
     };
 
+
+
     const fliterBirds = () => {
+        let url;
+        
+        if(props.birdName && prov !== "" && status !== "") {
+            url = `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=${prov}&conservationStatus=${status}&searchKeyword=${props.birdName}`;
+            console.log(props.birdName);
+        } else if(props.birdName) {
+            url = `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&searchKeyword=${props.birdName}`;
+            console.log(props.birdName);
+        } else {
+            url = `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=${prov}&conservationStatus=${status}`;
+        }
+
+        console.log(url);
+
         axios
             .get(
-                `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=${prov}&gRank=${status}&searchKeyword=${props.birdName}`
+                `${url}`
             )
-            .then((results) => console.log(results))
+            .then((response) => {
+                if (response) {
+                    setBirds(response);
+                    console.log(birds);
+                    props.filteredData(birds);
+                }
+            })
             .catch((err) => console.log(err));
     };
 
-    useEffect(() => fliterBirds());
+    // useEffect(() => fliterBirds(), [prov, status]);
 
-    const [status, setStatus] = useState("");
-    console.log(status);
+    useEffect(() => {
+        fliterBirds()
+    }, [prov, status, props.birdName]); 
 
-    const [prov, setProv] = useState("");
-    console.log(prov);
-    console.log(props.birdName);
 
     return (
         <div className="Filter">
@@ -316,7 +340,9 @@ function Filter({ showModal, openModal, setShowModal }, props) {
                                 </Button>
                                 <Button
                                     className="primary"
-                                    onClick={fliterBirds}
+                                    onClick={closeModal}
+                                    // setProv={prov}
+                                    // setStatus={status}
                                 >
                                     Apply
                                 </Button>
