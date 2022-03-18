@@ -18,11 +18,6 @@ export default function ProfileMenu(props) {
         props.setProfileMenu(false)
     }
 
-    const test = () => {
-        setShowPopUp(false)
-        console.log(showPopUp)
-    }
-
     return (
         <div className="profileMenuContainer">
             <div
@@ -37,8 +32,8 @@ export default function ProfileMenu(props) {
                     {localStorage.getItem('userInfo') ? (<button onClick={() => showLogin()}>Log out</button>) : (<button onClick={showLoginModal}>Log in</button>)}
                 </div>
             ) : null}
-            <Login onClose={() => setLoginModal(false)} show={loginModal} setPopUp={test} />
-            <MessagePop className={showPopUp ? "animation" : ""}>Account created! You are logged in now.</MessagePop>
+            <Login onClose={() => setLoginModal(false)} show={loginModal} setShowPopUp={() => setShowPopUp(true)} />
+            <MessagePop showPopUp={showPopUp}>Account created! You are logged in now.</MessagePop>
         </div>
     );
 }
