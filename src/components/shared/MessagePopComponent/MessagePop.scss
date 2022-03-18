@@ -3,12 +3,6 @@
 .popMsg {
     z-index: 100;
     position: fixed;
-    left: 50%;
-    bottom: 24px;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    width: 75%;
-    max-width: 444px;
     background-color: $grey100;
     color: $white;
     font-family: $header;
@@ -20,20 +14,27 @@
 }
 
 .animation {
-    animation: welcome 10s;
+    left: 50%;
+    bottom: -200px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 75%;
+    max-width: 444px;
     display: block;
+    animation: msgPopup 3s;
 }
 
-@keyframes welcome {
+@keyframes msgPopup {
     0% {
-        color: red;
+        bottom: -200px;
     }
 
     50% {
-        color: orange;
+        bottom: 24px;
     }
 
     100% {
-        background-color: green;
+        bottom: -200px;
+        display: none;
     }
 }
