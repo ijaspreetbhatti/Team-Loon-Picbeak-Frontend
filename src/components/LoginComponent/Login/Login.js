@@ -2,6 +2,7 @@ import React, { useReducer, useState } from 'react'
 import Button from '../../shared/ButtonComponent/Button';
 import Card from '../../shared/DialogComponent/Card';
 import axios from 'axios'
+import MessagePop from '../../shared/MessagePopComponent/MessagePop'
 
 import "./Login.scss";
 
@@ -34,7 +35,10 @@ function Login(props) {
                 setEmail(''),
                 setPassword(''),
                 setnickName(''),
-                setChangeModal(false)
+                setChangeModal(false),
+                localStorage.setItem('userInfo', JSON.stringify(email)),
+                props.onClose(false),
+                props.setShowPopUp(),
             )
             .catch(error => console.error(error))
     }
@@ -148,13 +152,13 @@ function Login(props) {
                         </div>
 
                         <div className="buttonWrapper">
-                            <Button type="submit" className="primary"> Create</Button>
+                            <Button type="submit" className="primary">Create</Button>
                         </div>
                         <span>Already have an account? <button onClick={() => setChangeModal(false)}>Log in</button></span>
                     </form>
                 )}
-
             </Card>
+
         </div>
     )
 }

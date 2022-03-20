@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./HomeComponent.scss";
 import Button from "../shared/ButtonComponent/Button";
 import BgDetails from "./BgDetailsComponent/BgDetails";
 import BirdFilter from "./BirdFilter";
 import FooterComponent from "../shared/FooterComponent/FooterComponent";
+import MessagePop from "../shared/MessagePopComponent/MessagePop";
 
 function HomeComponent(props) {
     const buttonCheckHandler = () => {
@@ -32,7 +33,7 @@ function HomeComponent(props) {
             </div>
             <BirdFilter></BirdFilter>
             <BgDetails></BgDetails>
-            <FooterComponent/>
+            <FooterComponent />
         </div>
     );
 }

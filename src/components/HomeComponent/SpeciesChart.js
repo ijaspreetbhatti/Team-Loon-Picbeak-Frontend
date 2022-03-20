@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import "./BgDetailsComponent/PopulationComponent/Population.scss";
 
 import {
     Chart,
@@ -10,6 +11,7 @@ import {
     Legend,
     Title,
 } from "chart.js";
+import { Autoplay } from "swiper";
 
 function SpeciesChart(props) {
     useEffect(() => {
@@ -107,9 +109,9 @@ function SpeciesChart(props) {
         const myChart = new Chart(ctx, config);
     }, [props]);
     const styles = {
-        padding: "20px 6vw",
+        // padding: "20px 6vw",
     };
-    return <canvas id="myChart" className="myChart" style={styles}></canvas>;
+    return <canvas id="myChart" className="myChart" styles={styles}></canvas>;
 }
 
 export default SpeciesChart;
