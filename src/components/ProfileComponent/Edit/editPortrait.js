@@ -21,7 +21,6 @@ function EditPortrait(props) {
                 </div>
 
                 <div className="portraitWrapper">
-                
                     <div className="portrait-green" onClick={() => {props.onClose(); props.changeIcon("green")}}/>
                     <div className="portrait-yellow" onClick={() => {props.onClose(); props.changeIcon("yellow")}}/>
                     <div className="portrait-red" onClick={() => {props.onClose(); props.changeIcon("red")}}/>
