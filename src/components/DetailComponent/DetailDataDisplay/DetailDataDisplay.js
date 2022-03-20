@@ -13,7 +13,6 @@ function DetailDataDisplay(props) {
   const location = useLocation()
   const { data } = location.state;
   const [gallery, setGallery] = useState([]);
-  const [showLogin, setShowLogin] = useState(false);
   const [showCollect, setShowCollect] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [loginModal, setLoginModal] = useState()
