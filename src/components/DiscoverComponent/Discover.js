@@ -14,12 +14,13 @@ const Discover = (props) => {
     const [birdName, setBirdName] = useState("");
     const [status, setStatus] = useState("");
     const [birds, setBirds] = useState([]);
+    const [check, setCheck] = useState(false);
 
     const handleBirdName = (e) => {
         setBirdName(e.target.value);
         console.log(birdName);
 
-        // e.target.value.length > 0 ? setClose(true) : setClose(false);
+        e.target.value.length > 0 ? setClose(true) : setClose(false);
     };
 
     const resetBirdName = () => {
@@ -56,12 +57,6 @@ const Discover = (props) => {
         }
     };
     /********************************************************* */
-
-    const radioDeselection = () => {
-        for (const element of document.getElementsByName("status")) {
-            element.checked = false;
-        }
-    };
 
     const fliterBirds = () => {
         let url;
@@ -107,6 +102,14 @@ const Discover = (props) => {
         setStatus(e.target.value);
     };
 
+    // const clearCheck = () => {
+    //     setCheck(check);
+    // };
+
+    const changeRadio = (e) => {
+        setCheck(() => (check) => !check);
+    };
+
     return (
         <div className="discover">
             <div className="Filter">
@@ -140,6 +143,11 @@ const Discover = (props) => {
                                                 onChange={(e) =>
                                                     handleChange(e)
                                                 }
+                                                // onClick={() =>
+                                                //     setCheck((check) => !check)
+                                                // }
+
+                                                checked={(e) => changeRadio(e)}
                                             />
                                             <label htmlFor="low">
                                                 Low conservation concern
@@ -180,7 +188,7 @@ const Discover = (props) => {
                                 <div className="btn-container">
                                     <Button
                                         className="secondary"
-                                        onClick={radioDeselection}
+                                        // onClick={radioDeselection}
                                     >
                                         Clear
                                     </Button>

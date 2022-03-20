@@ -62,8 +62,6 @@ function Filter({ showModal, openModal, setShowModal }, props) {
         console.log(url);
     };
 
-    // useEffect(() => fliterBirds(), [prov, status]);
-
     useEffect(() => {
         fliterBirds();
     }, [prov, status, props.birdName]);
