@@ -37,7 +37,8 @@ function Login(props) {
                 setnickName(''),
                 setChangeModal(false),
                 localStorage.setItem('userInfo', JSON.stringify(email)),
-                props.onClose(false)
+                props.onClose(false),
+                props.setShowPopUp(),
             )
             .catch(error => console.error(error))
     }

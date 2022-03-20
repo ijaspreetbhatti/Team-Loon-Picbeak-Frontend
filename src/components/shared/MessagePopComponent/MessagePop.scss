@@ -3,12 +3,6 @@
 .popMsg {
     z-index: 100;
     position: fixed;
-    left: 50%;
-    bottom: 24px;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    width: 342px;
-    max-width: 444px;
     background-color: $grey100;
     color: $white;
     font-family: $header;
@@ -16,4 +10,31 @@
     font-size: 20px;
     padding: 34px 32px;
     border-radius: 68px;
+    display: none;
+}
+
+.animation {
+    left: 50%;
+    bottom: -200px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 75%;
+    max-width: 444px;
+    display: block;
+    animation: msgPopup 3s;
+}
+
+@keyframes msgPopup {
+    0% {
+        bottom: -200px;
+    }
+
+    50% {
+        bottom: 24px;
+    }
+
+    100% {
+        bottom: -200px;
+        display: none;
+    }
 }

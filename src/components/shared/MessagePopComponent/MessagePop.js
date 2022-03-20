@@ -3,7 +3,7 @@ import './MessagePop.scss'
 
 function MessagePop(props) {
     return (
-        <div className='popMsg'>
+        <div className={`popMsg ${props.showPopUp ? "animation" : ""}`}>
             {props.children}
         </div>
     )

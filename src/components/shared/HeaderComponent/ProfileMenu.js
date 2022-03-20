@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Login from "../../LoginComponent/Login/Login";
+import MessagePop from "../MessagePopComponent/MessagePop";
 import "./Header.scss";
 // import ProfileInformation from "../../ProfileComponent/ProfileInformation";
 
 export default function ProfileMenu(props) {
     const [loginModal, setLoginModal] = useState(false);
+    const [showPopUp, setShowPopUp] = useState(false)
 
     const showLoginModal = () => {
         setLoginModal(true);
@@ -30,7 +32,8 @@ export default function ProfileMenu(props) {
                     {localStorage.getItem('userInfo') ? (<button onClick={() => showLogin()}>Log out</button>) : (<button onClick={showLoginModal}>Log in</button>)}
                 </div>
             ) : null}
-            <Login onClose={() => setLoginModal(false)} show={loginModal} />
+            <Login onClose={() => setLoginModal(false)} show={loginModal} setShowPopUp={() => setShowPopUp(true)} />
+            <MessagePop showPopUp={showPopUp}>Account created! You are logged in now.</MessagePop>
         </div>
     );
 }

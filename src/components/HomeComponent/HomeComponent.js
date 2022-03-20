@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./HomeComponent.scss";
 import Button from "../shared/ButtonComponent/Button";
 import BgDetails from "./BgDetailsComponent/BgDetails";
@@ -33,7 +33,6 @@ function HomeComponent(props) {
             </div>
             <BirdFilter></BirdFilter>
             <BgDetails></BgDetails>
-            <MessagePop>Account created! You are logged in now.</MessagePop>
             <FooterComponent />
         </div>
     );
