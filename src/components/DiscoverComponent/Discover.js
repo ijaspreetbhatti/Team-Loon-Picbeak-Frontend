@@ -14,7 +14,6 @@ const Discover = (props) => {
     const [birdName, setBirdName] = useState("");
     const [status, setStatus] = useState("");
     const [birds, setBirds] = useState([]);
-    const [check, setCheck] = useState(false);
 
     const handleBirdName = (e) => {
         setBirdName(e.target.value);
@@ -58,7 +57,8 @@ const Discover = (props) => {
     };
     /********************************************************* */
 
-    const fliterBirds = () => {
+    const fliterBirds = (e) => {
+        e.preventDefault();
         let url;
 
         if (birdName.length > 1 && status !== "") {
@@ -87,14 +87,11 @@ const Discover = (props) => {
                 if (response) {
                     setBirds(response.data);
                     console.log(birds);
+                    setShowModal(false);
                 }
             })
             .catch((err) => console.log(err));
     };
-
-    useEffect(() => {
-        fliterBirds();
-    }, [status, birdName]);
 
     console.log(birds);
 
@@ -102,13 +99,20 @@ const Discover = (props) => {
         setStatus(e.target.value);
     };
 
-    // const clearCheck = () => {
-    //     setCheck(check);
-    // };
-
-    const changeRadio = (e) => {
-        setCheck(() => (check) => !check);
+    /** Toggle check ****************************************** */
+    const initializedData = {
+        notifyFrequency: "",
     };
+
+    const [check, setCheck] = useState(initializedData);
+
+    const handleFrequencyChange = (e) => {
+        const newValue =
+            e.target.value === check.notifyFrequency ? "" : e.target.value;
+        const newCheck = { ...check, notifyFrequency: newValue };
+        setCheck(newCheck);
+    };
+    /********************************************************* */
 
     return (
         <div className="discover">
@@ -137,17 +141,17 @@ const Discover = (props) => {
                                             <input
                                                 className="visually-hidden"
                                                 id="low"
-                                                type="radio"
+                                                type="checkbox"
                                                 value="G5"
                                                 name="status"
                                                 onChange={(e) =>
                                                     handleChange(e)
                                                 }
-                                                // onClick={() =>
-                                                //     setCheck((check) => !check)
-                                                // }
-
-                                                checked={(e) => changeRadio(e)}
+                                                checked={
+                                                    check.notifyFrequency ===
+                                                    "G5"
+                                                }
+                                                onClick={handleFrequencyChange}
                                             />
                                             <label htmlFor="low">
                                                 Low conservation concern
@@ -157,12 +161,17 @@ const Discover = (props) => {
                                             <input
                                                 className="visually-hidden"
                                                 id="moderate"
-                                                type="radio"
+                                                type="checkbox"
                                                 value="G4"
                                                 name="status"
                                                 onChange={(e) =>
                                                     handleChange(e)
                                                 }
+                                                checked={
+                                                    check.notifyFrequency ===
+                                                    "G4"
+                                                }
+                                                onClick={handleFrequencyChange}
                                             />
                                             <label htmlFor="moderate">
                                                 Moderate conservation concern
@@ -172,12 +181,17 @@ const Discover = (props) => {
                                             <input
                                                 className="visually-hidden"
                                                 id="high"
-                                                type="radio"
+                                                type="checkbox"
                                                 value="G3"
                                                 name="status"
                                                 onChange={(e) =>
                                                     handleChange(e)
                                                 }
+                                                checked={
+                                                    check.notifyFrequency ===
+                                                    "G3"
+                                                }
+                                                onClick={handleFrequencyChange}
                                             />
                                             <label htmlFor="high">
                                                 High conservation concern
@@ -186,16 +200,11 @@ const Discover = (props) => {
                                     </fieldset>
                                 </div>
                                 <div className="btn-container">
-                                    <Button
-                                        className="secondary"
-                                        // onClick={radioDeselection}
-                                    >
-                                        Clear
-                                    </Button>
+                                    <Button className="secondary">Clear</Button>
                                     <button
                                         className="primary"
                                         ref={modalRef}
-                                        onClick={closeModal}
+                                        onClick={(e) => fliterBirds(e)}
                                     >
                                         Apply
                                     </button>
