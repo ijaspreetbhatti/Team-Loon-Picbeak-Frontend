@@ -4,9 +4,15 @@ import "./ProfileInformation.scss";
 import Modal from './modal';
 import EditProfile from './Edit/editProfile';
 import EditPortrait from "../ProfileComponent/Edit/editPortrait";
-import Snack from "../ProfileComponent/Edit/snack";
 
 function ProfileInformation(props) {
+  const [show, setShow] = useState(false)
+  const [showEdit, setShowEdit] = useState(false)
+  const [showicon, setShowIcon] = useState(false)
+  let [portrait, setPortrait] = useState(["green"])
+  let [changePortrait, setChangePortrait] = useState(["green"])
+  const [snack, setSnack] = useState(false)
+
   const pic = {
     url:
       "https://3rvxro1qhiaouxf3h3et9bah-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/33709comox09Stellar.jpg",
@@ -20,13 +26,7 @@ function ProfileInformation(props) {
     name: "Downy woodpecker",
     sciName: "Picoides pubescens",
   };
-  
-  const [show, setShow] = useState(false)
-  const [showEdit, setShowEdit] = useState(false)
-  const [showicon, setShowIcon] = useState(false)
-  let [portrait, setPortrait] = useState(["green"])
-  let [changePortrait, setChangePortrait] = useState(["green"])
-  const [snack, setSnack] = useState(false)
+
 
   const data = [pic, pic2];
   const birdArray = [];
@@ -48,6 +48,9 @@ function ProfileInformation(props) {
   const divStyle = {
     width: (data.length*0.6) * 10,
   };
+
+
+
   
   return (
     <div className="userProfileWrapper">
@@ -67,7 +70,6 @@ function ProfileInformation(props) {
       <div className="beakpediaWrapper">
         <EditPortrait onClose={() => {setShowIcon(false); setShowEdit(true);}} showicon={showicon} changeIcon={(e) => setChangePortrait(changePortrait[0]=[e])}/>
         <EditProfile  onClose={() => setShowEdit(false)} showedit={showEdit} onClick={() => setShowIcon(true)} portraitIcon={changePortrait[0]} showSnack={() => setSnack(true)}/>
-        <Snack showSnack={snack}/>
         
         <span className="beakpediaTitle">Beakpedia</span>
         <div className="collectBar">

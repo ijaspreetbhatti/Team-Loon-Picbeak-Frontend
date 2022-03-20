@@ -17,7 +17,6 @@ function DetailDataDisplay(props) {
   const [showCollect, setShowCollect] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [loginModal, setLoginModal] = useState()
-  // const [status, setStatus] = useState();
 
 
   const picArray = [];
