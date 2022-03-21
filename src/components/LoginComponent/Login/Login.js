@@ -31,12 +31,11 @@ function Login(props) {
         await axios
             .post('https://pic-beak-backend.herokuapp.com/api/v1/profiles', data, signupConfig)
             .then(
-                res => console.log("User Created: ", res),
+                res => localStorage.setItem('userInfo', JSON.stringify(res.data._id)),
                 setEmail(''),
                 setPassword(''),
                 setnickName(''),
                 setChangeModal(false),
-                localStorage.setItem('userInfo', JSON.stringify(email)),
                 props.onClose(false),
                 props.setShowPopUp(),
             )
@@ -61,7 +60,7 @@ function Login(props) {
             setnickName('')
             console.log(data);
 
-            localStorage.setItem('userInfo', JSON.stringify(data))
+            localStorage.setItem('userInfo', JSON.stringify(data.user))
 
             if (localStorage.getItem('userInfo')) {
                 props.onClose(false)
