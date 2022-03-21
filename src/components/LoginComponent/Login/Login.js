@@ -11,7 +11,7 @@ function Login(props) {
     const [nickName, setnickName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [error, setError] = useState(false);
 
     async function registerUser(event) {
 
@@ -37,9 +37,9 @@ function Login(props) {
                 setnickName(''),
                 setChangeModal(false),
                 props.onClose(false),
-                props.setShowPopUp(),
+                props.setShowPopUp(true),
             )
-            .catch(error => console.error(error))
+            .catch(error => console.error(error));
     }
 
     const loginUser = async (e) => {
@@ -55,12 +55,17 @@ function Login(props) {
 
             const { data } = await axios.post('https://pic-beak-backend.herokuapp.com/api/v1/login/', { email, password }, loginConfig)
 
-            setEmail('')
-            setPassword('')
-            setnickName('')
+            setEmail('');
+            setPassword('');
+            setnickName('');
             console.log(data);
-
-            localStorage.setItem('userInfo', JSON.stringify(data.user))
+            if (email == data.email && password == data.password) {
+                localStorage.setItem('userInfo', JSON.stringify(data.user))
+                setError(false)
+                props.setLoginPopUp(true)
+            } else {
+                setError(true)
+            }
 
             if (localStorage.getItem('userInfo')) {
                 props.onClose(false)
@@ -75,12 +80,23 @@ function Login(props) {
         return null;
     }
 
+    const enterLoginKey = (e) => {
+        if (e.keyCode === 13) {
+            loginUser(e);
+        }
+    }
+    const enterSignupKey = (e) => {
+        if (e.keyCode === 13) {
+            return registerUser(e);
+        }
+    }
+
     return (
         <div>
             <div className="modalbg" onClick={props.onClose}></div>
             <Card>
                 {!changeModal ? (
-                    <form onSubmit={loginUser}>
+                    <form onSubmit={loginUser} >
                         <div className="modalHeader">
                             <h1>Log in</h1>
                             <Button className="exit" onClick={props.onClose}></Button>
@@ -89,21 +105,26 @@ function Login(props) {
 
                             <label htmlFor="email">Email</label>
                             <input
+                                className={`${error ? "error" : ""}`}
                                 type="email"
                                 id="email"
                                 name="email"
                                 onChange={(e) => setEmail(e.target.value)}
+                                onKeyDown={(e) => enterLoginKey(e)}
                                 value={email} />
 
                         </div>
                         <div className="passwordWrapper" >
                             <label htmlFor="password">Password</label>
                             <input
+                                className={`${error ? "error" : ""}`}
                                 type="password"
                                 id="password"
                                 name="password"
                                 onChange={(e) => setPassword(e.target.value)}
+                                onKeyDown={(e) => enterLoginKey(e)}
                                 value={password} />
+                            {error ? (<div className="errorMessage">Invalid Email or Password!</div>) : (null)}
                             <button href="/">Forgot password?</button>
                         </div>
                         <div className="buttonWrapper">
@@ -126,7 +147,8 @@ function Login(props) {
                                 id="nickName"
                                 name="nickName"
                                 value={nickName}
-                                onChange={(e) => setnickName(e.target.value)} />
+                                onChange={(e) => setnickName(e.target.value)}
+                                onKeyDown={(e) => enterSignupKey(e)} />
                         </div>
 
                         <div className="emailWrapper2">
@@ -137,7 +159,8 @@ function Login(props) {
                                 id="email"
                                 name="email"
                                 value={email}
-                                onChange={(e) => setEmail(e.target.value)} />
+                                onChange={(e) => setEmail(e.target.value)}
+                                onKeyDown={(e) => enterSignupKey(e)} />
                         </div>
 
                         <div className="passwordWrapper">
@@ -147,7 +170,8 @@ function Login(props) {
                                 id="password"
                                 name="password"
                                 value={password}
-                                onChange={(e) => setPassword(e.target.value)} />
+                                onChange={(e) => setPassword(e.target.value)}
+                                onKeyDown={(e) => enterSignupKey(e)} />
                         </div>
 
                         <div className="buttonWrapper">

@@ -121,6 +121,39 @@
             }
         }
 
+        .profileMenu2 {
+            position: absolute;
+            bottom: -100px;
+            right: -1px;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            background-color: white;
+            z-index: 10;
+            width: 180px;
+            border: 1px solid $grey40;
+
+            button {
+                font: normal 700 16px/16px $header;
+                background: white;
+                border: none;
+                text-align: right;
+                margin-top: 40px;
+                margin-right: 24px;
+                text-decoration: none;
+                color: $grey100;
+                cursor: pointer;
+
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                }
+            }
+            button:last-of-type {
+                margin-bottom: 40px;
+            }
+        }
+
         .profileLink,
         .active {
             background-image: url(./HeaderIcons/account.svg);
@@ -156,6 +189,7 @@
 
         .headerRight {
             .profileMenu,
+            .profileMenu2,
             .active {
                 right: 210px;
             }
