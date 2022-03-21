@@ -5,8 +5,9 @@ import Button from "../shared/ButtonComponent/Button";
 import "./FilterComponent/Filter.scss";
 import axios from "axios";
 import "./SearchInputComponent/SearchInput.scss";
-import FilterIcon from "./DiscoverIcons/filterGreen.svg";
-import seachIcon from "./DiscoverIcons/search.svg";
+// import FilterIcon from "./DiscoverIcons/filterGreen.svg";
+// import seachIcon from "./DiscoverIcons/search.svg";
+import SearchInput from "./SearchInputComponent/SearchInput";
 
 const Discover = (props) => {
     const [showModal, setShowModal] = useState(false);
@@ -224,7 +225,16 @@ const Discover = (props) => {
                 Explore birds species and start your own birdwatching session,
                 no matter where you are.
             </p>
-            <div className="search-block">
+
+            <SearchInput
+                openModal={openModal}
+                handleBirdName={handleBirdName}
+                birdName={birdName}
+                handleKeyDown={handleKeyDown}
+                close={close}
+                resetBirdName={resetBirdName}
+            />
+            {/* <div className="search-block">
                 <div className="searchParent">
                     <img src={seachIcon} alt="search icon" />
                     <input
@@ -253,7 +263,7 @@ const Discover = (props) => {
                         alt="filer icon"
                     />
                 </button>
-            </div>
+                    </div> */}
             {noResult && birds.length === 0 ? (
                 <div className="no-result">
                     <p>No birds species found for this search.</p>
