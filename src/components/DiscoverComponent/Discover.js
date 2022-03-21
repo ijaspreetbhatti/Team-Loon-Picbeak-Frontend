@@ -14,6 +14,7 @@ const Discover = (props) => {
     const [birdName, setBirdName] = useState("");
     const [status, setStatus] = useState("");
     const [birds, setBirds] = useState([]);
+    const [noResult, setNoResult] = useState(false);
 
     const handleBirdName = (e) => {
         setBirdName(e.target.value);
@@ -29,6 +30,7 @@ const Discover = (props) => {
 
     const openModal = () => {
         setShowModal((prev) => !prev);
+        setNoResult(true);
     };
 
     /** Close Modal When ESC Key Peressed ******************* */
@@ -98,6 +100,7 @@ const Discover = (props) => {
     /** Fire filterBirds by Enter Key ************************ */
     const handleKeyDown = (e) => {
         if (e.keyCode === 13) {
+            setNoResult(true);
             return filterBirds(e);
         }
     };
@@ -132,7 +135,7 @@ const Discover = (props) => {
                                 <p>Filters</p>
                                 <div
                                     className="closeIcon"
-                                    onClick={openModal}
+                                    onClick={closeModal}
                                 ></div>
                             </div>
                             <form>
@@ -251,6 +254,11 @@ const Discover = (props) => {
                     />
                 </button>
             </div>
+            {noResult && birds.length === 0 ? (
+                <div className="no-result">
+                    <p>No birds species found for this search.</p>
+                </div>
+            ) : null}
             <div className="cardParent">
                 {birds.map((data) => (
                     <BirdMatchCard
