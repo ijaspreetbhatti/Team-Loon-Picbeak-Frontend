@@ -11,7 +11,7 @@ function Login(props) {
     const [nickName, setnickName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [error, setError] = useState(false);
 
     async function registerUser(event) {
 
@@ -61,6 +61,9 @@ function Login(props) {
             console.log(data);
             if (email == data.email && password == data.password) {
                 localStorage.setItem('userInfo', JSON.stringify(data.user))
+                setError(false)
+            } else {
+                setError(true)
             }
 
             if (localStorage.getItem('userInfo')) {
@@ -101,6 +104,7 @@ function Login(props) {
 
                             <label htmlFor="email">Email</label>
                             <input
+                                className={`${error ? "error" : ""}`}
                                 type="email"
                                 id="email"
                                 name="email"
@@ -112,6 +116,7 @@ function Login(props) {
                         <div className="passwordWrapper" >
                             <label htmlFor="password">Password</label>
                             <input
+                                className={`${error ? "error" : ""}`}
                                 type="password"
                                 id="password"
                                 name="password"
@@ -120,6 +125,7 @@ function Login(props) {
                                 value={password} />
                             <button href="/">Forgot password?</button>
                         </div>
+                        {error ? (<div className="errorMessage">Invalid Email or Password!</div>) : (null)}
                         <div className="buttonWrapper">
                             <Button type="submit" className="primary">Log in</Button>
                         </div>
