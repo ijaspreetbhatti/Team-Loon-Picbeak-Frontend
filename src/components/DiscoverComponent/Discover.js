@@ -31,7 +31,6 @@ const Discover = (props) => {
 
     const openModal = () => {
         setShowModal((prev) => !prev);
-        setNoResult(true);
     };
 
     /** Close Modal When ESC Key Peressed ******************* */
@@ -50,7 +49,7 @@ const Discover = (props) => {
     }, [keyPress]);
     /********************************************************* */
 
-    /** Close Modal When Background Clicked ******************* */
+    /** Close Modal ****************************************** */
     const closeModal = (e) => {
         setShowModal(false);
     };
@@ -86,10 +85,11 @@ const Discover = (props) => {
                 if (response) {
                     setBirds(response.data);
                     console.log(birds);
-                    setShowModal(false);
                 }
             })
             .catch((err) => console.log(err));
+        setShowModal(false);
+        setNoResult(true);
     };
 
     console.log(birds);
