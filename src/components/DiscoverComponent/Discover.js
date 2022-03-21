@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./Discover.scss";
 import BirdMatchCard from "../shared/MatchCardComponent/BirdMatchCard";
 import Button from "../shared/ButtonComponent/Button";
@@ -48,16 +48,12 @@ const Discover = (props) => {
     /********************************************************* */
 
     /** Close Modal When Background Clicked ******************* */
-    const modalRef = useRef();
-
     const closeModal = (e) => {
-        if (modalRef.current === e.target) {
-            setShowModal(false);
-        }
+        setShowModal(false);
     };
     /********************************************************* */
 
-    const fliterBirds = (e) => {
+    const filterBirds = (e) => {
         e.preventDefault();
         let url;
 
@@ -99,6 +95,14 @@ const Discover = (props) => {
         setStatus(e.target.value);
     };
 
+    /** Fire filterBirds by Enter Key ************************ */
+    const handleKeyDown = (e) => {
+        if (e.keyCode === 13) {
+            return filterBirds(e);
+        }
+    };
+    /********************************************************* */
+
     /** Toggle check ****************************************** */
     const initializedData = {
         notifyFrequency: "",
@@ -121,8 +125,7 @@ const Discover = (props) => {
                     <div>
                         <div
                             className="filterBackground"
-                            ref={modalRef}
-                            onClick={closeModal}
+                            onClick={(e) => closeModal(e)}
                         ></div>
                         <div className="modalWrapper">
                             <div className="titleWrapper">
@@ -203,8 +206,7 @@ const Discover = (props) => {
                                     <Button className="secondary">Clear</Button>
                                     <button
                                         className="primary"
-                                        ref={modalRef}
-                                        onClick={(e) => fliterBirds(e)}
+                                        onClick={(e) => filterBirds(e)}
                                     >
                                         Apply
                                     </button>
@@ -229,6 +231,7 @@ const Discover = (props) => {
                         type="text"
                         id="searchInput"
                         placeholder="enter bird name"
+                        onKeyDown={(e) => handleKeyDown(e)}
                     />
                     {!close ? null : (
                         <Button
