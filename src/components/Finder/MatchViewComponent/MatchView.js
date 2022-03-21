@@ -23,7 +23,7 @@ function MatchView() {
         try {
             await axios
                 .get(
-                    `https://pic-beak-backend.herokuapp.com/api/v1/birds/location?lat=${location.lat}&lng=${location.lng}&maxResults=15`,
+                    `https://pic-beak-backend.herokuapp.com/api/v1/birds/location?lat=${location.lat}&lng=${location.lng}&maxResults=20`,
                     {
                         cancelToken: source.token,
                     }
