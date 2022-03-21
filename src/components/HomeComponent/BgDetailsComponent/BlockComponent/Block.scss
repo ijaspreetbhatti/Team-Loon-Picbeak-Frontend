@@ -4,18 +4,20 @@
     margin-bottom: 5rem;
     .block {
         text-align: left;
+        margin-bottom: 60px;
+        margin: 0 24px 60px 24px;
         img {
-            margin-left: 6%;
+            // margin-left: 6%;
             margin-top: 2rem;
         }
         h3 {
-            margin-left: 6%;
+            // margin-left: 6%;
             font-family: $header;
             font-weight: 800;
             color: $grey100;
         }
         p {
-            margin-left: 6%;
+            // margin-left: 6%;
             font-family: $header;
             font-weight: 400;
             color: $grey80;
@@ -26,7 +28,7 @@
     @media screen and (min-width: 768px) {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        margin: 0 15%;
+        margin: 0 207px;
         grid-gap: 4rem;
         .block {
             img {
