@@ -37,7 +37,7 @@ function Login(props) {
                 setnickName(''),
                 setChangeModal(false),
                 props.onClose(false),
-                props.setShowPopUp(),
+                props.setShowPopUp(true),
             )
             .catch(error => console.error(error));
     }
@@ -62,6 +62,7 @@ function Login(props) {
             if (email == data.email && password == data.password) {
                 localStorage.setItem('userInfo', JSON.stringify(data.user))
                 setError(false)
+                props.setLoginPopUp(true)
             } else {
                 setError(true)
             }
@@ -81,7 +82,7 @@ function Login(props) {
 
     const enterLoginKey = (e) => {
         if (e.keyCode === 13) {
-            return loginUser(e);
+            loginUser(e);
         }
     }
     const enterSignupKey = (e) => {
@@ -123,9 +124,9 @@ function Login(props) {
                                 onChange={(e) => setPassword(e.target.value)}
                                 onKeyDown={(e) => enterLoginKey(e)}
                                 value={password} />
+                            {error ? (<div className="errorMessage">Invalid Email or Password!</div>) : (null)}
                             <button href="/">Forgot password?</button>
                         </div>
-                        {error ? (<div className="errorMessage">Invalid Email or Password!</div>) : (null)}
                         <div className="buttonWrapper">
                             <Button type="submit" className="primary">Log in</Button>
                         </div>
