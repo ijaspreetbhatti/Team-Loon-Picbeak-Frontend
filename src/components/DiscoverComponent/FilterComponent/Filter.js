@@ -1,4 +1,3 @@
-
 import React, { useCallback, useRef, useEffect, useState } from "react";
 import Button from "../../shared/ButtonComponent/Button";
 import "./Filter.scss";
@@ -9,6 +8,7 @@ function Filter({ showModal, openModal, setShowModal }, props) {
     const [prov, setProv] = useState("");
     const [birds, setBirds] = useState([]);
 
+    /** Close Modal When ESC Key Peressed ******************* */
     const keyPress = useCallback(
         (e) => {
             if (e.key === "Escape" && showModal) {
@@ -34,21 +34,13 @@ function Filter({ showModal, openModal, setShowModal }, props) {
     };
     /********************************************************* */
 
-    const radioDeselection = () => {
-        for (const element of document.getElementsByName("status")) {
-            element.checked = false;
-        }
-    };
-
-
-
     const fliterBirds = () => {
         let url;
-        
-        if(props.birdName && prov !== "" && status !== "") {
+
+        if (props.birdName && prov !== "" && status !== "") {
             url = `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=${prov}&conservationStatus=${status}&searchKeyword=${props.birdName}`;
             console.log(props.birdName);
-        } else if(props.birdName) {
+        } else if (props.birdName) {
             url = `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&searchKeyword=${props.birdName}`;
             console.log(props.birdName);
         } else {
@@ -58,9 +50,7 @@ function Filter({ showModal, openModal, setShowModal }, props) {
         console.log(url);
 
         axios
-            .get(
-                `${url}`
-            )
+            .get(`${url}`)
             .then((response) => {
                 if (response) {
                     setBirds(response);
@@ -69,14 +59,18 @@ function Filter({ showModal, openModal, setShowModal }, props) {
                 }
             })
             .catch((err) => console.log(err));
+        console.log(url);
     };
 
-    // useEffect(() => fliterBirds(), [prov, status]);
-
     useEffect(() => {
-        fliterBirds()
-    }, [prov, status, props.birdName]); 
+        fliterBirds();
+    }, [prov, status, props.birdName]);
 
+    const [check, setCheck] = useState(false);
+
+    const clearCheck = () => {
+        setCheck(check);
+    };
 
     return (
         <div className="Filter">
@@ -109,6 +103,10 @@ function Filter({ showModal, openModal, setShowModal }, props) {
                                             name="status"
                                             onChange={(e) =>
                                                 setStatus(e.target.value)
+                                            }
+                                            // checked={checked}
+                                            onClick={() =>
+                                                setCheck((check) => !check)
                                             }
                                         />
                                         <label htmlFor="low">
@@ -334,7 +332,8 @@ function Filter({ showModal, openModal, setShowModal }, props) {
                             <div className="btn-container">
                                 <Button
                                     className="secondary"
-                                    onClick={radioDeselection}
+                                    // onClick={() => setChecked(() => (false))}
+                                    onClick={clearCheck}
                                 >
                                     Clear
                                 </Button>
