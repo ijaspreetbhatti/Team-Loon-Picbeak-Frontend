@@ -1,53 +1,58 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../shared/ButtonComponent/Button";
 import "./ProfileInformation.scss";
 import Modal from './modal';
+import axios, { Axios } from "axios";
+import { useLocation } from 'react-router-dom';
 import EditProfile from './Edit/editProfile';
 import EditPortrait from "../ProfileComponent/Edit/editPortrait";
 
 function ProfileInformation(props) {
+  const location = useLocation()
+  const { data } = location.state;
   const [show, setShow] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
   const [showicon, setShowIcon] = useState(false)
   let [portrait, setPortrait] = useState(["green"])
   let [changePortrait, setChangePortrait] = useState(["green"])
+  const [newNickName, setNewNickName] = useState("")
+  const [newEmail, setNewEmail] = useState("")
+  const [userProfile, setUserProfile] =useState({})
   
 
-
-  const pic = {
-    url:
-      "https://3rvxro1qhiaouxf3h3et9bah-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/33709comox09Stellar.jpg",
-    name: "Steller's Jay",
-    sciName: "Mergus serrator",
-  };
-
-  const pic2 = {
-    url:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Downy_Woodpecker01.jpg/1200px-Downy_Woodpecker01.jpg",
-    name: "Downy woodpecker",
-    sciName: "Picoides pubescens",
-  };
-
-
-  const data = [pic, pic2];
-  const birdArray = [];
+  useEffect(() => {
+    async function getProfile() {
+      const profileData = await axios.get(
+        `https://pic-beak-backend.herokuapp.com/api/v1/profiles/62379ac53316ad69558c3cef`
+    ).then((res) => {
+      console.log(res.data)
+        setUserProfile(res.data)
+      }).catch(error => console.error(error))
+    } 
+    getProfile();
+  }, []);
   
-  for (let i = 0; i < data.length; i++) {
-    birdArray.push(
-      <div className="birdBox" key={i}>
-        <Button className="camera-secondary-red" onClick={() => setShow(true) }></Button>
-        <Modal onClose={() => setShow(false)} show={show} />
-        <img className="collectionPic" src={data[i].url} key={i} />
-        <div className="birdInfo">
-          <span className="birdName">{data[i].name}</span>
-          <span className="birdSciName">{data[i].sciName}</span>
-        </div>
-      </div>
-    );
-  }
+  console.log(userProfile)
+  let profileData = JSON.stringify({ newNickName, newEmail })
+
+
+  useEffect(() => {
+    const updateProfile = axios.put(
+        `https://pic-beak-backend.herokuapp.com/api/v1/profiles/62379ac53316ad69558c3cef`, profileData
+    ).then((res) => {
+        console.log(res)
+    }).catch(error => console.error(error))
+}, []);
+
+
+  let birdArray =[];
+  console.log(userProfile.collectedBirds)
+  birdArray.push(userProfile.collectedBirds)  
+  console.log(birdArray)
+
 
   const divStyle = {
-    width: (data.length*0.6) * 10,
+    width: (data.collectedBirds.length*0.6) * 10,
   };
 
 
@@ -60,7 +65,7 @@ function ProfileInformation(props) {
           <div className="portrait">
             <div className={portrait[0]}></div>
           </div>
-          <span className="userName">{props.nickName}Chickadeanny</span>
+          <span className="userName">{userProfile.nickName}</span>
         </div>
         <div className="button">
           <Button className="primary" onClick={() => setShowEdit(true) }>Edit</Button>
@@ -70,14 +75,29 @@ function ProfileInformation(props) {
 
       <div className="beakpediaWrapper">
         <EditPortrait onClose={() => {setShowIcon(false); setShowEdit(true);}} showicon={showicon} changeIcon={(e) => setChangePortrait(changePortrait[0]=[e])}/>
-        <EditProfile  onClose={() => setShowEdit(false)} showedit={showEdit} onClick={() => setShowIcon(true)} portraitIcon={changePortrait[0]} />
+        <EditProfile  onClose={() => setShowEdit(false)} showedit={showEdit} onClick={() => setShowIcon(true)} portraitIcon={changePortrait[0]} newNickName={newNickName} newEmail={newEmail} setNewNickName={setNewNickName} setNewEmail={setNewEmail}/>
         
         <span className="beakpediaTitle">Beakpedia</span>
         <div className="collectBar">
           <div className="progressBar" style={divStyle}></div>
         </div>
-        <span className="collectInfo">{data.length} / 512 birds collected</span>
-        <div className="birdCollection">{birdArray}</div>
+        <span className="collectInfo">{data.collectedBirds.length} / 512 birds collected</span>
+        <div className="birdCollection">
+          {birdArray.length > 1 ? (
+            birdArray.map(bird => (
+              <div className="birdBox" >
+              <Button className="camera-secondary-red" onClick={() => setShow(true) }></Button>
+              <Modal onClose={() => setShow(false)} show={show} />
+              <img className="collectionPic"  src={bird.imageLink}  />
+              <div className="birdInfo">
+                <span className="birdName"></span>
+                <span className="birdSciName"></span>
+              </div>
+            </div>
+            ))
+          ) : (null)}
+
+        </div>
         
       </div>
     </div>
