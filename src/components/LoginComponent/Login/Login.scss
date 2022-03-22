@@ -70,6 +70,10 @@ form {
             border-radius: 8px;
             border: 1px solid $grey40;
         }
+
+        .error {
+            border: 1px solid $secondary-red;
+        }
     }
 
     .emailWrapper2 {
@@ -113,6 +117,10 @@ form {
             border: 1px solid $grey40;
         }
 
+        .error {
+            border: 1px solid $secondary-red;
+        }
+
         button {
             padding: 0;
             border: none;
@@ -125,6 +133,13 @@ form {
             cursor: pointer;
             text-align: left;
         }
+    }
+
+    .errorMessage {
+        color: $secondary-red;
+        font-family: $header;
+        font-family: 14px;
+        font-weight: 400;
     }
 
     .buttonWrapper {

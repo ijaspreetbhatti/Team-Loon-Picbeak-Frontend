@@ -41,8 +41,14 @@
             }
         }
     }
+
 }
 
+@media screen and (min-width: 768px) {
+    .bird-filter {
+        margin: 80px 207px;
+    }
+}
 // #myInput {
 //     backgro#myInput {
 //   background-image: url('/css/searchicon.png');
