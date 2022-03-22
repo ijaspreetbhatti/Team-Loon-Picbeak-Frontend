@@ -25,14 +25,17 @@ function EditProfile(props) {
     //     let data = "";
     // }
 
-
+function afterSubmit(e){
+    console.log(e)
+    e.preventDefault();
+}
 
     return (
         <div>
             
             <div className="backGround"></div>
             <Card className="card">
-                <form className="editProfile">
+                <form className="editProfile" onSubmit={(e)=>afterSubmit(e)}>
                     <div className="modalHeader">
                         <span>Edit profile</span>
                         <Button className="exit" onClick={props.onClose}></Button>
@@ -44,7 +47,7 @@ function EditProfile(props) {
                     </div>
                     <div className="nicknameWrapper">
                         <label htmlFor="nickName">Nickname</label>
-                        <input type="text" id="nickName" name="nickName" value={props.newNickName} onChange={(e) => props.setNewNickName(e.target.value)}/>
+                        <input type="text" id="nickName" name="nickName" value={props.newNickName} onChange={(e) => {props.setNewNickName(e.target.value)}}/>
                     </div>
 
                     <div className="emailWrapper">
@@ -53,8 +56,8 @@ function EditProfile(props) {
                     </div>
                     
                     <div className="buttons-edit">
-                        <Button className="primary-grey" onClick={props.onClose}>Cancel</Button>
-                        <Button className="primary"  onclick={props.showSnack} >Save</Button>
+                        <Button className="primary-grey" onClick={()=> props.onClose()}>Cancel</Button>
+                        <Button className="primary" onClick={()=> {props.updateProfile(); props.onClose()}} >Save</Button>
                     </div>
                 </form>
             </Card>

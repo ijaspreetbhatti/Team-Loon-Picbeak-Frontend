@@ -29,10 +29,28 @@ function DetailDataDisplay(props) {
     const CheckLogin =() => {
       if(localStorage.getItem('userInfo')){
           setShowCollect(true);
+          putBird();
       }else{
           setShowLoginModal(true)
       }
     }
+
+    
+      async function putBird() {
+          const sciName = "test"
+          const userData = await axios.put(
+              `https://pic-beak-backend.herokuapp.com/api/v1/profiles/62342145ed18fa2257bd5cde/${sciName}`)
+              .then((res) => {
+              
+                console.log(res.data);
+                
+  
+            }).catch(error => console.log(error));;
+
+      }
+      
+      
+
 
     const Status =()=>{
       let status = data.conservationStatus;
@@ -128,7 +146,7 @@ function DetailDataDisplay(props) {
           <span className="galleryTitle">Gallery</span>
           <div className="galleryContainer">
             {gallery.map(src =>  (
-              <img src={src}/>
+              <img  className="galleryPic" src={src.imageLink}/>
             ))}
           </div>
         </div>
@@ -137,6 +155,7 @@ function DetailDataDisplay(props) {
       <div className="footerWrapper">
         <span className="footerContainer">
           <span>Are you spotting this bird?</span>
+          
         <Button className="primary" onClick={() => CheckLogin() }>Collect</Button>
         </span>
         <CollectModal showCollect={showCollect} onClose={() => setShowCollect(false)}/>

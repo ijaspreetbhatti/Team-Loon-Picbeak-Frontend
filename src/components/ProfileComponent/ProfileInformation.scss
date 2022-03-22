@@ -83,13 +83,13 @@
       margin-top: 16px;
       margin-bottom: 8px;
       position: relative;
+      overflow: hidden;
 
       .progressBar {
         position: absolute;
         background-color: $primary-light;
         border-radius: 20px;
         height: 26px;
-        overflow: hidden;
       }
     }
     .collectInfo {
