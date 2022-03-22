@@ -8,6 +8,7 @@ import styled, { css } from "styled-components";
 import LoginModal from "../modal/login-modal";
 import CollectModal from '../modal/collected-modal';
 import Login from "../../LoginComponent/Login/Login";
+import AddPhoto from "../modal/addPhoto-modal";
 
 function DetailDataDisplay(props) {
   const location = useLocation()

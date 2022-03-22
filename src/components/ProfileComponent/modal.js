@@ -8,6 +8,8 @@ function Modal(props) {
     if(!props.show){
         return null
     }
+
+    console.log(props.commonName)
     return (
         <div>
             <div className="backGround"></div>
@@ -20,7 +22,7 @@ function Modal(props) {
                     
                 </div>
                 <span className="modalContent">
-                Capture a photo of @birdname to have it displayed in the gallery.
+                Capture a photo of {props.commonName} to have it displayed in the gallery.
                 </span>
                 <div className="buttons">
                     <Button className="primary-grey" onClick={props.onClose}>Maybe later</Button>

@@ -21,10 +21,10 @@ function EditPortrait(props) {
                 </div>
 
                 <div className="portraitWrapper">
-                    <div className="portrait-green" onClick={() => {props.onClose(); props.onchange("621ff10b0082282921ade8af")}}/>
-                    <div className="portrait-yellow" onClick={() => {props.onClose(); props.onchange("621ff0ea0082282921ade8ae")}}/>
-                    <div className="portrait-red" onClick={() => {props.onClose(); props.changeIcon("red")}}/>
-                    <div className="portrait-blue" onClick={() => {props.onClose(); props.changeIcon("blue")}}/>
+                    <div className="portrait-green" onClick={() => {props.onClose(); props.setNewPortrait("621ff10b0082282921ade8af")}}/>
+                    <div className="portrait-yellow" onClick={() => {props.onClose(); props.setNewPortrait("621ff0ea0082282921ade8ae")}}/>
+                    <div className="portrait-red" onClick={() => {props.onClose(); props.setNewPortrait("621feb430082282921ade8ac")}}/>
+                    <div className="portrait-blue" onClick={() => {props.onClose(); props.setNewPortrait("621ff14c0082282921ade8b0")}}/>
                 </div>
 
             </Card>
