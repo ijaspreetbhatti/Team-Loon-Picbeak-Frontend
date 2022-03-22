@@ -12,11 +12,11 @@ function ProfileInformation(props) {
   const [show, setShow] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
   const [showicon, setShowIcon] = useState(false)
-  let [portrait, setPortrait] = useState(["green"])
+  let [portrait, setPortrait] = useState([])
   let [changePortrait, setChangePortrait] = useState(["green"])
   const [newNickName, setNewNickName] = useState("")
   const [newEmail, setNewEmail] = useState("")
-  const [newPortrait, setNewPortrait] = useState("")
+  const [newPortrait, setNewPortrait] = useState([])
   const [userProfile, setUserProfile] = useState()
   const [loading, setLoading] = useState(true);
   let [birdCard, setBirdCard] = useState([]);
@@ -31,6 +31,7 @@ function ProfileInformation(props) {
       console.log(res.data)
         setUserProfile(res.data)
         getCollectedBird();
+        getPortrait();
         setLoading(false);
       }).catch(error => console.error(error))
     } 
@@ -58,18 +59,21 @@ function ProfileInformation(props) {
 
 
 
-//   async function getPortrait() {
-//     const portraits = await axios.put(`https://pic-beak-backend.herokuapp.com/api/v1/portrait/621feb430082282921ade8ac`)
-//     .then((res) => {
+  async function getPortrait() {
+    const portraits = await axios.get(`https://pic-beak-backend.herokuapp.com/api/v1/portrait`)
+    .then((res) => {
     
-//       console.log(res);
+      console.log(res.data);
+      setPortrait(res.data)
 
-//   }).catch(error => console.log(error));
-// }getPortrait();
+    }).catch(error => console.log(error));
+  }
+ 
 
   let cardArray =[];
   let birdArray =[];
   birdArray = birdCard;
+
 
     async function getCollectedBird() {
       if(userProfile != null && userProfile.collectedBirds.length >= 1){
@@ -78,7 +82,7 @@ function ProfileInformation(props) {
           const birdCard = await axios.get(
               `https://pic-beak-backend.herokuapp.com/api/v1/birds/${userProfile.collectedBirds[i]}`
           );
-          cardArray.push(birdCard.data[0])
+          cardArray.push(birdCard.data[0]) 
         }
         setBirdCard(cardArray);
       } 
@@ -99,7 +103,9 @@ function ProfileInformation(props) {
         <div className="userProfileContainer">
           <div className="userInfo">
             <div className="portrait">
-              <div className={portrait[0]}></div>
+              <div>
+                <img src={portrait.imageLink} />
+              </div>
             </div>
             <span className="userName">{userProfile.nickName}</span>
           </div>

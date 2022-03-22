@@ -36,18 +36,16 @@ function DetailDataDisplay(props) {
     }
 
     
-      async function putBird() {
-          const sciName = "test"
-          const userData = await axios.put(
-              `https://pic-beak-backend.herokuapp.com/api/v1/profiles/62342145ed18fa2257bd5cde/${sciName}`)
-              .then((res) => {
-              
-                console.log(res.data);
-                
-  
-            }).catch(error => console.log(error));;
-
-      }
+    async function putBird() {
+      const currentUser = localStorage.userInfo.replaceAll('"', '');
+      const sciName = data.sciName;
+      const userData = await axios.put(
+          `https://pic-beak-backend.herokuapp.com/api/v1/profiles/${currentUser}/${sciName}`)
+          .then((res) => {
+          
+            console.log(res.data);
+        }).catch(error => console.log(error));;
+  }
       
       
 
