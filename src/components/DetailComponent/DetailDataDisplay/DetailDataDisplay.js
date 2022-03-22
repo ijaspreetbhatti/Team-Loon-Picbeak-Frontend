@@ -5,12 +5,17 @@ import { useLocation } from 'react-router-dom';
 import axios, { Axios } from "axios";
 import Audio from '../../shared/AudioComponent/Audio';
 import styled, { css } from "styled-components";
+import LoginModal from "../modal/login-modal";
+import CollectModal from '../modal/collected-modal';
+import Login from "../../LoginComponent/Login/Login";
 
 function DetailDataDisplay(props) {
   const location = useLocation()
   const { data } = location.state;
   const [gallery, setGallery] = useState([]);
-  // const [status, setStatus] = useState();
+  const [showCollect, setShowCollect] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [loginModal, setLoginModal] = useState()
 
 
   const picArray = [];
@@ -20,6 +25,32 @@ function DetailDataDisplay(props) {
   // if (picArray.length > 4) {
   //   overlay = <span className="greyBoxShow">+{picArray.length - 4}</span>;
   // }
+
+    const CheckLogin =() => {
+      if(localStorage.getItem('userInfo')){
+          setShowCollect(true);
+          putBird();
+      }else{
+          setShowLoginModal(true)
+      }
+    }
+
+    
+      async function putBird() {
+          const sciName = "test"
+          const userData = await axios.put(
+              `https://pic-beak-backend.herokuapp.com/api/v1/profiles/62342145ed18fa2257bd5cde/${sciName}`)
+              .then((res) => {
+              
+                console.log(res.data);
+                
+  
+            }).catch(error => console.log(error));;
+
+      }
+      
+      
+
 
     const Status =()=>{
       let status = data.conservationStatus;
@@ -94,7 +125,6 @@ function DetailDataDisplay(props) {
   return (
     <div className="birdProfileWrapper">
       <img className="postImage" src={data.imageLink} />
-
       <div className="profileContainer" >
         <div className="infoWrapper">
           <div className="titleBlock">
@@ -116,16 +146,22 @@ function DetailDataDisplay(props) {
           <span className="galleryTitle">Gallery</span>
           <div className="galleryContainer">
             {gallery.map(src =>  (
-              <img src={src}/>
+              <img  className="galleryPic" src={src.imageLink}/>
             ))}
           </div>
         </div>
       </div>
 
       <div className="footerWrapper">
-        <span>Are you spotting this bird?</span>
-        <Button className="primary" >Collect</Button>
-      </div>
+        <span className="footerContainer">
+          <span>Are you spotting this bird?</span>
+          
+        <Button className="primary" onClick={() => CheckLogin() }>Collect</Button>
+        </span>
+        <CollectModal showCollect={showCollect} onClose={() => setShowCollect(false)}/>
+        <LoginModal showLoginModal={showLoginModal} onClose={() => setShowLoginModal(false)}/>
+        <Login onClose={()=> setLoginModal(false)} show={loginModal}/>
+        </div>
     </div>
   );
 }

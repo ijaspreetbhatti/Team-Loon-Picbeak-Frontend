@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Login from "../../LoginComponent/Login/Login";
 import MessagePop from "../MessagePopComponent/MessagePop";
 import "./Header.scss";
+import { Link } from "react-router-dom";
+import axios, { Axios } from "axios";
+import ProfileInformation from '../../ProfileComponent/ProfileInformation';
 // import ProfileInformation from "../../ProfileComponent/ProfileInformation";
 
 export default function ProfileMenu(props) {
@@ -27,6 +30,9 @@ export default function ProfileMenu(props) {
         setLoginPopUp(false);
         setShowPopUp(false);
     }
+
+
+
 
     return (
         <div className="profileMenuContainer">
