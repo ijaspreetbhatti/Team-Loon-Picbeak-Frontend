@@ -45,7 +45,7 @@ export default function ProfileMenu(props) {
             {props.profileMenuDisplay ? (
                 <div className={localStorage.getItem('userInfo') ? "profileMenu" : "profileMenu2"}>
                     {localStorage.getItem('userInfo') ? (<button><a href="/profile">Profile</a></button>) : (null)}
-                    {localStorage.getItem('userInfo') ? (<button onClick={() => showLogin()}>Log out</button>) : (<button onClick={showLoginModal}>Log in</button>)}
+                    {localStorage.getItem('userInfo') ? (<button onClick={() => showLogin()}><a href="/*">Log out</a></button>) : (<button onClick={showLoginModal}>Log in</button>)}
                 </div>
             ) : null}
             <Login onClose={() => setLoginModal(false)} show={loginModal} setShowPopUp={signinPopUpHandler} setLoginPopUp={loginPopUpHandler} />
