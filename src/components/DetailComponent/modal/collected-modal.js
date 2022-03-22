@@ -20,7 +20,7 @@ function CollectModal(props) {
                     
                 </div>
                 <span className="collectModalContent">
-                You just added Steller's Jay to your Beakpedia. Now you can add a photo of it in the gallery!
+                You just added {props.commonName} to your Beakpedia. Now you can add a photo of it in the gallery!
                 </span>
                 <div className="collect-buttons">
                     <Button className="primary-grey" onClick={props.onClose}>Maybe later</Button>
