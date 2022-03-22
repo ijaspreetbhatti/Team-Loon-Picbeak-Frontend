@@ -34,61 +34,19 @@
                 top: 0;
             }
         }
-        .green{
-            background-image: url(../PortraitIcons/green.svg);
+        .portraitEdit{
             margin: auto;
             width: 90px;
             height: 90px;
             margin-bottom: 24px;
             margin-top: 24px;
-
-            .edit-secondary-red{
-                margin-top: 50px;
-                margin-left: 50px;
-            }
         }
-        .red{
-            background-image: url(../PortraitIcons/red.svg);
-            margin: auto;
-            width: 90px;
-            height: 90px;
-            margin-bottom: 24px;
-            margin-top: 24px;
-
-            .edit-secondary-red{
-                margin-top: 50px;
-                margin-left: 50px;
-            }
+        .edit-secondary-red{
+            position: absolute;
+            top: 122px;
+            left: 176px;
         }
-
-        .yellow{
-            background-image: url(../PortraitIcons/yellow.svg);
-            margin: auto;
-            width: 90px;
-            height: 90px;
-            margin-bottom: 24px;
-            margin-top: 24px;
-
-            .edit-secondary-red{
-                margin-top: 50px;
-                margin-left: 50px;
-            }
-        }
-
-        .blue{
-            background-image: url(../PortraitIcons/blue.svg);
-            margin: auto;
-            width: 90px;
-            height: 90px;
-            margin-bottom: 24px;
-            margin-top: 24px;
-
-            .edit-secondary-red{
-                margin-top: 50px;
-                margin-left: 50px;
-            }
-        }
-
+        
         .nicknameWrapper{
             display: flex;
             flex-direction: column;

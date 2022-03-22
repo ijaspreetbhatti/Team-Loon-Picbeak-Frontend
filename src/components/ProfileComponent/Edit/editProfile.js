@@ -41,13 +41,14 @@ function afterSubmit(e){
                         <Button className="exit" onClick={props.onClose}></Button>
                         
                     </div>
-                    <div className={props.portraitIcon}>
+                    <div>
+                        <img className="portraitEdit" src={props.imageLink}/>
                         <Button className="edit-secondary-red" onClick={() => {props.onClick(); props.onClose();}}></Button>
                         
                     </div>
                     <div className="nicknameWrapper">
                         <label htmlFor="nickName">Nickname</label>
-                        <input type="text" id="nickName" name="nickName" value={props.newNickName} onChange={(e) => {props.setNewNickName(e.target.value)}}/>
+                        <input type="text" id="nickName" name="nickName" value={props.newNickName} onChange={(e) => props.setNewNickName(e.target.value)}/>
                     </div>
 
                     <div className="emailWrapper">

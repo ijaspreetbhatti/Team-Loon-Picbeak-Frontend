@@ -12,8 +12,7 @@ function ProfileInformation(props) {
   const [show, setShow] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
   const [showicon, setShowIcon] = useState(false)
-  let [portrait, setPortrait] = useState(["green"])
-  let [changePortrait, setChangePortrait] = useState(["green"])
+  let [portrait, setPortrait] = useState("")
   const [newNickName, setNewNickName] = useState("")
   const [newEmail, setNewEmail] = useState("")
   const [newPortrait, setNewPortrait] = useState("")
@@ -25,25 +24,32 @@ function ProfileInformation(props) {
 
   useEffect(() => {
     async function getProfile() {
-      const profileData = await axios.get(
+    await axios.get(
         `https://pic-beak-backend.herokuapp.com/api/v1/profiles/${currentUser}`
     ).then((res) => {
-      console.log(res.data)
         setUserProfile(res.data)
         getCollectedBird();
+        let profileId = null;
+        if (userProfile != null) {
+          profileId = userProfile.portraitId;
+        }
+        getPortrait(profileId);
         setLoading(false);
       }).catch(error => console.error(error))
     } 
     getProfile();
   }, [loading]);
 
+  useEffect(() => {
+    getPortrait(newPortrait);
+  }, [newPortrait])
 
   async function updateProfile() {
     let profileData = {
         _id: currentUser,
         email: newEmail,
         nickName: newNickName,
-      // portraitId: newPortrait
+        portraitId: newPortrait
     }
 
       await axios.put(
@@ -56,20 +62,28 @@ function ProfileInformation(props) {
         }).catch(error => console.log(error));
   }
 
+  async function getPortrait(id) {
+    if (id != null) {
+      await axios.get(`https://pic-beak-backend.herokuapp.com/api/v1/portrait/${id}`)
+      .then((res) => {
+      
+        setPortrait(res.data)
 
+      }).catch(error => console.log(error));
+    } else {
+      await axios.get(`https://pic-beak-backend.herokuapp.com/api/v1/portrait/621ff10b0082282921ade8af`)
+      .then((res) => {
+      
+        setPortrait(res.data)
 
-//   async function getPortrait() {
-//     const portraits = await axios.put(`https://pic-beak-backend.herokuapp.com/api/v1/portrait/621feb430082282921ade8ac`)
-//     .then((res) => {
-    
-//       console.log(res);
-
-//   }).catch(error => console.log(error));
-// }getPortrait();
+      }).catch(error => console.log(error));
+    }
+  }
 
   let cardArray =[];
   let birdArray =[];
   birdArray = birdCard;
+
 
     async function getCollectedBird() {
       if(userProfile != null && userProfile.collectedBirds.length >= 1){
@@ -78,7 +92,7 @@ function ProfileInformation(props) {
           const birdCard = await axios.get(
               `https://pic-beak-backend.herokuapp.com/api/v1/birds/${userProfile.collectedBirds[i]}`
           );
-          cardArray.push(birdCard.data[0])
+          cardArray.push(birdCard.data[0]) 
         }
         setBirdCard(cardArray);
       } 
@@ -99,7 +113,9 @@ function ProfileInformation(props) {
         <div className="userProfileContainer">
           <div className="userInfo">
             <div className="portrait">
-              <div className={portrait[0]}></div>
+              <div>
+                <img src={portrait.imageLink} />
+              </div>
             </div>
             <span className="userName">{userProfile.nickName}</span>
           </div>
@@ -110,8 +126,8 @@ function ProfileInformation(props) {
         </div>
 
         <div className="beakpediaWrapper">
-          <EditPortrait onClose={() => {setShowIcon(false); setShowEdit(true);}} showicon={showicon} onChange={(e) => setNewPortrait(e)}/>
-          <EditProfile  onClose={() => setShowEdit(false)} showedit={showEdit} onClick={() => setShowIcon(true)} portraitIcon={changePortrait[0]} newNickName={newNickName} newEmail={newEmail} setNewNickName={setNewNickName} setNewEmail={setNewEmail} updateProfile={()=> updateProfile()}/>
+          <EditPortrait onClose={() => {setShowIcon(false); setShowEdit(true);}} showicon={showicon} setNewPortrait={setNewPortrait}/>
+          <EditProfile  onClose={() => {setShowEdit(false); setNewPortrait(userProfile.portraitId)}} showedit={showEdit} onClick={() => setShowIcon(true)} imageLink={portrait.imageLink} newNickName={newNickName} newEmail={newEmail} setNewNickName={setNewNickName} setNewEmail={setNewEmail} updateProfile={()=> updateProfile()}/>
           
           <span className="beakpediaTitle">Beakpedia</span>
           <div className="collectBar">
@@ -122,7 +138,7 @@ function ProfileInformation(props) {
             {birdArray.length > 0 ? (
               birdArray.map(bird => (
                 <div className="birdBox" key={bird._id}>
-                  <Button className="camera-secondary-red" onClick={() => setShow(true) }></Button>
+                  <Button className="camera-secondary-red" onClick={() => setShow(true) } commonName={bird.commonName}></Button>
                   <Modal onClose={() => setShow(false)} show={show} />
                   <img className="collectionPic"  src={bird.imageLink}  />
                   <div className="birdInfo">
