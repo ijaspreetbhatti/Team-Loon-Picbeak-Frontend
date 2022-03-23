@@ -1,6 +1,5 @@
-// import logo from './logo.svg';
+
 import "./App.scss";
-// import Login from "./components/LoginComponent/Login/Login";
 import "./App.scss";
 import MatchView from "./components/Finder/MatchViewComponent/MatchView";
 import ListView from "./components/Finder/ListViewComponent/ListView";
@@ -15,6 +14,7 @@ import ProfileInformation from "./components/ProfileComponent/ProfileInformation
 function App() {
     return (
         <div className="App">
+ 
             <Router>
             <Header />
                 <Routes>

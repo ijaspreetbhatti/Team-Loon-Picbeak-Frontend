@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import "./BgDetailsComponent/PopulationComponent/Population.scss";
-
+import { Autoplay } from "swiper";
 import {
     Chart,
     BarElement,
@@ -11,10 +11,14 @@ import {
     Legend,
     Title,
 } from "chart.js";
-import { Autoplay } from "swiper";
+
+
+let myChart;
 
 function SpeciesChart(props) {
+    
     useEffect(() => {
+
         console.log("inEffect");
         Chart.register(
             BarElement,
@@ -106,11 +110,13 @@ function SpeciesChart(props) {
                 },
             },
         };
-        const myChart = new Chart(ctx, config);
+        if (typeof myChart !== "undefined") myChart.destroy();
+        myChart = new Chart(ctx, config);
     }, [props]);
     const styles = {
         // padding: "20px 6vw",
     };
+
     return <canvas id="myChart" className="myChart" styles={styles}></canvas>;
 }
 
