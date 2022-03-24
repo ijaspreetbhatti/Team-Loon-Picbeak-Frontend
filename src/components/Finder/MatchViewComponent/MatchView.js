@@ -76,7 +76,21 @@ function MatchView() {
                 </h6>
             </div>
             <div className="matchViewContainer" id="matchViewContainer">
+
                 <Swiper
+                    breakpoints={{
+                        0: {
+                        spaceBetween: 20,
+                        slidesPerView: 1.3,
+                        },
+                        450: {
+                            slidesPerView: 1.5,
+                            },
+                        600: {
+                        slidesPerView: 1,
+                        },
+                    }}
+                    centeredSlides={true}
                     navigation={true}
                     modules={[Navigation]}
                     className="mySwiper"
