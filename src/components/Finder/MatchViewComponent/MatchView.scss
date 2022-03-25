@@ -1,10 +1,8 @@
 @import "../../../Variables/variables";
 
 #matchView {
-    // margin: 0 24px 24px;
     display: flex;
     flex-direction: column;
-    // align-items: center;
     position: relative;
 
     .changeViewBtn {
@@ -64,7 +62,8 @@
         grid-template-rows: 100%;
         align-items: end;
         margin: 24px 0;
-        height: 470px;
+        min-height: 400px;
+        max-height: 470px;
         position: relative;
         
         img {
@@ -163,6 +162,39 @@
         }
       }
     }
+
+    @media screen and (max-height: 667px) and (max-width: 425px) {
+        #matchViewContainer .swiper .swiper-wrapper .swiper-slide .matchViewCard {
+            min-height: 350px;
+
+            .matchDetailCard {
+                max-height: 170px;
+
+                .buttonContainer {
+                    margin: 4px 24px 16px 24px;
+                }
+
+                .nameContainer h2 {
+                    margin-top: 16px;
+                }
+            }
+        }
+        .changeViewBtn {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 180px;
+        }
+    }
+
+    @media screen and (min-width: 400px) {
+        #matchViewContainer .swiper .swiper-wrapper .swiper-slide .matchViewCard {
+            min-height: 470px;
+        }
+    }
+
 
     @media screen and (min-width: 600px) {
 
