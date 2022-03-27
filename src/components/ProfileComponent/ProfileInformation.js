@@ -9,11 +9,13 @@ import EditPortrait from "../ProfileComponent/Edit/editPortrait";
 import MessagePop from '../shared/MessagePopComponent/MessagePop'
 import { Link } from "react-router-dom";
 import DetailDataDisplay from "../DetailComponent/DetailDataDisplay/DetailDataDisplay"
+import AddPhoto from "./addPhoto";
 
 
 function ProfileInformation(props) {
 
   const [show, setShow] = useState(false)
+  const [showAddPhoto, setShowAddPhoto] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
   const [showicon, setShowIcon] = useState(false)
   let [portrait, setPortrait] = useState("")
@@ -150,6 +152,7 @@ function ProfileInformation(props) {
           <EditPortrait onClose={() => {setShowIcon(false); setShowEdit(true);}} showicon={showicon} setNewPortrait={setNewPortrait}/>
           <EditProfile  onClose={() => {setShowEdit(false); }} showedit={showEdit} setError={setError} error={error} onClick={() => setShowIcon(true)} imageLink={portrait.imageLink} defaultNickName={userProfile.nickName} defaultEmail={userProfile.email} setNewNickName={setNewNickName} setNewEmail={setNewEmail} updateProfile={()=> updateProfile()} setEditPopUp={editPopUpHandler} />
           
+          
           <span className="beakpediaTitle">Beakpedia</span>
           <div className="collectBar">
             <div className="progressBar" style={divStyle}></div>
@@ -160,7 +163,8 @@ function ProfileInformation(props) {
               birdArray.map(bird => (
                 <div className="birdBox" key={bird._id}>
                   <Button className="camera-secondary-red" onClick={() => setShow(true) } commonName={bird.commonName}></Button>
-                  <Modal onClose={() => setShow(false)} show={show} />
+                  <Modal onClose={() => setShow(false)} show={show} setShowAddPhoto={()=> setShowAddPhoto(true)}/>
+                  <AddPhoto onClose={() => setShowAddPhoto(false)} showAddPhoto={showAddPhoto}/>
                   <img className="collectionPic"  src={bird.imageLink}  />
                   <Link to={{
                     pathname: "/details"}} state={{from: 'profileView', data: bird}} element={<DetailDataDisplay/>}>

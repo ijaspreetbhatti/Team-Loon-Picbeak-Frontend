@@ -16,6 +16,7 @@ function DetailDataDisplay(props) {
   const [gallery, setGallery] = useState([]);
   const [showCollect, setShowCollect] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showPhoto, setShowPhoto] = useState(false);
   const [loginModal, setLoginModal] = useState()
 
 
@@ -54,12 +55,12 @@ function DetailDataDisplay(props) {
     const Status =()=>{
       let status = data.conservationStatus;
       console.log(status)
-      if(status == ("G1" || "T1" || "G2" || "T2")){
+      if(status == ("G1" || "G3" || "G2")){
         status = "High conservation concern";
         return(
             <div className="high">{status}</div>
         );
-      }else if(status == ("G3" || "T3")){
+      }else if(status == ("G4")){
         status = "Moderate conservation concern";
         return(
             <div className="moderate">{status}</div>
@@ -131,9 +132,10 @@ function DetailDataDisplay(props) {
             
           <Button className="primary" onClick={() => CheckLogin() }>Collect</Button>
           </span>
-          <CollectModal commonName={data.commonName} showCollect={showCollect} onClose={() => setShowCollect(false)}/>
+          <CollectModal commonName={data.commonName} showCollect={showCollect} onClose={() => setShowCollect(false)} setShowPhoto={() => setShowPhoto(true)}/>
           <LoginModal showLoginModal={showLoginModal} onClose={() => setShowLoginModal(false)}/>
           <Login onClose={()=> setLoginModal(false)} show={loginModal}/>
+          <AddPhoto onClose={()=> setShowPhoto(false)} showPhoto={showPhoto}/>
         </div>
       </div>
 
@@ -164,16 +166,6 @@ function DetailDataDisplay(props) {
         </div>
       </div>
 
-      {/* <div className="footerWrapper">
-        <span className="footerContainer">
-          <span>Are you spotting this bird?</span>
-          
-        <Button className="primary" onClick={() => CheckLogin() }>Collect</Button>
-        </span>
-        <CollectModal commonName={data.commonName} showCollect={showCollect} onClose={() => setShowCollect(false)}/>
-        <LoginModal showLoginModal={showLoginModal} onClose={() => setShowLoginModal(false)}/>
-        <Login onClose={()=> setLoginModal(false)} show={loginModal}/>
-      </div> */}
     </div>
   );
 }
