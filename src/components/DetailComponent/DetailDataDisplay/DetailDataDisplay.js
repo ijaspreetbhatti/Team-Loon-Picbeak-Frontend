@@ -123,7 +123,20 @@ function DetailDataDisplay(props) {
 
   return (
     <div className="birdProfileWrapper">
-      <img className="postImage" src={data.imageLink} />
+      <div>
+        <img className="postImage" src={data.imageLink} />
+        <div className="footerWrapper">
+          <span className="footerContainer">
+            <span>Are you spotting this bird?</span>
+            
+          <Button className="primary" onClick={() => CheckLogin() }>Collect</Button>
+          </span>
+          <CollectModal commonName={data.commonName} showCollect={showCollect} onClose={() => setShowCollect(false)}/>
+          <LoginModal showLoginModal={showLoginModal} onClose={() => setShowLoginModal(false)}/>
+          <Login onClose={()=> setLoginModal(false)} show={loginModal}/>
+        </div>
+      </div>
+
       <div className="profileContainer" >
         <div className="infoWrapper">
           <div className="titleBlock">
@@ -151,7 +164,7 @@ function DetailDataDisplay(props) {
         </div>
       </div>
 
-      <div className="footerWrapper">
+      {/* <div className="footerWrapper">
         <span className="footerContainer">
           <span>Are you spotting this bird?</span>
           
@@ -160,7 +173,7 @@ function DetailDataDisplay(props) {
         <CollectModal commonName={data.commonName} showCollect={showCollect} onClose={() => setShowCollect(false)}/>
         <LoginModal showLoginModal={showLoginModal} onClose={() => setShowLoginModal(false)}/>
         <Login onClose={()=> setLoginModal(false)} show={loginModal}/>
-        </div>
+      </div> */}
     </div>
   );
 }

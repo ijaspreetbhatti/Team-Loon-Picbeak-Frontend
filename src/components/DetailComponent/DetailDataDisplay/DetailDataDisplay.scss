@@ -157,6 +157,7 @@
   }
   .footerWrapper {
     position: fixed;
+    z-index: 30;
     left: 0;
     bottom: 0;
     height: 40px;
@@ -209,7 +210,7 @@
     .footerWrapper{
       position: revert;
       z-index: 30;
-      width: 400px;
+      margin-right: 77px;
       justify-content: flex-start;
       .footerContainer>span{
         margin-right: 19px;
