@@ -24,7 +24,7 @@ function CollectModal(props) {
                 </span>
                 <div className="collect-buttons">
                     <Button className="primary-grey" onClick={props.onClose}>Maybe later</Button>
-                    <Button className="primary">Add photo</Button>
+                    <Button className="primary" onClick={() => props.setShowPhoto()}>Add photo</Button>
                 </div>
             </Card>
         </div>

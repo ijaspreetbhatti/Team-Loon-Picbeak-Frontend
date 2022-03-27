@@ -102,6 +102,7 @@
         .learn-more-link {
           font-weight: 800;
           color: $primary;
+          cursor: pointer; 
         }
       }
       
@@ -156,6 +157,7 @@
   }
   .footerWrapper {
     position: fixed;
+    z-index: 30;
     left: 0;
     bottom: 0;
     height: 40px;
@@ -179,41 +181,40 @@
     }
   }
   @media screen and (min-width: 1200px){
-    display: grid;
+
+    display: flex;
     margin-top: 86px;
     margin-bottom: 100px;
-    grid-template-columns: 1.15fr 1fr;
-    grid-template-rows: 3fr 1fr;
-    grid-template-areas:
-    "img detail"
-    ;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
 
     .postImage{
-      grid-area: img;
+      
       width: 400px;
       height: 400px;
       border-radius: 24px;
-      margin: 0 auto;
       margin-right: 77px;
+      
     }
     .profileContainer{
-      grid-area: detail;
       position: relative;
       top: 0;
       box-shadow: none;
       width: 342px;
       height: auto;
       padding-bottom: 0;
-      grid-row: 1 / span 2;
+
+      
     }
     .footerWrapper{
       position: revert;
-      margin-right: 48px;
-      width: 400px;
-      justify-self: end;
+      z-index: 30;
+      margin-right: 77px;
+      justify-content: flex-start;
       .footerContainer>span{
         margin-right: 19px;
-      }
+        }
     }
   }
 }

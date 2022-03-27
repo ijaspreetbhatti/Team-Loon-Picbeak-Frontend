@@ -13,20 +13,7 @@ function EditProfile(props) {
     }
 
 
-
-
-    // if(newNickName != null && newEmail != null){
-    //     let data = JSON.stringify({ newNickName, newEmail })
-    // }else if(newNickName != null){
-    //     let data = JSON.stringify({ newNickName})
-    // }else if(newEmail != null){
-    //     let data = JSON.stringify({ newEmail })
-    // }else{
-    //     let data = "";
-    // }
-
 function afterSubmit(e){
-    console.log(e)
     e.preventDefault();
 }
 
@@ -48,17 +35,35 @@ function afterSubmit(e){
                     </div>
                     <div className="nicknameWrapper">
                         <label htmlFor="nickName">Nickname</label>
-                        <input type="text" id="nickName" name="nickName" value={props.newNickName} onChange={(e) => props.setNewNickName(e.target.value)}/>
+                        <input type="text" id="nickName" name="nickName" defaultValue={props.defaultNickName} onChange={(e) => {
+                            if (e.target.value != "") {
+                                props.setError(false)
+                                props.setNewNickName(e.target.value)
+                            } else {
+                                props.setError(true)
+                            }
+                        }} />
                     </div>
 
                     <div className="emailWrapper">
                         <label htmlFor="email">Email</label>
-                        <input type="email" id="email" name="email" value={props.newEmail} onChange={(e) => props.setNewEmail(e.target.value)}/>
+                        <input type="email" id="email" name="email" defaultValue={props.defaultEmail} onChange={(e) => {
+                            if (e.target.value != "") { 
+                                props.setError(false)
+                                props.setNewEmail(e.target.value)
+                            } else {
+                               props.setError(true)
+                            }
+                        }} />
                     </div>
                     
                     <div className="buttons-edit">
                         <Button className="primary-grey" onClick={()=> props.onClose()}>Cancel</Button>
-                        <Button className="primary" onClick={()=> {props.updateProfile(); props.onClose()}} >Save</Button>
+                        <Button className="primary" onClick={()=> {{
+                            if (!props.error) {
+                                props.updateProfile(); props.onClose(); props.setEditPopUp(true)
+                            }
+                        }}} >Save</Button>
                     </div>
                 </form>
             </Card>

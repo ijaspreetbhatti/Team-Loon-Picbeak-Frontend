@@ -13,7 +13,7 @@
 }
 .card{
     padding: 24px;
-    width: 294px;
+    
     .addPhotoModalHeader{
         position: relative;
         
@@ -36,26 +36,25 @@
     }
     .addPhotoModalImg{
         // background-image: url(../modal-img/picbeak-19.svg);
-        background-color: grey;
+        background-color: lightgrey;
         margin: auto;
         width: 294px;
         height: 294px;
         margin-bottom: 24px;
         margin-top: 24px;
     }
-    span.addPhotoModalContent{
-        font-size: 14px;
-        line-height: 18px;
-        color: $discover;
 
-    }
     .addPhoto-buttons{
         display: grid;
         grid-template-columns: 1fr 1fr;
         margin-top: 40px;
         gap: 8px;
+        .primary-grey{
+            padding: 12px 19px;
+        }
         button{
             margin: 0;
+            
         }
     }
 

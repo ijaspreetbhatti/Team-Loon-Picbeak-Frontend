@@ -1,11 +1,11 @@
 import React from 'react'
-import Card from "../../shared/DialogComponent/Card";
-import "../../shared/DialogComponent/Card.scss";
-import Button from "../../shared/ButtonComponent/Button";
-import "./addPhoto-modal.scss";
+import Card from "../shared/DialogComponent/Card";
+import "../shared/DialogComponent/Card.scss";
+import Button from "../shared/ButtonComponent/Button";
+import "./addPhoto.scss";
 
 function AddPhoto(props) {
-    if(!props.showPhoto){
+    if(!props.showAddPhoto){
         return null
     }
     return (
