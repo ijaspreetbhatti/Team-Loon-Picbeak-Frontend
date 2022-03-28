@@ -220,11 +220,11 @@ const Discover = (props) => {
                     </div>
                 ) : null}
             </div>
-            <h3>Discover bird species</h3>
-            <p>
+            <h2>Discover bird species</h2>
+            <h6>
                 Explore birds species and start your own birdwatching session,
                 no matter where you are.
-            </p>
+            </h6>
 
             <SearchInput
                 openModal={openModal}
