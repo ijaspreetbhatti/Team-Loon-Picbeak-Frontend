@@ -6,9 +6,9 @@ function DonateComponent(props) {
     const itemsArray = [
         <DonateItem
             data={{
-                name: "Birds Canada",
-                info: "Together we are taking action for birds.",
-                link: "https://www.duck.com/",
+                name: "Birds Canada / Oiseaux Canada",
+                info: "Together, we are Canada’s voice for birds!",
+                link: "https://conserve.birdscanada.org/page/50719/donate/1",
                 image: "https://source.unsplash.com/wTPp323zAEw",
             }}
             key={0}
@@ -17,7 +17,7 @@ function DonateComponent(props) {
             data={{
                 name: "Reifel Bird Sanctuary",
                 info: "Contribute to research and conservation.",
-                link: "https://www.duck.com/",
+                link: "https://www.reifelbirdsanctuary.com/index.html",
                 image: "https://source.unsplash.com/S8onLkFuZHY",
             }}
             key={1}
@@ -40,6 +40,9 @@ function DonateComponent(props) {
 }
 
 function DonateItem(props) {
+    const handleClick = (link) => {
+        window.location.href = link;
+    };
     return (
         <div
             className="donateItem"
@@ -48,7 +51,12 @@ function DonateItem(props) {
             <p>{props.data.name}</p>
             <h2>{props.data.info}</h2>
             <div style={{ flexGrow: 1 }}></div>
-            <Button className="primary donateButton">Donate</Button>
+            <Button
+                onClick={() => handleClick(props.data.link)}
+                className="primary donateButton"
+            >
+                Donate
+            </Button>
         </div>
     );
 }
