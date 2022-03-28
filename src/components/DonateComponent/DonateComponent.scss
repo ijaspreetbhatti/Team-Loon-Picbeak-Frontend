@@ -7,6 +7,9 @@
         align-items: flex-start;
         padding: 10px 28px;
         text-align: left;
+        @media screen and (min-width: 768px) {
+            padding: 10px 206px;
+        }
     }
     .donateItems {
         display: grid;
