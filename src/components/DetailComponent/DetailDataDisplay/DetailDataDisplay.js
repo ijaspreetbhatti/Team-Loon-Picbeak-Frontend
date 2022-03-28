@@ -55,10 +55,11 @@ function DetailDataDisplay(props) {
     const Status =()=>{
       let status = data.conservationStatus;
       console.log(status)
-      if(status == ("G1" || "G3" || "G2")){
-        status = "High conservation concern";
+      if(status == ("G5")){
+        status = "Low conservation concern";
         return(
-            <div className="high">{status}</div>
+            <div className="low">{status}</div>
+            
         );
       }else if(status == ("G4")){
         status = "Moderate conservation concern";
@@ -67,9 +68,9 @@ function DetailDataDisplay(props) {
         );
       }
       else {
-        status = "Low conservation concern";
+        status = "High conservation concern";
         return(
-            <div className="low">{status}</div>
+          <div className="high">{status}</div>
         );
       }
     };
