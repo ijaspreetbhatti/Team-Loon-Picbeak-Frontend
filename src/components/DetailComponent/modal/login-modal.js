@@ -7,7 +7,7 @@ import "./login-modal.scss";
 import Login from "../../LoginComponent/Login/Login";
 
 function LoginModal(props) {
-    const [loginModal, setLoginModal] = useState()
+    // const [loginModal, setLoginModal] = useState()
 
     if(!props.showLoginModal){
         return null
@@ -28,8 +28,8 @@ function LoginModal(props) {
                 </span>
                 <div className="Login-buttons">
                     <Button className="primary-grey" onClick={props.onClose}>Cancel</Button>
-                    <Button className="primary" onClick={()=> setLoginModal(true)}>Log in</Button>
-                    <Login onClose={()=> setLoginModal(false) }show={loginModal}/>
+                    <Button className="primary" onClick={()=> {props.onClose();props.setLoginModal()}}>Log in</Button>
+                    {/* <Login onClose={()=> setLoginModal(false) }show={loginModal}/> */}
                 </div>
             </Card>
         </div>

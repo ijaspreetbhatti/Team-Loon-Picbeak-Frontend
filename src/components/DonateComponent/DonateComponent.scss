@@ -7,6 +7,12 @@
         align-items: flex-start;
         padding: 10px 28px;
         text-align: left;
+        h2 {
+            margin: 40px 0px 8px 0px;
+        }
+        p {
+            margin: 0px 0px 40px 0px;
+        }
         @media screen and (min-width: 768px) {
             padding: 10px 206px;
         }
@@ -23,16 +29,21 @@
             height: 246px;
             display: flex;
             flex-direction: column;
+            gap: 8px;
             align-items: flex-start;
-            background-color: rgba(0, 0, 0, 0.2); /* Tint color */
+            background-color: rgba(0, 0, 0, 0.5); /* Tint color */
             background-blend-mode: multiply;
             background-size: cover;
             h2 {
                 text-align: left;
                 width: 65%;
+                margin: 0;
             }
             .donateButton {
                 width: 50%;
+            }
+            p {
+                margin: 0;
             }
         }
         @media screen and (min-width: 768px) {

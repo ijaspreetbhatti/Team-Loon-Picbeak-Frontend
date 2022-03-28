@@ -117,7 +117,7 @@
         line-height: 20px;
       }
       .galleryContainer {
-        width: 343px;
+        // width: 343px;
         height: 85px;
         border-radius: 16px;
         background-color: $grey40;
@@ -190,7 +190,7 @@
     
 
     .postImage{
-      
+      position: static;
       width: 400px;
       height: 400px;
       border-radius: 24px;
