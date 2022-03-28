@@ -20,19 +20,19 @@ function Block(props) {
                 <img src={Img2} alt="bird eating a warm" />
                 <h3>Winged clean-up crew</h3>
                 <p>
-                    Vultures may look foreboding, but their speed to pick at the
-                    remains of other animals avoid deadly diseases to developed
-                    and spread.
+                    Vultures may look foreboding, but their rapid clean-up of
+                    animal remains stops the spread and development of
+                    deadly diseases.
                 </p>
             </div>
 
             <div className="block">
                 <img src={Img3} alt="bird wearing cape" />
-                <h3>Coral reefs saviour</h3>
+                <h3>Coral reefs saviours</h3>
                 <p>
-                    Seabirds feed out in the ocean and later, cycle nutrients
-                    and fertilise marine ecosystems by just spreading droppings
-                    at their colonies.
+                    Seabirds feed from the ocean and later return their nutrient-rich
+                    bird droppings to marine ecosystems, stimulating the growth of 
+                    healthy algae in coral reefs.
                 </p>
             </div>
         </div>

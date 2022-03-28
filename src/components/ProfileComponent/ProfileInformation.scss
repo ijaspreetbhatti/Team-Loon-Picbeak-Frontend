@@ -2,11 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
 .userProfileWrapper {
-  width: 390px;
-  background-color: $light-yellow;
+  width: 100%;
+  
   .userProfileContainer {
     background-color: $light-yellow;
-    position: fixed;
+    position: sticky;
     padding: 24px;
     height: 390px;
     width: -webkit-fill-available;
@@ -16,10 +16,12 @@
       
 
       .portrait {
-        background-image: url(./PortraitIcons/yellow.svg);
-        width: 90px;
-        height: 90px;
         margin-right: 24px;
+        .portraitIcon{
+          width: 90px;
+          height: 90px;
+          
+        }
       }
 
       .userName {
@@ -46,14 +48,18 @@
     height: 1000px;
     padding: 24px;
     border-radius: 24px;
-    // width: 100%;
+    width: -webkit-fill-available;
+    text-align: left;
+    
 
-    .beakpediaTitle {
+    span.beakpediaTitle {
       font-family: $header;
       font-weight: 800;
       font-size: 20px;
       line-height: 24px;
       color: $grey100;
+      
+
     }
     .collectBar {
       background-color: $light-green;
@@ -63,13 +69,13 @@
       margin-top: 16px;
       margin-bottom: 8px;
       position: relative;
+      overflow: hidden;
 
       .progressBar {
         position: absolute;
         background-color: $primary-light;
         border-radius: 20px;
         height: 26px;
-        overflow: hidden;
       }
     }
     .collectInfo {
@@ -122,6 +128,7 @@
             font-weight: 800;
             font-size: 16px;
             line-height: 20px;
+            color: $grey100;
           }
 
           .birdSciName {
@@ -129,8 +136,47 @@
             font-weight: 400;
             font-size: 14px;
             line-height: 18px;
+            color: $grey60;
           }
         }
+      }
+    }
+  }
+  @media screen and (min-width: 1200px){
+    .userProfileContainer{
+      .userInfo {
+        flex-direction: column;
+
+        .portrait {
+          margin-right: 0px;
+        }
+  
+        .userName {
+          font-family: $header;
+          font-weight: 800;
+          font-size: 24px;
+          margin-top: 24px;
+          line-height: 30px;
+          color: $grey100;
+        }
+      }
+      .button {
+        padding-top: 24px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        width: 342px;
+        margin: auto;
+      }
+    }
+    .beakpediaWrapper{
+      top: 336px;
+      padding-top: 27px;
+      padding-left: 206px;
+      padding-right: 206px;
+
+      .birdCollection {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       }
     }
   }

@@ -24,11 +24,13 @@ function BirdFilter() {
                     cities.find((city) => city.id === selectedOption.value)
                 )
             );
-            navigate("match");
+            navigate("matchview");
         }
     };
     return (
-        <div className="bird-filter" id="BirdFilter">
+        <>
+        <span id='BirdFilter'></span>
+        <div className="bird-filter" id="Bird-Filter">
             <h2>Where do you see the bird?</h2>
             <div className="searchInputWrapper">
                 {/* <input
@@ -50,6 +52,7 @@ function BirdFilter() {
                 </button>
             </div>
         </div>
+        </>
     );
 }
 

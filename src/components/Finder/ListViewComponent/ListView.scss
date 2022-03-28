@@ -7,14 +7,24 @@
     align-items: center;
 
     .listViewContainer {
-        margin-bottom: 60px;
+        margin-bottom: 100px;
         display: grid;
         grid-template-columns: auto auto;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
         grid-auto-flow: row;
         gap: 20px;
-        // margin: 0 24px;
+        margin: 0 24px 100px 24px;
     }
+
+    .loadImgList {
+        height: 100%;
+        transition: ease all;
+    }
+
+    .loadCard {
+        box-shadow: none;
+        transition: ease all;
+    }
+
     h2{
         text-align: center;
         font-weight: 800;
@@ -38,7 +48,7 @@
         -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
         width: 200px;
-        bottom: 24px;
+        bottom: 40px;
         z-index: 100;
     }
 }
