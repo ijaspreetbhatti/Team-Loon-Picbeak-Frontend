@@ -37,14 +37,14 @@ const Discover = (props) => {
         e.preventDefault();
         let url;
 
-        if (birdName.length > 1 && status !== "") {
+        if (birdName.length >= 1 && status !== "") {
             if (status === "G3") {
                 url = `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=BC&conservationStatus=G1&conservationStatus=G2&conservationStatus=${status}&searchKeyword=${birdName}&maxResults=20`;
             } else {
                 url = `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=BC&conservationStatus=${status}&searchKeyword=${birdName}&maxResults=20`;
                 console.log(1);
             }
-        } else if (birdName.length > 1) {
+        } else if (birdName.length >= 1) {
             console.log("birdname");
             url = `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=BC&searchKeyword=${birdName}`;
         } else if (status !== "") {
@@ -53,9 +53,8 @@ const Discover = (props) => {
             } else {
                 url = `https://pic-beak-backend.herokuapp.com/api/v1/birds/?page=0&recordsPerPage=25&subnation=BC&conservationStatus=${status}&maxResults=20`;
             }
-
-            console.log(url);
         }
+        console.log(url);
 
         axios
             .get(`${url}`)
@@ -71,6 +70,11 @@ const Discover = (props) => {
     };
 
     console.log(birds);
+
+    /** Get Array of Common Names **************************** */
+    const commonNameArr = [...birds.map((item) => item.commonName)];
+    console.log(commonNameArr);
+    /********************************************************* */
 
     const handleChange = (e) => {
         setStatus(e.target.value);
