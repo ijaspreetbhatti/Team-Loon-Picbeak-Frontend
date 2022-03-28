@@ -8,6 +8,7 @@ import "./SearchInputComponent/SearchInput.scss";
 // import FilterIcon from "./DiscoverIcons/filterGreen.svg";
 // import seachIcon from "./DiscoverIcons/search.svg";
 import SearchInput from "./SearchInputComponent/SearchInput";
+import Filter from "./FilterComponent/Filter";
 
 const Discover = (props) => {
     const [showModal, setShowModal] = useState(false);
@@ -107,24 +108,25 @@ const Discover = (props) => {
     };
     /********************************************************* */
 
-    /** Toggle check ****************************************** */
-    const initializedData = {
-        notifyFrequency: "",
-    };
+    // /** Toggle check ****************************************** */
+    // const initializedData = {
+    //     notifyFrequency: "",
+    // };
 
-    const [check, setCheck] = useState(initializedData);
+    // const [check, setCheck] = useState(initializedData);
 
-    const handleFrequencyChange = (e) => {
-        const newValue =
-            e.target.value === check.notifyFrequency ? "" : e.target.value;
-        const newCheck = { ...check, notifyFrequency: newValue };
-        setCheck(newCheck);
-    };
-    /********************************************************* */
+    // const handleFrequencyChange = (e) => {
+    //     const newValue =
+    //         e.target.value === check.notifyFrequency ? "" : e.target.value;
+    //     const newCheck = { ...check, notifyFrequency: newValue };
+    //     setCheck(newCheck);
+    // };
+    // /********************************************************* */
 
     return (
         <div className="discover">
-            <div className="Filter">
+            <Filter />
+            {/* <div className="Filter">
                 {showModal ? (
                     <div>
                         <div
@@ -142,7 +144,6 @@ const Discover = (props) => {
                             <form>
                                 <div className="fieldSets">
                                     <fieldset>
-                                        {/** STATUS */}
                                         <legend>By conservation status</legend>
                                         <div className="option">
                                             <input
@@ -219,7 +220,7 @@ const Discover = (props) => {
                         </div>
                     </div>
                 ) : null}
-            </div>
+                                            </div> */}
             <h3>Discover bird species</h3>
             <p>
                 Explore birds species and start your own birdwatching session,
