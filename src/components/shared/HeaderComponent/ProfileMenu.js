@@ -32,10 +32,10 @@ export default function ProfileMenu(props) {
     }
 
 
-
+    const profileRef = props.profileRef;
 
     return (
-        <div className="profileMenuContainer">
+        <div className="profileMenuContainer" ref={profileRef}>
             <div
                 onClick={event => props.handleProfileMenu(event)}
                 className={

@@ -5,8 +5,10 @@ import { HashLink } from 'react-router-hash-link';
 
 export default function MainMenu(props) {
 
+    const menuRef = props.menuRef;
+
     return (
-        <div className="menuContainer">
+        <div className="menuContainer" ref={menuRef}>
             <div
                 onClick={event => props.handleMainMenu(event)}
                 className={
