@@ -9,6 +9,7 @@ import LoginModal from "../modal/login-modal";
 import CollectModal from '../modal/collected-modal';
 import Login from "../../LoginComponent/Login/Login";
 import AddPhoto from "../modal/addPhoto-modal";
+import MessagePop from "../../shared/MessagePopComponent/MessagePop"
 
 function DetailDataDisplay(props) {
   const location = useLocation()
@@ -18,6 +19,15 @@ function DetailDataDisplay(props) {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showPhoto, setShowPhoto] = useState(false);
   const [loginModal, setLoginModal] = useState()
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [loginPopUp, setLoginPopUp] = useState(false);
+
+    const signinPopUpHandler = () => {
+        setShowPopUp(true)
+    }
+    const loginPopUpHandler = () => {
+        setLoginPopUp(true)
+    }
 
 
   const picArray = [];
@@ -125,6 +135,10 @@ function DetailDataDisplay(props) {
 
   return (
     <div className="birdProfileWrapper">
+        <Login onClose={() => setLoginModal(false)} show={loginModal} setShowPopUp={signinPopUpHandler} setLoginPopUp={loginPopUpHandler} />
+            {showPopUp ? (<MessagePop showPopUp={showPopUp}>Account created! You are logged in now.</MessagePop>) : (null)}
+            {loginPopUp ? (<MessagePop showPopUp={loginPopUp}>You are logged in now.</MessagePop>) : (null)}
+          <AddPhoto onClose={()=> setShowPhoto(false)} showPhoto={showPhoto}/>
       <div>
         <img className="postImage" src={data.imageLink} />
         <div className="footerWrapper">
@@ -134,9 +148,8 @@ function DetailDataDisplay(props) {
           <Button className="primary" onClick={() => CheckLogin() }>Collect</Button>
           </span>
           <CollectModal commonName={data.commonName} showCollect={showCollect} onClose={() => setShowCollect(false)} setShowPhoto={() => setShowPhoto(true)}/>
-          <LoginModal showLoginModal={showLoginModal} onClose={() => setShowLoginModal(false)}/>
-          <Login onClose={()=> setLoginModal(false)} show={loginModal}/>
-          <AddPhoto onClose={()=> setShowPhoto(false)} showPhoto={showPhoto}/>
+          <LoginModal showLoginModal={showLoginModal} onClose={() => setShowLoginModal(false)} setLoginModal={() => setLoginModal(true)}/>
+          
         </div>
       </div>
 
