@@ -127,6 +127,13 @@
         gap: 1px;
         position: relative;
         overflow: hidden;
+        .noPhoto{
+          
+          margin: auto;
+          position: absolute;
+          top: 30px;
+          left: 120px;
+        }
 
         .galleryPic {
           width: 85px;

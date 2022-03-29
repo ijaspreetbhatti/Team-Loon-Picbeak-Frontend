@@ -1,9 +1,9 @@
 @import "../../Variables/variables";
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
-.backGround{
+.nophoto-backGround{
     background-color: $white;
-    opacity: 0.7;
+    opacity: 0.3;
     position: fixed;
     z-index: 2;
     height: 100vh;
@@ -48,7 +48,13 @@
         margin-top: 40px;
         display: grid;
         gap: 8px;
+        position: relative;
         grid-template-columns: 1fr 1fr;
+        input{
+            visibility:hidden;
+            position: absolute;
+            z-index: -1;
+        }
     }
 
 }
