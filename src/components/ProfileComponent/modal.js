@@ -12,7 +12,7 @@ function Modal(props) {
     console.log(props.commonName)
     return (
         <div>
-            <div className="backGround"></div>
+            <div className="nophoto-backGround"></div>
             <Card className="card">
                 <div className="modalHeader">
                     <span>No photo added yet</span>
@@ -26,7 +26,8 @@ function Modal(props) {
                 </span>
                 <div className="buttons">
                     <Button className="primary-grey" onClick={props.onClose}>Maybe later</Button>
-                    <Button className="primary" onClick={() => props.setShowAddPhoto()}>Add photo</Button>
+                    <label htmlFor="files" className="primary">Add photo</label>
+                    <input id="files" type="file" className="primary" onClick={() => {props.setShowAddPhoto();}} onChange={(event)=>{props.setSelectedFile(event.target.files[0]); props.setImage(URL.createObjectURL(event.target.files[0]))}} />
                 </div>
             </Card>
         </div>

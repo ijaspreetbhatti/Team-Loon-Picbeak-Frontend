@@ -9,7 +9,7 @@ function DonateComponent(props) {
                 name: "Birds Canada / Oiseaux Canada",
                 info: "Together, we are Canada’s voice for birds!",
                 link: "https://conserve.birdscanada.org/page/50719/donate/1",
-                image: "https://source.unsplash.com/wTPp323zAEw",
+                image: "https://nature-watch.com/blog/wp-content/uploads/2019/03/Bird-Watching-Blog-Image-1230x692.jpg",
             }}
             key={0}
         ></DonateItem>,
@@ -18,7 +18,7 @@ function DonateComponent(props) {
                 name: "Reifel Bird Sanctuary",
                 info: "Contribute to research and conservation.",
                 link: "https://www.reifelbirdsanctuary.com/index.html",
-                image: "https://source.unsplash.com/S8onLkFuZHY",
+                image: "https://www.collinsdictionary.com/images/full/birdsanctuary_431316910_1000.jpg",
             }}
             key={1}
         ></DonateItem>,
@@ -26,9 +26,9 @@ function DonateComponent(props) {
     return (
         <div className="donatePage">
             <div className="donateMessageContainer">
-                <h1>
+                <h2>
                     Help make a difference by donating to these organizations
-                </h1>
+                </h2>
                 <p>
                     By considering a gift for the birds and donating to bird
                     conservation organizations, you are also giving back!

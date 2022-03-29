@@ -9,8 +9,8 @@
         // background-repeat: no-repeat;
         // background-position: left;
         // background-position-x: 12px;
-        background-color: $grey20;
-        border-radius: 6px;
+        // background-color: $grey20;
+        // border-radius: 64px;
         // width: 100%;
         padding: 12px;
         display: flex;
@@ -19,29 +19,9 @@
         gap: 10px;
         #searchInput {
             flex: 1;
-        }
-        button {
-            background-color: transparent;
-            border: none;
-            padding: 0;
-            width: 30px;
-            height: 30px;
-            border-radius: 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            img {
-                width: 90%;
-                height: 90%;
-            }
-            &:hover,
-            :active {
-                background-color: $light-green;
-            }
+            height: 100%;
         }
     }
-
 }
 
 @media screen and (min-width: 768px) {

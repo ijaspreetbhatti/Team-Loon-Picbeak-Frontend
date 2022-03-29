@@ -127,6 +127,13 @@
         gap: 1px;
         position: relative;
         overflow: hidden;
+        .noPhoto{
+          
+          margin: auto;
+          position: absolute;
+          top: 30px;
+          left: 120px;
+        }
 
         .galleryPic {
           width: 85px;
@@ -190,7 +197,7 @@
     
 
     .postImage{
-      
+      position: static;
       width: 400px;
       height: 400px;
       border-radius: 24px;

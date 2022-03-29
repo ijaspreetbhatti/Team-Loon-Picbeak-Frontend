@@ -27,31 +27,64 @@ function BirdFilter() {
             navigate("matchview");
         }
     };
+
+    const customStyles = {
+        option: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.isSelected ? "#03a142" : "none",
+        }),
+        control: (provided, state) => ({
+            ...provided,
+            borderRadius: "64px",
+            height: "100%",
+            backgroundColor: "#F5F5F5",
+            padding: "6px",
+            border:
+                state.isSelected || state.isFocused
+                    ? "#03a142 1px solid"
+                    : "transparent 1px solid",
+            boxShadow:
+                state.isSelected || state.isFocused
+                    ? "0 0 0 1px #03a142"
+                    : "none",
+            "&:hover": {
+                border:
+                    state.isSelected || state.isFocused
+                        ? "#03a142 1px solid"
+                        : "transparent 1px solid",
+            },
+        }),
+        singleValue: (provided, state) => ({ ...provided }),
+        container: (provided, state) => ({
+            ...provided,
+        }),
+    };
     return (
         <>
-        <span id='BirdFilter'></span>
-        <div className="bird-filter" id="Bird-Filter">
-            <h2>Where do you see the bird?</h2>
-            <div className="searchInputWrapper">
-                {/* <input
+            <span id="BirdFilter"></span>
+            <div className="bird-filter" id="Bird-Filter">
+                <h2>Where do you see the bird?</h2>
+                <div className="searchInputWrapper">
+                    {/* <input
                     type="text"
                     id="searchInput"
                     placeholder="enter location"
                     onKeyPress={onKeyPress}
                 /> */}
-                <Select
-                    id="searchInput"
-                    isSearchable={true}
-                    defaultValue={selectedOption}
-                    onChange={setSelectedOption}
-                    options={options}
-                    placeholder="Enter location"
-                />
-                <button onClick={onClick}>
-                    <img src="assets/icons/search.svg" alt="search" />
-                </button>
+                    <Select
+                        id="searchInput"
+                        styles={customStyles}
+                        isSearchable={true}
+                        defaultValue={selectedOption}
+                        onChange={setSelectedOption}
+                        options={options}
+                        placeholder="Enter location"
+                    />
+                    <button onClick={onClick} className="primary">
+                        Search
+                    </button>
+                </div>
             </div>
-        </div>
         </>
     );
 }

@@ -3,22 +3,28 @@
 .discover {
     font-family: $header;
     text-align: center;
-    h3 {
+    h2 {
         font-weight: 800;
         color: $grey100;
         width: 88%;
         text-align: left;
-        margin: 0 auto 2rem auto;
+        margin: 40px 24px 24px 24px;
         font-size: 24px;
-        padding-top: 2rem;
+        // padding-top: 2rem;
     }
-    p {
+    h6 {
         color: $discover;
         width: 88%;
-        margin: 2rem auto;
+        margin: 0 24px 24px 24px;
         text-align: left;
-        font-size: 16px;
+        // font-size: 16px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        font-family: $header;
+        // margin: 0;
     }
+
     .no-result {
         p {
             color: $grey60;
@@ -28,22 +34,27 @@
     .cardParent {
         margin-top: 3rem;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: auto auto;
         grid-gap: 8px;
         padding: 0 24px;
+        justify-content: center;
     }
     .birdMatchCard {
         margin-bottom: 1rem;
     }
 
-    @media screen and (min-width: 768px) {
-        h3,
-        p {
-            margin-left: 16%;
+    @media screen and (min-width: 1000px) {
+        h2,
+        h6 {
+            // margin-left: 16%;
+            margin-left: 206px;
+            margin-right: 206px; 
         }
         .cardParent {
-            display: inline-flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            margin: 3rem 206px 0 206px;
+            grid-auto-flow: row;
             justify-content: center;
             gap: 8px;
         }

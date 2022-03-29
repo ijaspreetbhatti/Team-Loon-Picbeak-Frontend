@@ -263,7 +263,16 @@
     height: 20px;
     cursor: pointer;
 }
-
+.White-exit {
+  background-image: url(./ButtonIcons/White-exit.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
 .edit-secondary-red {
   background-image: url(./ButtonIcons/editPen.svg);
   background-color: $light-red;
@@ -273,5 +282,25 @@
   border-radius: 64px;
   width: 40px;
   height: 40px;
+  cursor: pointer;
+}
+.left-btn {
+  background-image: url(./ButtonIcons/left-btn.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.right-btn {
+  background-image: url(./ButtonIcons/right-btn.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
 }
