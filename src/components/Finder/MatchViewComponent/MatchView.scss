@@ -164,9 +164,9 @@
       }
     }
 
-    @media screen and (max-height: 667px) and (max-width: 425px) {
+    @media screen and (max-height: 710px) and (max-width: 425px) {
         #matchViewContainer .swiper .swiper-wrapper .swiper-slide .matchViewCard {
-            min-height: 350px;
+            min-height: 320px;
 
             .matchDetailCard {
                 max-height: 170px;
@@ -190,11 +190,11 @@
         }
     }
 
-    @media screen and (min-width: 400px) {
-        #matchViewContainer .swiper .swiper-wrapper .swiper-slide .matchViewCard {
-            min-height: 470px;
-        }
-    }
+    // @media screen and (min-width: 400px) {
+    //     #matchViewContainer .swiper .swiper-wrapper .swiper-slide .matchViewCard {
+    //         min-height: 470px;
+    //     }
+    // }
 
 
     @media screen and (min-width: 600px) {
@@ -202,6 +202,10 @@
         #matchViewContainer {
             width: 480px;
             align-self: center;
+
+            .swiper .swiper-wrapper .swiper-slide .matchViewCard { 
+                height: 470px;
+            }
         }
 
         .swiper-button-next, .swiper-button-prev {
