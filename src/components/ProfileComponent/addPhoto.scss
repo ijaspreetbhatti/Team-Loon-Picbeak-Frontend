@@ -3,7 +3,7 @@
 
 .backGround{
     background-color: $white;
-    opacity: 0.7;
+    opacity: 0.3;
     position: fixed;
     z-index: 2;
     height: 100vh;
@@ -14,7 +14,7 @@
 .card{
     padding: 24px;
     
-    .addPhotoModalHeader{
+    .addPhotoHeader{
         position: relative;
         
         span{
@@ -34,14 +34,14 @@
             margin: 0;
         }
     }
-    .addPhotoModalImg{
-        // background-image: url(../modal-img/picbeak-19.svg);
-        background-color: lightgrey;
-        margin: auto;
-        width: 294px;
-        height: 294px;
-        margin-bottom: 24px;
-        margin-top: 24px;
+    .addPhotoImg{
+        .selectedImg{
+            object-fit: cover;
+            margin: auto;
+            width: 294px;
+            height: 294px;
+            margin-top: 25px;
+        }
     }
 
     .addPhoto-buttons{
@@ -51,6 +51,11 @@
         gap: 8px;
         .primary-grey{
             padding: 12px 19px;
+        }
+        input{
+            visibility:hidden;
+            position: absolute;
+            z-index: -1;
         }
         button{
             margin: 0;

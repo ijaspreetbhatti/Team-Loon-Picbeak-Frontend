@@ -12,17 +12,18 @@ function AddPhoto(props) {
         <div>
             <div className="backGround"></div>
             <Card className="card">
-                <div className="addPhotoModalHeader">
+                <div className="addPhotoHeader">
                     <span>Add photo</span>
-                    <Button className="exit" onClick={props.onClose}></Button>
+                    <Button className="exit" onClick={()=>{props.onClose(); props.setShow()}}></Button>
                 </div>
-                <div className="addPhotoModalImg">
-                    
+                <div className="addPhotoImg">
+                <img src={props.image} className="selectedImg"/>
                 </div>
                 
                 <div className="addPhoto-buttons">
-                    <Button className="primary-grey" onClick={props.onClose}>Change photo</Button>
-                    <Button className="primary">Save</Button>
+                    <label htmlFor="files" className="primary-grey">pick photo</label>
+                    <input id="files"type="file" className="primary-grey" onChange={(event)=>{props.setSelectedFile(event.target.files[0]); props.setImage(URL.createObjectURL(event.target.files[0]))}} />
+                    <Button className="primary" onClick={()=> {props.upload();props.onClose(); props.setShow()}}>Save</Button>
                 </div>
             </Card>
         </div>

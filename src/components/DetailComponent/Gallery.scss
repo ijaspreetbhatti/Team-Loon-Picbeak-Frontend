@@ -1,0 +1,40 @@
+.blackBackground{
+    background-color: black;
+    position: fixed;
+    z-index: 300;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    z-index: 301;
+    position: relative;
+    .galleryHeader{
+        display: flex;
+        justify-content: center;
+        .imgCount{
+            color: white;
+        }
+        .White-exit{
+            position: absolute;
+            top: 0px;
+            right: 30px;
+        }
+    }
+    .BigImage{
+        display: flex;
+        width: 100%;
+        height: auto;
+        .galleryPhoto{
+            position: absolute;
+            top: 100px;
+            left: 0;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+}

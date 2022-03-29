@@ -28,6 +28,11 @@ function ProfileInformation(props) {
   const [copyPopUp, setCopyPopUp] = useState(false);
   const [editPopUp, setEditPopUp] = useState(false);
   const [error, setError] = useState(false);
+  let [selectedFile, setSelectedFile] = useState({});
+  let [image, setImage] = useState({});
+  let [cardSciName, setCardSciName] =useState();
+  let [cardCommonName, setCardCommonName] =useState();
+  let [photoIcon, setPhotoIcon] = useState(false);
 
   const currentUser = localStorage.userInfo.replaceAll('"', '');
 
@@ -96,6 +101,27 @@ function ProfileInformation(props) {
   let birdArray =[];
   birdArray = birdCard;
 
+  
+    async function getGallery(sciName) {
+      console.log(sciName)
+      const birdGallery = await axios.get(
+          `https://pic-beak-backend.herokuapp.com/api/v1/birds/${sciName}/gallery`
+      );
+      
+      if(birdGallery.data.length == 0) {
+        setShow(true)
+        
+      }else{
+        setShowAddPhoto(true)
+      }
+    }
+    
+
+  function checkPhoto(bird){
+    getGallery(bird.sciName);
+    setCardSciName(bird.sciName);
+    setCardCommonName(bird.commonName);
+  }
 
 
     async function getCollectedBird() {
@@ -105,11 +131,14 @@ function ProfileInformation(props) {
           const birdCard = await axios.get(
               `https://pic-beak-backend.herokuapp.com/api/v1/birds/${userProfile.collectedBirds[i]}`
           );
-          cardArray.push(birdCard.data[0]) 
-        }
-        setBirdCard(cardArray);
-      } 
-    }
+          
+        cardArray.push(birdCard.data[0]) 
+      }
+      // console.log(birds[0].data)
+      setBirdCard(cardArray);
+      }    
+    } 
+
 
     function copy() {
       const el = document.createElement("input");
@@ -120,11 +149,42 @@ function ProfileInformation(props) {
       document.body.removeChild(el);
       copyPopUpHandler()
     }
+
+    
+
+    const fileUploadHandler =() => {
+ 
+      const blobToBase64 = blob => {
+        const reader = new FileReader();
+        reader.readAsDataURL(blob);
+        return new Promise(resolve => {
+            reader.onloadend = () => {
+                resolve(reader.result);
+            };
+        });
+      };
+      console.log(selectedFile);
+      blobToBase64(selectedFile).then((res) => {
+        console.log(res);
+        const body = {
+            file: res,
+            timestamp: (new Date()).getTime()
+        }
+        axios.post(`https://pic-beak-backend.herokuapp.com/api/v1/collectedBirds/${currentUser}/${cardSciName}`, body).
+        then(res =>{
+            console.log(res)
+        })
+      });
+    }
   
     
   const divStyle = {
     width: (birdArray.length*0.6) * 10,
   };
+
+
+
+
 
   if (loading) {
     return (
@@ -162,9 +222,9 @@ function ProfileInformation(props) {
             {birdArray.length > 0 ? (
               birdArray.map(bird => (
                 <div className="birdBox" key={bird._id}>
-                  <Button className="camera-secondary-red" onClick={() => setShow(true) } commonName={bird.commonName}></Button>
-                  <Modal onClose={() => setShow(false)} show={show} setShowAddPhoto={()=> setShowAddPhoto(true)}/>
-                  <AddPhoto onClose={() => setShowAddPhoto(false)} showAddPhoto={showAddPhoto}/>
+                  <Button className={photoIcon ? "camera-primary-red" : "camera-secondary-red"} onClick={() => checkPhoto(bird) } commonName={bird.commonName}></Button>
+                  <Modal onClose={() => setShow(false)} show={show} commonName={cardCommonName} setShowAddPhoto={()=> setShowAddPhoto(true)} setSelectedFile={setSelectedFile} setImage={setImage}/>
+                  <AddPhoto onClose={() => setShowAddPhoto(false)} image={image} showAddPhoto={showAddPhoto} upload={() => fileUploadHandler()} setSelectedFile={setSelectedFile} setImage={setImage} setShow={()=> setShow(false)}/>
                   <img className="collectionPic"  src={bird.imageLink}  />
                   <Link to={{
                     pathname: "/details"}} state={{from: 'profileView', data: bird}} element={<DetailDataDisplay/>}>

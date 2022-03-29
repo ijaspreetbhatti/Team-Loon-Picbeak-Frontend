@@ -35,13 +35,13 @@
         }
     }
     .addPhotoModalImg{
-        // background-image: url(../modal-img/picbeak-19.svg);
-        background-color: lightgrey;
-        margin: auto;
-        width: 294px;
-        height: 294px;
-        margin-bottom: 24px;
-        margin-top: 24px;
+        .selectedImg{
+            margin: auto;
+            width: 294px;
+            height: 294px;
+            margin-top: 25px;
+            object-fit: cover;
+        }
     }
 
     .addPhoto-buttons{
@@ -49,6 +49,11 @@
         grid-template-columns: 1fr 1fr;
         margin-top: 40px;
         gap: 8px;
+        input{
+            visibility:hidden;
+            position: absolute;
+            z-index: -1;
+        }
         .primary-grey{
             padding: 12px 19px;
         }
