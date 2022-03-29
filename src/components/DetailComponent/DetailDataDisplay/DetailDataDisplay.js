@@ -136,10 +136,10 @@ function DetailDataDisplay(props) {
   };
 
   
-const currentUser = localStorage.userInfo.replaceAll('"', '');
-
-
-const fileUploadHandler =() => {
+  
+  
+  function fileUploadHandler() {
+  const currentUser = localStorage.userInfo.replaceAll('"', '');
   
   
   const blobToBase64 = blob => {
@@ -163,8 +163,6 @@ const fileUploadHandler =() => {
         console.log(res)
     })
   });
-    
-    console.log('hee')
   
 }
 
@@ -213,7 +211,8 @@ const fileUploadHandler =() => {
             {gallery.length > 0 ? "" : (<div className="noPhoto">No photo yet</div>)}
             {gallery.map(src =>  (
               <img key={src._id} className="galleryPic" src={src.imageLink}/>
-            ))}
+
+))}
           </div>
         </div>
       </div>
