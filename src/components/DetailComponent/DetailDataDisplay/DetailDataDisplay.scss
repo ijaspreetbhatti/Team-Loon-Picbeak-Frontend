@@ -127,12 +127,11 @@
         gap: 1px;
         position: relative;
         overflow: hidden;
+
         .noPhoto{
-          
-          margin: auto;
           position: absolute;
           top: 30px;
-          left: 120px;
+          left: 20px;
         }
 
         .galleryPic {
@@ -187,7 +186,9 @@
       }
     }
   }
-  @media screen and (min-width: 320px) and (max-width: 375px){
+  @media screen and (min-width: 320px) and (max-width: 390px){
+    
+          
     .footerWrapper {
       position: fixed;
       z-index: 30;
@@ -201,7 +202,7 @@
       .footerContainer {
         margin-top: 34px;
         font-weight: 400;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 20px;
         text-align: center;
         span{
@@ -209,7 +210,7 @@
         }
         .primary{
           // margin-left: 14px;
-          width: 139px;
+          width: 91px;
         }
       }
     }
