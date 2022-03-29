@@ -22,6 +22,7 @@ function DetailDataDisplay(props) {
   const [loginModal, setLoginModal] = useState()
   const [showPopUp, setShowPopUp] = useState(false);
   const [loginPopUp, setLoginPopUp] = useState(false);
+  const [collectPopUp, setCollectPopUp] = useState(false);
   const [showGallery, setshowGallery] = useState(false);
   let [selectedFile, setSelectedFile] = useState({});
   let [image, setImage] = useState({});
@@ -33,6 +34,9 @@ function DetailDataDisplay(props) {
     const loginPopUpHandler = () => {
         setLoginPopUp(true)
     }
+    const collectPopUpHandler = () => {
+      setCollectPopUp(true)
+  }
 
 
   const picArray = [];
@@ -47,6 +51,7 @@ function DetailDataDisplay(props) {
       if(localStorage.getItem('userInfo')){
           setShowCollect(true);
           putBird();
+          collectPopUpHandler()
         }else{
           setShowLoginModal(true)
         }
@@ -173,9 +178,11 @@ function DetailDataDisplay(props) {
         <Login onClose={() => setLoginModal(false)} show={loginModal} setShowPopUp={signinPopUpHandler} setLoginPopUp={loginPopUpHandler} />
             {showPopUp ? (<MessagePop showPopUp={showPopUp}>Account created! You are logged in now.</MessagePop>) : (null)}
             {loginPopUp ? (<MessagePop showPopUp={loginPopUp}>You are logged in now.</MessagePop>) : (null)}
+            {collectPopUp ? (<MessagePop showPopUp={collectPopUp}>Bird is collected!</MessagePop>) : (null)}
       <div>
-      <Gallery showGallery={showGallery} gallery={gallery} onClose={()=> setshowGallery(false)}/>
+        <Gallery showGallery={showGallery} gallery={gallery} onClose={()=> setshowGallery(false)}/>
         <img className="postImage" src={data.imageLink} />
+
         <div className="footerWrapper">
           <span className="footerContainer">
             <span>Are you spotting this bird?</span>
@@ -186,6 +193,7 @@ function DetailDataDisplay(props) {
           <LoginModal showLoginModal={showLoginModal} onClose={() => setShowLoginModal(false)} setLoginModal={() => setLoginModal(true)}/>
           <AddPhoto onClose={()=> setShowPhoto(false)} showPhoto={showPhoto} image={image} setSelectedFile={setSelectedFile} setImage={setImage} upload={() => fileUploadHandler()} setShow={()=>setShowCollect(false)}/>
         </div>
+
       </div>
 
       <div className="profileContainer" >
