@@ -270,8 +270,11 @@
   background-color: transparent;
   border: none;
   width: 20px;
-  height: 20px;
+  height: 8%;
   cursor: pointer;
+  position: absolute;
+  right: 24px;
+  top: 0;
 }
 .edit-secondary-red {
   background-image: url(./ButtonIcons/editPen.svg);
