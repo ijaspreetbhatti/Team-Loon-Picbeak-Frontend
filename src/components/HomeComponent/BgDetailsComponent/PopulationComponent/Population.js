@@ -13,7 +13,7 @@ function Population() {
                 <p>
                     Tracking Canada's birds helps to identify the impacts of
                     environmental changes and provide guidance to set priorities
-                    to the recovery of species at risk.
+                    for the recovery of at-risk species.
                 </p>
             </div>
             <SpeciesChart />
