@@ -1,40 +1,77 @@
+@import "../../Variables/variables";
+
 .blackBackground{
     background-color: black;
-    position: fixed;
-    z-index: 300;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
+    height: 100vh;
+    width: 100vw;
 }
 .wrapper{
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     z-index: 301;
-    position: relative;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+
     .galleryHeader{
         display: flex;
         justify-content: center;
+        height: 8%;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
         .imgCount{
             color: white;
         }
-        .White-exit{
-            position: absolute;
-            top: 0px;
-            right: 30px;
-        }
+    }
+    .White-exit{
+        height: 8%;
+        // cursor: pointer;
+        position: absolute;
+        right: 24px;
+        top: 0;
     }
     .BigImage{
         display: flex;
         width: 100%;
         height: auto;
+
+        .swiper-button-next:after, .swiper-button-prev:after {
+            display: none;
+        }
+    
+        .swiper .swiper-button-prev {
+            background-image: url(../shared/ButtonComponent/ButtonIcons/left-btn.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: transparent;
+            border: none;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .swiper .swiper-button-next {
+            background-image: url(../shared/ButtonComponent/ButtonIcons/right-btn.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: transparent;
+            border: none;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
         .galleryPhoto{
-            position: absolute;
-            top: 100px;
-            left: 0;
+            // position: absolute;
+            // top: 100px;
+            // left: 0;
             object-fit: cover;
             width: 100%;
+            max-height: auto;
         }
     }
 }

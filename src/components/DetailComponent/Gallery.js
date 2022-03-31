@@ -13,32 +13,30 @@ function Gallery(props) {
         return null
     }
     
-
-    
-
-
     return (
         <div>
-            <div className="blackBackground"></div>
-            <div className="wrapper">
+            <div className="wrapper blackBackground">
                 <div className="galleryHeader">
-                    <Button className="left-btn"></Button>
+                    {/* <Button className="left-btn"></Button> */}
                     <div className="imgCount">1/{props.gallery.length}</div>
-                    <Button className="right-btn"></Button>
-                    <Button className="White-exit" onClick={props.onClose}></Button>
+                    {/* <Button className="right-btn"></Button> */}
                 </div>
+                    <Button className="White-exit" onClick={props.onClose}></Button>
                     <div className="BigImage">
                     <Swiper
                         spaceBetween={20}
                         slidesPerView={1}
-                        onSlideChange={() => console.log('slide change')}
-                        onSwiper={(swiper) => console.log(swiper)}
-                    />
-                    {props.gallery.map(src =>  (
+                        centeredSlides={true}
+                        navigation={true}
+                        modules={[Navigation]}
+                        className="mySwiper"
+                    >
+                    {props.gallery.map(src => (
                         <SwiperSlide key={src._id}>
-                            <img className="galleryPhoto" src={src.imageLink}/>
+                            <img className="galleryPhoto" src={src.imageLink} alt={src._id}/>
                         </SwiperSlide>
                     ))}
+                    </Swiper>
                     
                     </div>
 
