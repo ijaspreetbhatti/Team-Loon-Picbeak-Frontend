@@ -28,7 +28,7 @@ function DetailDataDisplay(props) {
   let [selectedFile, setSelectedFile] = useState({});
   const [checkCollect, setcheckCollect] = useState(true);
   let [image, setImage] = useState({});
-  let [count, setCount] = useState(1);
+
   
 
 
@@ -42,13 +42,7 @@ function DetailDataDisplay(props) {
       setCollectPopUp(true)
     }
 
-    const countHandler = () => {
-      if(count < gallery.length){
-        setCount(count+1)
-      }else{
-        setCount(count)
-      }
-    }
+
 
   
 
@@ -65,7 +59,6 @@ function DetailDataDisplay(props) {
     const currentUser = localStorage.userInfo.replaceAll('"', '');
     if(currentUser){
       const result = gallery.find(gallery => gallery.author === currentUser);
-      console.log(result)
         if(result){
           setcheckCollect(false);
         }
@@ -130,10 +123,16 @@ function DetailDataDisplay(props) {
           );
 
           setGallery(birdGallery.data);
-          check();
-          
+
       }
-      getGallery();}, []);
+      getGallery()
+      ;}, []);
+
+      useEffect(() => {
+        check()
+        
+        ;}, [gallery]);
+  
 
 
   const DescriptionText = styled.div`
@@ -211,7 +210,7 @@ function DetailDataDisplay(props) {
             {collectPopUp ? (<MessagePop showPopUp={collectPopUp}>Bird is collected!</MessagePop>) : (null)}
             {alreadyPopUp ? (<MessagePop showPopUp={alreadyPopUp}>This bird is already collected!</MessagePop>) : (null)}
       <div>
-        <Gallery showGallery={showGallery} gallery={gallery} countUp={countHandler} countNum={count} onClose={()=> setshowGallery(false)}/>
+        <Gallery showGallery={showGallery} gallery={gallery} onClose={()=> setshowGallery(false)}/>
         <img className="postImage" src={data.imageLink} />
 
         <div className="footerWrapper">
