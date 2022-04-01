@@ -10,7 +10,11 @@
         margin-left: 6%;
         @media screen and (min-width: 768px) {
             // margin-left: 15%;
-            margin: 0 207px;
+            margin: 0 6%;
+        }
+
+        @media screen and (min-width: 1200px) {
+            margin: 0 206px;
         }
     }
     h2 {
