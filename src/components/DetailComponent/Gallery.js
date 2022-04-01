@@ -26,7 +26,6 @@ function Gallery(props) {
                         centeredSlides={true}
                         navigation={true}
                         pagination={{ type:'fraction' }}
-                        onSlideChange={() => props.countUp()}
                         modules={[Navigation, Pagination]}
                         className="mySwiper"
                     >

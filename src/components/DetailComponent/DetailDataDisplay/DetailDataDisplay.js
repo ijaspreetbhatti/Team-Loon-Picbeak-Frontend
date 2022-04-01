@@ -17,6 +17,7 @@ function DetailDataDisplay(props) {
   const { data } = location.state;
   const [gallery, setGallery] = useState([]);
   const [showCollect, setShowCollect] = useState(false);
+  const [userProfile, setUserProfile] = useState([]);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showPhoto, setShowPhoto] = useState(false);
   const [loginModal, setLoginModal] = useState()
@@ -55,10 +56,9 @@ function DetailDataDisplay(props) {
   //   overlay = <span className="greyBoxShow">+{picArray.length - 4}</span>;
   // }
   function check() {
-    console.log("s")
     const currentUser = localStorage.userInfo.replaceAll('"', '');
     if(currentUser){
-      const result = gallery.find(gallery => gallery.author === currentUser);
+      const result = userProfile.find(bird => bird === data.sciName);
         if(result){
           setcheckCollect(false);
         }
@@ -73,9 +73,11 @@ function DetailDataDisplay(props) {
         setShowCollect(true);
         putBird();
         collectPopUpHandler();
+        setcheckCollect(false);
         }else{
           setShowLoginModal(true)
         }
+        
       }
       
       
@@ -131,7 +133,21 @@ function DetailDataDisplay(props) {
       useEffect(() => {
         check()
         
-        ;}, [gallery]);
+        ;}, [userProfile]);
+
+        useEffect(() => {
+          const currentUser = localStorage.userInfo.replaceAll('"', '');
+          if(currentUser){
+            function getProfile() {
+            axios.get(
+                `https://pic-beak-backend.herokuapp.com/api/v1/profiles/${currentUser}`
+            ).then((res) => {
+                setUserProfile(res.data.collectedBirds)
+
+              }).catch(error => console.error(error))
+            } 
+          getProfile();}
+        }, []);
   
 
 
