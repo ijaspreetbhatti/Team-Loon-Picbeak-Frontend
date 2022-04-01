@@ -56,8 +56,8 @@ function DetailDataDisplay(props) {
   //   overlay = <span className="greyBoxShow">+{picArray.length - 4}</span>;
   // }
   function check() {
-    const currentUser = localStorage.userInfo.replaceAll('"', '');
-    if(currentUser){
+    
+    if(localStorage.userInfo){
       const result = userProfile.find(bird => bird === data.sciName);
         if(result){
           setcheckCollect(false);
@@ -66,10 +66,9 @@ function DetailDataDisplay(props) {
     }
 
     const CheckLogin =() => {
-      const currentUser = localStorage.userInfo.replaceAll('"', '');
-      if(checkCollect == false ){
+      if(localStorage.userInfo == false ){
         setAlreadyPopUp(true)
-      }else if(currentUser){        
+      }else if(localStorage.userInfo){        
         setShowCollect(true);
         putBird();
         collectPopUpHandler();
@@ -136,8 +135,8 @@ function DetailDataDisplay(props) {
         ;}, [userProfile]);
 
         useEffect(() => {
-          const currentUser = localStorage.userInfo.replaceAll('"', '');
-          if(currentUser){
+          if(localStorage.userInfo){
+            const currentUser = localStorage.userInfo.replaceAll('"', '');
             function getProfile() {
             axios.get(
                 `https://pic-beak-backend.herokuapp.com/api/v1/profiles/${currentUser}`
