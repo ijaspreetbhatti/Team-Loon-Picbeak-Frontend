@@ -23,10 +23,14 @@ function DetailDataDisplay(props) {
   const [showPopUp, setShowPopUp] = useState(false);
   const [loginPopUp, setLoginPopUp] = useState(false);
   const [collectPopUp, setCollectPopUp] = useState(false);
+  const [alreadyPopUp, setAlreadyPopUp] = useState(false);
   const [showGallery, setshowGallery] = useState(false);
   let [selectedFile, setSelectedFile] = useState({});
+  const [checkCollect, setcheckCollect] = useState(true);
   let [image, setImage] = useState({});
+  let [count, setCount] = useState(1);
   
+
 
     const signinPopUpHandler = () => {
         setShowPopUp(true)
@@ -36,7 +40,17 @@ function DetailDataDisplay(props) {
     }
     const collectPopUpHandler = () => {
       setCollectPopUp(true)
-  }
+    }
+
+    const countHandler = () => {
+      if(count < gallery.length){
+        setCount(count+1)
+      }else{
+        setCount(count)
+      }
+    }
+
+  
 
 
   const picArray = [];
@@ -46,12 +60,26 @@ function DetailDataDisplay(props) {
   // if (picArray.length > 4) {
   //   overlay = <span className="greyBoxShow">+{picArray.length - 4}</span>;
   // }
+  function check() {
+    console.log("s")
+    const currentUser = localStorage.userInfo.replaceAll('"', '');
+    if(currentUser){
+      const result = gallery.find(gallery => gallery.author === currentUser);
+      console.log(result)
+        if(result){
+          setcheckCollect(false);
+        }
+      }
+    }
 
     const CheckLogin =() => {
-      if(localStorage.getItem('userInfo')){
-          setShowCollect(true);
-          putBird();
-          collectPopUpHandler()
+      const currentUser = localStorage.userInfo.replaceAll('"', '');
+      if(checkCollect == false ){
+        setAlreadyPopUp(true)
+      }else if(currentUser){        
+        setShowCollect(true);
+        putBird();
+        collectPopUpHandler();
         }else{
           setShowLoginModal(true)
         }
@@ -102,6 +130,8 @@ function DetailDataDisplay(props) {
           );
 
           setGallery(birdGallery.data);
+          check();
+          
       }
       getGallery();}, []);
 
@@ -147,29 +177,29 @@ function DetailDataDisplay(props) {
   const currentUser = localStorage.userInfo.replaceAll('"', '');
   
   
-  const blobToBase64 = blob => {
-    const reader = new FileReader();
-    reader.readAsDataURL(blob);
-    return new Promise(resolve => {
-        reader.onloadend = () => {
-            resolve(reader.result);
-        };
+    const blobToBase64 = blob => {
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      return new Promise(resolve => {
+          reader.onloadend = () => {
+              resolve(reader.result);
+          };
+      });
+    };
+    console.log(selectedFile);
+    blobToBase64(selectedFile).then((res) => {
+      console.log(res);
+      const body = {
+          file: res,
+          timestamp: (new Date()).getTime()
+      }
+      axios.post(`https://pic-beak-backend.herokuapp.com/api/v1/collectedBirds/${currentUser}/${data.sciName}`, body).
+      then(res =>{
+          console.log(res)
+      })
     });
-  };
-  console.log(selectedFile);
-  blobToBase64(selectedFile).then((res) => {
-    console.log(res);
-    const body = {
-        file: res,
-        timestamp: (new Date()).getTime()
-    }
-    axios.post(`https://pic-beak-backend.herokuapp.com/api/v1/collectedBirds/${currentUser}/${data.sciName}`, body).
-    then(res =>{
-        console.log(res)
-    })
-  });
-  
-}
+    
+  }
 
 
   return (
@@ -179,15 +209,16 @@ function DetailDataDisplay(props) {
             {showPopUp ? (<MessagePop showPopUp={showPopUp}>Account created! You are logged in now.</MessagePop>) : (null)}
             {loginPopUp ? (<MessagePop showPopUp={loginPopUp}>You are logged in now.</MessagePop>) : (null)}
             {collectPopUp ? (<MessagePop showPopUp={collectPopUp}>Bird is collected!</MessagePop>) : (null)}
+            {alreadyPopUp ? (<MessagePop showPopUp={alreadyPopUp}>This bird is already collected!</MessagePop>) : (null)}
       <div>
-        <Gallery showGallery={showGallery} gallery={gallery} onClose={()=> setshowGallery(false)}/>
+        <Gallery showGallery={showGallery} gallery={gallery} countUp={countHandler} countNum={count} onClose={()=> setshowGallery(false)}/>
         <img className="postImage" src={data.imageLink} />
 
         <div className="footerWrapper">
           <span className="footerContainer">
             <span>Are you spotting this bird?</span>
             
-          <Button className="primary" onClick={() => CheckLogin() }>Collect</Button>
+          <Button className={checkCollect ? "primary" : "primary-grey"}   onClick={() => CheckLogin() }>Collect</Button>
           </span>
           <CollectModal commonName={data.commonName} sciName={data.sciName} showCollect={showCollect} onClose={() => setShowCollect(false)} setShowPhoto={() => setShowPhoto(true)} setSelectedFile={setSelectedFile} setImage={setImage}/>
           <LoginModal showLoginModal={showLoginModal} onClose={() => setShowLoginModal(false)} setLoginModal={() => setLoginModal(true)}/>

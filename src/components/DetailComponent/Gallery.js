@@ -3,9 +3,10 @@ import "./Gallery.scss";
 import Button from "../shared/ButtonComponent/Button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
-import { Navigation } from "swiper";
+import { Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
+import 'swiper/css/pagination';
 
 
 function Gallery(props) {
@@ -13,14 +14,10 @@ function Gallery(props) {
         return null
     }
     
+    
     return (
         <div>
             <div className="wrapper blackBackground">
-                <div className="galleryHeader">
-                    {/* <Button className="left-btn"></Button> */}
-                    <div className="imgCount">1/{props.gallery.length}</div>
-                    {/* <Button className="right-btn"></Button> */}
-                </div>
                     <Button className="White-exit" onClick={props.onClose}></Button>
                     <div className="BigImage">
                     <Swiper
@@ -28,7 +25,9 @@ function Gallery(props) {
                         slidesPerView={1}
                         centeredSlides={true}
                         navigation={true}
-                        modules={[Navigation]}
+                        pagination={{ type:'fraction' }}
+                        onSlideChange={() => props.countUp()}
+                        modules={[Navigation, Pagination]}
                         className="mySwiper"
                     >
                     {props.gallery.map(src => (

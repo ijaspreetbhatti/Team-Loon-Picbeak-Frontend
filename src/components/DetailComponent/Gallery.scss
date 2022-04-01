@@ -24,9 +24,7 @@
         top: 0;
         left: 50%;
         transform: translateX(-50%);
-        .imgCount{
-            color: white;
-        }
+
     }
     .White-exit{
         height: 8%;
@@ -42,6 +40,10 @@
 
         .swiper-button-next:after, .swiper-button-prev:after {
             display: none;
+        }
+        .swiper-pagination-fraction{
+            color: white;
+            position: fixed;
         }
     
         .swiper .swiper-button-prev {
@@ -66,12 +68,20 @@
         }
 
         .galleryPhoto{
-            // position: absolute;
-            // top: 100px;
-            // left: 0;
+            position: sticky;
+            top:25%;
             object-fit: cover;
             width: 100%;
             max-height: auto;
         }
+    }
+}
+@media screen and (min-width: 500px){
+    .galleryPhoto{
+        position: sticky;
+        top:25%;
+        object-fit: cover;
+        width: 60% !important;
+        max-height: auto;
     }
 }
