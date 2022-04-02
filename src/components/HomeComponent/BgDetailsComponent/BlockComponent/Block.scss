@@ -5,7 +5,7 @@
     .block {
         text-align: left;
         margin-bottom: 60px;
-        margin: 0 24px 60px 24px;
+        margin: 0 6% 60px 6%;
         img {
             // margin-left: 6%;
             margin-top: 2rem;
@@ -28,12 +28,16 @@
     @media screen and (min-width: 768px) {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        margin: 0 207px;
+        margin: 0 6%;
         grid-gap: 4%;
         .block {
             img {
                 margin-left: 0;
             }
         }
+    }
+
+    @media screen and (min-width: 1200px) {
+        margin: 0 206px;
     }
 }

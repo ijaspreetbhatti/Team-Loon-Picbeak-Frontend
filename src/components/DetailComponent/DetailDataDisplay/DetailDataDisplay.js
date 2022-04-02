@@ -10,17 +10,28 @@ import CollectModal from '../modal/collected-modal';
 import Login from "../../LoginComponent/Login/Login";
 import AddPhoto from "../modal/addPhoto-modal";
 import MessagePop from "../../shared/MessagePopComponent/MessagePop"
+import Gallery from "../Gallery";
 
 function DetailDataDisplay(props) {
   const location = useLocation()
   const { data } = location.state;
   const [gallery, setGallery] = useState([]);
   const [showCollect, setShowCollect] = useState(false);
+  const [userProfile, setUserProfile] = useState([]);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showPhoto, setShowPhoto] = useState(false);
   const [loginModal, setLoginModal] = useState()
   const [showPopUp, setShowPopUp] = useState(false);
   const [loginPopUp, setLoginPopUp] = useState(false);
+  const [collectPopUp, setCollectPopUp] = useState(false);
+  const [alreadyPopUp, setAlreadyPopUp] = useState(false);
+  const [showGallery, setshowGallery] = useState(false);
+  let [selectedFile, setSelectedFile] = useState({});
+  const [checkCollect, setcheckCollect] = useState(true);
+  let [image, setImage] = useState({});
+
+  
+
 
     const signinPopUpHandler = () => {
         setShowPopUp(true)
@@ -28,6 +39,13 @@ function DetailDataDisplay(props) {
     const loginPopUpHandler = () => {
         setLoginPopUp(true)
     }
+    const collectPopUpHandler = () => {
+      setCollectPopUp(true)
+    }
+
+
+
+  
 
 
   const picArray = [];
@@ -37,14 +55,28 @@ function DetailDataDisplay(props) {
   // if (picArray.length > 4) {
   //   overlay = <span className="greyBoxShow">+{picArray.length - 4}</span>;
   // }
+  function check() {
+    
+    if(localStorage.userInfo){
+      const result = userProfile.find(bird => bird === data.sciName);
+        if(result){
+          setcheckCollect(false);
+        }
+      }
+    }
 
     const CheckLogin =() => {
-      if(localStorage.getItem('userInfo')){
-          setShowCollect(true);
-          putBird();
+      if(localStorage.userInfo == false ){
+        setAlreadyPopUp(true)
+      }else if(localStorage.userInfo){        
+        setShowCollect(true);
+        putBird();
+        collectPopUpHandler();
+        setcheckCollect(false);
         }else{
           setShowLoginModal(true)
         }
+        
       }
       
       
@@ -55,7 +87,7 @@ function DetailDataDisplay(props) {
               `https://pic-beak-backend.herokuapp.com/api/v1/profiles/${currentUser}/${sciName}`)
               .then((res) => {
               
-                console.log(res.data);
+                // console.log(res.data);
             }).catch(error => console.log(error));;
       }
       
@@ -64,7 +96,6 @@ function DetailDataDisplay(props) {
 
     const Status =()=>{
       let status = data.conservationStatus;
-      console.log(status)
       if(status == ("G5")){
         status = "Low conservation concern";
         return(
@@ -93,9 +124,30 @@ function DetailDataDisplay(props) {
           );
 
           setGallery(birdGallery.data);
-          console.log(birdGallery.data)
+
       }
-      getGallery();}, []);
+      getGallery()
+      ;}, []);
+
+      useEffect(() => {
+        check()
+        
+        ;}, [userProfile]);
+
+        useEffect(() => {
+          if(localStorage.userInfo){
+            const currentUser = localStorage.userInfo.replaceAll('"', '');
+            function getProfile() {
+            axios.get(
+                `https://pic-beak-backend.herokuapp.com/api/v1/profiles/${currentUser}`
+            ).then((res) => {
+                setUserProfile(res.data.collectedBirds)
+
+              }).catch(error => console.error(error))
+            } 
+          getProfile();}
+        }, []);
+  
 
 
   const DescriptionText = styled.div`
@@ -132,25 +184,61 @@ function DetailDataDisplay(props) {
     );
   };
 
+  
+  
+  
+  function fileUploadHandler() {
+  const currentUser = localStorage.userInfo.replaceAll('"', '');
+  
+  
+    const blobToBase64 = blob => {
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      return new Promise(resolve => {
+          reader.onloadend = () => {
+              resolve(reader.result);
+          };
+      });
+    };
+    console.log(selectedFile);
+    blobToBase64(selectedFile).then((res) => {
+      console.log(res);
+      const body = {
+          file: res,
+          timestamp: (new Date()).getTime()
+      }
+      axios.post(`https://pic-beak-backend.herokuapp.com/api/v1/collectedBirds/${currentUser}/${data.sciName}`, body).
+      then(res =>{
+          console.log(res)
+      })
+    });
+    
+  }
+
 
   return (
     <div className="birdProfileWrapper">
+        
         <Login onClose={() => setLoginModal(false)} show={loginModal} setShowPopUp={signinPopUpHandler} setLoginPopUp={loginPopUpHandler} />
             {showPopUp ? (<MessagePop showPopUp={showPopUp}>Account created! You are logged in now.</MessagePop>) : (null)}
             {loginPopUp ? (<MessagePop showPopUp={loginPopUp}>You are logged in now.</MessagePop>) : (null)}
-          <AddPhoto onClose={()=> setShowPhoto(false)} showPhoto={showPhoto}/>
+            {collectPopUp ? (<MessagePop showPopUp={collectPopUp}>Bird is collected!</MessagePop>) : (null)}
+            {alreadyPopUp ? (<MessagePop showPopUp={alreadyPopUp}>This bird is already collected!</MessagePop>) : (null)}
       <div>
+        <Gallery showGallery={showGallery} gallery={gallery} onClose={()=> setshowGallery(false)}/>
         <img className="postImage" src={data.imageLink} />
+
         <div className="footerWrapper">
           <span className="footerContainer">
             <span>Are you spotting this bird?</span>
             
-          <Button className="primary" onClick={() => CheckLogin() }>Collect</Button>
+          <Button className={checkCollect ? "primary" : "primary-grey"}   onClick={() => CheckLogin() }>Collect</Button>
           </span>
-          <CollectModal commonName={data.commonName} showCollect={showCollect} onClose={() => setShowCollect(false)} setShowPhoto={() => setShowPhoto(true)}/>
+          <CollectModal commonName={data.commonName} sciName={data.sciName} showCollect={showCollect} onClose={() => setShowCollect(false)} setShowPhoto={() => setShowPhoto(true)} setSelectedFile={setSelectedFile} setImage={setImage}/>
           <LoginModal showLoginModal={showLoginModal} onClose={() => setShowLoginModal(false)} setLoginModal={() => setLoginModal(true)}/>
-          
+          <AddPhoto onClose={()=> setShowPhoto(false)} showPhoto={showPhoto} image={image} setSelectedFile={setSelectedFile} setImage={setImage} upload={() => fileUploadHandler()} setShow={()=>setShowCollect(false)}/>
         </div>
+
       </div>
 
       <div className="profileContainer" >
@@ -172,10 +260,12 @@ function DetailDataDisplay(props) {
 
         <div className="galleryWrapper">
           <span className="galleryTitle">Gallery</span>
-          <div className="galleryContainer">
+          <div className="galleryContainer" onClick={()=> setshowGallery(true)}>
+            {gallery.length > 0 ? "" : (<div className="noPhoto">No photo yet</div>)}
             {gallery.map(src =>  (
-              <img  className="galleryPic" src={src.imageLink}/>
-            ))}
+              <img key={src._id} className="galleryPic" src={src.imageLink}/>
+
+))}
           </div>
         </div>
       </div>

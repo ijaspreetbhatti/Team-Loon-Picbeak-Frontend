@@ -25,7 +25,7 @@
     @media screen and (min-width: 768px) {
         // display: flex;
         // justify-content: space-around;
-        padding: 1rem 206px;
+        padding: 1rem 6%;
         display: grid;
         // grid-template-columns: 1fr 1.7fr;
         grid-template-columns: auto auto;
@@ -51,5 +51,9 @@
             object-fit: contain;
             grid-column: 2 / span 1;
         }
+    }
+
+    @media screen and (min-width: 1200px) {
+        padding: 1rem 206px;
     }
 }

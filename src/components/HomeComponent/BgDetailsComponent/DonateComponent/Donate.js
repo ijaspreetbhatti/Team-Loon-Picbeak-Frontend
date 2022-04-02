@@ -18,9 +18,9 @@ function Donate(props) {
             <div className="donate-desc">
                 <h2>How you can help conserve birds</h2>
                 <p>
-                    By considering a gift for the birds by donating to birds
-                    conservation organizations, you are also getting back to
-                    every living thing including us!
+                    By considering a gift for the birds and donating to bird
+                    conservation organizations, you are giving back to
+                    every living thing - including us!
                 </p>
                 <div className="buttonParent">
                     <a href="/donate">

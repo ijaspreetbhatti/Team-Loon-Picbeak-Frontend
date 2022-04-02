@@ -53,6 +53,11 @@
         grid-template-columns: 1fr 1fr;
         margin-top: 40px;
         gap: 8px;
+        input{
+            visibility:hidden;
+            position: absolute;
+            z-index: -1;
+        }
         button{
             margin: 0;
         }
