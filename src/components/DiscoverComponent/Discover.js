@@ -14,6 +14,8 @@ const Discover = (props) => {
     const [status, setStatus] = useState("");
     const [birds, setBirds] = useState([]);
     const [noResult, setNoResult] = useState(false);
+    // const [allBirds, setAllBirds] = useState();
+    // const [loading, setLoading] = useState(true);
 
     /** Get Value of Input ************************************ */
     const handleBirdName = (e) => {
@@ -32,6 +34,31 @@ const Discover = (props) => {
     const openModal = () => {
         setShowModal((prev) => !prev);
     };
+
+    /** Get Array of Common Names **************************** */
+    // useEffect(
+    //     function getAllBird() {
+    //         axios
+    //             .get("https://pic-beak-backend.herokuapp.com/api/v1/birds")
+    //             // .then((response) => {
+    //             //     setAllBirds(response.data);
+    //             // })
+    //             .then((response) => {
+    //                 if (response) {
+    //                     setAllBirds(response.data);
+    //                     setLoading(false);
+    //                     console.log(allBirds);
+    //                 }
+    //             })
+    //             .catch((err) => console.log(err));
+    //     },
+    //     [allBirds]
+    // );
+
+    // const commonNameArr = [...allBirds.map((item) => item.commonName)];
+    // const commonNameArr = [...allBirds];
+    // console.log(commonNameArr);
+    /********************************************************* */
 
     const filterBirds = (e) => {
         e.preventDefault();
@@ -70,11 +97,6 @@ const Discover = (props) => {
     };
 
     console.log(birds);
-
-    /** Get Array of Common Names **************************** */
-    const commonNameArr = [...birds.map((item) => item.commonName)];
-    console.log(commonNameArr);
-    /********************************************************* */
 
     const handleChange = (e) => {
         setStatus(e.target.value);
