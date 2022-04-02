@@ -113,7 +113,7 @@ function Filter({ showModal, filterBirds, setShowModal, handleChange }, props) {
                                 </fieldset>
                             </div>
                             <div className="btn-container">
-                                <Button className="secondary">Clear</Button>
+                                {/* <Button className="secondary">Clear</Button> */}
                                 <button
                                     className="primary"
                                     onClick={(e) => filterBirds(e)}
