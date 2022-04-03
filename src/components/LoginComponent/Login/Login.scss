@@ -52,6 +52,10 @@ form {
             border-radius: 8px;
             border: 1px solid $grey40;
         }
+
+        input:focus {
+            border-color: $primary;
+        }
     }
 
     .emailWrapper {
@@ -69,6 +73,10 @@ form {
             height: 40px;
             border-radius: 8px;
             border: 1px solid $grey40;
+        }
+
+        input:focus {
+            border-color: $primary;
         }
 
         .error {
@@ -91,6 +99,10 @@ form {
             height: 40px;
             border-radius: 8px;
             border: 1px solid $grey40;
+        }
+
+        input:focus {
+            border-color: $primary;
         }
     }
 
@@ -115,6 +127,10 @@ form {
             height: 40px;
             border-radius: 8px;
             border: 1px solid $grey40;
+        }
+
+        input:focus {
+            border-color: $primary;
         }
 
         .error {
