@@ -261,7 +261,7 @@ function DetailDataDisplay(props) {
         <div className="galleryWrapper">
           <span className="galleryTitle">Gallery</span>
           <div className="galleryContainer" onClick={()=> setshowGallery(true)}>
-            {gallery.length > 0 ? "" : (<div className="noPhoto">No photo yet</div>)}
+            {gallery.length > 0 ? "" : (<div className="noPhoto">No photos yet...</div>)}
             {gallery.map(src =>  (
               <img key={src._id} className="galleryPic" src={src.imageLink}/>
 
